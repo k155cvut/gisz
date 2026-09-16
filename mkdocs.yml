@@ -1,4 +1,4 @@
-site_name: GIS 1 (155GIS1)
+site_name: GIS (155GISZ)
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
@@ -41,7 +41,7 @@ theme:
     annotation: material/plus-circle
   features:
     - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.tabs.sticky
     - navigation.sections
     - toc.integrate
     - navigation.top
