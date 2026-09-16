@@ -1,25 +1,25 @@
 # Semestrální práce - Analýza území {: .page_title}
 
 ## Zadání
-Nad zadaným územím proveďte následující analýzy s využitím GIS softwaru. Výsledky jednotlivých úloh následně publikujte formou webové mapové aplikace na ArcGIS Online či pomocí open-source řešení (např. GISQuick). Doporučená forma webové mapové aplikace je ArcGIS Story Maps. 
+Nad vybraným katastrálním územím proveďte následující analýzy s využitím GIS softwaru. Výsledky jednotlivých úloh následně publikujte formou webové mapové aplikace na ArcGIS Online. Doporučená forma webové mapové aplikace je ArcGIS Story Maps. 
 
 Svou aplikaci na konci semestru krátce odprezentujete před ostatními v 5minutové prezentaci. 
 
-Dotazy či připomínky k semestrální práci směřujte sem: *frantisek.muzik@fsv.cvut.cz*{.outlined}
+Dotazy či připomínky k semestrální práci směřujte sem: *petra.justova@fsv.cvut.cz*{.outlined} nebo *tomas.janata@fsv.cvut.cz*{.outlined}
 
 <div class="grid cards" markdown>
 
--   :simple-maildotru: __Konkrétní zadání__ 
+-   :simple-maildotru: __Výběr zadání__ 
     
     ---
-
-    Viz [sdílená tabulka](https://docs.google.com/spreadsheets/d/1Wcg4uOLRML0dFriV6YLUgqA0S5ZwTsz4pdNuKFSULMw/edit?usp=sharing).
+    1. Výběr katastrálního území dle [**této mapy**](https://arcg.is/1ePSnC)
+    
+    2. Zadání názvu vybraného katastrálního území do [**sdílené tabulky**](https://docs.google.com/spreadsheets/d/1g2wl-ERTO59lgwzLRXmvFsilolLZivnxeKEC8jEvaN0/) nejpozději do __XY__
 
 -   :material-presentation-play: __Termín prezentace__
     
     ---
-
-    __6.5.2026__ proběhne __5minutová__ prezentace výsledné webové mapové aplikace.
+   __5minutová__ prezentace výsledné webové mapové aplikace proběhne v termínu posledního cvičení semestru, tj. __v týdnu 14.–18. prosince__.
 </div>
 
 <hr class="level-1">

@@ -119,18 +119,43 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
 
 
-## Harmonogram {: style="margin-bottom:0;"}
+### **Podmínky zápočtu**
+
+Každý student odevzdává jeden mapový poster formátu A3 či webovou mapovou aplikaci / story mapu / 3D scénu, kde budou prezentovány výsledky jedné z [modelových úloh](/semestralka) dle vlastního výběru. Modelové úlohy jsou zpracovány v průběhu praktických cvičení a jsou tak z převážné části zpracovány během výuky.
+
+Termín odevzdání: __neděle 31. ledna 2027__{.outlined} 
+
+
+
+## **Doporučené zdroje**
+### **Literatura**
+
+1. Kolář, J. (1998): Geografické informační systémy 10. Vydavatelství ČVUT, Praha.
+2. Rapant, P. (2006): Geoinformatika a geoinformační technologie. VŠB-TU Ostrava, 500 str. ISBN 80-248-1264-9.
+3. Břehovský, M., Jedlička, K. (2005): Přednáškové texty pro Úvod do GIS. ZČU Plzeň, 116 s.
+4. Hrubý M.: Geografické Informační Systémy (GIS) - Studijní opora. VÚT v Brně, 91 str.
+5. Tuček J. (1998): Geografické informační systémy, Praha Computer Press, 1998.
+6. Geletič, J., Hladiš, L., Šimáček, P. (2019): [GIS pro geografy. Distanční studijní opora](https://geography.upol.cz/soubory/studium/opory/D_GIS.pdf). Univerzita Palackého v Olomouci, 141 s.
+
+### **Tutoriály**
+
+1. Webové stránky předmětu [GIS1](https://k155cvut.github.io/gis-1/)
+2. Webové stránky předmětu [GIS2](https://k155cvut.github.io/gis-2/)
+3. [Learn ArcGIS Hub](https://learn.arcgis.com/en/gallery/#?p=arcgispro)
+4. [Esri Training Catalog](https://www.esri.com/en-us/training/catalog/all-training)
+5. [MOOCs and Live Training Seminars](https://www.esri.com/en-us/training/catalog/live-training-seminars-moocs)
+6. [Urban Planning, Design & Development Software](https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview)
+
+---
+
+## Rozvrh {: style="margin-bottom:0;"}
 
 zimní semestr 2026/2027
 {: style="opacity:50%;margin-top:0;"}
 
 ![](./assets/index/rozvrh_ZS26.png){.off-glb .no-filter}
 
-
----
-
-[Stránka předmětu v :custom-kos-logo-img-BW:{.middle style="margin-left:3px;"} :custom-kos-logo-BW:{.xl .middle}](https://portal.fsv.cvut.cz/plany/verze4/stpredmet.php?Detail=155GISZ){ .md-button .md-button--primary target="_blank"}
-
+[Stránka předmětu v :custom-kos-logo-img-BW:{.middle style="margin-left:3px;"} :custom-kos-logo-BW:{.xl .middle}](https://kos.cvut.cz/course-syllabus/155GISZ/B261){ .md-button .md-button--primary target="_blank"}
 {align=center}
 
 <br>
