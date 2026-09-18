@@ -258,7 +258,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 | 4 | 14.10. | 13.10. | 16.10. | 16.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13.–16.10. průběžný test (30 min)</span> |
 | 5 | 21.10. | 20.10. | 23.10. | 23.10. | Rastrová data, tvorba digitálního modelu terénu | |
 |  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
-| 6 | 4.11. | 27.10. | 30.10. | 30.10. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">do 2.11.<br>technická zpráva</span> |
+| 6 | 4.11. | 27.10. | 30.10. | 30.10. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
 | 7 | 11.11. | 3.11. | 6.11. | 6.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2) | |
 | 8 | 18.11. | 10.11. | 11.11. | 11.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
 |  |  | <span class="schedule-note schedule-cancel">17.11.– odpadá</span> |  |  |  |  |
@@ -266,13 +266,13 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 |  |  |  | <span class="schedule-note schedule-qa">27.11. – Q&A</span> | <span class="schedule-note schedule-qa">27.11. – Q&A</span> |  |  |
 | 10 | 2.12. | 1.12. | 4.12. | 4.12. | Viditelnost, interpolace, mapová algebra 2 | |
 | 11 | 9.12. | 8.12. | 11.12. | 11.12. | Hydrologické analýzy, ModelBuilder | |
-| 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>webová mapová aplikace</span> |
+| 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>gdb + webová aplikace</span> |
 
 
 ### **Podmínky zápočtu**
 
 - získání min. 60 % bodů v průběžném testu (4. týden semestru) 
-- odevzdání a prezentace [semestrální práce](#semestralka) ve stanovených termínech (technická zpráva + webová mapová aplikace)
+- odevzdání a prezentace [semestrální práce](#semestralka) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
 
 
 

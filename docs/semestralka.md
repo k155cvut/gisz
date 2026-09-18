@@ -1,11 +1,17 @@
-# Semestrální práce - Analýza území {: .page_title}
+# Semestrální práce {: .page_title}
+Semestrální práce je zaměřena aplikaci základních nástrojů vektorových a rastrových prostorových analýz v zadaném území, a je rozdělena do dvou částí:
 
-## Zadání
-Nad vybraným katastrálním územím proveďte následující analýzy s využitím GIS softwaru. Výsledky jednotlivých úloh následně publikujte formou webové mapové aplikace na ArcGIS Online. Doporučená forma webové mapové aplikace je ArcGIS Story Maps. 
+- [**ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ**](/semestralka/#cast-i-zakladni-charakteristika-uzemi)
 
-Svou aplikaci na konci semestru krátce odprezentujete před ostatními v 5minutové prezentaci. 
+- [**ČÁST II – ANALÝZA ÚZEMÍ**](/semestralka/#cast-ii-analyza-uzemi)
+
+
+
+Výsledky jednotlivých částí semestrální práce jsou odevzdány a prezentovány ve stanovených termínech (viz níže).
+
 
 Dotazy či připomínky k semestrální práci směřujte sem: *petra.justova@fsv.cvut.cz*{.outlined} nebo *tomas.janata@fsv.cvut.cz*{.outlined}
+
 
 <div class="grid cards" markdown>
 
@@ -16,74 +22,110 @@ Dotazy či připomínky k semestrální práci směřujte sem: *petra.justova@fs
     
     2. Zadání názvu vybraného katastrálního území do [**sdílené tabulky**](https://docs.google.com/spreadsheets/d/1g2wl-ERTO59lgwzLRXmvFsilolLZivnxeKEC8jEvaN0/) nejpozději do __XY__
 
--   :material-presentation-play: __Termín prezentace__
+-   :material-presentation-play: __Termíny odevzdání__
     
     ---
-   __5minutová__ prezentace výsledné webové mapové aplikace proběhne v termínu posledního cvičení semestru, tj. __v týdnu 14.–18. prosince__.
+   - část I: __neděle 1. listopadu 2026, 23.59__{.outlined}
+   - část II: __15.–18. prosince 2026__{.outlined}
 </div>
 
 <hr class="level-1">
 
-**Pro zadané území vypracujte následující úkoly:**
 
-### 1. Identifikace obce a katastrálních území
+## ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ
 
-- Zjistěte do jaké obce spadá zadané katastrální území. 
+__Cíl__
 
-- Vyberte odpovídající obec z [Registru územní identifikace, adres a nemovitostí (RÚIAN)](https://k155cvut.github.io/gis-1/data/#ruian) a exportujte ji jako samostatnou vrstvu (zdroj: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: Obec_{.bg}).
+- tvorba tematické geodatabáze pro zadané katastrální území,
+- zjištění základních charakteristik o území,
+- tvorba mapového výstupu.
 
-- Dále zjistěte veškerá katastrální území nacházející se na území vaší obce a vyexportujte je do samostatné vrstvy (zdroj: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: KatastralniUzemi_{.bg}). 
+__Výstupy__
 
-!!! warning "Rozlišení katastrálního území vs. území obce"
+- technická zpráva ve formátu PDF
+- tematická geodatabáze  
 
-    V následujících úkolech je důležité rozlišovat zadané katastrální území a obec, pod kterou toto území spadá. V některých úlohách se pracuje s celou obcí, v jiných pouze se zadaným katastrem.
+Termín odevzdání: __neděle 1. listopadu 2026, 23.59__{.outlined}
 
-    Jedna obec se může skládat z jednoho či více katastrálních území. Názvy katastrálních území jsou jednoznačné, kdežto obce mohou mít duplicitní názvy napříč republikou.
+Úloha je uznána, pokud výstupy obsahují __všechny požadované náležitosti__ (viz níže).
 
+???+ note-grey "Požadované náležitosti technické zprávy :material-file:"
+    - formát odevzdání __PDF__, název souboru __PrijmeniJmeno_NazevKU_KodKU.pdf__{.no-dec .outlined}, případně __PrijmeniJmeno_NazevKU_KodKU_oprava01.pdf__{.no-dec .outlined}
+    - rozpiska se __jménem__, __názvem úlohy__, __individuálním číslem zadání__ a __názvem a kódem zadaného katastrálního území__
+    - jsou uvedeny všechny požadované __charakteristiky__ a __odpovědi__ na otázky uvedené v zadání úlohy včetně __stručného postupu jejich řešení__ (použité nástroje apod.)
+    - __tabulky, grafy a mapové vizualizace__ dle zadání
+    - __závěr__ s krátkým (3 až 6 vět) objektivním hodnocením výsledků úlohy. Lze např. zhodnotit, proč jsou některé výsledky takové, jaké jsou. Nebo zmínit využití podobné úlohy ve vašem oboru.
 
----
-
-### 2. Adresní místa a stavební objekty
-
-- Určete počet adresních míst na území dané obce (zdroj: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: AdresniMisto_{.bg}). Adresní místa zobrazte v mapě.
-
-- Vyberte stavební objekty v obci (zdroj: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: StavebniObjekt_{.bg}). Tyto objekty vhodným nastavením stylu vrstvy vizualizujte dle atributu _:material-table: Připojení na kanalizační síť_{.bg}.
-
-
-|KÓD| Připojení na kanalizační síť               |
-|---|----------------------|
-| 1 |Přípoj na kanalizační síť   |
-| 2 |Vlastní ČOV |
-| 3 |Žumpa, jímka, septik             |
-| 4 |Bez kanalizace a jímky           |
-| 8 |Nedefinováno          |
-| 9 |Nezjištěno            |
-
-
-- Jednotlivým kategoriím nastavte barevnou výplň dle následujících kartografických zásad:
-    - kategoriím typu `nedefinováno`, `nezjištěno`, `null`, `žádná hodnota` nastavte __šedou barvu__{style="color:grey;"}
-    - ostatní __kategorie barevně rozlište dle stupně naplnění jevu__:
-        - kategorii typu `Přípoj na kanalizační síť` odpovídajícím naplnění jevu nastavte __zelenou barvu__{style="color:green;"}
-        - kategoriím typu `Vlastní ČOV` či `Žumpa, jímka, septik` na pomezí naplnění/nenaplnění jevu nastavte neutrální __žlutou__{style="color:#f2d14e;"}/__oranžovou barvu__{style="color:orange;"}
-        - kategoriím typu `bez kanalizace` odpovídajícím nenaplnění jevu nastavte __červenou barvu__{style="color:red;"}
-
+???+ note-grey "Požadované náležitosti tematické geodatabáze :material-database:"
+    - formát odevzdání __gdb__, název souboru __PrijmeniJmeno_NazevKU_KodKU.gdb__{.no-dec .outlined}, případně __PrijmeniJmeno_NazevKU_KodKU_oprava01.gdb__{.no-dec .outlined}
+    - obsahuje dva tematické feature datasety s názvy __CharakteristikaUzemi__{.no-dec .outlined} a __AnalyzaUzemi__{.no-dec .outlined}
+    - v datasetech jsou uloženy __vhodně pojmenované datové vrstvy__ dle zadání úlohy
 
 
 ---
 
-### 3. Chráněná území v okolí
+### __1. Správa dat__
 
-- Najděte nejbližší maloplošné zvláště chráněné území (zdroj: _:material-layers-triple: [ZABAGED](https://ags.cuzk.gov.cz/arcgis/rest/services/ZABAGED_POLOHOPIS/MapServer)_{.bg}, _:material-layers: Maloplošné zvlástě chráněné území_{.bg}). 
-
-- Zobrazte jej v mapě jako samostatnou vrstvu. Zobrazte názvy vybraných území (záložka Labeling -> Field: NAZEV)
+ __Vytvořte souborovou geodatabázi__ s názvem `NazevKU_KodKU_PrijmeniJmeno.gdb`, v rámci které budete ukládat a spravovat vektorová a rastrová data v souřadnicovém systému JTSK za zvolené katastrální území. V rámci geodatabáze __vytvořte dva tematické feature datasety__ s názvy `CharakteristikaUzemi` a `AnalyzaUzemi`, do kterých budete ukládat vstupní data, resp. výsledky jednotlivých analýz (viz zadání jednotlivých úloh). 
 
 ---
 
-### 4. Vytvoření vrstvy využití pozemků
+### __2. Základní charakteristika území__
 
-- Vytvořte samostatnou vrstvu, která bude obsahovat data způsobu využití pozemku **v celém zadaném KATASTRÁLNÍM ÚZEMÍ** (zdroj: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: Parcela_{.bg}). Pro urychlení výpočtu nejprve vyberte parcely na základě atributu _:material-table: Nadřazené katastrální území_{.bg}.
+__a. Pro zadané území vyhledejte následující datové vrstvy:__
 
-- Dle atributů v tabulce níže vypočítejte pro data nový sloupec _:material-table: TYP_VYUZITI_{.bg}, na základě kterého vrstvu následně vhodně vizualizujte. Číselníky pro přiřazení kódů: [Způsob využití pozemku](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-pozemku.aspx), [Kód druhu pozemku](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Druh-pozemku.aspx). Závěrem proveďte *Dissolve* dle atributu _:material-table: TYP_VYUZITI_{.bg}.
+- polygonové vymezení katastrálního území,
+- stavební objekty,
+- parcely,
+- vodní toky,
+- vodní plochy,
+- povodí,
+- silnice,
+- železnice,
+- kótované body,
+- geologické podloží.
+
+Vybrané datové vrstvy exportujte pouze v rozsahu zadaného katastrálního území do tematického datasetu `CharakteristikaUzemi`. Do datasetu uložte také liniovou hranici katastrálního území. V technické zprávě vytvořte přehlednou tabulku s informacemi o datových vrstvách *(název vrstvy – poskytovatel / zdroj dat – CRS – URL)*.
+
+
+- **Podmínka:** Minimálně jedna datová vrstva bude extrahována z mapové služby.
+
+- **Doporučené datové zdroje:** RÚIAN, ZABAGED, DIBAVOD, ČGS
+
+<br>
+__b. Z datových vrstev zjistěte následující charakteristiky území:__
+
+- rozloha katastrálního území v km²,
+- příslušnost k obci,
+- počet stavebních objektů,
+- příslušnost k povodí,
+- hustota vodní sítě v km/km²,
+- celková plocha rybníků v km²,
+- celková délka silnic a železnic v km,
+- průměrná výška kótovaných bodů v m n. m.,
+- převažující typ horniny (% plochy k. ú.).
+
+V technické zprávě uveďte zjištěné chrakteristiky území a uveďte stručný postup jejich řešení (použité nástroje apod.).
+
+
+???+ note-grey "Výstupy Úlohy č. 2"
+    - datové vrstvy v tematickém datasetu geodatabáze,
+    - přehledná tabulka s informacemi o datových vrstvách *(vrstva – poskytovatel / zdroj dat – CRS – URL)*,
+    - základní charakteristiky území + stručný postup zjištění dané charakteristiky *(použité nástroje, printscreen)*.
+
+
+---
+
+### __3. Struktura krajinného pokryvu__
+
+__a. Vytvořte datovou vrstvu využití krajiny z dat RÚIAN dle následujícího postupu:__
+
+- Zdroj dat: _:material-layers-triple: RÚIAN_{.bg}, _:material-layers: Parcela_{.bg}
+
+- Pro urychlení výpočtu nejprve vyberte parcely na základě atributu _:material-table: Nadřazené katastrální území_{.bg}.
+
+- Dle atributů v tabulce níže vypočítejte pro data nový sloupec _:material-table: TYP_VYUZITI_{.bg}, na základě kterého vrstvu následně vhodně vizualizujte. Číselníky pro přiřazení kódů: [Způsob využití pozemku](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-pozemku.aspx), [Kód druhu pozemku](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Druh-pozemku.aspx).
+- Závěrem proveďte *Dissolve* dle atributu _:material-table: TYP_VYUZITI_{.bg}.
 
 !!! note "&nbsp;<span style="color:#448aff">Nápověda</span>"
       Data se vhodně protřídí dle kódů níže pomocí funkce *Select by attributes* (využití spojky AND pro určení kódů z obou sloupců *SC_D_POZEMKU* a *SC_ZP_VYUZITI_POZ* najednou). Takto vybraným plochám se následně přiřadí nový atribut. 
@@ -104,6 +146,76 @@ Dotazy či připomínky k semestrální práci směřujte sem: *petra.justova@fs
 | nádvoří     |  13  | *Not Null* |
 | komunikace   | 3, 4 , 14 | 14, 15, 16, 17|
 | ostatní   | 3, 4 , 14 | vše kromě 14, 15, 16, 17|
+
+
+Výslednou datovou vrstvu exportujte do tematického datasetu `AnalyzaUzemi`.
+
+<br>
+
+__b. Určete rozlohu (v ha) a podíl zastoupení (v %) jednotlivých typů krajiny (viz výše) na celkové rozloze katastrálního území. Následně odpovězte na tyto otázky:__
+
+- Který typ krajinného pokryvu na území převažuje?
+- Jaký podíl území tvoří zemědělsky využívané plochy (= OP, TTP, zahrada)?
+- Jaký podíl tvoří lesní a jiné přírodě blízké plochy?
+- Jaký podíl území je zastavěný nebo jinak urbanizovaný?
+
+Výsledky zpracujte do přehledné tabulky a grafu.
+
+<br>
+
+__c. Vytvořte jednoduchou mapovou vizualizaci, která bude povinně obsahovat tyto části:__
+
+
+- __Mapový obsah__
+
+    - hranice katastrálního území,
+    - vhodně barevně rozlišené typy krajinného pokryvu,
+    - geografické názvy základních sídelních útvarů.
+
+- __Základní kompoziční prvky__
+
+    - název,
+    - legendu,
+    - grafické měřítko,
+    - severku,
+    - zdroj dat,
+    - tiráž (jméno a příjmení autora, afiliace, rok)
+
+Výslednou mapovou vizualizaci exportujte ve formátu PDF, velikost A4 (orientace dle charakteru území) s rozlišením 150 dpi.
+
+???+ note-grey "Výstupy Úlohy č. 3"
+    - datové vrstvy v tematickém datasetu geodatabáze,
+    - přehledná tabulka a graf využití krajiny + odpovědi na otázky,
+    - mapa krajinného pokryvu (PDF, A4, 150 dpi).
+
+<br>
+
+<hr class="level-1">
+
+## ČÁST II – ANALÝZA ÚZEMÍ
+
+__Cíl__
+
+- tvorba tematické geodatabáze pro zadané katastrální území,
+- použití základních geoprocessingových nástrojů
+- tvorba webové mapové aplikace.
+
+__Výstupy__
+
+- webová mapová aplikace
+- tematická geodatabáze  
+
+Termín odevzdání: __15.–18. prosince 2026__{.outlined}
+
+Úloha je uznána, pokud výstupy obsahují __všechny požadované náležitosti__ (viz níže).
+
+???+ note-grey "Požadované náležitosti webové mapové aplikace :material-file:"
+    *- TBA*
+
+???+ note-grey "Požadované náležitosti tematické geodatabáze :material-database:"
+    - formát odevzdání __gdb__, název souboru __PrijmeniJmeno_NazevKU_KodKU.gdb__{.no-dec .outlined}, případně __PrijmeniJmeno_NazevKU_KodKU_oprava01.gdb__{.no-dec .outlined}
+    - obsahuje dva tematické feature datasety s názvy __CharakteristikaUzemi__{.no-dec .outlined} a __AnalyzaUzemi__{.no-dec .outlined}
+    - v datasetech jsou uloženy __vhodně pojmenované datové vrstvy__ dle zadání úlohy
 
 ---
 
