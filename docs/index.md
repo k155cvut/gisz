@@ -252,21 +252,21 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 | **cv.** | **C101** | **C102** | **C103** | **C104** | **téma** | **odevzdání / test** |
 | :---: | :---: | :---: | :---: | :---: | --- | --- |
-| 1 | 23.9. | 22.9. | 25.9. | 25.9. | Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka | |
-| 2 | 30.9. | 29.9. | 2.10. | 2.10. | Vektorová data, atributové dotazy, prostorové dotazy, souřadnicové systémy | |
-| 3 | 7.10. | 6.10. | 9.10. | 9.10. | Prostorové funkce (geoprocessing), spatial join | |
-| 4 | 14.10. | 13.10. | 16.10. | 16.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13.–16.10. průběžný test (30 min)</span> |
-| 5 | 21.10. | 20.10. | 23.10. | 23.10. | Rastrová data, tvorba digitálního modelu terénu | |
+|  |  |  | <span class="schedule-note schedule-cancel">25.9. – odpadá</span> | <span class="schedule-note schedule-cancel">25.9. – odpadá</span> |  |  | 
+| 1 | 23.9. | 22.9. | 2.10. | 2.10. | Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka | |
+| 2 | 30.9. | 29.9. | 9.10. | 9.10. | Vektorová data, atributové dotazy, prostorové dotazy, souřadnicové systémy | |
+| 3 | 7.10. | 6.10. | 16.10. | 16.10. | Prostorové funkce (geoprocessing), spatial join | |
+| 4 | 14.10. | 13.10. | 23.10. | 23.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13.–16.10. průběžný test (30 min)</span> |
+| 5 | 21.10. | 20.10. | 30.10. | 30.10.| Rastrová data, tvorba digitálního modelu terénu | |
 |  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
-| 6 | 4.11. | 27.10. | 30.10. | 30.10. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
-| 7 | 11.11. | 3.11. | 6.11. | 6.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2) | |
-| 8 | 18.11. | 10.11. | 11.11. | 11.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
+| 6 | 4.11. | 27.10. | 6.11. | 6.11.  | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
+| 7 | 11.11. | 3.11. | 13.11. | 13.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2), tvorba layoutu | |
+| 8 | 18.11. | 10.11. | 20.11. | 20.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
 |  |  | <span class="schedule-note schedule-cancel">17.11.– odpadá</span> |  |  |  |  |
-| 9 | 25.11. | 24.11. | 20.11. | 20.11. | ArcGIS Online, tvorba webových mapových aplikací | |
-|  |  |  | <span class="schedule-note schedule-qa">27.11. – Q&A</span> | <span class="schedule-note schedule-qa">27.11. – Q&A</span> |  |  |
+| 9 | 25.11. | 24.11. | 27.11. | 27.11. | ArcGIS Online, tvorba webových mapových aplikací | |
 | 10 | 2.12. | 1.12. | 4.12. | 4.12. | Viditelnost, interpolace, mapová algebra 2 | |
 | 11 | 9.12. | 8.12. | 11.12. | 11.12. | Hydrologické analýzy, ModelBuilder | |
-| 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>gdb + webová aplikace</span> |
+| 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>webová mapová aplikace</span> |
 
 
 ### **Podmínky zápočtu**

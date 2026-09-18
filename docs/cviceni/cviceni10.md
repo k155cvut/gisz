@@ -3,471 +3,225 @@ icon: material/numeric-10-box
 title: Cvičení 10
 ---
 
-# QGIS – online publikace dat
+# Mapová algebra
 
 ## Cíl cvičení
 
-Ukázka publikace dat z prostředí QGIS do webového prostoru pomocí publikační platformy **Gisquick**.
+Použití mapové algebry v rámci rastrového kalkulátoru pro výpočet relativního elevačního modelu řeky.
 
 ## Základní pojmy
 
-- [**QGIS**](https://qgis.org) – jeden z nejpoužívanějších open source GIS nástrojů v praxi
-- [**Gisquick**](https://gisquick.org/) – jedna z volně dostupných publikačních open source platforem pro QGIS
+- **Mapová algebra** – překryvné operace rastrů
+- **Rastrová kalkulačka** – nástroj spouštějící výrazy Mapové algebry
+- **DMT (digitální model terénu)** – digitální reprezentace prostorových objektů (obecný pojem obsahující různé způsoby vyjádření terénního reiéfu nebo povrchu)
+- **DMR (digitální model reliéfu)** – digitální reprezentace zemského povrchu (NEbsahuje vegetaci, lidské stavby)
+- **DMP (digitální model povrchu)** – digitální reprezentace zemského povrchu (obsahuje vegetaci, lidské stavby, které jsou pevně spojené s reliéfem)
+- **REM (relativní výškový model)** – DMT relativní k vodní hladině toku.
+
+### REM
+<figure markdown>
+  ![IDW](../assets/cviceni5/prehled.png)
+  <figcaption>Rastrová mozaika</figcaption>
+</figure>
+
+Digitální relativní modely nám pomáhají lépe porozumět terénu. Při jejich vytváření se používá tzv. detrendovaný DMR bez vlivu nerovností. Tento detrendovaný DEM je následně odečten od DMR, což je digitální model povrchu. REM je užitešný pro vizualizaci říčních tvarů, které mohou být obtížně rozeznatelné pouze z leteckých snímků či DMR. Identifikace těchto tvarů má velkou vypovídací hodnotu při studiu migrace koryt a povodní, stejně jako při dalších úkonech spojených se stavebními pracemi či výskytu živočichů.
+
+Z REM lze identifikovat následující prvky:
+- Stržová eroze,
+- meandr s přiléhajícími hřbety a koryty ve tvaru půlměsíce
+- slepá ramena
+- izolovaná povodeň,
+- hráz.
+
+<figure markdown>
+  ![IDW](../assets/cviceni5/shapes.png){ width="600" }
+  <figcaption>Říční tvary</figcaption>
+</figure>
+
+
+[REM Story mapa](https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+{: .button_array}
+
 
 ## Použité datové podklady
 
-- [RÚIAN](../../data/#ruian)
-- [ZABAGED](../../data#zabaged-polohopis)
-- [Prohlížecí služby ČÚZK - WMTS](https://geoportal.cuzk.cz/(S(2eblduiqqs0a0zubvb2ofuit))/Default.aspx?mode=TextMeta&side=wmts.uvod&text=wmts.uvod&head_tab=sekce-03-gp&menu=315)
-- [Stahovací služby ČÚZK - WFS](https://geoportal.cuzk.cz/(S(2eblduiqqs0a0zubvb2ofuit))/Default.aspx?mode=TextMeta&side=wfs&text=wfs&head_tab=sekce-03-gp&menu=333)
-- [OpenStreetMap](../../data#openstreetmap)
+- [DMR 5G](../../data/#dmr-5g)
 
-## Náplň cvičení
+## Postup
+**1.** __Stažení dat__
+Z Geoportálu Zeměměřického Úřadu si stáhněte dlažice DMR5G na části Vámi vybrané řeky. Zazipované soubory *.laz rozbalte a připojte do ArcGIS Pro.
 
-Pro naši zájmovou obec či menší město zpracujeme projekt v QGIS určený pro online publikaci.
+<figure markdown>
+  ![](../assets/cviceni5/DMR5G-stazeni.png){ width="600" }
 
-### Příprava projektu
+  ![](../assets/cviceni5/DMR5G-laz.png){ width="100"}
+  <figcaption>Stažení dat z Geoportálu ZÚ</figcaption>
+</figure
 
-Nahrajte do prostředí QGIS vstupní geografická data. Pro jednotlivé vrstvy nastavte styl vykreslování.
 
-!!! warning "Důležité"
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+     Je vhodné vybrat oblast, kde má řeka možnost měnit svůj tvar v čase. Ideální jsou tedy zájmová území s rovinatým charakterem, kde se tvoří meandry, slepá ramena, či záplavy. Protékající řeka údolím nemá pro změny toku dostatek prostoru a tvorba relativního výškového modelu nemá pro následující analýzy smysl.
 
-    Nejprve vytvoříme na disku novou složku, do které posléze uložíme QGIS projekt a všechny lokální datové zdroje (v našem případě to bude databázový formát OGC GeoPackage).
+**2.** __Založení projektu v ArcGIS Pro__
 
-#### RÚIAN
+Po založení je nutné nastavit souřadnicový systém mapy na __S-JTSK Krovak EastNorth__ (EPSG:5514)
 
-Nainstalujeme zásuvný modul pro práci s datovým zdrojem RÚIAN (viz [předchozí cvičeni](./cviceni9.md)).
+**3.** __Konverze LAZ souborů__
 
-![](../assets/cviceni9/plugin_install.png "Instalace pluginu")
+<figure markdown>
+  ![](../assets/cviceni5/batch-convert-las.png){ width="300" }
+  <figcaption>Převod *.laz souborů na *.las</figcaption>
+</figure>
 
-Vybereme zájmovou obec či menší město a data stáhneme pomocí zásuvného modulu RÚIAN.
 
-![](../assets/cviceni10/ruian_download.png "Stažení dat RÚIAN")
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+     - Nástroj lze spustit buď pro každý soubor zvlášť nebo spustit dávkově (viz cv. 1: [Batch Processing](../cviceni1/#batch-geoprocessing))
+     - Po aktualizaci připojené složky s daty se nám v záložce katalogu zobrazí konvertované las soubory mračna bodů
 
-Výchozí symbologie vrstev je nastavena zásuvným modulem:
+**4.** __Tvorba DMR__
 
-![](../assets/cviceni10/ruian_data.png "Data RÚIAN")
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+     - postup vysvětlen ve cv. 3: [Vytvoření digitálního modelu terénu](../cviceni3/#vytvoreni-digitalniho-modelu-terenu)
+     - Velikost buňky volte dle s ohledem na přesnost dat
+     - Vzhledem k prostorovému rozlišení produktu DMR5G zde vhodné nastavit hodnotu 2 metry (opravit v nové verzi)
 
-!!! note "Poznámka"
+**5.** __Tvorba rastrové mozaiky__ 
+Ze vniklých dlaždic je nutné vytvořit jediný výškový rastr pomocí funkce __Mosaic To New Raster__.
 
-    Seznam vrstev je ovlivněn dostupností datových vrstev. U menších obcí může například chybět vrstva ulic a další.
+
+<figure markdown>
+  ![](../assets/cviceni5/mozaika.png){ width="300" }
+  <figcaption>Rastrová mozaika</figcaption>
+</figure>
+
+**6.** __Odečtení extrémních hodnot__
+
+Pomocí nástroje Explore na záložce Map zjistíme minimální a maximální nadmořskou výšku toku.
+
+<figure markdown>
+  ![](../assets/cviceni5/explore-max.png)
+  ![](../assets/cviceni5/explore-min.png)
+  {: .process_container}
+
+  <figcaption>Odečtení maximální a minimální nadmořské výšky řeky z mozaiky</figcaption>
+</figure>
+
+**7.** __Změna symbologie DMR__
+
+Nově vytvořené mozaice DMR nastavíme vlastní symbologii podle zaznamenaných extrémních hodnot.
+ - je možné upravit dle požadovaného výsledku
+
+<figure markdown>
+  ![](../assets/cviceni5/dmr-symbologie.png){ width="500" }
+  <figcaption>Úprava symbologie DMR</figcaption>
+</figure>
+
+
+
+
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+    Extrémní hodnoty lze přizpůsobit, aby byla dobře vidět kostra řeky i s přítoky.
+
+**8.** __Tvorba kopie DMR__
+
+**9.** __Středová čára řeky__
+Abychom mohli vypošítat výškový model vstažený k povrchu řeky, je nutné vytvořit bodovou vrstvu s informacemi o nadmořské výšce a následně z nich vytvořit interpolovaný rastr. Nejdříve je nutné založit novou třídu prvků a nakreslit středovou čáru řeky, podle které následně vygenerujeme body. 
+
+![](../assets/cviceni5/centerline.png)
+![](../assets/cviceni5/centerline-done.png)
+{: .process_container}
+
+<figcaption>Tvorba středové čárky řeky</figcaption>
+
+**10.** __Body podél středové čáry__
+Body vytvoříme pomocí nástroje __Generate Points Along Lines__. Vzdálenost mezi nimi nastavíme na šířku řeky. 
+
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+    Šířku řeky můžeme zjistit pomocí nástroje __Measure__ (měření) na záložce __Map__.
+
+    <figure markdown>
+      ![](../assets/cviceni5/measure.png){ width="500" }
+      <figcaption>Nástroj měření</figcaption>
+    </figure>
+
+
+**11.** __Informace o nadmořské výšce__
+
+Pomocí funkce __Extract Values to Points__ lze bodům přiřadit hodnoty pixelu, na jehož místě se bod nachází.
+
+
+<figure markdown>
+  ![](../assets/cviceni5/points-z.png){ width="600" }
+  <figcaption>Přiřazení výšky bodům</figcaption>
+</figure>
+
+**12.** __interpolace IDW__
+
+Nyní můžeme z výškových bodů vytvořit interpolovaný výškový rastr vztažený k hladině řeky. Použijeme metodu vážené inverzní vzdálenost (IDW).
+
+![](../assets/cviceni5/idw1.png)
+![](../assets/cviceni5/idw2.png)
+{: .process_container}
+
+<figcaption>Interpolace</figcaption>
+
+???+ note "&nbsp;<span style="color:#448aff">Pozn.</span>"
+    V geoprocessingovém nástroji __IDW__ je na záložce Enviroments nastavit rozsah, na kterém se interpolace provede. Výchozí nastavení je na rozsah interpolované vrstvy tj. naše bodová vrstva. My však chceme interpolovat na rozsah původního DMR vytvořeného z mozaiky. 
+
+**13.** __Převzorkování__
+
+Interpolovaný rastr je nutné převzorkovat, aby velikost pixelu odpovídala původnímu DMR. K převzorkování využijeme nástroj __Project Raster__
+  - nutné pro práci s rastrovou kalkulačkou
+
+![](../assets/cviceni5/project.png)
+![](../assets/cviceni5/project2.png)
+{: .process_container}
+
+<figcaption>Převzorkování rastru a kontrola velikosti pixelu</figcaption>
+
+**14.** __Výpočet REM__
+
+DRM vypočteme pomocí nástroje __Raster Calculator__ odečtením původní DMR od interpolovaného rastru vztaženého k hladině řeky.
+
+<figure markdown>
+  ![](../assets/cviceni5/raster-calculator.png){ width="300" }
+  <figcaption>Rastrová kalkulačka</figcaption>
+</figure>
+
+
+**15.** __Změna symbologie výsledného REM__
+Nyní už je je na nás, jak výsledný výsledný REM vizualizujeme. Vhodné je rastr vizualizovat metodou Stretch pomocí spojité barevné stupnice.
+
+<figure markdown>
+  ![](../assets/cviceni5/final-symbology.png){ width="500" }
+  <figcaption>Vizualizace výsledku</figcaption>
+</figure>
+
+## Zdroje
+Relative Elevation Models [online]. MONTANA STATE LIBRARY [cit. 2024-01-25]. Dostupné z: [https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf](https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf)
+
+Relative Elevation Model in ArcGIS Pro [online]. esri video [cit. 2024-01-25]. Dostupné z: [https://mediaspace.esri.com/media/t/1_pn5ltf54](https://mediaspace.esri.com/media/t/1_pn5ltf54)
+
+## Úlohy k procvičení
+
+!!! task-fg-color "Úlohy"
+
+    K řešení následujích úloh použijte datovou sadu [ArcČR
+    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
+    ``K155\Public\data\GIS\ArcCR500 3.3``.
     
-    ![](../assets/cviceni10/ruian_layers.png "Seznam vrstev RÚIAN")
-    
-Provedeme v projektu následující změny:
+    1. Jaká je plocha území v ha s nadmořskou výškou mezi 500 a 700m?
 
-- odstraníme vrstvu "Části obcí" a "Adresní body"
-- vypneme vrstvu "Katastrální území"
-- přípojíme k vrstvě "Parcely" číselník (viz [předchozí cvičeni](./cviceni9.md)):   
-    - [SC_D_POZEMKU](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Druh-pozemku.aspx)
-!!! warning "Důležité"
-    Data načítejte namísto prostého přetažení pomocí dialogu `Layer > Data Source Manager`. V tomto případě se korektně nastaví datové typy sloupců. Kódování znaků nastavíme na `windows-1250`.
-    
-    ![](../assets/cviceni10/ruian_csv.png "Přidání CSV tabulek do projektu")
-    
-![](../assets/cviceni10/ruian_csv_detail.png "Připojená CSV data")
+    2. Jaká je výměra území v ha pro kterou platí, že leží v nadmořské
+       výšce nad 700m a má sklon svahu větší než 25 gonů?
 
-!!! task-fg-color "Úkol"
+    3. Jaký průměrný sklon mají svahy, které jsou vzdáleny do 10km od
+       státní hranice. Jak velký rozdíl to je oproti průměrné hodnotě
+       počítané pro celé území státu?
 
-    Podobně přípojíme číselník k vrstvě "Stavební objekty": [SC_ZP_VYUZITI_BUD](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-stavby.aspx)
+    4. Jaká je plocha území v ha, kde se sklon limitně blíží k nule?
 
-    ![](../assets/cviceni10/ruian_csv_join.png "Připojení CSV dat k vektorové vrstvě")
-
-    Případně i další další číselníky jako např. [SC_ZP_VYUZITI_POZ](https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-pozemku.aspx) a další.
-    
-- na základě připojených číselníků nastavíme symbologii vrstev
-
-![](../assets/cviceni10/ruian_style.png "Nastavený styl parcel")
-
-!!! tip
-
-    Ukázkové styly ke stažení [zde](https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_styly.zip).
-
-![](../assets/cviceni10/ruian_style_buildings.png "Nastavení stylu u stavebních objektů")
-
-- popisky nastavme tak, aby se zobrazovaly od měřítka 1:1000 (parcelní číslo, číslo domovní)
-
-!!! tip
-
-    U stavebních objektů můžeme nastavit číslo domovní pomocí funkce `regexp_substr`: `replace(regexp_substr("CisloDomovni", '(:\\d+)'), ':', '')`
-    
-    ![](../assets/cviceni10/ruian_regex.png "Popisky stavebních objektů")
-
-- u vrstvy "Základní sídelní jednotky" nastavíme popisky podle atributu "Nazev" (pouze do měřítka 1:5000), nastavíme podklad textu
-
-- nastavíme cílové pořadí vrstev
-
-![](../assets/cviceni10/ruian_result.png "Pořadí vrstev RÚIAN")
-
-#### WMS zdroje
-
-Do projektu přidáme vybrané [WMS
-služby](https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&side=wms.verejne&text=WMS.verejne.uvod&headtab=sekce-03-gp&menu=311)
-poskytované ČÚZK. Pokud existuje ale ekvivalentní [WMTS](
-https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&side=wmts.uvod&text=wmts.uvod&head_tab=sekce-03-gp&menu=315)
-služba, zvolíme raději tuto formu. WMTS by měla pozitivně ovlivnit
-rychlost načítání vrstvy.
-
-- ZTM5 - `https://ags.cuzk.cz/arcgis1/rest/services/ZTM/MapServer/WMTS`
-- Ortofoto - `https://ags.cuzk.cz/arcgis1/rest/services/ORTOFOTO/MapServer/WMTS`
-   
-Služby přidáme pomocí `Layer > Data Source Manager`:
-
-![](../assets/cviceni10/cuzk_wms.png "Definici WMS služby")
-
-Přidané WMS služby nahrajeme do mapového okna. 
-
-!!! tip
-
-    WMS vrstvy je užitečné seskupit do nové skupiny:
-    
-    ![](../assets/cviceni10/cuzk_wms_group.png "Seskupení WMS vrstev")
-
-Dalším z datových zdrojů mohou být WMS služby poskytované agenturou
-[CENIA](https://micka.cenia.cz/record/basic/50211b47-f954-4258-9b61-1951c0a80137). Pro náš
-účel vyberme III. vojenské mapování: `https://gis.cenia.cz/mapcache/III_vojenske_mapovani/wmts?SERVICE=WMTS&REQUEST=GetCapabilities`:
-
-![](../assets/cviceni10/wms_cenia.png "Vrstva III. vojenského mapování")
-
-!!! task-fg-color "Úkol"
-
-    Přidejte do projektu další zdroje dat jako např. Stínovaný model reliéfu - `https://ags.cuzk.cz/arcgis2/services/dmr5g/ImageServer/WMSServer`:
-    
-    - dmr5g:GrayscaleHillshadeZ10
-   
-    Dojem plastičnosti můžeme dosáhnout kombinací Základní topografické
-    mapy při dané míře průhlednosti. Ukázka vizualizace při míře transparentnosti
-    75%:
-   
-    ![](../assets/cviceni10/cuzk_ztm5.png "Ukázka vizualizace Základní topografické mapy")
-
-#### WFS zdroje
-
-Do projektu přidáme vybrané [WFS
-služby](https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&side=wfs&text=wfs&head_tab=sekce-03-gp&menu=333)
-poskytované ČÚZK. Vybereme následující vrstvy z datového zdroje
-"Stahovací služba WFS - ZABAGED® - polohopis"
-(`https://ags.cuzk.cz/arcgis/services/ZABAGED_POLOHOPIS/MapServer/WFSServer`):
-
-- `Lesní_půda_se_stromy_kategorizovaná__plocha_`
-- `Vodní_plocha`
-- `Vodní_tok`
-
-![](../assets/cviceni10/zabaged_layers.png "Seznam WFS vrstev ZABAGED")
-
-U jednotlivých vrstev nastavíme symbologii a vrstvy přejmenujeme:
-
-![](../assets/cviceni10/zabaged_styl.png "Nastavení stylu u WFS vrstev")
-
-!!! warning "Důležité"
-
-    Vrstvy, u kterých budeme nastavovat kategorizovaný styl doporučujeme stáhnout do lokální databáze ve formátu GeoPackage (`Export > Save features as`):
-
-    ![](../assets/cviceni10/zabaged_db.png "Uložení dat do nového GeoPackage")
-
-    Při stažení dat nastavte korektně zájmové území(!!!):
-    
-    ![](../assets/cviceni10/wfs_download_canvas.png "Stažení dat WFS zájmové oblasti")
-
-    Kategorizované styly jsou ke stažení [zde](https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_styly.zip).
-    
-Na závěr nastavme výchozí kompozici. V našem případě jsou parcely
-nastaveny na průhlednost 50%. Na pozadí stínovaná základní
-topografická mapa:
-
-![](../assets/cviceni10/project_to_publish.png "Výsledný projekt před publikací")
-
-!!! task-fg-color "Úkol"
-
-    Přidejte do projektu další vhodné WFS vrstvy z datového zdroje ZABAGED, jako např.:
-    
-    - `Stožár_elektrického_vedení`
-    - `Mohyla__pomník__náhrobek`
-    - `Kříž__sloup_kulturního_významu`
-    - `Úřad_veřejné_správy_-_definiční_bod`
-    - `Škola_-_definiční_bod`
-    - `Hasičská_stanice__zbrojnice_-_definiční_bod`
-    - `Pošta_-_definiční_bod`
-    - `Elektrické_vedení`
-    - `Silnice__dálnice`
-    - `Vodní_tok`
-    - `Cesta`
-    - `Železniční_trať`
-    - `Hřbitov`
-    - `Skládka`
-    - `Maloplošné_zvlástě_chráněné_území`
-    - `Vinice`
-
-    Výsledek může pro zájmovou oblast vypadat následovně:
-
-    ![](../assets/cviceni10/zabaged_result.png "Příklad datových vrstev ZABAGED")
-
-    **Tip pro pokročilejší uživatele:** QGIS umožňuje také automatizaci ve formě Python skriptů. Ukázka skriptu níže:
-    
-    - stáhne vybrané vrstvy z WFS
-    - ořeže prvky hranicí obce
-    - uloží na disk ve formátu OGC GeoPackage
-    
-    ```py
-    # download WFS layer and store in output GPKG
-    def download_wfs_layer(url, typename_name, layer_ref, output_path, layer_name):
-        # define WFS connection
-        uri = f"pagingEnabled='true' preferCoordinatesForWfsT11='false' restrictToRequestBBOX='1' " \
-              f"srsname='EPSG:5514' typename='{typename_name}' url='{url}' version='auto'"
-        layer = QgsVectorLayer(uri, "WFS_Layer", "WFS")
-        if not layer.isValid():
-            return None
-
-        options = QgsVectorFileWriter.SaveVectorOptions()
-        options.driverName = "GPKG"
-        options.layerName = layer_name
-        options.filterExtent = layer_ref.extent()
-
-        # define temporary output
-        dest = QgsProcessingParameterVectorDestination(name=layer_name)
-        layer_tmp_path = dest.generateTemporaryDestination()
-
-        # download WFS data
-        res = QgsVectorFileWriter.writeAsVectorFormatV3(
-            layer,
-            layer_tmp_path,
-            layer.transformContext(),
-            options
-        )
-
-        # fix invalid geometries
-        proc = processing.run("native:fixgeometries", {
-            'INPUT': layer_tmp_path,
-            'METHOD':1,
-            'OUTPUT': 'TEMPORARY_OUTPUT',
-        })
-
-        # clip features by reference layer
-        processing.run('native:clip', {
-            'INPUT': proc['OUTPUT'],
-            'OVERLAY': layer_ref,
-            'OUTPUT': f'ogr:dbname="{output_path}" table="{layer_name}" (geom)'
-        })
-
-    url = "https://ags.cuzk.cz/arcgis/services/ZABAGED_POLOHOPIS/MapServer/WFSServer"
-    layers = [
-        'ZABAGED_POLOHOPIS:Stožár_elektrického_vedení', 
-        'ZABAGED_POLOHOPIS:Mohyla__pomník__náhrobek', 
-        'ZABAGED_POLOHOPIS:Kříž__sloup_kulturního_významu', 
-        'ZABAGED_POLOHOPIS:Úřad_veřejné_správy_-_definiční_bod', 
-        'ZABAGED_POLOHOPIS:Škola_-_definiční_bod', 
-        'ZABAGED_POLOHOPIS:Hasičská_stanice__zbrojnice_-_definiční_bod',
-        'ZABAGED_POLOHOPIS:Pošta_-_definiční_bod',
-        'ZABAGED_POLOHOPIS:Elektrické_vedení',
-        'ZABAGED_POLOHOPIS:Silnice__dálnice',
-        'ZABAGED_POLOHOPIS:Vodní_tok',
-        'ZABAGED_POLOHOPIS:Cesta',
-        'ZABAGED_POLOHOPIS:Železniční_trať',
-        'ZABAGED_POLOHOPIS:Hřbitov',
-        'ZABAGED_POLOHOPIS:Skládka',
-        'ZABAGED_POLOHOPIS:Maloplošné_zvlástě_chráněné_území',
-        'ZABAGED_POLOHOPIS:Vinice',
-        'ZABAGED_POLOHOPIS:Lesní_půda_se_stromy_kategorizovaná__plocha_',
-        'ZABAGED_POLOHOPIS:Vodní_plocha',
-    ]
-
-    output_path  = os.path.join(QgsProject.instance().readPath("./"), "zabaged.gpkg")
-    group_name = "ZABAGED"
-
-    # get reference layer
-    layer_extent = QgsProject.instance().mapLayersByName('Obce')[0]
-
-    # find/add group into layer tree
-    root = QgsProject.instance().layerTreeRoot()
-    group = root.findGroup(group_name)
-    if group is None:
-        group = root.insertGroup(0, group_name)
-
-    for type_name in layers:
-        print(f"Processing {type_name}...")
-        layer_name = type_name.split(':')[1].replace('_', ' ')
-        # remove non-ascii characters
-        layer_output = re.sub(r'[^\x00-\x7F]', ' ', layer_name).replace(' ', '_').lower()
-
-        download_wfs_layer(url, type_name, layer_extent, output_path, layer_output)
-        # add new layer into layer tree
-        layer_new = QgsVectorLayer(f"{output_path}|layername={layer_output}", layer_name, "ogr")
-        QgsProject.instance().addMapLayer(layer_new, False)
-        group.addLayer(layer_new)
-
-    print("done")
-    ```
-    
-    <video controls="true" allowfullscreen="true" width=99%>
-    <source src="../../assets/cviceni10/qgis_wfs_download.webm" type="video/webm" markdown="1">
-    </video>
-
-#### Další zdroje dat
-
-- [Národní katalog otevřených dat](https://data.gov.cz/datov%C3%A9-sady)
-- [OpenStreetMap](https://wiki.openstreetmap.org/wiki/Cs:Map_Features)
-- ...
-
-!!! task-fg-color "Úkol"
-
-    Přidejte do projektu vrstvu "Občanské vybavenosti" ([amenity](https://wiki.openstreetmap.org/wiki/Cs:Map_Features#Ob%C4%8Dansk%C3%A1_vybavenost_(Amenity))). 
-    
-    Doinstalujte do QGISu zásuvný modul QuickOSM a pomocí něj vytvořte vrstvu občanské vybavenosti (rozsah území nastavte na základě vrstvy "Obce"):
-    
-    ![](../assets/cviceni10/quick_osm.png "QuickOSM")
-    
-    Prvky ležící na území obce omezte pomocí nástroje *Clip* a uložte do nové vrstvy. Nastavte kategorizovanou symbologii podle atributu ``amenity`` a přeložte popisky v legendě do češtiny:
-    
-    ![](../assets/cviceni10/qgis_osm.png "Vrstva občanské vybavenosti")
-    
-    Přidejte do projektu další vhodné vrstvy na základě [OpenStreetMap](https://wiki.openstreetmap.org/wiki/Cs:Map_Features).
-
-!!! note "Poznámka"
-
-    Ukázkový QGIS projekt ke stažení [zde](https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_projekt.zip).
-
-### Publikace projektu
-
-Podklady: [dokumentace Gisquick](https://gisquick.readthedocs.io)
-
-!!! warning "Důležité"
-
-    Pro účel výuky budeme používat vlastní instanci publikačního serveru Gisquick provozované na **<http://geo102.fsv.cvut.cz:8083/>**.
-
-Po [přihlášení](http://geo102.fsv.cvut.cz:8083/user/) (`SIGN IN`) se objeví profil uživatele:
-
-![](../assets/cviceni10/gisquick_new_project.png "Gisquick: nový projekt")
-
-Vytvoříme nový projekt. Objeví se žádost o instalaci zásuvného modulu:
-
-![](../assets/cviceni10/gisquick_plugin.png "Gisquick: instalace pluginu")
-
-!!! note "Poznámka"
-
-    Pokud se výše uvedená stránka neobjeví, tak ji najdete na <https://gisquick.org/plugin/>
-
-Při instalaci postupuje podle [návodu](https://gisquick.readthedocs.io/en/latest/user-manual/before-publishing.html#qgis-gisquick-plugin) v dokumentaci Gisquick.
-
-Jelikož pracujeme v projektu s formátem GeoPackage, tak nainstalujeme
-verzi zásuvného modulu Gisquick s podporou dbhash. Tato verze
-zásuvného modulu zamezí znovu nahrávání datových zdrojů ve formátu
-GeoPackage například při změně viditelnosti vrstvy.
-
-![](../assets/cviceni10/gisquick_plugin_select.png "Gisquick: instalace pluginu")
-
-Poté se pomocí zásuvného modulu přihlásíme do prostředí publikační
-platformy Gisquick (`Web > Publish in Gisquick`). 
-
-![](../assets/cviceni10/gisquick_login.png "Gisquick: přihlášeni")
-
-Do publikačního prostředí platformy Gisquick nás přesměruje tlačítko `Open Browser`:
-
-![](../assets/cviceni10/gisquick_login_open.png "Gisquick: otevření")
-
-Po vytvoření projektu se objeví úvodní formulář se seznamem vrstev určených k publikaci:
-
-![](../assets/cviceni10/gisquick_data_layers.png "Gisquick: seznam vrstev")
-
-Nejprve opravíme případné chyby (`Manage Layers Names` > `Generate Names` > `Update QGIS Project`):
-
-![](../assets/cviceni10/gisquick_data_layers_errors.png "Gisquick: seznam chyb")
-
-Dále povolíme WFS, abychom umožnili uživateli se dotazovat na vektorové vrstvy:
-
-![](../assets/cviceni10/gisquick_data_layers_wfs.png "Gisquick: zapnutí WFS")
-
-Datové vrstvy nahrajeme na publikační server:
-
-![](../assets/cviceni10/gisquick_data_layers_load.png "Gisquick: nahrání dat")
-
-![](../assets/cviceni10/gisquick_create_project.png "Gisquick: zadání jména projektu")
-
-Nastavíme titulek projektu:
-
-![](../assets/cviceni10/gisquick_title.png "Gisquick: zadání titulku projektu")
-
-Projdeme jednotlivá nastavení projektu:
-
-![](../assets/cviceni10/gisquick_menu.png "Gisquick: menu")
-
-A provedeme následující změny v nastavení:
-
-- `Map > Extent`: prostorový rozsah nastavíme z vrstvy "Obce":
-
-<video controls="true" allowfullscreen="true" width=99%>
-<source src="../../assets/cviceni10/gisquick_extent.webm" type="video/webm" markdown="1">
-</video>
-    
-- `Map > Scale`: nastavíme vhodnou měřítkovou sadu:
-
-    ![](../assets/cviceni10/gisquick_scales.png "Gisquick: měřítka")
-
-- v záložce `Layers` přesuňte vrstvy ze skupiny "WMS" do `Base Layers` (je nutné přesunout celou skupinu)
-
-![](../assets/cviceni10/gisquick_base_layers.png "Gisquick: podkladové vrstvy")
-
-!!! tip "Tip pro pokročilé uživatele"
-
-    Ke zrychlení načítání vrstev může dojít při vhodně zvolené měřítkové sadě dle [specifikace ČÚZK](https://geoportal.cuzk.cz/Dokumenty/Dlazdicove_sluzby_CR_v1.1.pdf). Případně lze použít WMTS s měřítkovou sadou Google Maps.
-    
-
-A připravený projekt publikujeme (`Publish`). Po publikaci projektu se objeví tlačítko
-
-![](../assets/cviceni10/gisquick_map.png "Gisquick: mapová aplikace")
-
-které nás přesměruje do mapové aplikace:
-
-![](../assets/cviceni10/gisquick_map_app.png "Gisquick: zobrazení mapové aplikace")
-
-!!! tip
-
-    Ve výchozím nastavení je projekt nastaven jako soukromý. Toto nastavení lze změnit v `Permissions`:
-    
-    ![](../assets/cviceni10/gisquick_permissions.png "Gisquick: nastavení")
-
-#### Další nastavení projektu
-
-Zkusme změnit následující nastavení projektu:
-    
-- skryjeme CSV tabulky v záložce `Layers`
-
-![](../assets/cviceni10/gisquick_csv_tables.png "Gisquick: CSV data")
-
-<video controls="true" allowfullscreen="true" width=99%>
-<source src="../../assets/cviceni10/gisquick_visibility.webm" type="video/webm" markdown="1">
-</video>
-
-- nastavíme viditelnost zvolených atributů u vrstvy "Parcely" (kmenové
-  číslo, pododdělení čísla, výměra a druh pozemku)
-  
-Nejprve v QGISu nastavíme u zvolených atributů aliasy (`Attributes Form` ve vlastnostech vrstvy).
-
-![](../assets/cviceni10/qgis_field_alias.png "QGIS: nastavení aliasů")
-
-Změny v QGIS projektu uložíme. V nastavení Gisquick projektu provedeme aktualizaci.
-
-<video controls="true" allowfullscreen="true" width=99%>
-<source src="../../assets/cviceni10/gisquick_update.webm" type="video/webm" markdown="1">
-</video>
-
-Viditelnost atributů nastavíme z záložce `Layers`.
-
-<video controls="true" allowfullscreen="true" width=99%>
-<source src="../../assets/cviceni10/gisquick_field_visibility.webm" type="video/webm" markdown="1">
-</video>
-
-Po uložení změn (`Save`) znovu načteme mapovou aplikaci.
-
-![](../assets/cviceni10/gisquick_field_alias.png "Gisquick: nastavení aliasů")
-
-Po uložení změn se mezi podkladovými vrstvami jednoduše přepínat.
-
-![](../assets/cviceni10/gisquick_base_layers_switch.png "Gisquick: přepínaní mezi podkladovými vrstvami")
-
-!!! task-fg-color "Úkol"
-
-    Podkladovou vrstvu je možné mít zapnutou pouze jednu. Nelze tedy kombinovat základní topografickou mapu a stínovaný reliéf. Tyto vrstvy lze přesunou zpátky do "Overlays". To bude ale vyžadovat nejprve vrstvy v QGISu přesunout mimo skupinu "WMS" a poté změnit nastavení Gisquick záložce `Layers`. Výsledek může vypadat následovně:
-    
-    ![](../assets/cviceni10/gisquick_map_app_hillshade.png "Gisquick: zobrazení mapové aplikace")
-
-Ukázkovou mapovou aplikaci najdete na adrese <http://geo102.fsv.cvut.cz:8083/?PROJECT=gis1/cv10>
+    5. Vytvořte pomocí Raster Calculatoru rastr, který obsahuje hodnotu 1
+       pro území, kde je nadmořská výška nad 700m a sklon menší než 5°;
+       hodnotu 2, kde je platí, že je nadmořská výška nad 700m a sklon je
+       větší než 5°. Jaká je výměra takto určeného území v ha?
