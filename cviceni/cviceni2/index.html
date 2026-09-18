@@ -1,0 +1,1401 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cviceni1/">
+      
+      
+        <link rel="next" href="../cviceni3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cvičení 2 - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vektorova-data-atributove-dotazy-prostorove-dotazy" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="../..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cvičení 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../semestralka/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#cil-cviceni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cíl cvičení
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vektorova-a-rastrova-prostorova-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vektorová a rastrová prostorová data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atributove-dotazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atributové dotazy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prostorove-dotazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prostorové dotazy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ulohy-k-procviceni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Úlohy k procvičení
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestralka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vektorova-data-atributove-dotazy-prostorove-dotazy">Vektorová data, atributové dotazy, prostorové dotazy</h1>
+<h2 id="cil-cviceni">Cíl cvičení</h2>
+<ul>
+<li>Vysvětlení rozdílu mezi vektorovými a rastrovými GIS daty</li>
+<li>Selekce prvků podle atributů</li>
+<li>Selekce prvků na základě vzájemných prostorových vztahů</li>
+</ul>
+<hr class="level-1">
+
+<h2 id="vektorova-a-rastrova-prostorova-data">Vektorová a rastrová prostorová data</h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span> <strong>Vektorová data</strong></p>
+<hr>
+<p>Tvořena <strong>vrcholy</strong> (Vertices) a <strong>cestami</strong> (Paths) – ty jsou určeny skutečnými souřadnicemi</p>
+<p>Podrobnost je určena <strong>podrobností souřadnic vrcholů</strong></p>
+<p>Vhodné pro <strong>diskrétně rozložená data</strong> (např. poloha bodů, kategorie pokrytí půdy)</p>
+<p>Možné problémy s <strong>topologií</strong> (mezery a překryvy)</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4zm6 0v4h4V4zm0 6v4h4v-4zm0 6v4h4v-4zm-2 4v-4h-4v4zm-6 0v-4H4v4zm0-6v-4H4v4zm0-6V4H4v4zm2 6h4v-4h-4zM4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2"></path></svg></span> <strong>Rastrová data</strong><span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">součástí budoucích cvičení</span></p>
+<hr>
+<p>Tvořena pravidelnou mřížkou <strong>pixelů</strong> – ty jsou určeny pixelovými souřadnicemi (pořadí řádku/sloupce)</p>
+<p>Podrobnost je určena <strong>velikostí pixelu</strong> (v metrech)</p>
+<p>Vhodné pro jevy měnící se <strong>spojitě</strong> (např. model terénu, znečištění ovzduší) i <strong>diskrétně</strong>, dále pak <strong>obrazová data</strong> (např. satelitní)</p>
+</li>
+</ul>
+</div>
+<hr class="level-1">
+
+<h2 id="atributove-dotazy">Atributové dotazy</h2>
+<p>Atributový dotaz (Attribute Query) je metoda výběru/filtrace prvků na základě <strong>hodnot jejich atributů</strong>. Doplňuje tak metodu <a href="/cviceni/cviceni1/#select-tool">interaktivního výběru prvků</a> z 1. cvičení. Základem je pravidlo pro výběr – tzv. <strong>výraz</strong> (Expression). ArcGIS Pro umožňuje sestavovat výrazy interaktivně pomocí dialogu, nicméně pro využití plného potenciálu výrazů je vhodné využít kód v jazyce <em>SQL</em>.
+<br><br></p>
+<p><strong>Atributový dotaz</strong> (nad daty v mapě): <em class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m0 16H3V5h10v4h8z"></path></svg></span> Map</em> → <em class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.1 15.3c-.1.1-.3.2-.4.3l-2.4.4 1.7 3.6c.2.4 0 .8-.4 1l-2.8 1.3c-.1.1-.2.1-.3.1-.3 0-.6-.2-.7-.4L11.2 18l-1.9 1.5c-.1.1-.3.2-.5.2-.4 0-.8-.3-.8-.8V7.5c0-.5.3-.8.8-.8.2 0 .4.1.5.2l8.7 7.4c.3.2.4.7.1 1M6 12H4V4h16v8h-1.6l2.2 1.9c.8-.3 1.3-1 1.3-1.9V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2z"></path></svg></span> Select By Attributes</em> → vyplnit údaje do dialogu nástroje...
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm" target="_blank">Select features using attributes</a></p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_33.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_33.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_34.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_34.png"></a>
+<img alt="" class="off-glb process_icon" src="../../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni1/img_35.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni1/img_35.png"></a></p>
+<figcaption>
+<p>Do pole <code>Input Rows</code> je automaticky předvyplněna vrstva vybraná v obsahu mapy </p>
+</figcaption>
+<p>Pomocí přepínátka <img alt="" class="off-glb" src="../../assets/cviceni1/img_36.png" style="vertical-align: -20%;margin:0px 5px;"> lze měnit zápis mezi interaktivním dialogovým zadáním a výrazem v jazyce SQL.</p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/write-a-query-in-the-query-builder.htm" target="_blank">Introduction to query expressions</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm" target="_blank">Construct and modify queries</a></p>
+<div class="table_small_padding">
+<!-- trik: vlastnosti tabulky pro vsechny podrizene -->
+<details class="task-fg-color" open="open">
+<summary>Příklad k vyzkoušení <strong style="margin: 0rem 1rem">|</strong> <strong class="no-dec">testování atributových dotazů na skutečných datech</strong></summary>
+<p><iframe width="100%" height="500" frameborder="0" allowfullscreen="" src="https://geo.fsv.cvut.cz/data/hoffmann/appquery/"></iframe></p>
+<table>
+<thead>
+<tr>
+<th>atribut</th>
+<th>datový typ</th>
+<th>popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop_name</td>
+<td><code>string</code></td>
+<td>Název zastávky</td>
+</tr>
+<tr>
+<td>routes_nam</td>
+<td><code>string</code></td>
+<td>Označení linek, které obsluhují zastávku, ve formátu <code>-cislolinky-,-cislolinky-</code> řazeno vzestupně</td>
+</tr>
+<tr>
+<td>route_type</td>
+<td><code>integer</code></td>
+<td>ID druhu dopravy, které obsluhují zastávku, <br><code>0=tramvaj</code>, <code>1=metro</code>, <code>2=vlak</code>, <code>3=autobus</code>, <code>4=přívoz</code>, <code>7=lanovka</code>, <code>8=tramvaj i autobus</code></td>
+</tr>
+<tr>
+<td>on_request</td>
+<td><code>integer</code></td>
+<td>Zastávka na znamení <code>0=není na znamení</code>, <code>1=je na znamení</code></td>
+</tr>
+<tr>
+<td>platf_len</td>
+<td><code>float</code></td>
+<td>Délka nástupiště (metry)</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+<hr class="level-1">
+
+<h2 id="prostorove-dotazy">Prostorové dotazy</h2>
+<p><strong>Prostorový dotaz</strong> (Spatial Query) je metoda výběru/filtrace prvků jedné vrstvy <strong>na základě vzájemné polohy s prvky druhé vrstvy</strong>. Funkce využívá jako vstup <code>vrstvu vybíraných prvků</code>, <code>vrstvu pro překryvnou analýzu</code> a <code>vztah pro překryvnou analýzu</code>.</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni2/img_01.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni2/img_01.svg"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni2/img_02.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="../../assets/cviceni2/img_02.svg"></a></p>
+<div class="table_headerless table_small_padding table_centered centered_tab_labels">
+<!-- trik: vlastnosti tabulky pro vsechny podrizene -->
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Výběr BODŮ...</label><label for="__tabbed_1_2">Výběr LINIÍ...</label><label for="__tabbed_1_3">Výběr POLYGONŮ...</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">...v překrytu s BODY</label><label for="__tabbed_2_2">...v překrytu s LINIEMI</label><label for="__tabbed_2_3">...v překrytu s POLYGONY</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif" style="filter:none !important;"></a></p>
+<p></p><table style="width:unset;">
+    <tbody><tr><td>Intersect</td><td>A</td></tr>
+    <tr><td>Intersect (DBMS)</td><td>A</td></tr>
+    <tr><td>Contains</td><td>A</td></tr>
+    <tr><td>Contains Clementini</td><td>A</td></tr>
+    <tr><td>Within</td><td>A</td></tr>
+    <tr><td>Within Clementini</td><td>A</td></tr>
+    <tr><td>Are identical to</td><td>A</td></tr>
+    <tr><td>Have their center in</td><td>A</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+    <tbody><tr><td>Intersect</td><td>A, C</td></tr>
+    <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+    <tr><td>Within</td><td>A, C</td></tr>
+    <tr><td>Completely within</td><td>A</td></tr>
+    <tr><td>Within Clementini</td><td>A</td></tr>
+    <tr><td>Have their center in</td><td>A, C</td></tr>
+    <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C</td></tr>
+  <tr><td>Within</td><td>A, C</td></tr>
+  <tr><td>Completely within</td><td>A</td></tr>
+  <tr><td>Within Clementini</td><td>A</td></tr>
+  <tr><td>Have their center in</td><td>A, C</td></tr>
+  <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">...v překrytu s BODY</label><label for="__tabbed_3_2">...v překrytu s LINIEMI</label><label for="__tabbed_3_3">...v překrytu s POLYGONY</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D</td></tr>
+  <tr><td>Contains</td><td>A, C, D</td></tr>
+  <tr><td>Completely contains</td><td>A, D</td></tr>
+  <tr><td>Contains Clementini</td><td>A, D</td></tr>
+  <tr><td>Have their center in</td><td>D</td></tr>
+  <tr><td>Boundary touches</td><td>C</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J</td></tr>
+  <tr><td>Contains</td><td>G, H</td></tr>
+  <tr><td>Completely contains</td><td>G</td></tr>
+  <tr><td>Contains Clementini</td><td>G, H</td></tr>
+  <tr><td>Within</td><td>F, H</td></tr>
+  <tr><td>Completely within</td><td>F</td></tr>
+  <tr><td>Within Clementini</td><td>F, H</td></tr>
+  <tr><td>Are identical to</td><td>H</td></tr>
+  <tr><td>Boundary touches</td><td>C, E</td></tr>
+  <tr><td>Share a line segment with</td><td>F, G, H, I, J</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Within</td><td>A, D, G, H, I, O</td></tr>
+  <tr><td>Completely within</td><td>A</td></tr>
+  <tr><td>Within Clementini</td><td>A, D, G, H, I</td></tr>
+  <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+  <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+  <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+  <tr><td>Have their center in</td><td>A, C, D, E, G, H, I, J, O</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">...v překrytu s BODY</label><label for="__tabbed_4_2">...v překrytu s LINIEMI</label><label for="__tabbed_4_3">...v překrytu s POLYGONY</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, B</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, B</td></tr>
+  <tr><td>Contains</td><td>A, B</td></tr>
+  <tr><td>Completely contains</td><td>A</td></tr>
+  <tr><td>Contains Clementini</td><td>A</td></tr>
+  <tr><td>Have their center in</td><td>A, D</td></tr>
+  <tr><td>Boundary touches</td><td>B</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, L, M, N, O</td></tr>
+  <tr><td>Contains</td><td>A, D, G, H, I, O</td></tr>
+  <tr><td>Completely contains</td><td>A</td></tr>
+  <tr><td>Contains Clementini</td><td>A, D, G, H, I</td></tr>
+  <tr><td>Boundary touches</td><td>F, G, H, I, K, L, M, N, O</td></tr>
+  <tr><td>Share a line segment with</td><td>G, I, J, K, M, O</td></tr>
+  <tr><td>Crossed by the outline of</td><td>C, E, H, L, N</td></tr>
+  <tr><td>Have their center in</td><td>E, I, L</td></tr>
+</tbody></table><p></p>
+</div>
+<div class="tabbed-block">
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif" data-desc-position="bottom"><img alt="" src="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif" style="filter:none !important;"></a></p>
+<p></p><table id="small_table_padding" style="width:unset;">
+  <tbody><tr><td>Intersect</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+  <tr><td>Intersect (DBMS)</td><td>A, C, D, E, F, G, H, I, J, K, M</td></tr>
+  <tr><td>Contains</td><td>C, E, H, M</td></tr>
+  <tr><td>Completely contains</td><td>C</td></tr>
+  <tr><td>Contains Clementini</td><td>C, E, H, M</td></tr>
+  <tr><td>Within</td><td>F, G, H, M</td></tr>
+  <tr><td>Completely within</td><td>F</td></tr>
+  <tr><td>Within Clementini</td><td>F, G, H, M</td></tr>
+  <tr><td>Are identical to</td><td>H, M</td></tr>
+  <tr><td>Boundary touches</td><td>D, E, G, H, I, J, M</td></tr>
+  <tr><td>Share a line segment with</td><td>D, H, I, M</td></tr>
+  <tr><td>Crossed by the outline of</td><td>A, E, G, J, K</td></tr>
+  <tr><td>Have their center in</td><td>C, E, F, G, H, K, L</td></tr>
+</tbody></table><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption>
+<p>zdroj: <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm">Select By Location graphic examples</a></p>
+</figcaption>
+<p align="center" style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"><a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select features by location</a>
+<a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-layer-by-location.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select Layer By Location (Data Management)</a>
+<a class="md-button md-button--primary button_smaller" href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span> Select By Location graphic examples</a></p>
+<hr class="level-1">
+
+<h2 id="ulohy-k-procviceni">Úlohy k procvičení</h2>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úlohy k atributovým dotazům</p>
+<p>K řešení následujích úloh použijte datovou sadu <a href="../../data/#arccr-500">ArcČR
+500</a> verzi 3.3 dostupnou na disku <em>S</em> ve složče
+<code>K155\Public\data\GIS\ArcCR500 3.3</code>. Zde také najdete souboru s
+popisem dat ve formátu PDF.</p>
+<ol>
+<li>
+<p>Kolik je v ČR rybníků?</p>
+</li>
+<li>
+<p>Jaká je celková délka (v km) přirozených vodních toků v ČR?</p>
+</li>
+<li>
+<p>Jaká je průměrná nadmořská výška (v m) vodních nádrží v ČR?</p>
+</li>
+<li>
+<p>Kolik silnic v ČR má více než dva jizdní pruhy?</p>
+</li>
+<li>
+<p>Jaká je délka (v km) dálnic v ČR, které mají šest jízdních pruhů?</p>
+</li>
+<li>
+<p>Kolik železničních stanic v ČR obsahuje ve svém názvu předložku 'nad'?</p>
+</li>
+<li>
+<p>Jaká je celková plocha (v km<sup>2</sup>) sídel v ČR u kterých jejich název začíná na písmeno 'K'?</p>
+</li>
+<li>
+<p>Ve které obci Ústeckého kraje je největší nezaměstnanost a kolik to je?</p>
+</li>
+<li>
+<p>Najděte obec v ČR, kde je nejvyšší poměr mezi muži a ženami a kolik to je?</p>
+</li>
+<li>
+<p>V kolika obcích v ČR převyšuje počet sňatků počet rozvodů. V jaké
+    obci je počet sňatků nejvyšší vzhledem k aktuálnímu počtu
+    obyvatel?</p>
+</li>
+<li>
+<p>Jaká je průměrná hodnota nezaměstnanosti v ORP Beroun?</p>
+</li>
+<li>
+<p>Kolik katastrálních území spadá do oblasti s kódem LAU1 'CZ0327' a
+    jakou mají celkovou výměru (v km<sup>2</sup>)?</p>
+</li>
+<li>
+<p>V kolika případech se shoduje název obce s názvem katastrálního území?</p>
+</li>
+<li>
+<p>Kolik katastrálních území začíná na písmeno 'R' a má přesně tři znaky ve svém názvu?</p>
+</li>
+<li>
+<p>Ve kterých krajích je míra nezaměstranosti mužů větší než u žen?</p>
+</li>
+<li>
+<p>Jaká je celková délka silnic 1., 2. a 3. třídy?</p>
+</li>
+<li>
+<p>Jaký název pro obec je nejfrekventovanější, kolik obcí s tímto názvem v ČR je?</p>
+</li>
+<li>
+<p>Pro každý typ vodní plochy najděte nejvyšší nadmořskou výšku.</p>
+</li>
+<li>
+<p>Jaký je poměr mezinárodních ku vnitrostátním letištím v ČR?</p>
+</li>
+<li>
+<p>Který okres v ČR se skládá z největšího počtu obcí a kolik to je?</p>
+</li>
+</ol>
+</div>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úlohy k prostorovým dotazům</p>
+<p>K řešení následujích úloh použijte datovou sadu <a href="../../data/#arccr-500">ArcČR
+500</a> verzi 3.3 dostupnou na disku <em>S</em> ve složče
+<code>K155\Public\data\GIS\ArcCR500 3.3</code>. Zde také najdete souboru s
+popisem dat ve formátu PDF.</p>
+<ol>
+<li>
+<p>Existuje v ČR letiště, jehož reprezentační bod leží v lese? Jak se jmenuje?</p>
+</li>
+<li>
+<p>Kolika obcemi v ČR neprochází žádná silnice?</p>
+</li>
+<li>
+<p>Kolik obcí leží na hranici ČR?</p>
+</li>
+<li>
+<p>Vyberte silnice, které kříží vodní toky. Kolik procent z těchto
+   silnic tvoří silnice první třídy?</p>
+</li>
+<li>
+<p>Kolik procent rybníků z celkového počtu leží celou svojí plochou na
+   území Jihočeského kraje?</p>
+</li>
+<li>
+<p>Na kolika mapových listech Základní mapy 1:25 000 leží alespoň
+   částečně okres Litoměřice. Kolik mapových listů potom leží v tomto
+   okresu celou svojí plochou?</p>
+</li>
+<li>
+<p>Kolik železničních stanic leží v lese a zároveň jejich název
+   nezačíná na písmeno 'L'?</p>
+</li>
+<li>
+<p>Které silnice (uveďte jejich číslo) druhé třídy procházejí oblastí
+   bažin a rašelinišť?</p>
+</li>
+<li>
+<p>Jaká je průměrná nadmořská výška výškových kót na území
+   Středočeského kraje?</p>
+</li>
+<li>
+<p>Kolik vodních ploch leží alespoň částí své plochy ve vzdálenosti
+    do 10 km od poledníku se zeměpisnou délkou 15°?</p>
+</li>
+<li>
+<p>Kolik obcí se dotýká alespoň jedním liniovým segmentem hranice kraje?</p>
+</li>
+<li>
+<p>Vyberte katastrální území, ve kterých leží alespoň částečně jedna
+    vodní plocha, seskupte tyto území podle kódu NUTS (LAU1). Uveďte
+    jaký kód NUTS má největší výměru a z kolika katastrálních území se
+    skládá?</p>
+</li>
+<li>
+<p>Uveďte souřadnice reprezentačního bodu (centroidu) největší vodní
+    nádrže v Libereckém kraji. O jakou vodní nádrž se jedná?</p>
+</li>
+<li>
+<p>Kolik obcí leží celou svojí plochou na mapovém listu "Pardubice"
+    ZM 1<nowiki>:</nowiki>25 000. Do kolika ORP tyto obce patří a
+    které to jsou?</p>
+</li>
+<li>
+<p>Kolik obcí v ČR leží svoji plochou alespoň na dvou mapových
+    listech Základní mapy 1:50 000?</p>
+</li>
+</ol>
+</div>
+<p><br><br><br><br><br></p>
+<!-- __:material-account-edit:{.lg .middle}VC__{style="font-size:70%;color:var(--md-code-fg-color);background-color:var(--md-code-bg-color);padding:.3em .5em;border-radius:.5rem;"}
+{align=center} -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
