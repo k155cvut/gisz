@@ -98,32 +98,181 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} [**__Ing. Tomáš Janata, Ph.D.__**](https://geomatics.fsv.cvut.cz/employees/tomas-janata/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export%400.5x-16.jpg){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} [**__Mgr. Petra Justová, Ph.D.__**](https://geomatics.fsv.cvut.cz/employees/petra-justova/)__&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} **__Ing. Tereza Černohousová__** __&nbsp;__{style="margin-left:1rem;"}![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/iconmonstr-user-male-thin.png){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} **__Ing. Filip Roučka__**
 
-1. Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS
 
-2. Reálný svět × GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost
+<style>
+.schedule-table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    font-size: 0.92rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-3. Geografická poloha v GIS, prostorové vztahy, atributy
+/* Základní nastavení buněk */
+.schedule-table th,
+.schedule-table td {
+    vertical-align: middle !important;
+    padding: 0.65em 0.8em !important;
+}
 
-4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
+/* Hlavička */
+.schedule-table thead th {
+    background: var(--md-primary-fg-color);
+    color: white;
+    font-weight: 600;
+    border-bottom: none !important;
+}
 
-5. Vektorový a rastrový GIS, datová struktura
+/* Jemné střídání standardních řádků */
+.schedule-table tbody tr:not(:has(.schedule-note)):nth-child(even) {
+    background-color: var(--md-default-fg-color--lightest);
+}
 
-6. Rastrový GIS, atributová data
+/* Zvýraznění standardního řádku při přejetí */
+.schedule-table tbody tr:not(:has(.schedule-note)):hover {
+    background-color: color-mix(
+        in srgb,
+        var(--md-primary-fg-color) 8%,
+        transparent
+    );
+}
 
-7. Vektorový GIS, druhy objektů
+/* Číslo cvičení */
+.schedule-table tbody tr:not(:has(.schedule-note)) td:first-child {
+    font-weight: 700;
+    color: var(--md-primary-fg-color);
+    text-align: center;
+}
 
-8. Geometrické a topologické vlastnosti objektů ve vektorovém GIS
+/* Data paralel */
+.schedule-table th:nth-child(2),
+.schedule-table th:nth-child(3),
+.schedule-table th:nth-child(4),
+.schedule-table th:nth-child(5),
+.schedule-table td:nth-child(2),
+.schedule-table td:nth-child(3),
+.schedule-table td:nth-child(4),
+.schedule-table td:nth-child(5) {
+    text-align: center;
+    white-space: nowrap;
+}
 
-9. Vektorová a rastrová reprezentace prostorových objektů
+/* Téma */
+.schedule-table td:nth-child(6) {
+    line-height: 1.35;
+}
 
-10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
+/* Sloupec odevzdání */
+.schedule-table td:nth-child(7) {
+    min-width: 12em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* ---------- Testy a odevzdání ---------- */
+
+.schedule-test {
+    display: inline-block;
+    padding: 0.22em 0.55em;
+    border-radius: 5px;
+    background-color: #fff3cd;
+    color: #664d03;
+    font-weight: 600;
+}
+
+.schedule-deadline {
+    display: inline-block;
+    padding: 0.22em 0.55em;
+    border-radius: 5px;
+    background-color: #e7f1ff;
+    color: #084298;
+    font-weight: 600;
+}
+
+
+/* ---------- Organizační mezilehlé řádky ---------- */
+
+.schedule-table tbody tr:has(.schedule-note) {
+    background-color: color-mix(
+        in srgb,
+        var(--md-primary-fg-color) 4%,
+        var(--md-default-bg-color)
+    );
+}
+
+.schedule-table tbody tr:has(.schedule-note) td {
+    padding-top: 0.28em !important;
+    padding-bottom: 0.28em !important;
+    border-top: 1px dashed var(--md-default-fg-color--lightest);
+    border-bottom: 1px dashed var(--md-default-fg-color--lightest);
+    font-size: 0.86em;
+}
+
+/* Organizační informace obecně */
+.schedule-note {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Odpadlá výuka */
+.schedule-cancel {
+    color: #b3261e;
+    font-weight: 600;
+}
+
+/* Q&A */
+.schedule-qa {
+    color: var(--md-primary-fg-color);
+    font-weight: 600;
+}
+
+
+/* ---------- Menší displeje ---------- */
+
+@media screen and (max-width: 900px) {
+    .schedule-table {
+        font-size: 0.82rem;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.5em !important;
+    }
+
+    .schedule-table tbody tr:has(.schedule-note) td {
+        padding-top: 0.25em !important;
+        padding-bottom: 0.25em !important;
+    }
+}
+</style>
+
+
+| **cv.** | **C101** | **C102** | **C103** | **C104** | **téma** | **odevzdání / test** |
+| :---: | :---: | :---: | :---: | :---: | --- | --- |
+| 1 | 23.9. | 22.9. | 25.9. | 25.9. | Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka | |
+| 2 | 30.9. | 29.9. | 2.10. | 2.10. | Vektorová data, atributové dotazy, prostorové dotazy, souřadnicové systémy | |
+| 3 | 7.10. | 6.10. | 9.10. | 9.10. | Prostorové funkce (geoprocessing), spatial join | |
+| 4 | 14.10. | 13.10. | 16.10. | 16.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13.–16.10. průběžný test (30 min)</span> |
+| 5 | 21.10. | 20.10. | 23.10. | 23.10. | Rastrová data, tvorba digitálního modelu terénu | |
+|  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
+| 6 | 4.11. | 27.10. | 30.10. | 30.10. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">do 2.11.<br>technická zpráva</span> |
+| 7 | 11.11. | 3.11. | 6.11. | 6.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2) | |
+| 8 | 18.11. | 10.11. | 11.11. | 11.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
+|  |  | <span class="schedule-note schedule-cancel">17.11.– odpadá</span> |  |  |  |  |
+| 9 | 25.11. | 24.11. | 20.11. | 20.11. | ArcGIS Online, tvorba webových mapových aplikací | |
+|  |  |  | <span class="schedule-note schedule-qa">27.11. – Q&A</span> | <span class="schedule-note schedule-qa">27.11. – Q&A</span> |  |  |
+| 10 | 2.12. | 1.12. | 4.12. | 4.12. | Viditelnost, interpolace, mapová algebra 2 | |
+| 11 | 9.12. | 8.12. | 11.12. | 11.12. | Hydrologické analýzy, ModelBuilder | |
+| 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>webová mapová aplikace</span> |
 
 
 ### **Podmínky zápočtu**
 
-Každý student odevzdává jeden mapový poster formátu A3 či webovou mapovou aplikaci / story mapu / 3D scénu, kde budou prezentovány výsledky jedné z [modelových úloh](/semestralka) dle vlastního výběru. Modelové úlohy jsou zpracovány v průběhu praktických cvičení a jsou tak z převážné části zpracovány během výuky.
-
-Termín odevzdání: __neděle 31. ledna 2027__{.outlined} 
+- získání min. 60 % bodů v průběžném testu (4. týden semestru) 
+- odevzdání a prezentace [semestrální práce](#semestralka) ve stanovených termínech (technická zpráva + webová mapová aplikace)
 
 
 
