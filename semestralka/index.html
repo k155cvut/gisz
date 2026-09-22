@@ -1,0 +1,1571 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../data/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Semestrální práce - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semestralni-prace" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semestrální práce
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cviceni/cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#cast-i-zakladni-charakteristika-uzemi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sprava-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Správa dat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-zakladni-charakteristika-uzemi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Základní charakteristika území
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-soucasny-stav-vyuziti-krajiny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Současný stav využití krajiny
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cast-ii-analyza-uzemi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ČÁST II – ANALÝZA ÚZEMÍ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ČÁST II – ANALÝZA ÚZEMÍ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-historicky-stav-vyuziti-krajiny" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Historický stav využití krajiny
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-charakteristiky-reliefu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Charakteristiky reliéfu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-viditelnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Viditelnost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-tvorba-mapove-aplikace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. tvorba mapové aplikace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 class="page_title" id="semestralni-prace">Semestrální práce</h1>
+<p>Semestrální práce je zaměřena na aplikaci základních nástrojů vektorových a rastrových prostorových analýz v zadaném území, a je rozdělena do dvou částí:</p>
+<ul>
+<li>
+<p><a href="/semestralka/#cast-i-zakladni-charakteristika-uzemi"><strong>ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ</strong></a></p>
+</li>
+<li>
+<p><a href="/semestralka/#cast-ii-analyza-uzemi"><strong>ČÁST II – ANALÝZA ÚZEMÍ</strong></a></p>
+</li>
+</ul>
+<p>Výsledky jednotlivých částí semestrální práce jsou odevzdány a prezentovány ve stanovených termínech (viz níže).</p>
+<p>Dotazy či připomínky k semestrální práci směřujte k vyučujícím Vaší paralelky.</p>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c3.31 0 6 2.66 6 5.95C18 12.41 12 19 12 19S6 12.41 6 7.95C6 4.66 8.69 2 12 2m0 4a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m8 13c0 2.21-3.58 4-8 4s-8-1.79-8-4c0-1.29 1.22-2.44 3.11-3.17l.64.91C6.67 17.19 6 17.81 6 18.5c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5c0-.69-.67-1.31-1.75-1.76l.64-.91C18.78 16.56 20 17.71 20 19"></path></svg></span> <strong>Výběr území</strong> </p>
+<hr>
+<ol>
+<li>
+<p><strong>Výběr</strong> katastrálního území dle <a href="https://arcg.is/1ePSnC"><strong>této mapy</strong></a></p>
+</li>
+<li>
+<p><strong>Zadání</strong> názvu vybraného katastrálního území do <a href="https://docs.google.com/spreadsheets/d/1g2wl-ERTO59lgwzLRXmvFsilolLZivnxeKEC8jEvaN0/"><strong>sdílené tabulky</strong></a> nejpozději <strong class="outlined">do neděle 4. října 2026, 23.59hod</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 14H7v2h7m5 3H5V8h14m0-5h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-2 7H7v2h10z"></path></svg></span> <strong>Termíny odevzdání</strong></p>
+<hr>
+<ul>
+<li><strong>část I:</strong> <strong class="outlined">neděle 1. listopadu 2026, 23.59hod</strong></li>
+<li><strong>část II:</strong> <strong class="outlined">15.–18. prosince 2026</strong></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="level-1">
+
+<h2 id="cast-i-zakladni-charakteristika-uzemi">ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ</h2>
+<p><strong>Cíl</strong></p>
+<ul>
+<li>tvorba tematické geodatabáze pro zadané katastrální území,</li>
+<li>zjištění základních charakteristik o území.</li>
+</ul>
+<!--- tvorba mapového výstupu.-->
+
+<p><strong>Výstupy</strong></p>
+<ul>
+<li>technická zpráva ve formátu PDF</li>
+<li>tematická geodatabáze  </li>
+</ul>
+<p>Termín odevzdání: <strong class="outlined">neděle 1. listopadu 2026, 23.59hod</strong></p>
+<p>Úloha je uznána, pokud výstupy obsahují <strong>všechny požadované náležitosti</strong> (viz níže).</p>
+<details class="note-grey" open="open">
+<summary>Požadované náležitosti technické zprávy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path></svg></span></summary>
+<ul>
+<li>formát odevzdání <strong>PDF</strong>, název souboru <strong class="no-dec outlined">PrijmeniJmeno_NazevKU_KodKU.pdf</strong>, případně <strong class="no-dec outlined">PrijmeniJmeno_NazevKU_KodKU_oprava01.pdf</strong></li>
+<li>rozpiska se <strong>jménem</strong>, <strong>názvem úlohy</strong>, <strong>individuálním číslem zadání</strong> a <strong>názvem a kódem zadaného katastrálního území</strong></li>
+<li>jsou uvedeny všechny požadované <strong>charakteristiky</strong> a <strong>odpovědi</strong> na otázky uvedené v zadání úlohy včetně <strong>stručného postupu jejich řešení</strong> (použité nástroje apod.)</li>
+<li><strong>tabulky a grafy</strong> dle zadání</li>
+<li><strong>závěr</strong> s krátkým (3 až 6 vět) objektivním hodnocením výsledků úlohy. Lze např. zhodnotit, proč jsou některé výsledky takové, jaké jsou. Nebo zmínit využití podobné úlohy ve vašem oboru.</li>
+</ul>
+</details>
+<details class="note-grey" open="open">
+<summary>Požadované náležitosti tematické geodatabáze <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"></path></svg></span></summary>
+<ul>
+<li>formát odevzdání <strong>gdb</strong>, název souboru <strong class="no-dec outlined">PrijmeniJmeno_NazevKU_KodKU.gdb</strong>, případně <strong class="no-dec outlined">PrijmeniJmeno_NazevKU_KodKU_oprava01.gdb</strong></li>
+<li>obsahuje dva tematické feature datasety s názvy <strong class="no-dec outlined">CharakteristikaUzemi</strong> a <strong class="no-dec outlined">AnalyzaUzemi</strong></li>
+<li>v datasetech jsou uloženy <strong>vhodně pojmenované datové vrstvy</strong> dle zadání úlohy</li>
+</ul>
+</details>
+<hr>
+<h3 id="1-sprava-dat"><strong>1. Správa dat</strong></h3>
+<p><strong>Vytvořte souborovou geodatabázi</strong> s názvem <code>NazevKU_KodKU_PrijmeniJmeno.gdb</code>, v rámci které budete ukládat a spravovat vektorová a rastrová data v souřadnicovém systému JTSK za zvolené katastrální území. V rámci geodatabáze <strong>vytvořte dva tematické feature datasety</strong> s názvy <code>CharakteristikaUzemi</code> a <code>AnalyzaUzemi</code>, do kterých budete ukládat vstupní data, resp. výsledky jednotlivých analýz (viz zadání jednotlivých úloh). </p>
+<hr>
+<h3 id="2-zakladni-charakteristika-uzemi"><strong>2. Základní charakteristika území</strong></h3>
+<p><strong>a. Pro zadané území vyhledejte následující datové vrstvy:</strong></p>
+<ul>
+<li>polygonové vymezení katastrálního území,</li>
+<li>stavební objekty,</li>
+<li>parcely,</li>
+<li>vodní toky,</li>
+<li>vodní plochy,</li>
+<li>povodí,</li>
+<li>silnice,</li>
+<li>železnice,</li>
+<li>kótované body,</li>
+<li>geologické podloží.</li>
+</ul>
+<p>Vybrané datové vrstvy exportujte pouze v rozsahu zadaného katastrálního území do tematického datasetu <code>CharakteristikaUzemi</code>. Do datasetu uložte také liniovou hranici katastrálního území. V technické zprávě vytvořte přehlednou tabulku s informacemi o datových vrstvách <em>(název vrstvy – poskytovatel / zdroj dat – CRS – URL)</em>.</p>
+<ul>
+<li>
+<p><strong>Podmínka:</strong> Minimálně jedna datová vrstva bude extrahována z mapové služby.</p>
+</li>
+<li>
+<p><strong>Doporučené datové zdroje:</strong> RÚIAN, ZABAGED, DIBAVOD, ČGS</p>
+</li>
+</ul>
+<p><br></p>
+<p><strong>b. Z datových vrstev zjistěte následující charakteristiky území:</strong></p>
+<ul>
+<li>rozloha katastrálního území v km²,</li>
+<li>příslušnost k obci,</li>
+<li>počet stavebních objektů,</li>
+<li>příslušnost k povodí,</li>
+<li>hustota vodní sítě v km/km²,</li>
+<li>celková plocha rybníků v km²,</li>
+<li>celková délka silnic a železnic v km,</li>
+<li>průměrná výška kótovaných bodů v m n. m.,</li>
+<li>převažující typ horniny (% plochy k. ú.).</li>
+</ul>
+<p>V technické zprávě uveďte zjištěné chrakteristiky území a uveďte stručný postup jejich řešení (použité nástroje apod.).</p>
+<details class="note-grey" open="open">
+<summary>Výstupy Úlohy č. 2</summary>
+<ul>
+<li>datové vrstvy v tematickém datasetu geodatabáze,</li>
+<li>přehledná tabulka s informacemi o datových vrstvách <em>(vrstva – poskytovatel / zdroj dat – CRS – URL)</em>,</li>
+<li>základní charakteristiky území + stručný postup zjištění dané charakteristiky <em>(použité nástroje, printscreen)</em>.</li>
+</ul>
+</details>
+<hr>
+<h3 id="3-soucasny-stav-vyuziti-krajiny"><strong>3. Současný stav využití krajiny</strong></h3>
+<p><strong>a. Vytvořte datovou vrstvu využití krajiny dle následujícího postupu:</strong></p>
+<ul>
+<li>
+<p>Zdroj dat: <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7zm7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7zm0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7z"></path></svg></span> RÚIAN</em>, <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Parcela</em></p>
+</li>
+<li>
+<p>Pro urychlení výpočtu nejprve vyberte parcely na základě atributu <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"></path></svg></span> Nadřazené katastrální území</em>.</p>
+</li>
+<li>
+<p>Dle atributů v tabulce níže vypočítejte pro data nový sloupec <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"></path></svg></span> TYP_VYUZITI</em>, na základě kterého vrstvu následně vhodně vizualizujte. Číselníky pro přiřazení kódů: <a href="https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-pozemku.aspx">Způsob využití pozemku</a>, <a href="https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Druh-pozemku.aspx">Kód druhu pozemku</a>.</p>
+</li>
+<li>Závěrem proveďte <em>Dissolve</em> dle atributu <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"></path></svg></span> TYP_VYUZITI</em>.</li>
+</ul>
+<details class="task-fg-color">
+<summary>Jak na to?</summary>
+<p>Data se vhodně protřídí dle kódů níže pomocí funkce <em>Select by attributes</em> (využití spojky AND pro určení kódů z obou sloupců <em>SC_D_POZEMKU</em> a <em>SC_ZP_VYUZITI_POZ</em> najednou). Takto vybraným plochám se následně přiřadí nový atribut. </p>
+<p>Například pro určení orné půdy vybereme <em>SC_D_POZEMKU</em> = 2. Pro určení zastavěné plochy už budeme muset využít oba sloupce s kódy pozemků, a tedy musíme vybrat <em>SC_D_POZEMKU</em> = 13 a <em>SC_ZP_VYUZITI_POZ</em>  <em>is Null</em></p>
+<p>V případě určování typu využití pozemku (sloupec <em>TYP_VYUZITI</em>) pro atributy <em>ostatní</em> a <em>komunikace</em> musí platit výběr prvků ze sloupců <em>Kód druhu pozemku</em> a <em>Způsob využití pozemku</em> zároveň (tedy využití <em>AND</em> ve funkci <em>Select by attributes</em>).</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>Typ využití pozemku <em>TYP_VYUZITI</em> (vypočtené)</th>
+<th>Kód druhu pozemku <em>SC_D_POZEMKU</em></th>
+<th>Způsob využití pozemku <em>SC_ZP_VYUZITI_POZ</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orná půda</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>lesní půda</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trvalý travní porost</td>
+<td>7,&nbsp;8</td>
+<td>-</td>
+</tr>
+<tr>
+<td>zahrada</td>
+<td>5,&nbsp;6</td>
+<td>-</td>
+</tr>
+<tr>
+<td>vodstvo</td>
+<td>11</td>
+<td>-</td>
+</tr>
+<tr>
+<td>zastavěná plocha</td>
+<td>13</td>
+<td><em>Null</em></td>
+</tr>
+<tr>
+<td>nádvoří</td>
+<td>13</td>
+<td><em>Not Null</em></td>
+</tr>
+<tr>
+<td>komunikace</td>
+<td>3,&nbsp;4&nbsp;,&nbsp;14</td>
+<td>14,&nbsp;15,&nbsp;16,&nbsp;17</td>
+</tr>
+<tr>
+<td>ostatní</td>
+<td>3,&nbsp;4&nbsp;,&nbsp;14</td>
+<td>vše kromě 14,&nbsp;15,&nbsp;16,&nbsp;17</td>
+</tr>
+</tbody>
+</table>
+<p>Výslednou datovou vrstvu exportujte do tematického datasetu <code>AnalyzaUzemi</code>.</p>
+<p><strong>b. Určete rozlohu (v ha) a podíl zastoupení (v %) jednotlivých typů krajiny (viz výše) na celkové rozloze katastrálního území. Následně odpovězte na tyto otázky:</strong></p>
+<ul>
+<li>Který typ krajinného pokryvu na území převažuje?</li>
+<li>Jaký podíl území tvoří zemědělsky využívané plochy (= OP, TTP, zahrada)?</li>
+<li>Jaký podíl tvoří lesní a jiné přírodě blízké plochy?</li>
+<li>Jaký podíl území je zastavěný nebo jinak urbanizovaný?</li>
+</ul>
+<p>Výsledky zpracujte do přehledné tabulky a grafu.</p>
+<!--
+<br>
+
+__c. Vytvořte jednoduchou mapovou vizualizaci, která bude povinně obsahovat tyto části:__
+
+
+- __Mapový obsah__
+
+    - hranice katastrálního území,
+    - vhodně barevně rozlišené typy krajinného pokryvu,
+    - geografické názvy základních sídelních útvarů.
+
+- __Základní kompoziční prvky__
+
+    - název,
+    - legendu,
+    - grafické měřítko,
+    - severku,
+    - zdroj dat,
+    - tiráž (jméno a příjmení autora, afiliace, rok)
+
+Výslednou mapovou vizualizaci exportujte ve formátu PDF, velikost A4 (orientace dle charakteru území) s rozlišením 150 dpi. -->
+
+<details class="note-grey" open="open">
+<summary>Výstupy Úlohy č. 3</summary>
+<ul>
+<li>datové vrstvy v tematickém datasetu geodatabáze,</li>
+<li>přehledná tabulka a graf využití krajiny + odpovědi na otázky.
+<!-- - mapa krajinného pokryvu (PDF, A4, 150 dpi). --></li>
+</ul>
+</details>
+<p><br></p>
+<hr class="level-1">
+
+<h2 id="cast-ii-analyza-uzemi">ČÁST II – ANALÝZA ÚZEMÍ</h2>
+<p><strong>Cíl</strong></p>
+<ul>
+<li>použití základních geoprocessingových nástrojů,</li>
+<li>tvorba webové mapové aplikace.</li>
+</ul>
+<p><strong>Výstupy</strong></p>
+<ul>
+<li>webová mapová aplikace</li>
+</ul>
+<p>Termín odevzdání: <strong class="outlined">15.–18. prosince 2026</strong></p>
+<p>Úloha je uznána, pokud výstupy obsahují <strong>všechny požadované náležitosti</strong> (viz níže).</p>
+<details class="note-grey" open="open">
+<summary>Požadované náležitosti webové mapové aplikace <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15 19-6-2.11V5l6 2.11M20.5 3h-.16L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5c.05 0 .11 0 .16-.03L9 18.9l6 2.1 5.64-1.9c.21-.1.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5"></path></svg></span></summary>
+<ul>
+<li>název aplikace <strong class="no-dec outlined">PrijmeniJmeno_NazevKU_KodKU_GISZ_2026</strong>,</li>
+<li>webová aplikace obsahuje všechny povinné tematické sekce,</li>
+<li>ve webové aplikaci jsou všechny webové mapy a zadané charakteristiky (ve formě tabulek, grafů či slovního komentáře),</li>
+<li>podkladová mapa v S-JTSK – Základní topografická mapa nebo Ortofoto od Zeměměřického úřadu,</li>
+<li>sdílení webových map i webové aplikace je nastaveno jako <strong>"v rámci organizace"</strong>, <strong class="icon-exclm no-dec" style="color:#c22521;">bez správného nastavení sdílení nemá vyučující přístup k mapě</strong>.</li>
+</ul>
+</details>
+<hr>
+<h3 id="4-historicky-stav-vyuziti-krajiny"><strong>4. Historický stav využití krajiny</strong></h3>
+<p><strong>a. Pro zadané katastrální území georeferencujte rastry Císařských otisků stabilního katastru (CO) z poloviny 19. století:</strong></p>
+<ul>
+<li>
+<p>Rastry najdete na sdíleném disku <code>S:\K155\Public\data\GISZ\SP2026_CO</code>. Vaše zadání si překopírujte na disk svého počítače.</p>
+</li>
+<li>
+<p>Pro georeferencování využívejte identické body (rohy budov, boží muka), polygony současných parcel či hranice katastrálních území (ta se však mohou lišit oproti stavu v 19. století).</p>
+</li>
+<li>
+<p>Z georeferencovaných rastrů vytvořte mozaiku.</p>
+</li>
+</ul>
+<p><strong>b. Na podkladu CO vektorizujte celé zadané katastrální území:</strong></p>
+<ul>
+<li>
+<p>V případě změny v hranicích katastrálního území vektorizujte pouze prvky spadající do současného vymezení katastru (dle  <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7zm7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7zm0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7z"></path></svg></span> RÚIAN</em>, <em class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> KatastralniUzemi</em>).</p>
+</li>
+<li>
+<p>Rozlišujte následující typy využití ploch (stejně jako v&nbsp;Úloze č. 3 pro data z&nbsp;RÚIAN): </p>
+<ul>
+<li>
+<p>orná půda</p>
+</li>
+<li>
+<p>lesní půda</p>
+</li>
+<li>
+<p>trvalý travní porosty (louky, pastviny)</p>
+</li>
+<li>
+<p>zahrada</p>
+</li>
+<li>
+<p>vodstvo (řeky, potoky, rybníky), nevektorizujte malé vodní toky vyznačené pouze liniově</p>
+</li>
+<li>
+<p>zastavěná plocha</p>
+</li>
+<li>
+<p>nádvoří (okolí domů, neoznačené zahrady, veřejné prostory v&nbsp;intravilánu)</p>
+</li>
+<li>
+<p>komunikace (cesty, silnice, železnice)</p>
+</li>
+<li>
+<p>ostatní lomy, neúrodná půda apod.</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/sempr/legenda-stabilni-katastr.jpg" data-desc-position="bottom"><img alt="CO_legenda" src="../assets/sempr/legenda-stabilni-katastr.jpg" width="1000"></a>
+    </p><figcaption>Značkový klíč Císařských otisků stabilního katastru</figcaption><p></p>
+</figure>
+<ul>
+<li>Vektorizované polygony následně slučte na základě typů využití ploch (funkce <em>Dissolve</em>). Není tedy nutné vektorizovat každou parcelu zvlášť, ale postačí jako jeden polygon zvektorizovat více sousedících parcel stejného typu využití krajiny.</li>
+</ul>
+<p><strong>c. Proveďte topologickou kontrolu vektorizovaných dat CO podle pravidel:</strong></p>
+<ul>
+<li>
+<p><em>Must Not Have Gaps (Area) </em>– nesmí být mezery mezi plochami.</p>
+</li>
+<li>
+<p><em>Must Not Overlap With (Area-Area) </em>– plochy se nesmí překrývat.</p>
+</li>
+<li>
+<p><em>Must Not Overlap (Area)</em> – jednotlivé třídy využití se nesmí překrývat.</p>
+</li>
+</ul>
+<p><strong>d. Určete rozlohu (v ha) a podíl zastoupení (v %) jednotlivých typů krajiny (viz výše) na celkové rozloze katastrálního území. Následně odpovězte na tyto otázky:</strong></p>
+<ul>
+<li>Který typ krajinného pokryvu na území převažuje?</li>
+<li>Jaký podíl území tvoří zemědělsky využívané plochy (= OP, TTP, zahrada)?</li>
+<li>Jaký podíl tvoří lesní a jiné přírodě blízké plochy?</li>
+<li>Jaký podíl území je zastavěný nebo jinak urbanizovaný?</li>
+</ul>
+<p>Výsledky zpracujte do přehledné tabulky a grafu.</p>
+<details class="note-grey" open="open">
+<summary>Výstupy Úlohy č. 4</summary>
+<ul>
+<li>vektorová vrstva historického stavu využití krajiny,</li>
+<li>přehledná tabulka a graf využití krajiny + odpovědi na otázky.</li>
+</ul>
+</details>
+<hr>
+<h3 id="5-charakteristiky-reliefu"><strong>5. Charakteristiky reliéfu</strong></h3>
+<p><strong>a. Vytvořte digitální model reliéfu zadaného území a určete následující výškové charakteristiky:</strong></p>
+<ul>
+<li>
+<p>minimální nadmořská výška,</p>
+</li>
+<li>
+<p>maximální nadmořskou výšku,</p>
+</li>
+<li>
+<p>průměrnou nadmořskou výšku,</p>
+</li>
+<li>
+<p>výškový rozdíl mezi nejnižším a nejvyšším bodem území.</p>
+</li>
+</ul>
+<p><strong>b. Z digitálního modelu terénu vytvořte rastr sklonitosti a orientace svahů. Na základě těchto rastrů určete následující charakteristiky:</strong></p>
+<ul>
+<li>
+<p>průměrný sklon vybraných typů krajinného pokryvu (orná půda, les, TTP),</p>
+</li>
+<li>
+<p>rozlohu (v ha) a podíl zastoupení (v %) 4 základních kategorií orientace svahů na celkové rozloze zadaného území.</p>
+</li>
+</ul>
+<details class="task-fg-color">
+<summary>Kategorie orientace svahů</summary>
+<p>Při analýze uvažujte tyto 4 základní kategorie orientace svahů:</p>
+<ul>
+<li>azimut 45°–135° <em>(SV-V-JV)</em></li>
+<li>azimut 135°–225° <em>(JV-J-JZ)</em></li>
+<li>azimut 225°–315° <em>(JZ-Z-SZ)</em></li>
+<li>azimut 315°–360° a 0°–45° <em>(SZ-S-SV)</em></li>
+</ul>
+</details>
+<details class="note-grey" open="open">
+<summary>Výstupy Úlohy č. 5</summary>
+<ul>
+<li>rastry DMT, sklonitosti a orientace,</li>
+<li>vybrané charakteristiky reliéfu.</li>
+</ul>
+</details>
+<hr>
+<h3 id="6-viditelnost"><strong>6. Viditelnost</strong></h3>
+<p><strong>a. Vytvořte rastr viditelnosti z rozhledny umístěné na nejvyšším bodě zadaného území:</strong> </p>
+<ul>
+<li>Jako nejvyšší bod zvolte kótovaný bod s nejvyšší nadmořskou výškou</li>
+</ul>
+<details class="task-fg-color">
+<summary>Parametry analýzy</summary>
+<p>Při analýze uvažujte následující parametry rozhledny:</p>
+<ul>
+<li>výška stavby (35 m),</li>
+<li>výška pozorovacího ochozu rozhledny (32 m),</li>
+<li>průměrná výška pozorovatele (1,8 m).</li>
+</ul>
+</details>
+<p><strong>b. Určete, jaké procento všech stavebních objektů na zadaném území, je viditelné alespoň z 20 %.</strong></p>
+<p><strong>c. Vhodným nastavením symbologie vizualizujte SO dle procenta viditelnosti.</strong></p>
+<details class="note-grey" open="open">
+<summary>Výstupy Úlohy č. 6</summary>
+<ul>
+<li>rastr viditelnosti,</li>
+<li>vybraný kótovaný bod,</li>
+<li>slovní odpověď,</li>
+<li>vektorová vrstva SO barevně odlišených dle procenta viditelnosti.</li>
+</ul>
+</details>
+<hr>
+<h3 id="7-tvorba-mapove-aplikace"><strong>7. tvorba mapové aplikace</strong></h3>
+<p><strong>a. Do prostředí ArcGIS Online vypublikujte následující datové vrstvy:</strong></p>
+<ul>
+<li>
+<p>současný stav využití krajiny <a href="/semestralka/#3-soucasny-stav-vyuziti-krajiny"><em>(viz Úloha č. 3)</em></a></p>
+</li>
+<li>
+<p>historický stav využití krajiny v pol. 19. století <a href="/semestralka/#4-historicky-stav-vyuziti-krajiny"><em>(viz Úloha č. 4)</em></a></p>
+</li>
+<li>
+<p>rastry DMT, sklonitosti a orientace <a href="/semestralka/#5-charakteristiky-reliefu"><em>(viz Úloha č. 5)</em></a></p>
+</li>
+<li>
+<p>rastr viditelnosti <a href="/semestralka/#6-viditelnost"><em>(viz Úloha č. 6)</em></a></p>
+</li>
+<li>
+<p>vybraný kótovaný bod a SO rozlišené dle procenta viditelnosti <a href="/semestralka/#6-viditelnost"><em>(viz Úloha č. 6)</em></a></p>
+</li>
+</ul>
+<p><strong>b. Vytvořte webovou mapovou aplikaci, která bude obsahovat 4 tematické části:</strong></p>
+<ul>
+<li>
+<p><strong>Obecné informace o území</strong></p>
+</li>
+<li>
+<p><strong>Vývoj využití krajiny</strong></p>
+<ul>
+<li>
+<p>ve webové mapě 1 zobrazte historický stav využití krajiny,</p>
+</li>
+<li>
+<p>ve webové mapě 2 zobrazte současný stav využití krajiny,</p>
+</li>
+<li>
+<p>pro oba časové řezy vždy pod webovou mapou uveďte přehlednou tabulku a graf podílu zastoupení (v %) jednotlivých typů krajiny na celkové rozloze zadaného území a slovně okomentujte zadané otázky ,</p>
+</li>
+<li>
+<p>ve webové mapě 3 porovnejte vývoj využití krajiny v pol. 19. století se současným stavem využití krajiny <em>(způsob srovnání mapových vrstev zvolte dle vlastního uvážení, např. posuvník v aplikaci, nová vrstva s vypočtenými rozdíly apod.)</em>,</p>
+</li>
+<li>
+<p>uveďte graf zachycující změnu v podílu zastoupení (v %) jednotlivých typů krajiny mezi oběma časovými řezy.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Charakteristiky reliéfu</strong></p>
+<ul>
+<li>
+<p>ve webové mapě 4 zobrazte rastry DMT, sklonitosti a orientace,</p>
+</li>
+<li>
+<p>vhodnou formou uveďte vybrané charakteristiky reliéfu (tabulky, grafy, slovní popis).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Analýza viditelnosti</strong></p>
+<ul>
+<li>
+<p>ve webové mapě 5 zobrazte rastr viditelnosti, vybraný kótovaný bod a SO rozlišené dle procenta viditelnosti,</p>
+</li>
+<li>
+<p>uveďte, jaké procento všech stavebních objektů na zadaném území, je viditelné alespoň z 20 %.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Zdroje dat</strong></p>
+</li>
+</ul>
+<p>Pro všechny mapy ve webové aplikaci použijte podkladovou mapu s názvem <strong>Základní topografické mapy ČR (S-JTSK)</strong>, která je k dispozici na ArcGIS Online od uživatele <em>Zeměměřický úřad</em>. Nastavením podkladové mapy v systému S-JTSK se eliminuje posun některých připojených vrstev (např. Stavebních objektů). Podkladové mapě lze nastavit průhlednost pro lepší čitelnost ostatních mapových vrstev.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/sempr/nastaveni-bm.png" data-desc-position="bottom"><img alt="AGOL_basemap" src="../assets/sempr/nastaveni-bm.png" width="600"></a>
+    </p><figcaption>Změna podkladové mapy v ArcGIS Online</figcaption><p></p>
+</figure>
+<ul>
+<li>
+<p>Mapová aplikace včetně využitých vrstev musí mít nastavené sdílení v ArcGIS Online "v rámci organizace". Název mapové aplikace musí být ve formátu <strong class="outlined">PrijmeniJmeno_NazevKU_KodKU_GISZ_2026</strong></p>
+</li>
+<li>
+<p>Součástí webové aplikace musí být seznam použitých datových zdrojů.</p>
+</li>
+</ul>
+<!--
+### 11. Tvorba webové mapové aplikace
+
+- Vytvořte webovou mapovou aplikaci a vyexportujte do ní požadované vrstvy.
+
+- Na začátek storymapy přidejte obecné informace o obci, např. popis lokality, vývoj počtu obyvatel či zajímavost/památka.
+
+- Pro všechny mapy ve webové aplikaci použijte podkladovou mapu s názvem **Základní topografické mapy ČR (S-JTSK)**, která je k dispozici na ArcGIS Online od uživatele *Zeměměřický úřad*. Nastavením podkladové mapy v systému S-JTSK se eliminuje posun některých připojených vrstev (např. Stavebních objektů). Podkladové mapě lze nastavit průhlednost pro lepší čitelnost ostatních mapových vrstev.
+
+<figure markdown>
+![SMO5_legenda](../assets/sempr/nastaveni-bm.png){ width="600" }
+    <figcaption>Změna podkladové mapy v ArcGIS Online</figcaption>
+</figure>
+
+- Mapová aplikace včetně využitých vrstev musí mít nastavené veřejné sdílení v ArcGIS Online. Název mapové aplikace musí být ve formátu __Prijmeni_Jmeno_GIS1_2026_SP__{.outlined} (tedy například Muzik_Frantisek_GIS1_2026_SP).
+
+- Součástí webové aplikace musí být seznam použitých datových zdrojů.
+
+---
+
+[Ukázková aplikace](https://arcg.is/1SenW80){ .md-button .md-button--primary }
+{: .button_array} -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

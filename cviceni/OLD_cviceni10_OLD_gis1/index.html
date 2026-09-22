@@ -1,0 +1,1276 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cvičení 10 - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qgis-online-publikace-dat" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="../..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cvičení 10
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../semestralka/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestralka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="qgis-online-publikace-dat">QGIS – online publikace dat</h1>
+<h2 id="cil-cviceni">Cíl cvičení</h2>
+<p>Ukázka publikace dat z prostředí QGIS do webového prostoru pomocí publikační platformy <strong>Gisquick</strong>.</p>
+<h2 id="zakladni-pojmy">Základní pojmy</h2>
+<ul>
+<li><a href="https://qgis.org"><strong>QGIS</strong></a> – jeden z nejpoužívanějších open source GIS nástrojů v praxi</li>
+<li><a href="https://gisquick.org/"><strong>Gisquick</strong></a> – jedna z volně dostupných publikačních open source platforem pro QGIS</li>
+</ul>
+<h2 id="pouzite-datove-podklady">Použité datové podklady</h2>
+<ul>
+<li><a href="../../data/#ruian">RÚIAN</a></li>
+<li><a href="../../data#zabaged-polohopis">ZABAGED</a></li>
+<li><a href="https://geoportal.cuzk.cz/(S(2eblduiqqs0a0zubvb2ofuit))/Default.aspx?mode=TextMeta&amp;side=wmts.uvod&amp;text=wmts.uvod&amp;head_tab=sekce-03-gp&amp;menu=315">Prohlížecí služby ČÚZK - WMTS</a></li>
+<li><a href="https://geoportal.cuzk.cz/(S(2eblduiqqs0a0zubvb2ofuit))/Default.aspx?mode=TextMeta&amp;side=wfs&amp;text=wfs&amp;head_tab=sekce-03-gp&amp;menu=333">Stahovací služby ČÚZK - WFS</a></li>
+<li><a href="../../data#openstreetmap">OpenStreetMap</a></li>
+</ul>
+<h2 id="napln-cviceni">Náplň cvičení</h2>
+<p>Pro naši zájmovou obec či menší město zpracujeme projekt v QGIS určený pro online publikaci.</p>
+<h3 id="priprava-projektu">Příprava projektu</h3>
+<p>Nahrajte do prostředí QGIS vstupní geografická data. Pro jednotlivé vrstvy nastavte styl vykreslování.</p>
+<div class="admonition warning">
+<p class="admonition-title">Důležité</p>
+<p>Nejprve vytvoříme na disku novou složku, do které posléze uložíme QGIS projekt a všechny lokální datové zdroje (v našem případě to bude databázový formát OGC GeoPackage).</p>
+</div>
+<h4 id="ruian">RÚIAN</h4>
+<p>Nainstalujeme zásuvný modul pro práci s datovým zdrojem RÚIAN (viz <a href="../cviceni9/">předchozí cvičeni</a>).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/plugin_install.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/plugin_install.png" title="Instalace pluginu"></a></p>
+<p>Vybereme zájmovou obec či menší město a data stáhneme pomocí zásuvného modulu RÚIAN.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_download.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_download.png" title="Stažení dat RÚIAN"></a></p>
+<p>Výchozí symbologie vrstev je nastavena zásuvným modulem:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_data.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_data.png" title="Data RÚIAN"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Poznámka</p>
+<p>Seznam vrstev je ovlivněn dostupností datových vrstev. U menších obcí může například chybět vrstva ulic a další.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_layers.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_layers.png" title="Seznam vrstev RÚIAN"></a></p>
+</div>
+<p>Provedeme v projektu následující změny:</p>
+<ul>
+<li>odstraníme vrstvu "Části obcí" a "Adresní body"</li>
+<li>vypneme vrstvu "Katastrální území"</li>
+<li>přípojíme k vrstvě "Parcely" číselník (viz <a href="../cviceni9/">předchozí cvičeni</a>):   <ul>
+<li><a href="https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Druh-pozemku.aspx">SC_D_POZEMKU</a></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Důležité</p>
+<p>Data načítejte namísto prostého přetažení pomocí dialogu <code>Layer &gt; Data Source Manager</code>. V tomto případě se korektně nastaví datové typy sloupců. Kódování znaků nastavíme na <code>windows-1250</code>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_csv.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_csv.png" title="Přidání CSV tabulek do projektu"></a></p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_csv_detail.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_csv_detail.png" title="Připojená CSV data"></a></p>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úkol</p>
+<p>Podobně přípojíme číselník k vrstvě "Stavební objekty": <a href="https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-stavby.aspx">SC_ZP_VYUZITI_BUD</a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_csv_join.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_csv_join.png" title="Připojení CSV dat k vektorové vrstvě"></a></p>
+<p>Případně i další další číselníky jako např. <a href="https://www.cuzk.cz/Katastr-nemovitosti/Poskytovani-udaju-z-KN/Ciselniky-ISKN/Ciselniky-k-nemovitosti/Zpusob-vyuziti-pozemku.aspx">SC_ZP_VYUZITI_POZ</a> a další.</p>
+</div>
+<ul>
+<li>na základě připojených číselníků nastavíme symbologii vrstev</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_style.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_style.png" title="Nastavený styl parcel"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ukázkové styly ke stažení <a href="https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_styly.zip">zde</a>.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_style_buildings.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_style_buildings.png" title="Nastavení stylu u stavebních objektů"></a></p>
+<ul>
+<li>popisky nastavme tak, aby se zobrazovaly od měřítka 1:1000 (parcelní číslo, číslo domovní)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>U stavebních objektů můžeme nastavit číslo domovní pomocí funkce <code>regexp_substr</code>: <code>replace(regexp_substr("CisloDomovni", '(:\\d+)'), ':', '')</code></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_regex.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_regex.png" title="Popisky stavebních objektů"></a></p>
+</div>
+<ul>
+<li>
+<p>u vrstvy "Základní sídelní jednotky" nastavíme popisky podle atributu "Nazev" (pouze do měřítka 1:5000), nastavíme podklad textu</p>
+</li>
+<li>
+<p>nastavíme cílové pořadí vrstev</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/ruian_result.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/ruian_result.png" title="Pořadí vrstev RÚIAN"></a></p>
+<h4 id="wms-zdroje">WMS zdroje</h4>
+<p>Do projektu přidáme vybrané <a href="https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&amp;side=wms.verejne&amp;text=WMS.verejne.uvod&amp;headtab=sekce-03-gp&amp;menu=311">WMS
+služby</a>
+poskytované ČÚZK. Pokud existuje ale ekvivalentní <a href="https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&amp;side=wmts.uvod&amp;text=wmts.uvod&amp;head_tab=sekce-03-gp&amp;menu=315">WMTS</a>
+služba, zvolíme raději tuto formu. WMTS by měla pozitivně ovlivnit
+rychlost načítání vrstvy.</p>
+<ul>
+<li>ZTM5 - <code>https://ags.cuzk.cz/arcgis1/rest/services/ZTM/MapServer/WMTS</code></li>
+<li>Ortofoto - <code>https://ags.cuzk.cz/arcgis1/rest/services/ORTOFOTO/MapServer/WMTS</code></li>
+</ul>
+<p>Služby přidáme pomocí <code>Layer &gt; Data Source Manager</code>:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/cuzk_wms.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/cuzk_wms.png" title="Definici WMS služby"></a></p>
+<p>Přidané WMS služby nahrajeme do mapového okna. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>WMS vrstvy je užitečné seskupit do nové skupiny:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/cuzk_wms_group.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/cuzk_wms_group.png" title="Seskupení WMS vrstev"></a></p>
+</div>
+<p>Dalším z datových zdrojů mohou být WMS služby poskytované agenturou
+<a href="https://micka.cenia.cz/record/basic/50211b47-f954-4258-9b61-1951c0a80137">CENIA</a>. Pro náš
+účel vyberme III. vojenské mapování: <code>https://gis.cenia.cz/mapcache/III_vojenske_mapovani/wmts?SERVICE=WMTS&amp;REQUEST=GetCapabilities</code>:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/wms_cenia.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/wms_cenia.png" title="Vrstva III. vojenského mapování"></a></p>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úkol</p>
+<p>Přidejte do projektu další zdroje dat jako např. Stínovaný model reliéfu - <code>https://ags.cuzk.cz/arcgis2/services/dmr5g/ImageServer/WMSServer</code>:</p>
+<ul>
+<li>dmr5g:GrayscaleHillshadeZ10</li>
+</ul>
+<p>Dojem plastičnosti můžeme dosáhnout kombinací Základní topografické
+mapy při dané míře průhlednosti. Ukázka vizualizace při míře transparentnosti
+75%:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/cuzk_ztm5.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/cuzk_ztm5.png" title="Ukázka vizualizace Základní topografické mapy"></a></p>
+</div>
+<h4 id="wfs-zdroje">WFS zdroje</h4>
+<p>Do projektu přidáme vybrané <a href="https://geoportal.cuzk.cz/(S(ktfz4kwhtke20faayarg2abz))/Default.aspx?mode=TextMeta&amp;side=wfs&amp;text=wfs&amp;head_tab=sekce-03-gp&amp;menu=333">WFS
+služby</a>
+poskytované ČÚZK. Vybereme následující vrstvy z datového zdroje
+"Stahovací služba WFS - ZABAGED® - polohopis"
+(<code>https://ags.cuzk.cz/arcgis/services/ZABAGED_POLOHOPIS/MapServer/WFSServer</code>):</p>
+<ul>
+<li><code>Lesní_půda_se_stromy_kategorizovaná__plocha_</code></li>
+<li><code>Vodní_plocha</code></li>
+<li><code>Vodní_tok</code></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/zabaged_layers.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/zabaged_layers.png" title="Seznam WFS vrstev ZABAGED"></a></p>
+<p>U jednotlivých vrstev nastavíme symbologii a vrstvy přejmenujeme:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/zabaged_styl.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/zabaged_styl.png" title="Nastavení stylu u WFS vrstev"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Důležité</p>
+<p>Vrstvy, u kterých budeme nastavovat kategorizovaný styl doporučujeme stáhnout do lokální databáze ve formátu GeoPackage (<code>Export &gt; Save features as</code>):</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/zabaged_db.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/zabaged_db.png" title="Uložení dat do nového GeoPackage"></a></p>
+<p>Při stažení dat nastavte korektně zájmové území(!!!):</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/wfs_download_canvas.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/wfs_download_canvas.png" title="Stažení dat WFS zájmové oblasti"></a></p>
+<p>Kategorizované styly jsou ke stažení <a href="https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_styly.zip">zde</a>.</p>
+</div>
+<p>Na závěr nastavme výchozí kompozici. V našem případě jsou parcely
+nastaveny na průhlednost 50%. Na pozadí stínovaná základní
+topografická mapa:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/project_to_publish.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/project_to_publish.png" title="Výsledný projekt před publikací"></a></p>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úkol</p>
+<p>Přidejte do projektu další vhodné WFS vrstvy z datového zdroje ZABAGED, jako např.:</p>
+<ul>
+<li><code>Stožár_elektrického_vedení</code></li>
+<li><code>Mohyla__pomník__náhrobek</code></li>
+<li><code>Kříž__sloup_kulturního_významu</code></li>
+<li><code>Úřad_veřejné_správy_-_definiční_bod</code></li>
+<li><code>Škola_-_definiční_bod</code></li>
+<li><code>Hasičská_stanice__zbrojnice_-_definiční_bod</code></li>
+<li><code>Pošta_-_definiční_bod</code></li>
+<li><code>Elektrické_vedení</code></li>
+<li><code>Silnice__dálnice</code></li>
+<li><code>Vodní_tok</code></li>
+<li><code>Cesta</code></li>
+<li><code>Železniční_trať</code></li>
+<li><code>Hřbitov</code></li>
+<li><code>Skládka</code></li>
+<li><code>Maloplošné_zvlástě_chráněné_území</code></li>
+<li><code>Vinice</code></li>
+</ul>
+<p>Výsledek může pro zájmovou oblast vypadat následovně:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/zabaged_result.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/zabaged_result.png" title="Příklad datových vrstev ZABAGED"></a></p>
+<p><strong>Tip pro pokročilejší uživatele:</strong> QGIS umožňuje také automatizaci ve formě Python skriptů. Ukázka skriptu níže:</p>
+<ul>
+<li>stáhne vybrané vrstvy z WFS</li>
+<li>ořeže prvky hranicí obce</li>
+<li>uloží na disk ve formátu OGC GeoPackage</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># download WFS layer and store in output GPKG</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">download_wfs_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">typename_name</span><span class="p">,</span> <span class="n">layer_ref</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">):</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># define WFS connection</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"pagingEnabled='true' preferCoordinatesForWfsT11='false' restrictToRequestBBOX='1' "</span> \
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>          <span class="sa">f</span><span class="s2">"srsname='EPSG:5514' typename='</span><span class="si">{</span><span class="n">typename_name</span><span class="si">}</span><span class="s2">' url='</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">' version='auto'"</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">layer</span> <span class="o">=</span> <span class="n">QgsVectorLayer</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s2">"WFS_Layer"</span><span class="p">,</span> <span class="s2">"WFS"</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">layer</span><span class="o">.</span><span class="n">isValid</span><span class="p">():</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">options</span> <span class="o">=</span> <span class="n">QgsVectorFileWriter</span><span class="o">.</span><span class="n">SaveVectorOptions</span><span class="p">()</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">options</span><span class="o">.</span><span class="n">driverName</span> <span class="o">=</span> <span class="s2">"GPKG"</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">options</span><span class="o">.</span><span class="n">layerName</span> <span class="o">=</span> <span class="n">layer_name</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">options</span><span class="o">.</span><span class="n">filterExtent</span> <span class="o">=</span> <span class="n">layer_ref</span><span class="o">.</span><span class="n">extent</span><span class="p">()</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="c1"># define temporary output</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">dest</span> <span class="o">=</span> <span class="n">QgsProcessingParameterVectorDestination</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">layer_tmp_path</span> <span class="o">=</span> <span class="n">dest</span><span class="o">.</span><span class="n">generateTemporaryDestination</span><span class="p">()</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="c1"># download WFS data</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">res</span> <span class="o">=</span> <span class="n">QgsVectorFileWriter</span><span class="o">.</span><span class="n">writeAsVectorFormatV3</span><span class="p">(</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">layer</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="n">layer_tmp_path</span><span class="p">,</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="n">layer</span><span class="o">.</span><span class="n">transformContext</span><span class="p">(),</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="n">options</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="c1"># fix invalid geometries</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="n">proc</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"native:fixgeometries"</span><span class="p">,</span> <span class="p">{</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="s1">'INPUT'</span><span class="p">:</span> <span class="n">layer_tmp_path</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="s1">'METHOD'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="s1">'OUTPUT'</span><span class="p">:</span> <span class="s1">'TEMPORARY_OUTPUT'</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="p">})</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="c1"># clip features by reference layer</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">'native:clip'</span><span class="p">,</span> <span class="p">{</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        <span class="s1">'INPUT'</span><span class="p">:</span> <span class="n">proc</span><span class="p">[</span><span class="s1">'OUTPUT'</span><span class="p">],</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="s1">'OVERLAY'</span><span class="p">:</span> <span class="n">layer_ref</span><span class="p">,</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>        <span class="s1">'OUTPUT'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'ogr:dbname="</span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s1">" table="</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s1">" (geom)'</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="p">})</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">"https://ags.cuzk.cz/arcgis/services/ZABAGED_POLOHOPIS/MapServer/WFSServer"</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">layers</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Stožár_elektrického_vedení'</span><span class="p">,</span> 
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Mohyla__pomník__náhrobek'</span><span class="p">,</span> 
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Kříž__sloup_kulturního_významu'</span><span class="p">,</span> 
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Úřad_veřejné_správy_-_definiční_bod'</span><span class="p">,</span> 
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Škola_-_definiční_bod'</span><span class="p">,</span> 
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Hasičská_stanice__zbrojnice_-_definiční_bod'</span><span class="p">,</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Pošta_-_definiční_bod'</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Elektrické_vedení'</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Silnice__dálnice'</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Vodní_tok'</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Cesta'</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Železniční_trať'</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Hřbitov'</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Skládka'</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Maloplošné_zvlástě_chráněné_území'</span><span class="p">,</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Vinice'</span><span class="p">,</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Lesní_půda_se_stromy_kategorizovaná__plocha_'</span><span class="p">,</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>    <span class="s1">'ZABAGED_POLOHOPIS:Vodní_plocha'</span><span class="p">,</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="p">]</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="n">output_path</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">QgsProject</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">readPath</span><span class="p">(</span><span class="s2">"./"</span><span class="p">),</span> <span class="s2">"zabaged.gpkg"</span><span class="p">)</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="n">group_name</span> <span class="o">=</span> <span class="s2">"ZABAGED"</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="c1"># get reference layer</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="n">layer_extent</span> <span class="o">=</span> <span class="n">QgsProject</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">mapLayersByName</span><span class="p">(</span><span class="s1">'Obce'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="c1"># find/add group into layer tree</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="n">root</span> <span class="o">=</span> <span class="n">QgsProject</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">layerTreeRoot</span><span class="p">()</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="n">group</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findGroup</span><span class="p">(</span><span class="n">group_name</span><span class="p">)</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>    <span class="n">group</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">insertGroup</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="k">for</span> <span class="n">type_name</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Processing </span><span class="si">{</span><span class="n">type_name</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>    <span class="n">layer_name</span> <span class="o">=</span> <span class="n">type_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'_'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">)</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>    <span class="c1"># remove non-ascii characters</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a>    <span class="n">layer_output</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^\x00-\x7F]'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>    <span class="n">download_wfs_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">type_name</span><span class="p">,</span> <span class="n">layer_extent</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">layer_output</span><span class="p">)</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a>    <span class="c1"># add new layer into layer tree</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a>    <span class="n">layer_new</span> <span class="o">=</span> <span class="n">QgsVectorLayer</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">|layername=</span><span class="si">{</span><span class="n">layer_output</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span> <span class="s2">"ogr"</span><span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a>    <span class="n">QgsProject</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">addMapLayer</span><span class="p">(</span><span class="n">layer_new</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a>    <span class="n">group</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">layer_new</span><span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"done"</span><span class="p">)</span>
+</code></pre></div>
+<p><video controls="true" allowfullscreen="true" width="99%">
+<source src="../../assets/cviceni10/qgis_wfs_download.webm" type="video/webm" markdown="1">
+</video></p>
+</div>
+<h4 id="dalsi-zdroje-dat">Další zdroje dat</h4>
+<ul>
+<li><a href="https://data.gov.cz/datov%C3%A9-sady">Národní katalog otevřených dat</a></li>
+<li><a href="https://wiki.openstreetmap.org/wiki/Cs:Map_Features">OpenStreetMap</a></li>
+<li>...</li>
+</ul>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úkol</p>
+<p>Přidejte do projektu vrstvu "Občanské vybavenosti" (<a href="https://wiki.openstreetmap.org/wiki/Cs:Map_Features#Ob%C4%8Dansk%C3%A1_vybavenost_(Amenity)">amenity</a>). </p>
+<p>Doinstalujte do QGISu zásuvný modul QuickOSM a pomocí něj vytvořte vrstvu občanské vybavenosti (rozsah území nastavte na základě vrstvy "Obce"):</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/quick_osm.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/quick_osm.png" title="QuickOSM"></a></p>
+<p>Prvky ležící na území obce omezte pomocí nástroje <em>Clip</em> a uložte do nové vrstvy. Nastavte kategorizovanou symbologii podle atributu <code>amenity</code> a přeložte popisky v legendě do češtiny:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/qgis_osm.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/qgis_osm.png" title="Vrstva občanské vybavenosti"></a></p>
+<p>Přidejte do projektu další vhodné vrstvy na základě <a href="https://wiki.openstreetmap.org/wiki/Cs:Map_Features">OpenStreetMap</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Poznámka</p>
+<p>Ukázkový QGIS projekt ke stažení <a href="https://geo.fsv.cvut.cz/vyuka/155gis1/gis1_cv10_projekt.zip">zde</a>.</p>
+</div>
+<h3 id="publikace-projektu">Publikace projektu</h3>
+<p>Podklady: <a href="https://gisquick.readthedocs.io">dokumentace Gisquick</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Důležité</p>
+<p>Pro účel výuky budeme používat vlastní instanci publikačního serveru Gisquick provozované na <strong><a href="http://geo102.fsv.cvut.cz:8083/">http://geo102.fsv.cvut.cz:8083/</a></strong>.</p>
+</div>
+<p>Po <a href="http://geo102.fsv.cvut.cz:8083/user/">přihlášení</a> (<code>SIGN IN</code>) se objeví profil uživatele:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_new_project.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_new_project.png" title="Gisquick: nový projekt"></a></p>
+<p>Vytvoříme nový projekt. Objeví se žádost o instalaci zásuvného modulu:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_plugin.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_plugin.png" title="Gisquick: instalace pluginu"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Poznámka</p>
+<p>Pokud se výše uvedená stránka neobjeví, tak ji najdete na <a href="https://gisquick.org/plugin/">https://gisquick.org/plugin/</a></p>
+</div>
+<p>Při instalaci postupuje podle <a href="https://gisquick.readthedocs.io/en/latest/user-manual/before-publishing.html#qgis-gisquick-plugin">návodu</a> v dokumentaci Gisquick.</p>
+<p>Jelikož pracujeme v projektu s formátem GeoPackage, tak nainstalujeme
+verzi zásuvného modulu Gisquick s podporou dbhash. Tato verze
+zásuvného modulu zamezí znovu nahrávání datových zdrojů ve formátu
+GeoPackage například při změně viditelnosti vrstvy.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_plugin_select.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_plugin_select.png" title="Gisquick: instalace pluginu"></a></p>
+<p>Poté se pomocí zásuvného modulu přihlásíme do prostředí publikační
+platformy Gisquick (<code>Web &gt; Publish in Gisquick</code>). </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_login.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_login.png" title="Gisquick: přihlášeni"></a></p>
+<p>Do publikačního prostředí platformy Gisquick nás přesměruje tlačítko <code>Open Browser</code>:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_login_open.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_login_open.png" title="Gisquick: otevření"></a></p>
+<p>Po vytvoření projektu se objeví úvodní formulář se seznamem vrstev určených k publikaci:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_data_layers.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_data_layers.png" title="Gisquick: seznam vrstev"></a></p>
+<p>Nejprve opravíme případné chyby (<code>Manage Layers Names</code> &gt; <code>Generate Names</code> &gt; <code>Update QGIS Project</code>):</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_data_layers_errors.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_data_layers_errors.png" title="Gisquick: seznam chyb"></a></p>
+<p>Dále povolíme WFS, abychom umožnili uživateli se dotazovat na vektorové vrstvy:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_data_layers_wfs.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_data_layers_wfs.png" title="Gisquick: zapnutí WFS"></a></p>
+<p>Datové vrstvy nahrajeme na publikační server:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_data_layers_load.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_data_layers_load.png" title="Gisquick: nahrání dat"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_create_project.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_create_project.png" title="Gisquick: zadání jména projektu"></a></p>
+<p>Nastavíme titulek projektu:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_title.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_title.png" title="Gisquick: zadání titulku projektu"></a></p>
+<p>Projdeme jednotlivá nastavení projektu:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_menu.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_menu.png" title="Gisquick: menu"></a></p>
+<p>A provedeme následující změny v nastavení:</p>
+<ul>
+<li><code>Map &gt; Extent</code>: prostorový rozsah nastavíme z vrstvy "Obce":</li>
+</ul>
+<video controls="true" allowfullscreen="true" width="99%">
+<source src="../../assets/cviceni10/gisquick_extent.webm" type="video/webm" markdown="1">
+</video>
+
+<ul>
+<li>
+<p><code>Map &gt; Scale</code>: nastavíme vhodnou měřítkovou sadu:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_scales.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_scales.png" title="Gisquick: měřítka"></a></p>
+</li>
+<li>
+<p>v záložce <code>Layers</code> přesuňte vrstvy ze skupiny "WMS" do <code>Base Layers</code> (je nutné přesunout celou skupinu)</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_base_layers.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_base_layers.png" title="Gisquick: podkladové vrstvy"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip pro pokročilé uživatele</p>
+<p>Ke zrychlení načítání vrstev může dojít při vhodně zvolené měřítkové sadě dle <a href="https://geoportal.cuzk.cz/Dokumenty/Dlazdicove_sluzby_CR_v1.1.pdf">specifikace ČÚZK</a>. Případně lze použít WMTS s měřítkovou sadou Google Maps.</p>
+</div>
+<p>A připravený projekt publikujeme (<code>Publish</code>). Po publikaci projektu se objeví tlačítko</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_map.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_map.png" title="Gisquick: mapová aplikace"></a></p>
+<p>které nás přesměruje do mapové aplikace:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_map_app.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_map_app.png" title="Gisquick: zobrazení mapové aplikace"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ve výchozím nastavení je projekt nastaven jako soukromý. Toto nastavení lze změnit v <code>Permissions</code>:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_permissions.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_permissions.png" title="Gisquick: nastavení"></a></p>
+</div>
+<h4 id="dalsi-nastaveni-projektu">Další nastavení projektu</h4>
+<p>Zkusme změnit následující nastavení projektu:</p>
+<ul>
+<li>skryjeme CSV tabulky v záložce <code>Layers</code></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_csv_tables.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_csv_tables.png" title="Gisquick: CSV data"></a></p>
+<video controls="true" allowfullscreen="true" width="99%">
+<source src="../../assets/cviceni10/gisquick_visibility.webm" type="video/webm" markdown="1">
+</video>
+
+<ul>
+<li>nastavíme viditelnost zvolených atributů u vrstvy "Parcely" (kmenové
+  číslo, pododdělení čísla, výměra a druh pozemku)</li>
+</ul>
+<p>Nejprve v QGISu nastavíme u zvolených atributů aliasy (<code>Attributes Form</code> ve vlastnostech vrstvy).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/qgis_field_alias.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/qgis_field_alias.png" title="QGIS: nastavení aliasů"></a></p>
+<p>Změny v QGIS projektu uložíme. V nastavení Gisquick projektu provedeme aktualizaci.</p>
+<video controls="true" allowfullscreen="true" width="99%">
+<source src="../../assets/cviceni10/gisquick_update.webm" type="video/webm" markdown="1">
+</video>
+
+<p>Viditelnost atributů nastavíme z záložce <code>Layers</code>.</p>
+<video controls="true" allowfullscreen="true" width="99%">
+<source src="../../assets/cviceni10/gisquick_field_visibility.webm" type="video/webm" markdown="1">
+</video>
+
+<p>Po uložení změn (<code>Save</code>) znovu načteme mapovou aplikaci.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_field_alias.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_field_alias.png" title="Gisquick: nastavení aliasů"></a></p>
+<p>Po uložení změn se mezi podkladovými vrstvami jednoduše přepínat.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_base_layers_switch.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_base_layers_switch.png" title="Gisquick: přepínaní mezi podkladovými vrstvami"></a></p>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úkol</p>
+<p>Podkladovou vrstvu je možné mít zapnutou pouze jednu. Nelze tedy kombinovat základní topografickou mapu a stínovaný reliéf. Tyto vrstvy lze přesunou zpátky do "Overlays". To bude ale vyžadovat nejprve vrstvy v QGISu přesunout mimo skupinu "WMS" a poté změnit nastavení Gisquick záložce <code>Layers</code>. Výsledek může vypadat následovně:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni10/gisquick_map_app_hillshade.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni10/gisquick_map_app_hillshade.png" title="Gisquick: zobrazení mapové aplikace"></a></p>
+</div>
+<p>Ukázkovou mapovou aplikaci najdete na adrese <a href="http://geo102.fsv.cvut.cz:8083/?PROJECT=gis1/cv10">http://geo102.fsv.cvut.cz:8083/?PROJECT=gis1/cv10</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

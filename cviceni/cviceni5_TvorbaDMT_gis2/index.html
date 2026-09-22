@@ -1,0 +1,1177 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cvičení 5 - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tvorba-digitalniho-modelu-terenu" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="../..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cvičení 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../semestralka/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestralka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tvorba-digitalniho-modelu-terenu">Tvorba digitálního modelu terénu</h1>
+<p align="center" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px;">Ve cvičení se naučíte</p>
+<style>
+    .smaller_padding li {padding:.4rem .8rem !important;}
+    .primary_color {color:var(--md-primary-fg-color);}
+</style>
+
+<div class="grid cards smaller_padding">
+<ul>
+<li>
+<p class="middle" style="display:table-cell;min-width:40px;padding-right:.8rem;"><span class="twemoji xxxl middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14 6-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22z"></path></svg></span></p>
+<p class="middle" style="display:table-cell;line-height:normal;">vytvořit <strong>digitální model terénu</strong> v GIS včetně úpravy <strong>symbologie</strong></p>
+</li>
+<li>
+<p class="middle" style="display:table-cell;min-width:40px;padding-right:.8rem;"><span class="twemoji xxxl middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 21v-3.71l7.78-4.49 3.77 2.2L21 11.25V21zM21 8.94l-6.45 3.73-3.77-2.17L3 15v-2.21l7.78-4.49 3.77 2.2L21 6.75z"></path></svg></span></p>
+<p class="middle" style="display:table-cell;line-height:normal;">zpracovat <strong class="primary_colorx">LiDARová data</strong> a následně je vizualizovat nebo použít v analýzách</p>
+</li>
+</ul>
+</div>
+<hr class="level-1">
+
+<h2 id="zakladni-pojmy">Základní pojmy</h2>
+<ul>
+<li><strong>digitální model terénu (DMT)</strong> – digitální reprezentace prostorových objektů (obecný pojem obsahující různé způsoby vyjádření terénního reiéfu nebo povrchu)</li>
+<li><strong>digitální model reliéfu (DMR)</strong> – digitální reprezentace zemského povrchu (NEbsahuje vegetaci a lidské stavby)</li>
+<li><strong>digitální model povrchu (DMP)</strong> – digitální reprezentace zemského povrchu (obsahuje vegetaci a lidské stavby, které jsou pevně spojené s&nbsp;reliéfem)</li>
+<li><a href="https://pro.arcgis.com/en/pro-app/3.1/help/data/tin/tin-in-arcgis-pro.htm"><strong>TIN</strong></a> – trojúhelníková nepravidelná síť, která nejlépe reprezentuje povrch jako celek</li>
+</ul>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Digitální modely terénu České republiky</span></summary>
+<ul>
+<li><strong>DMP&nbsp;1G</strong> – Digitální model povrchu České republiky 1.&nbsp;generace (DMP&nbsp;1G) představuje zobrazení území včetně staveb a rostlinného pokryvu ve formě nepravidelné sítě výškových bodů (TIN) s&nbsp;úplnou střední chybou výšky <strong>0,4&nbsp;m</strong> pro přesně vymezené objekty (budovy) a <strong>0,7&nbsp;m</strong> pro objekty přesně neohraničené (lesy a další prvky rostlinného pokryvu). Model vznikl z&nbsp;dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v&nbsp;letech 2009 až 2013. </li>
+<li><strong>DMR&nbsp;4G</strong> – Digitální model reliéfu České republiky 4.&nbsp;generace (DMR&nbsp;4G) představuje zobrazení přirozeného nebo lidskou činností upraveného zemského povrchu v&nbsp;digitálním tvaru ve formě výšek diskrétních bodů v&nbsp;pravidelné síti (5&nbsp;x&nbsp;5 m) bodů o&nbsp;souřadnicích X,Y,H, kde H&nbsp;reprezentuje nadmořskou výšku ve výškovém referenčním systému Balt po vyrovnání (Bpv) s&nbsp;úplnou střední chybou výšky <strong>0,3&nbsp;m</strong> v odkrytém terénu a <strong>1&nbsp;m</strong> v&nbsp;zalesněném terénu. Model vznikl z&nbsp;dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v&nbsp;letech 2009 až 2013.</li>
+<li><strong>DMR&nbsp;5G</strong> – Digitální model reliéfu České republiky 5.&nbsp;generace (DMR&nbsp;5G) představuje zobrazení přirozeného nebo lidskou činností upraveného zemského povrchu v&nbsp;digitálním tvaru ve formě výšek diskrétních bodů v&nbsp;nepravidelné trojúhelníkové síti (TIN) bodů o&nbsp;souřadnicích X,Y,H, kde H&nbsp;reprezentuje nadmořskou výšku ve výškovém referenčním systému Balt po vyrovnání (Bpv) s&nbsp;úplnou střední chybou výšky <strong>0,18&nbsp;m</strong> v&nbsp;odkrytém terénu a <strong>0,3&nbsp;m</strong> v&nbsp;zalesněném terénu. Model vznikl z&nbsp;dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v&nbsp;letech 2009 až 2013. Dokončen byl k&nbsp;30.&nbsp;6.&nbsp;2016 na celém území ČR. (Zdroj:&nbsp;ČÚZK)</li>
+</ul>
+</details>
+<h2 id="aplikace-analyzy-vyskopisu">Aplikace Analýzy výškopisu</h2>
+<p>Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Analýzy výškopisu od Českého úřadu zeměměřického a katastrálního. Aplikace umožňuje provádějí základních výškových analýz nad daty DMP&nbsp;1G, DMR&nbsp;4G a DMR&nbsp;5G. Pro každou datovou sadu nabízí několik rastrových funkcí (Stínovaný reliéf, Z-faktor apod.). Do rozhraní je možné přidat i vlastní data, a tedy zefektivnit používání aplikace v&nbsp;reálné praxi.</p>
+<p class="button_array"><a class="md-button md-button--primary button_larger external_link_icon" href="https://ags.cuzk.cz/av/" target="_blank"><span></span>https://ags.cuzk.cz/av/<br>Analýzy výškopisu ČÚZK</a></p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/av_cuzk.png" data-desc-position="bottom"><img alt="Analýzy výškopisu" src="../assets/cviceni2/av_cuzk.png" width="900"></a>
+  </p>
+<figcaption>Analýza pole viditelnosti ze zadaného bodu vypočteného nad DMR&nbsp;5G</figcaption>
+</figure>
+<h2 id="vybrane-zdroje-vyskopisnych-dat">Vybrané zdroje výškopisných dat</h2>
+<ul>
+<li><a href="https://ags.cuzk.cz/geoprohlizec/">ČÚZK Geoprohlížeč</a><ul>
+<li>ZABAGED – <a href="https://ags.cuzk.cz/arcgis/rest/services/ZABAGED_VRSTEVNICE/MapServer">vrstevnice</a>, <a href="https://ags.cuzk.cz/arcgis2/rest/services/dmp1g/ImageServer">DMP&nbsp;1G</a>, <a href="https://ags.cuzk.cz/arcgis2/rest/services/dmr4g/ImageServer">DMR&nbsp;4G</a>,  <a href="https://ags.cuzk.cz/arcgis2/rest/services/dmr5g/ImageServer">DMR&nbsp;5G</a></li>
+<li>INSPIRE – <a href="https://ags.cuzk.cz/arcgis2/rest/services/INSPIRE_Nadmorska_vyska/ImageServer">nadmořská výška (grid)</a>, <a href="https://ags.cuzk.cz/arcgis2/rest/services/INSPIRE_Nadmorska_vyska_TIN/MapServer">nadmořská výška (TIN)</a></li>
+<li>Geoportál Praha – <a href="https://geoportalpraha.cz/vyhledavani?topic=data&amp;type=[opendata]">vrstevnice</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="pouzite-datove-podklady">Použité datové podklady</h2>
+<ul>
+<li>Vrstevnice zdůrazněná, Vodní toky, Vodní plochy (<a href="../../data/#zabaged">ZABAGED</a>)</li>
+<li>Okres (<a href="../../data/#ruian">RÚIAN</a>)</li>
+</ul>
+<h2 id="napln-cviceni">Náplň cvičení</h2>
+<p>Úkolem bude vytvořit TIN z&nbsp;vrstevnic a hydrologicky exaktní model terénu.</p>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Druhy reprezentace digitálního modelu terénu v&nbsp;GIS</span></summary>
+<ul>
+<li>
+<p><strong>vektor</strong></p>
+<ul>
+<li>možnost pokročilejšího modelování vstupních dat</li>
+<li>dobře vystihují tvar terénu, ale nereprezentují povrch jako celek</li>
+<li>vhodné pro využití v&nbsp;kartografii</li>
+</ul>
+</li>
+<li>
+<p><strong>TIN</strong></p>
+<ul>
+<li>nejlépe reprezentuje povrch jako celek</li>
+<li>složitý výpočet</li>
+</ul>
+</li>
+<li>
+<p><strong>rastr</strong></p>
+<ul>
+<li>poskytuje vlivem vzorkování horší celkovou reprezentaci povrchu</li>
+<li>pro analýzy lze využít jednoduché algoritmy</li>
+</ul>
+</li>
+</ul>
+</details>
+<h2 id="postup">Postup</h2>
+<h3 id="tvorba-tin">Tvorba TIN</h3>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Pozn.</span></summary>
+<p>TIN vzniká na základě Delaunayho triangulace. Ta rozdělí vstupní body do tzv. Thiessenových polygonů (také Voroniovy diagramy), pro které platí, že z&nbsp;každého místa polygonu je vzdálenost k&nbsp;danému bodu uvnitř polygonu menší než k&nbsp;jakémukoliv jinému bodu ze zadané množiny. Další krok spočívá v&nbsp;propojení bodů v&nbsp;sousedících polygonech.</p>
+</details>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/triang.png" data-desc-position="bottom"><img alt="Tvorba triangulace" src="../assets/cviceni2/triang.png" width="900"></a>
+  </p>
+<figcaption>Postup tvorby Delaunayho triangulace (vpravo) na základě Thiessenových polygonů (vlevo)</figcaption>
+</figure>
+<p><strong>1.</strong> Nejprve vybereme vhodný zdroj výškopisných dat, která pro výpočet použijeme. V&nbsp;tomto případě se bude jednat o&nbsp;vrstevnice ze ZABAGED, konkrétně využijeme vrstvu <em>Vrstevnice zdůrazněná</em>.</p>
+<p><strong>2.</strong> Většinou není potřeba vytvářet DMT pro celou republiku, což je výpočetně a časově náročné. Pro začátek je tedy vhodné vrstvu vrstevnic oříznout vybraným polygonem pomocí funkce <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm"><em>Clip</em></a>.</p>
+<p><strong>3.</strong> Dále je nutné vytvořit TIN pomocí funkce <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/create-tin.htm"><em>Create TIN</em></a>. Ve funkci určíme zázev a místo uložení výsledného TINu včetně jeho součadnicového systému (dle mapy). Následně vyplníme zdrojovou vrstvu výškových dat <em>Input Features</em>, tedy vrstevnice oříznuté dle určeného polygonu (v&nbsp;tomto případě zvýrazněné vrstevnice v&nbsp;Klatovském okresu). </p>
+<p><strong>4.</strong> Podle zvolených dat je potřeba nastavit další parametry funkce. Atribut výšky <em>Height Field</em> se nastaví automaticky, je potřeba jej ale zkontrolovat. <em>Type</em> určuje typ vstupní vrstvy. Jestliže jsou vstupní vrstvou výškové kóty, zvolíme <em>Mass_Points</em>. V&nbsp;případě vrstevnic se vybere buď <em>Hard_Line</em> či <em>Soft_Line</em>.</p>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Pozn.</span></summary>
+<p>Při vytváření TIN lze kombinovat několik vrstev, tudíž je možné na příklad použít vrstevnice, které budou zpřesněny bodovou vrstvnou výškových kót.</p>
+</details>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/create_tin.png" data-desc-position="bottom"><img alt="Tvorba TIN" src="../assets/cviceni2/create_tin.png"></a>
+  </p>
+<figcaption>Tvorba TIN z vrstevnic</figcaption>
+</figure>
+<p><strong>5.</strong> Podle rozsahu a detailu vstupních dat může výpočet trvat i několik minut. Výsledkem je terén ve formě TINu a případně vrstva vstupních vrstevnic, kterou lze skrýt.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/tin_kt.png" data-desc-position="bottom"><img alt="TIN KT okres" src="../assets/cviceni2/tin_kt.png" width="400"></a>
+  </p>
+<figcaption>Vypočtený TIN pro Klatovský okres</figcaption>
+</figure>
+<p><strong>6.</strong> Pokud je potřeba, můžeme TIN následně upravovat/zpřesňovat dalšími výpočty ve funkci <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/edit-tin.htm"><em>Edit TIN</em></a>.</p>
+<h3 id="prevod-tin-to-raster">Převod TIN to Raster</h3>
+<p><strong>1.</strong> Jestliže máme vytvořený TIN, můžeme pokračovat jeho převedením na rastr pomocí funkce <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/tin-to-raster.htm"><em>TIN to Raster</em></a> (lze převést také rastr do TINu inverzní funkcí).</p>
+<p><strong>2.</strong> Ve funkci je potřeba opět určit parametry výpočtu. <em>Output Data Type</em> určuje datový typ rastru, tedy zda mohou mít jeho pixely hodnoty desetinných čísel <em>Floating Point</em> nebo se hodnoty zaokrouhlí na celá čísla <em>Integer</em>. Dále je potřeba určit metodu interpolace dat <em>Linear</em> nebo <em>Natural Neighbors</em>. Poslední parametr definuje velikost pixelu výstupního rastru.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/tin_tor.png" data-desc-position="bottom"><img alt="TIN to Raster" src="../assets/cviceni2/tin_tor.png"></a>
+  </p>
+<figcaption>Hodnoty funkce TIN to Raster</figcaption>
+</figure>
+<p><strong>3.</strong> Parametr <em>Cell size</em> definující velikost pixelu rastru, je potřeba navolit na základě přesnosti vstupních dat a požadované přesnosti právě výstupního rastru. Vyšší přesnost bude znamenat větší velikost rastru na disku.</p>
+<p><strong>4.</strong> Takto vypočtený TIN a rastr obsahují také hodnoty mimo zájmové území (ořezový polygon). Tyto hodnoty byly dopočteny na základě triangulace a v&nbsp;ideálním případě je vhodné je smazat. To se provede funkcí <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/extract-by-mask.htm"><em>Extract by Mask</em></a>. Jako ořezovou masku nastavíme v&nbsp;tomto případě opět vrstvu Klatovského okresu. </p>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Pozn.</span></summary>
+<p>Ořez je možné provést již pro TIN použitím funkce <em>Edit TIN</em>.</p>
+</details>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/dmt_kt.png" data-desc-position="bottom"><img alt="DMT KT" src="../assets/cviceni2/dmt_kt.png" width="400"></a>
+  </p>
+<figcaption>Výsledný digitální model terénu Klatovského okresu s&nbsp;velikostí pixelu 100&nbsp;m</figcaption>
+</figure>
+<h3 id="tvorba-hydrologicky-korektniho-rastroveho-modelu-terenu">Tvorba hydrologicky korektního rastrového modelu terénu</h3>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Pozn.</span></summary>
+<p>Pro některé úlohy potřebujeme hydrologicky korektní model terénu, ve kterém budou respektovány spádnice a voda tedy teoreticky "nepoteče do kopce". Pro takové analýzy není vhodný klasický DMT, protože kvůli výpočetnímu procesu nesplňuje podmínky hydrologické korektnosti.</p>
+<p>Téma využití GIS pro hydrologické analýzy je jednou z&nbsp;náplní volitelného předmětu <a href="https://storm.fsv.cvut.cz/pro-studenty/predmety/magisterske-studijni-programy/geodezie-a-kartografie-mgr/gis-v-krajinnem-inzenyrstvi/?lang=cz">GIS v&nbsp;krajinném inženýrství</a>.</p>
+</details>
+<p><strong>1.</strong> Hydrologicky korektní model se vypočte funkcí <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/topo-to-raster.htm"><em>Topo To Raster</em></a>, kterou najdeme v&nbsp;rozšíření <em>3D&nbsp;Analyst</em>.</p>
+<p><strong>2.</strong> Do této funkce je možné přidat více vstupních dat než v&nbsp;případě <em>Create TIN</em>. Veškerá vstupní data je potřeba oříznout dle okresu, jinak by byla počítána nadbytečná data, což by mohlo výrazně zvýšit čas výpočtu. Základní vrstvou bude opět <em>Vrstevnice zdůrazněná</em> s&nbsp;typem <em>Contour</em>. </p>
+<p><strong>3.</strong> Dále přidáme tři pomocné vrstvy (ty nemusejí být nutnou součástí funkce, slouží ke zpřesnění výsledku). První z&nbsp;nich budou tvořit vodní toky ze ZABAGED. Pro výpočet je zásadní, aby byla vrstva vodních toků správně orientovaná, tedy po proudu. Vizuální kontrolu lze provést změnou symbologie vrstvy, přičemž nahradíme obyčejnou linii za linii se šipkou na konci. Důležité je pro výpočet vyfiltrovat pouze nadzemní toky. Nastavíme typ <em>Stream</em>.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/vt.png" data-desc-position="bottom"><img alt="Vodni toky" src="../assets/cviceni2/vt.png" width="900"></a>
+  </p>
+<figcaption>Ukázka správného směru vodních toků</figcaption>
+</figure>
+<p><strong>4.</strong> Druhou pomocnou vrstvu budou tvořit vodní plochy opět ze ZABAGED. Té přiřadíme typ <em>Lake</em>. Jako třetí přidáme polygon okresu, čímž docílíme oříznutí výstupního rastru. Pro okres nastavíme typ <em>Boundary</em>.</p>
+<p><strong>5.</strong> Opět je potřeba nastavit velikost buňky, tedy <em>Output cell size</em>, která se zvolí obdobně jako v&nbsp;předchozích případech.</p>
+<p><strong>6.</strong> Další parametry funkce ponecháme ve výchozím nastavení. Jedná se o&nbsp;pokročilé parametry, jejichž úprava souvisí s&nbsp;následným dalším využitím rastru. Pokud bychom je v&nbsp;budoucnu potřebovali, získáme více informací v&nbsp;dokumentaci.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/topotor.png" data-desc-position="bottom"><img alt="Topo To Raster" src="../assets/cviceni2/topotor.png"></a>
+  </p>
+<figcaption>Hodnoty funkce Topo To Raster</figcaption>
+</figure>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Úprava symbologie rastru</span></summary>
+<p>Po vybrání rastrové vrstvy můžeme v&nbsp;horní liště <em>Raster Layer</em> měnit její symbologii, viditelnost či způsob převzorkování (<em>Resampling Type</em>). Díky úpravě těchto parametrů lze z&nbsp;rastrových digitálních modelů terénu vyčíst informace, které nejsou na první pohled zřejmé. Například změna <em>Resapling Type</em> z&nbsp;<em>Nearest Neighbor</em> na <em>Bilinear</em> naprosto vizuálně odstraní pixelování rastru. </p>
+<p>V&nbsp;horní liště <em>Data</em> je možné pro některé rastry vybrat předpřipravené <em>Processing Templates</em>, díky čemuž lze změnit hodnoty rastru. Ku příkladu při importu služby DMR&nbsp;5G ze ZABAGED se zobrazují hodnoty rastru od 0 do 255. Pro zjištění přesných výšek je potřeba nastavit <em>Processing Template</em> na <em>None</em>.</p>
+<p>Díky těmto úpravám můžeme DMT používat jako podkladovou vrstvu pro řadu vizualizací.</p>
+</details>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/dmt_sym.png" data-desc-position="bottom"><img alt="DMT symbologie" src="../assets/cviceni2/dmt_sym.png"></a>
+  </p>
+<figcaption>Ukázky různých možností symbologie totožného rastru</figcaption>
+</figure>
+<h2 id="zpracovani-las">Zpracování LAS</h2>
+<h2 id="zakladni-pojmy_1">Základní pojmy</h2>
+<ul>
+<li>
+<p><strong><a href="https://www.geosken.cz/co-je-lidar-a-jak-funguje/">LiDAR</a></strong> – metoda dálkového měření vzdálenosti na základě výpočtu doby šíření pulsu laserového paprsku odraženého od snímaného objektu</p>
+</li>
+<li>
+<p><strong><a href="https://pro.arcgis.com/en/pro-app/3.1/help/data/las-dataset/las-dataset-in-arcgis-pro.htm">LAS</a></strong> – datový formát mračna bodů (point cloud) získaných laserovým skenováním</p>
+</li>
+</ul>
+<h2 id="pouzite-datove-podklady_1">Použité datové podklady</h2>
+<ul>
+<li>
+<p><a href="../../data/#dmr-5g">DMR&nbsp;5G</a></p>
+</li>
+<li>
+<p><a href="https://ags.cuzk.cz/arcgis1/rest/services/ORTOFOTO/MapServer">ortofoto ČÚZK</a></p>
+</li>
+</ul>
+<h3 id="stazeni-dat-z-cuzk">Stažení dat z ČÚZK</h3>
+<p>Z&nbsp;<a href="https://ags.cuzk.cz/geoprohlizec/">Geoprohlížeče ČÚZK</a> lze stáhnout data laserového skenování (mračno bodů) pro Česko. Získání dat DMR&nbsp;5G, DMR&nbsp;4G či DMP&nbsp;1G lze provést přes výběr daného podkladu v&nbsp;záložce <em>Produkty</em>. Dále po rozkliknutí ikony tří teček příslušné vrstvy v&nbsp;záložce <em>Seznam vrstev</em> je možné vybrat buď možnost   <em>Exportovat data</em> nebo <em>Stáhnout data (předpřipravené jednotky)</em>.</p>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Možnosti stažení laserových dat z&nbsp;ČÚZK</span></summary>
+<ul>
+<li>
+<p><strong>Exportovat data</strong> – Touto možností lze data zaslat přímo na email. Zároveň je takto možné stáhnout více kladů dat najednou vlastním výběrem (nakreslením polygonu či nahráním vlastní vrstvy k&nbsp;výběru). Stažená data jsou ve formátu <em>LAS</em>.</p>
+</li>
+<li>
+<p><strong>Stáhnout data (předpřipravené jednotky)</strong> – Takto lze data stáhnout postupně dle předpřipravených kladů. Stažená data jsou ve formátu <em>LAZ</em>.</p>
+</li>
+</ul>
+</details>
+<h3 id="prevod-laz-do-las">Převod LAZ do LAS</h3>
+<p><strong>1.</strong> Jestliže získáme data ve formátu <em>ZLAS</em> nebo <em>LAZ</em>, je nutné mračno bodů v&nbsp;ArcGIS Pro konvertovat do formátu <em>LAS</em> pomocí funkce <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/convert-las.htm"><em>Convert LAS</em></a>. Takto převedná data již dokáže ArcGIS načíst.</p>
+<p><strong>2.</strong> Do parametru <em>Input LAS</em> vložíme z&nbsp;disku vstupní soubor, který chceme převést. Zvolíme adresář výstupních dat <em>Target Folder</em> a případně nastavíme parametry převodu.</p>
+<p><strong>3.</strong> Ve druhé části funkce určíme souřadnicový systém mračna bodů. </p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/convert_las.png" data-desc-position="bottom"><img alt="Convert LAS" src="../assets/cviceni2/convert_las.png"></a>
+  </p>
+<figcaption>Hodnoty funkce Convert LAS</figcaption>
+</figure>
+<h3 id="vizualizace-las">Vizualizace LAS</h3>
+<p><strong>1.</strong> LAS data je možné zobrazit 2D v&nbsp;mapě nebo 3D ve scéně (ideálně v&nbsp;lokální scéně). Novou scénu vytvoříme v&nbsp;záložce <em>Insert</em> – <em>New Map</em> – <em>New Local Scene</em>.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/map_sc.png" data-desc-position="bottom"><img alt="Porovnání mapy a scény" src="../assets/cviceni2/map_sc.png" width="900"></a>
+  </p>
+<figcaption>Porovnání zobrazení LAS dat ve 2D mapě (vlevo) a ve 3D scéně (vpravo)</figcaption>
+</figure>
+<p><strong>2.</strong> Různé možnosti vizualizace LAS jsou dostupné po vybrání vrstvy mračna bodů v&nbsp;záložce <em>LAS Dataset Layer</em>. Pod ikonou <em>Symbology</em> </p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/las_s.png" data-desc-position="bottom"><img alt="Symbologie LAS" src="../assets/cviceni2/las_s.png" width="900"></a>
+  </p>
+<figcaption>Symbologie LAS</figcaption>
+</figure>
+<p><strong>3.</strong> Výše zmíněné možnosti symbologie se dělí na tři typy: Vizualizace dle bodů, terénem či liniově. Bodové vizualizace nabízejí zobrazení barvy mračna bodů na základě jeho nadmořské výšky (<em>Elevation</em>) nebo klasifikace dat (<em>Class</em>). Mračno bodů je dále možné symbolizovat jako terén, přičemž barva může být určená nadmořskou výškou (<em>Elevation</em>), sklonem terénu (<em>Slope</em>) nebo sklonem ke světové straně (<em>Aspect</em>). Třetí možnost, vizualizace vrstvy pomocí linií, nabízí zobrazení vrstevnic (<em>Contour</em>) a hran (<em>Edges</em>).</p>
+<details class="note" open="open">
+<summary>&nbsp;<span style="color:#448aff">Zobrazení LAS Dataset Layer</span></summary>
+<p>V&nbsp;záložce <em>LAS Dataset Layer</em> (po vybrání příslušného mračna bodů v&nbsp;<em>Contents</em>) lze nejen nastavovat možnosti symbologie, ale také je možné určit hustotu zobrazovaných bodů (sekce <em>Point Thinning</em>) nebo filtrovat body (sekce <em>Filters</em>).</p>
+</details>
+<h3 id="texturovany-las">Texturovaný LAS</h3>
+<p><strong>1.</strong> V&nbsp;některých případech je výhodné mračno bodů obarvit (pokud již texturu neobsahuje v&nbsp;základním nastavení). Stažený LAS z&nbsp;ČÚZK lze otexturovat pomocí ortofota, které se stáhne podobně jako laserová data z&nbsp;<a href="https://ags.cuzk.cz/geoprohlizec/">Geoprohlížeče ČÚZK</a>. Důležité je stáhnout data se stejným kladem, což pro zmíněná data platí.</p>
+<p><strong>2.</strong> Po stažení ortofota vyhledáme v&nbsp;<em>Geoprocessingu</em> funkci <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/colorize-las.htm"><em>Colorize LAS</em></a>. Jako <em>Input Dataset</em> určímě mračno bodů. Do parametru <em>Input Image</em> vložíme vybrané ortofoto a zkontrolujeme přiřazení pásem snímku.</p>
+<p><strong>3.</strong> Dále zvolíme výstupní adresář <em>Target Folder</em> a případně specifikujeme název výsledného mračna bodů či jeho kompresi.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/col_las.png" data-desc-position="bottom"><img alt="Colorize LAS" src="../assets/cviceni2/col_las.png"></a>
+  </p>
+<figcaption>Hodnoty funkce Colorize LAS</figcaption>
+</figure>
+<p><strong>4.</strong> Po provedení tohoto výpočtu se v&nbsp;nabídce <em>Symbology</em>, kterou jsme využívali při vizualizaci, zobrazí další možnost vizualizace mračna bodů – <em>RGB</em>. Po jejím zvolení se body obarví dle vstupního ortofota.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/text_las.png" data-desc-position="bottom"><img alt="Texturovaný LAS" src="../assets/cviceni2/text_las.png" width="900"></a>
+  </p>
+<figcaption>Texturovaný LAS</figcaption>
+</figure>
+<h3 id="vytvoreni-digitalniho-modelu-terenu">Vytvoření digitálního modelu terénu</h3>
+<p><strong>1.</strong> Data LiDARového skenování slouží jako podklad pro vytvoření digitálního modelu terénu. V&nbsp;ArcGISu Pro je možné převést LAS do rastru pomocí funkce <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/las-dataset-to-raster.htm"><em>LAS Dataset To Raster</em></a>.</p>
+<p><strong>2.</strong> Vstupními daty <em>Input LAS Dataset</em> jsou lasetová data ve formátu LAS. <em>Value Field</em> určuje hodnotu, na základě které se vypočte výstupní rastr. Jeho umístění určímě v&nbsp;parametru <em>Output Raster</em>. </p>
+<p><strong>3.</strong> Následně je nutné určit způsob interpolace (viz <a href="https://k155cvut.github.io/gis-2/cviceni/cviceni5/">cvičení&nbsp;5</a>). Důležitým parametrem je <em>Cell Size</em>, která určuje velikost pixelu (buňky) výstupního rastru. <em>Z&nbsp;factor</em> určuje hodnotu zploštění/zvýšení hodnot rastru. V&nbsp;základním nastavení jej ponecháme rovný&nbsp;1.</p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/las_tr.png" data-desc-position="bottom"><img alt="LAS Dataset To Raster" src="../assets/cviceni2/las_tr.png"></a>
+  </p>
+<figcaption>Hodnoty funkce LAS Dataset To Raster</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni2/las_r.png" data-desc-position="bottom"><img alt="DMT z LAS" src="../assets/cviceni2/las_r.png" width="900"></a>
+  </p>
+<figcaption>Digitální model terénu vypočtený na základě laserových dat</figcaption>
+</figure>
+<h2 id="ulohy-k-procviceni">Úlohy k procvičení</h2>
+<div class="admonition task-fg-color">
+<p class="admonition-title">Úlohy</p>
+<p>K řešení následujích úloh použijte datovou sadu <a href="../../data/#arccr-500">ArcČR
+500</a> verzi 3.3 dostupnou na disku <em>S</em> ve složče
+<code>K155\Public\data\GIS\ArcCR500 3.3</code>. Zde také najdete souboru s
+popisem dat ve formátu PDF.</p>
+<ol>
+<li>
+<p>Vytvořte digitální model reliéfu/povrchu z bodových Lidarových dat.</p>
+</li>
+<li>
+<p>Vytvořte digitální model terénu ve vektorové (TIN) a rastrové
+   (GRID, prostorové rozlišení 90m) reprezentaci na základě vrstevnic
+   pro okres Litoměřice. Jaká je průměrná nadmořská výška takto
+   vytvořeného DMT?</p>
+</li>
+<li>
+<p>Vypočítejte DMT s využitím výškových kót, vrstevnic, vodních toků,
+   vodních ploch a státní hranice ČR. Dále vypočítejte DMT pouze s
+   využitím výškových kót, vrstevnic a státní hranice ČR. Oba rastry
+   vytvořte s prostorovým rozlišením 1km. Minimální Z hodnotu nastavte
+   na 0. Jaké jsou průměrné nadmořské výšky takto vytvořených DMT?</p>
+</li>
+<li>
+<p>Pro území Ústeckého kraje vytvořte rastr s prostorovým rozlišením
+   100m, jehož buňky mají hodnoty s normálním rozdělením.</p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
