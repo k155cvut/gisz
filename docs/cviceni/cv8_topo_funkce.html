@@ -324,7 +324,11 @@ function renderPanel(){
 function labels(){
   document.querySelectorAll('[data-v]').forEach(el => el.textContent = S[el.dataset.v]);
   document.querySelectorAll('[data-dir]').forEach(el => el.checked = S.dirs[+el.dataset.dir]);
-  document.querySelectorAll('[data-k=aspRc]').forEach(el => el.checked = S.aspRc);
+  document.querySelectorAll('[data-k]').forEach(el => {
+    const k = el.dataset.k;
+    if (el.type === 'checkbox') el.checked = S[k];
+    else if (+el.value !== S[k]) el.value = S[k];
+  });
   const ex = document.getElementById('expr');
   if (ex) ex.textContent = S.combo === 'mul' ? '"vyska" * "sklon" * "expozice"' : '"vyska" + "sklon" + "expozice"';
 }
