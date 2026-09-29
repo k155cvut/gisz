@@ -1,6 +1,6 @@
 # 155GIS1
 
-[Project Homepage](https://k155cvut.github.io/gis-1/)
+[Project Homepage](https://k155cvut.github.io/gisz/)
 
 [MkDocs Material dokumentace](https://squidfunk.github.io/mkdocs-material/)
 
