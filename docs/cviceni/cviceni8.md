@@ -72,17 +72,17 @@ Riziko vzniku lavin nastává na otevřených plochách bez většího vegetačn
 Pro názornost následuje ukázka zpracování sklonitosti svahu (postup s výpočtem a reklasifikací expozice je analogický).
 
 <figure markdown>
-  ![Slope](../assets/cviceni3/slope.png)
+  ![Slope](../assets/cviceni8/slope.png)
   <figcaption>Výstupní rastr po použití topografické funkce Slope (na vstupu DMR)</figcaption>
 </figure>
 
 <figure markdown>
-  ![Reclassify](../assets/cviceni3/reclassify.png)
+  ![Reclassify](../assets/cviceni8/reclassify.png)
   <figcaption>Parametry reklasifikace rastru sklonitosti terénu</figcaption>
 </figure>
 
 <figure markdown>
-  ![Reclassify](../assets/cviceni3/reclass_output.png)
+  ![Reclassify](../assets/cviceni8/reclass_output.png)
   <figcaption>Reklasifikovaný rastr sklonitosti terénu indikující hodnoty nad a pod mezní hodnotou</figcaption>
 </figure>
 
