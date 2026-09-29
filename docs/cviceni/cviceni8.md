@@ -40,6 +40,9 @@ Ve cvičení se naučíte
 - [**raster surface toolset**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/an-overview-of-the-raster-surface-toolset.htm)
 - [**aspect-slope**](https://pro.arcgis.com/en/pro-app/latest/help/analysis/raster-functions/aspect-slope-function.htm)
 
+Než se pustíme do práce s reálnými daty, vyzkoušíme si v interaktivní ukázce, co jednotlivé funkce dělají. Přepínáme záložky, měníme parametry a zapínáme reklasifikaci; po najetí myší na mapu vidíme hodnoty buňky. Terén je syntetický s rozlišením 25&nbsp;m, výpočty _SLOPE_ a _ASPECT_ ale odpovídají ArcGIS.
+
+<iframe src="../../assets/cviceni8/cv8_topo_funkce.html" title="Interaktivní ukázka topografických funkcí" loading="lazy" style="width:100%;height:660px;border:none;"></iframe>
 
 ## Náplň cvičení
 Vaším úkolem bude na základě rastrových dat vybraného území analyzovat lavinové svahy mají. K vyhodnocení lavinového svahu potřebujete znát sklonitost a expozici svahu, nadmořskou výšku či krajinný pokryv. Podmínky pro vznik lavin lze (zjednodušeně) shrnout v následujících bodech:
