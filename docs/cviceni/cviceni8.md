@@ -40,6 +40,9 @@ Ve cvičení se naučíte
 - [**raster surface toolset**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/an-overview-of-the-raster-surface-toolset.htm)
 - [**aspect-slope**](https://pro.arcgis.com/en/pro-app/latest/help/analysis/raster-functions/aspect-slope-function.htm)
 
+Než se pustíme do práce s reálnými daty, vyzkoušíme si v interaktivní ukázce, co jednotlivé funkce dělají. Přepínáme záložky, měníme parametry a zapínáme reklasifikaci; po najetí myší na mapu vidíme hodnoty buňky. Terén je syntetický s rozlišením 25&nbsp;m, výpočty _SLOPE_ a _ASPECT_ ale odpovídají ArcGIS.
+
+<iframe src="../cv8_topo_funkce.html" title="Interaktivní ukázka topografických funkcí" loading="lazy" style="width:100%;height:660px;border:none;"></iframe>
 
 ## Náplň cvičení
 Vaším úkolem bude na základě rastrových dat vybraného území analyzovat lavinové svahy mají. K vyhodnocení lavinového svahu potřebujete znát sklonitost a expozici svahu, nadmořskou výšku či krajinný pokryv. Podmínky pro vznik lavin lze (zjednodušeně) shrnout v následujících bodech:
@@ -72,17 +75,17 @@ Riziko vzniku lavin nastává na otevřených plochách bez většího vegetačn
 Pro názornost následuje ukázka zpracování sklonitosti svahu (postup s výpočtem a reklasifikací expozice je analogický).
 
 <figure markdown>
-  ![Slope](../assets/cviceni3/slope.png)
+  ![Slope](../assets/cviceni8/slope.png)
   <figcaption>Výstupní rastr po použití topografické funkce Slope (na vstupu DMR)</figcaption>
 </figure>
 
 <figure markdown>
-  ![Reclassify](../assets/cviceni3/reclassify.png)
+  ![Reclassify](../assets/cviceni8/reclassify.png)
   <figcaption>Parametry reklasifikace rastru sklonitosti terénu</figcaption>
 </figure>
 
 <figure markdown>
-  ![Reclassify](../assets/cviceni3/reclass_output.png)
+  ![Reclassify](../assets/cviceni8/reclass_output.png)
   <figcaption>Reklasifikovaný rastr sklonitosti terénu indikující hodnoty nad a pod mezní hodnotou</figcaption>
 </figure>
 
