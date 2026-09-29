@@ -1,46 +1,115 @@
----
+﻿---
 icon: material/numeric-2-box
 title: Cvičení 2
 ---
 
-# Vektorová data, atributové dotazy, prostorové dotazy
+# Souřadnicové systémy, atributové a prostorové dotazy
 
-## Cíl cvičení
+## Cíle cvičení
 
-- Vysvětlení rozdílu mezi vektorovými a rastrovými GIS daty
-- Selekce prvků podle atributů
-- Selekce prvků na základě vzájemných prostorových vztahů
+<div class="grid cards grid_icon_info smaller_padding" markdown>
+
+-   :material-axis-arrow:{ .xl }
+
+    vysvětlit, proč má každá vrstva **souřadnicový referenční systém (CRS)**
+
+-   :material-map-marker-radius:{ .xl }
+
+    rozpoznat běžné souřadnicové systémy používané v Česku a ověřit je v ArcGIS Pro
+
+-   :material-filter-variant:{ .xl }
+
+    provádět **atributové dotazy** nad popisem objektů
+
+-   :material-select-drag:{ .xl }
+
+    provádět **prostorové výběry** podle vztahu mezi vrstvami
+
+-   :material-water-outline:{ .xl }
+
+    pracovat s daty o vodních tocích, povodích a zastavěném území jako s podklady pro rozhodování v území
+
+</div>
 
 <hr class="level-1">
 
-## Vektorová a rastrová prostorová data
+## Proč nestačí, že vrstva „je na správném místě“
 
-<div class="grid cards" markdown>
+Každý prostorový prvek má geometrii uloženou jako souřadnice. Aby GIS věděl, **co čísla znamenají a kde je má zobrazit**, potřebuje znát souřadnicový referenční systém (**CRS**, dříve také SRS). CRS určuje zejména vztažný systém, způsob zobrazení zemského povrchu do roviny, jednotky a pořadí os.
 
--   :material-vector-polyline:{ .lg .middle } __Vektorová data__
+- **Geografický CRS** pracuje se zeměpisnou šířkou a délkou, tedy zpravidla ve stupních.
+- **Projektovaný CRS** převádí polohu do roviny; souřadnice pak obvykle vyjadřujeme v metrech. Je vhodný pro práci s délkou, plochou a vzdáleností v území.
 
-    ---
+!!! note-grey "Důležitá zásada"
 
-    Tvořena __vrcholy__ (Vertices) a __cestami__ (Paths) – ty jsou určeny skutečnými souřadnicemi
+    Stejná lokalita může mít v různých CRS různé číselné souřadnice. Neznamená to, že leží na jiném místě. Chyba vznikne tehdy, když je CRS vrstvy **neznámý nebo nesprávně přiřazený**.
 
-    Podrobnost je určena __podrobností souřadnic vrcholů__
+### Běžné CRS pro práci v Česku
 
-    Vhodné pro __diskrétně rozložená data__ (např. poloha bodů, kategorie pokrytí půdy)
+| Souřadnicový systém | EPSG | Jednotky | Typické hodnoty souřadnic na území ČR | Kde se s ním setkáme |
+| - | -: | - | - | - |
+| **S-JTSK / Krovak East North** | **5514** | metry | přibližně `Y = −900 000 až −400 000`; `X = −1 250 000 až −900 000` | státní mapová díla, katastr nem., velká část domácích dat |
+| **ETRS89 / UTM 33N** | **3045** | metry | přibližně `E = 440 000 až 520 000`; `N = 5 400 000 až 5 650 000` | evropská data v západní a střední části ČR |
+| **ETRS89 / UTM 34N** | **3046** | metry | přibližně `E = 360 000 až 440 000`; `N = 5 400 000 až 5 650 000` | evropská data ve východní části ČR |
+| **WGS 84** | **4326** | stupně | přibližně `14–19° E`; `48,5–51,1° N` | GPS, souřadnice z terénu, webové formuláře, jiné mapové portály |
+| **WGS 84 / Pseudo-Mercator (Web Mercator)** | **3857** | metry | přibližně `X = 1 550 000 až 2 110 000`; `Y = 6 200 000 až 6 650 000` | podkladové mapy a webové mapové služby |
 
-    Možné problémy s __topologií__ (mezery a překryvy)
+!!! warning "UTM není v celé ČR jedna zóna"
 
+    Česká republika zasahuje do zón **33N a 34N**. Před použitím UTM je nutné ověřit, kterou zónu daná data používají. Zkratka „UTM“ sama o sobě není úplný název CRS.
 
--   :material-grid:{ .lg .middle } __Rastrová data__<span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">součástí budoucích cvičení</span>
+### Kontrola CRS v ArcGIS Pro
 
-    ---
+1. V panelu _Contents_ klikněte pravým tlačítkem na vrstvu → _:material-cog: Properties_.
+2. Na kartě _Source_ ověřte položku **Spatial Reference**.
+3. CRS aktivní mapy ověřte v _:material-map: Map Properties_ → _Coordinate Systems_.
+4. Uložte si zejména **název CRS a EPSG kód**; oba údaje musí být součástí popisu dat, která přebíráte nebo předáváte dál.
 
-    Tvořena pravidelnou mřížkou __pixelů__ – ty jsou určeny pixelovými souřadnicemi (pořadí řádku/sloupce)
+!!! tip "Mapový CRS a CRS vrstvy"
 
-    Podrobnost je určena __velikostí pixelu__ (v metrech)
+    ArcGIS Pro dokáže vrstvy s korektně definovanými, ale různými CRS zobrazit společně. Mapové okno je při vykreslení převádí do CRS mapy. To je **zobrazení za běhu** (*on-the-fly projection*); nemění zdrojová data ani z nich nevytváří novou datovou sadu.
 
-    Vhodné pro jevy měnící se __spojitě__ (např. model terénu, znečištění ovzduší) i __diskrétně__, dále pak __obrazová data__ (např. satelitní)
+### Definovat, nebo znovu zobrazit?
 
+<div class="table_headerless table_small_padding table_centered" markdown>
+| Operace | Kdy ji použít | Co se stane |
+| - | - | - |
+| **Define Projection** | CRS dat známe, ale u vrstvy chybí nebo je špatně zapsán | pouze opraví popis CRS; souřadnice se nepřepočítávají |
+| **Project** | CRS dat známe a chceme vytvořit kopii v jiném CRS | vytvoří novou datovou sadu s přepočítanými souřadnicemi |
+| **Geographic Transformation** | při převodu mezi různými geografickými vztažnými systémy | určuje způsob přesného převodu mezi referenčními rámci |
 </div>
+
+!!! warning "Neznámý CRS nezkoušejte metodou pokus–omyl"
+
+    Pokud neznáte původ CRS, dohledávejte jej v metadatech, dokumentaci poskytovatele nebo u autora dat. Nesprávné použití _Define Projection_ může vrstvu jen opticky „přesunout“ na zdánlivě správné místo a znehodnotit následné vzdálenosti, plochy i prostorové výběry.
+
+<hr class="level-1">
+
+## Vektorové podklady pro krajinu, vodu a stavby
+
+Vektorová data z předchozího cvičení nyní využijeme jako podklady k jednoduchým otázkám o území. Vedle hranic katastrálních území je vhodné používat vrstvy, které popisují přírodní systém a skutečně zastavěné území.
+
+<div class="table_headerless table_small_padding table_centered" markdown>
+| Vrstva | Geometrie | Příklady otázek |
+| - | - | - |
+| Hranice povodí | polygony | Do kterého povodí zasahuje řešené území? |
+| Vodní toky | linie | Které úseky jsou povrchové / podzemní, splavné / nesplavné? |
+| Vodní plochy a záplavová území | polygony | Které části návrhu jsou ve vztahu k vodě či rizikovému území? |
+| Katastrální území | polygony | Jaké administrativní jednotky lokalita protíná? |
+| Intravilán / zastavěné území | polygony | Leží záměr uvnitř sídla, na jeho okraji, nebo ve volné krajině? |
+</div>
+
+### Doporučené zdroje pro demonstraci
+
+- [Národní katalog otevřených dat — hledání datových sad „hranice“](https://data.gov.cz/datov%C3%A9-sady?kl%C3%AD%C4%8Dov%C3%A1-slova=hranice){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+- [RÁIN — Urban Atlas / intravilán](https://rain.fsv.cvut.cz/land-cover/ua-intra/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+- [DIBAVOD — digitální báze vodohospodářských dat](https://www.dibavod.cz/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+- [Geoportál ČÚZK](https://geoportal.cuzk.cz/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
+{: .button_array}
+
+!!! note-grey "Práce s daty z portálu"
+
+    Portál je rozcestník, nikoli záruka jednotného formátu. U každé datové sady je vhodné ověřit poskytovatele, datum, licenci, popis atributů, CRS a způsob distribuce — stažení souboru, WFS/WMS nebo ArcGIS REST službu.
 
 <hr class="level-1">
 
@@ -67,6 +136,24 @@ Pomocí přepínátka ![](../assets/cviceni1/img_36.png){: .off-glb style="verti
 [Construct and modify queries](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/construct-and-modify-queries.htm){ .md-button .md-button--primary .button_smaller .external_link_icon target="\_blank"}
 {: .button_array}
 
+### Jak číst výraz
+
+V dotazu vždy rozlišujte **název pole**, **operátor** a **hodnotu**. Textové hodnoty se obvykle zapisují do apostrofů, číselné nikoli. Složitější podmínky spojujeme pomocí `AND`, `OR` a `NOT`.
+
+<div class="table_headerless table_small_padding table_centered" markdown>
+| Otázka | Příklad výrazu | Poznámka |
+| - | - | - |
+| Je hodnota rovna danému kódu? | `typ = 'povrchový'` | text v apostrofech |
+| Je číslo větší než mez? | `delka_km > 10` | číslo bez apostrofů |
+| Obsahuje název hledané slovo? | `nazev LIKE '%Vltava%'` | `%` nahrazuje libovolný počet znaků, `_` nahrazuje _jeden_ znak |
+| Platí obě podmínky? | `splavny = 1 AND typ = 'povrchový'` | závorkami určujeme pořadí podmínek |
+| Chybí hodnota? | `spravce IS NULL` | `NULL` není prázdný text ani nula |
+</div>
+
+!!! warning "Datový typ rozhoduje"
+
+    Správný výraz vychází z datového typu pole. Kód `01` může být text, nikoli číslo; datum se dotazuje jinou syntaxí než text. Před sestavením dotazu vždy otevřete atributovou tabulku, přečtěte názvy a hodnoty polí a neodvozujte jejich význam pouze z názvu.
+
 <div class="table_small_padding" markdown> <!-- trik: vlastnosti tabulky pro vsechny podrizene -->
 ???+ task-fg-color "Příklad k vyzkoušení __|__{style="margin: 0rem 1rem"} __testování atributových dotazů na skutečných datech__{.no-dec}"
 
@@ -81,11 +168,45 @@ Pomocí přepínátka ![](../assets/cviceni1/img_36.png){: .off-glb style="verti
     |platf_len|`float`|Délka nástupiště (metry)|
 </div>
 
+
+
 <hr class="level-1">
 
 ## Prostorové dotazy
 
-__Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné vrstvy __na základě vzájemné polohy s prvky druhé vrstvy__. Funkce využívá jako vstup `vrstvu vybíraných prvků`, `vrstvu pro překryvnou analýzu` a `vztah pro překryvnou analýzu`.
+**Prostorový dotaz** vybírá prvky jedné vrstvy podle jejich vztahu k prvkům druhé vrstvy. Odpovídá na otázky typu „které vodní toky leží v povodí?“, „které parcely se dotýkají toku?“ nebo „které plochy zastavěného území protíná navržený koridor?“
+
+V ArcGIS Pro otevřete _:material-tab: Map_ → _:material-button-cursor: Select By Location_. Poté vždy určete:
+
+1. **Input Features** — vrstvu, ze které chceme vybírat;
+2. **Relationship** — prostorový vztah, který má platit;
+3. **Selecting Features** — vrstvu, vůči níž výběr provádíme;
+4. případně **Search Distance** — vzdálenost, například `100 m`;
+5. způsob práce s dřívějším výběrem: nový, přidat, odebrat nebo vybrat průnik.
+
+### Vztahy, které budeme používat nejčastěji
+
+| Vztah v ArcGIS Pro | Jak číst otázku | Příklad v kontextu vody a sídla |
+| - | - | - |
+| **Intersect** | má alespoň jeden společný bod | Které parcely se protínají s koridorem toku? |
+| **Within** | leží celé uvnitř | Které body měření leží uvnitř vybraného povodí? |
+| **Completely within** | leží celé uvnitř, nedotýká se hranice | Které plochy záměru jsou celé v intravilánu? |
+| **Contains** | obsahuje vybraný prvek | Která povodí obsahují vybrané odběrné místo? |
+| **Boundary touches** | dotýká se hranicí | Která území sousedí s katastrálním územím? |
+| **Within a distance** | leží do zadané vzdálenosti | Které objekty jsou do 100 m od vodního toku? |
+| **Crossed by the outline of** | hranice jedné vrstvy kříží druhou | Které plochy protíná hranice řešeného území? |
+
+!!! warning "Výsledek závisí na geometrii i na formulaci otázky"
+
+    „Leží v povodí“ a „protíná povodí“ nejsou stejná otázka. U polygonů zvlášť rozlišujte vztahy _intersect_, _within_ a _completely within_. Před spuštěním nástroje odpovězte nahlas: **Co vybírám? Vůči čemu? Jak přesně má prostorový vztah vypadat?**
+
+### Doporučený postup při práci s výběrem
+
+1. Ověřte, že vrstvy mají správně definované CRS a v mapě se překrývají smysluplně.
+2. Nejprve proveďte jednoduchý atributový výběr, například pouze povrchových nebo splavných úseků toku.
+3. Až poté proveďte prostorový výběr vůči povodí, intravilánu nebo řešenému území.
+4. Výsledek zkontrolujte v mapě a atributové tabulce; ověřte počet vybraných prvků.
+5. Má-li být výsledek použit dále, exportujte jej jako novou vrstvu se srozumitelným názvem a zdokumentujte použitá kritéria.
 
 ![](../assets/cviceni2/img_01.svg){ .no-filter }
 ![](../assets/cviceni2/img_02.svg){ .no-filter }
@@ -97,7 +218,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s BODY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-1ECFFABC-3608-4BB4-86A8-FD6FA0F16C13-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/pointonpoint-16C13.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table style="width:unset;">
@@ -113,7 +234,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s LINIEMI"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-171AD80E-550B-4017-AEB7-1A681D722F60-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/pointonline-22F60.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -128,7 +249,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s POLYGONY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-12153063-E9B3-42E5-A786-E3FAF6BB004E-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/pointonpoly-B004E.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -146,7 +267,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s BODY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-FD60FA73-31CD-4BD7-B03C-06806851BC9E-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/lineonpoint-1BC9E.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -161,7 +282,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s LINIEMI"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-09D6FB47-31A3-47C3-A8B8-19BB659EBA8A-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/lineonline-EBA8A.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -180,7 +301,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s POLYGONY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-54663F11-5B47-46A5-82C1-37FD1FDDC835-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/lineonpoly-DC835.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -200,7 +321,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s BODY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-0973BB65-5DAE-461A-8B84-E58332CDA443-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/polyonpoint-DA443.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -215,7 +336,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s LINIEMI"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-EFDE4E93-532E-4D6E-BB29-9BBFC783CEC7-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/polyonline-3CEC7.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -232,7 +353,7 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
     === "...v překrytu s POLYGONY"
 
-        ![](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/GUID-7802EBC1-8E73-4071-AE12-4445AB1C24B5-web.gif){ style="filter:none !important;" }
+        ![](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/images/polyonpoly-C24B5.gif){ style="filter:none !important;" }
         {: align=center}
 
         <table id="small_table_padding" style="width:unset;">
@@ -261,113 +382,49 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 [:material-open-in-new: Select By Location graphic examples](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/select-by-location-graphical-examples.htm){ .md-button .md-button--primary .button_smaller target="\_blank"}
 {: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
 
+
+
 <hr class="level-1">
 
 ## Úlohy k procvičení
 
-!!! task-fg-color "Úlohy k atributovým dotazům"
+!!! task-fg-color "Voda a sídla"
 
-    K řešení následujích úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
-    popisem dat ve formátu PDF.
+    Lokalita obsahuje vrstvy `povodi`, `vodni_toky`, `intravilany`, `katastralni_uzemi`. 
 
-    1. Kolik je v ČR rybníků?
+    1. Vlastnostmi vrstvy ověřte CRS alespoň u jedné lokální vrstvy a jedné webové služby. Která vrstva je v S-JTSK a která v ETRS89?
+    2. Atributovým dotazem vyberte povrchové vodní toky. Pokud sada obsahuje vhodný atribut, omezte výběr dále na splavné úseky.
+    3. Prostorovým dotazem zjistěte, které vybrané úseky toku **intersect** řešené území.
+    4. Vyberte plochy intravilánu, které se s řešeným územím překrývají. Porovnejte výsledek pro vztah **Intersect** a **Completely within**.
+    5. Vyberte prvky ležící do zvolené vzdálenosti od vodního toku. Uveďte, proč je pro tento krok nutné pracovat v CRS s metrickými jednotkami.
 
-    2. Jaká je celková délka (v km) přirozených vodních toků v ČR?
+!!! task-fg-color "Otázky k diskusi"
 
-    3. Jaká je průměrná nadmořská výška (v m) vodních nádrží v ČR?
+    - Kdy je katastrální hranice vhodná jako administrativní kontext a kdy pro popis skutečného zastavěného území lépe poslouží intravilán?
+    - Jak by se změnila interpretace výsledku, kdybychom použili **Within** namísto **Intersect**?
+    - Které podklady lze využít pouze pro orientaci a které lze použít jako vstup do navazující analýzy? Jakou roli při tom hrají metadata, licence a přesnost dat?
 
-    4. Kolik silnic v ČR má více než dva jizdní pruhy?
+<hr class="level-1">
 
-    5. Jaká je délka (v km) dálnic v ČR, které mají šest jízdních pruhů?
+## Shrnutí
 
-    6. Kolik železničních stanic v ČR obsahuje ve svém názvu předložku 'nad'?
+Po tomto cvičení byste měli umět:
 
-    7. Jaká je celková plocha (v km^2^) sídel v ČR u kterých jejich název začíná na písmeno 'K'?
+- vysvětlit, proč GIS potřebuje CRS a jaký je rozdíl mezi geografickým a projektovaným CRS;
+- rozpoznat podle jednotek a řádu hodnot nejběžnější CRS používané v Česku;
+- ověřit CRS vrstvy i mapy v ArcGIS Pro;
+- rozlišit operace **Define Projection** a **Project**;
+- sestavit a zkontrolovat základní atributový dotaz;
+- formulovat prostorový dotaz jako kombinaci vybírané vrstvy, referenční vrstvy a vztahu;
+- interpretovat výběr nad vodními toky, povodími a intravilánem jako podklad pro rozhodování v území.
 
-    8. Ve které obci Ústeckého kraje je největší nezaměstnanost a kolik to je?
+---
 
-    9. Najděte obec v ČR, kde je nejvyšší poměr mezi muži a ženami a kolik to je?
+__Doplňkové zdroje:__
+{: align=center }
 
-    10. V kolika obcích v ČR převyšuje počet sňatků počet rozvodů. V jaké
-        obci je počet sňatků nejvyšší vzhledem k aktuálnímu počtu
-        obyvatel?
-    
-    11. Jaká je průměrná hodnota nezaměstnanosti v ORP Beroun?
-
-    12. Kolik katastrálních území spadá do oblasti s kódem LAU1 'CZ0327' a
-        jakou mají celkovou výměru (v km^2^)?
-
-    13. V kolika případech se shoduje název obce s názvem katastrálního území?
-
-    14. Kolik katastrálních území začíná na písmeno 'R' a má přesně tři znaky ve svém názvu?
-
-    15. Ve kterých krajích je míra nezaměstranosti mužů větší než u žen?
-
-    16. Jaká je celková délka silnic 1., 2. a 3. třídy?
-
-    17. Jaký název pro obec je nejfrekventovanější, kolik obcí s tímto názvem v ČR je?
-
-    18. Pro každý typ vodní plochy najděte nejvyšší nadmořskou výšku.
-
-    19. Jaký je poměr mezinárodních ku vnitrostátním letištím v ČR?
-
-    20. Který okres v ČR se skládá z největšího počtu obcí a kolik to je?
-
-!!! task-fg-color "Úlohy k prostorovým dotazům"
-
-    K řešení následujích úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
-    popisem dat ve formátu PDF.
-
-    1. Existuje v ČR letiště, jehož reprezentační bod leží v lese? Jak se jmenuje?
-
-    2. Kolika obcemi v ČR neprochází žádná silnice?
-
-    3. Kolik obcí leží na hranici ČR?
-
-    4. Vyberte silnice, které kříží vodní toky. Kolik procent z těchto
-       silnic tvoří silnice první třídy?
-
-    5. Kolik procent rybníků z celkového počtu leží celou svojí plochou na
-       území Jihočeského kraje?
-
-    6. Na kolika mapových listech Základní mapy 1:25 000 leží alespoň
-       částečně okres Litoměřice. Kolik mapových listů potom leží v tomto
-       okresu celou svojí plochou?
-
-    7. Kolik železničních stanic leží v lese a zároveň jejich název
-       nezačíná na písmeno 'L'?
-
-    8. Které silnice (uveďte jejich číslo) druhé třídy procházejí oblastí
-       bažin a rašelinišť?
-
-    9. Jaká je průměrná nadmořská výška výškových kót na území
-       Středočeského kraje?
-
-    10. Kolik vodních ploch leží alespoň částí své plochy ve vzdálenosti
-        do 10 km od poledníku se zeměpisnou délkou 15°?
-
-    11. Kolik obcí se dotýká alespoň jedním liniovým segmentem hranice kraje?
-
-    12. Vyberte katastrální území, ve kterých leží alespoň částečně jedna
-        vodní plocha, seskupte tyto území podle kódu NUTS (LAU1). Uveďte
-        jaký kód NUTS má největší výměru a z kolika katastrálních území se
-        skládá?
-
-    13. Uveďte souřadnice reprezentačního bodu (centroidu) největší vodní
-        nádrže v Libereckém kraji. O jakou vodní nádrž se jedná?
-
-    14. Kolik obcí leží celou svojí plochou na mapovém listu "Pardubice"
-        ZM 1<nowiki>:</nowiki>25 000. Do kolika ORP tyto obce patří a
-        které to jsou?
-
-    15. Kolik obcí v ČR leží svoji plochou alespoň na dvou mapových
-        listech Základní mapy 1:50 000?
-
-<br><br><br><br><br>
-
-<!-- __:material-account-edit:{.lg .middle}VC__{style="font-size:70%;color:var(--md-code-fg-color);background-color:var(--md-code-bg-color);padding:.3em .5em;border-radius:.5rem;"}
-{align=center} -->
+[<span>pro.arcgis.com</span><br>Coordinate systems, projections, and transformations](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/coordinate-systems-and-projections.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Specify a coordinate system](https://pro.arcgis.com/en/pro-app/latest/help/mapping/properties/specify-a-coordinate-system.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Select features by location](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-by-location.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>SQL reference for query expressions](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/sql-reference-for-elements-used-in-query-expressions.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
