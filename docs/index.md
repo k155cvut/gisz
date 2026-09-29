@@ -5,7 +5,7 @@ Předmět vás seznámí se základy tzv. __geografických informačních systé
 
 GIS má široké uplatnění, od __městského plánování__, přes __správu přírodních zdrojů__ až po __krizový management__. Je nepostradatelným nástrojem pro efektivní rozhodování a řízení v různých odvětvích a pomáhá lépe pochopit složité geografické souvislosti.
 
-Zatímco přednášky vás provedou základní teorií, cvičení se věnují praktickému ovládání GIS software – zejména porozumění práce s daty a provádění základních analýz. Během výuky je používán software __:simple-arcgis: Esri ArcGIS Pro__{: style="white-space: nowrap;"}.
+Zatímco přednášky vás provedou základní teorií, cvičení se věnují praktickému ovládání GIS software – zejména porozumění práci s daty a provádění základních analýz. Během výuky je používán software __:simple-arcgis: Esri ArcGIS Pro__{: style="white-space: nowrap;"}.
 
 <h2 style="text-align:center;">Naučíte se</h2>
 <!-- styl je zde pridany HTML tagem (ne pomoci '##'), aby se text neobjevil v tabulce obsahu vlevo na strance -->
@@ -70,10 +70,11 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export%400.5x-1.jpg){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} [**__prof. Ing. Jiří Cajthaml, Ph.D.__**](https://geomatics.fsv.cvut.cz/employees/jiri-cajthaml/)
 
-1. Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS
+1. [Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS](./prednasky/Prednaska-1-Uvod-do-GIS-a-zaklady-geoinformatiky.pdf)
 
-2. Reálný svět × GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost
+2. [Reálný svět × GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost](./prednasky/Prednaska-2-Vektorovy-a-rastrovy-datovy-model.pdf)
 
+<!--
 3. Geografická poloha v GIS, prostorové vztahy, atributy
 
 4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
@@ -89,7 +90,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 9. Vektorová a rastrová reprezentace prostorových objektů
 
 10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
-
+-->
 
 ## Cvičení {: style="margin-bottom:0;"}
 
@@ -279,12 +280,21 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 ## **Doporučené zdroje**
 ### **Literatura**
 
-1. Kolář, J. (1998): Geografické informační systémy 10. Vydavatelství ČVUT, Praha.
-2. Rapant, P. (2006): Geoinformatika a geoinformační technologie. VŠB-TU Ostrava, 500 str. ISBN 80-248-1264-9.
-3. Břehovský, M., Jedlička, K. (2005): Přednáškové texty pro Úvod do GIS. ZČU Plzeň, 116 s.
-4. Hrubý M.: Geografické Informační Systémy (GIS) - Studijní opora. VÚT v Brně, 91 str.
-5. Tuček J. (1998): Geografické informační systémy, Praha Computer Press, 1998.
-6. Geletič, J., Hladiš, L., Šimáček, P. (2019): [GIS pro geografy. Distanční studijní opora](https://geography.upol.cz/soubory/studium/opory/D_GIS.pdf). Univerzita Palackého v Olomouci, 141 s.
+1. Rapant, P. (2006): Geoinformatika a geoinformační technologie. VŠB-TU Ostrava, 500 str. ISBN 80-248-1264-9.
+2. KOLÁŘ, J. (1998): Geografické informační systémy 10. Vydavatelství ČVUT, Praha.
+3. GELETIČ, J., HLADIŠ, L., ŠIMÁČEK, P. (2019): [GIS pro geografy. Distanční studijní opora](https://geography.upol.cz/soubory/studium/opory/D_GIS.pdf). Univerzita Palackého v Olomouci, 141 s.
+4. BOLSTAD, P. a S. MANSON (2022): GIS Fundamentals: A First Text on Geographic Information Systems. 7. vyd. White Bear Lake, MN: Eider Press. ISBN 978-0-9717647-5-0. 
+5. LONGLEY, P. A., M. F. GOODCHILD, D. J. MAGUIRE a D. W. RHIND (2015):. Geographic Information Science and Systems. 4. vyd. Hoboken, NJ: Wiley. ISBN 978-1-118-67695-0. 
+6. BURROUGH, P. A., R. A. MCDONNELL a C. D. LLOYD. (2015): Principles of Geographical Information Systems. 3. vyd. Oxford: Oxford University Press. ISBN 978-0-19-874284-5.
+
+Starší a doplňující:
+
+1. TOMLIN, C. (2012): GIS and Cartographic Modeling. Redlands, CA: Esri Press. ISBN 978-1-58948-309-5.
+2. ARONOFF, S. (1989): Geographic Information Systems: A Management Perspective. Ottawa: WDL Publications. ISBN 0-921804-91-1.
+3. BŘEHOVSKÝ, M. a K. JEDLIČKA (2005): Přednáškové texty pro Úvod do GIS. ZČU Plzeň, 116 s.
+4. HRUBÝ, M.: Geografické Informační Systémy (GIS) - Studijní opora. VÚT v Brně, 91 str.
+5. TUČEK, J. (1998): Geografické informační systémy, Praha Computer Press.
+
 
 ### **Tutoriály**
 
