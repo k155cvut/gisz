@@ -20,7 +20,7 @@ Použití mapové algebry v rámci rastrového kalkulátoru pro výpočet relati
 
 ### REM
 <figure markdown>
-  ![IDW](../assets/cviceni5/prehled.png)
+  ![IDW](../assets/cviceni10/prehled.png)
   <figcaption>Rastrová mozaika</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ Z REM lze identifikovat následující prvky:
 - hráz.
 
 <figure markdown>
-  ![IDW](../assets/cviceni5/shapes.png){ width="600" }
+  ![IDW](../assets/cviceni10/shapes.png){ width="600" }
   <figcaption>Říční tvary</figcaption>
 </figure>
 
@@ -52,9 +52,9 @@ Z REM lze identifikovat následující prvky:
 Z Geoportálu Zeměměřického Úřadu si stáhněte dlažice DMR5G na části Vámi vybrané řeky. Zazipované soubory *.laz rozbalte a připojte do ArcGIS Pro.
 
 <figure markdown>
-  ![](../assets/cviceni5/DMR5G-stazeni.png){ width="600" }
+  ![](../assets/cviceni10/DMR5G-stazeni.png){ width="600" }
 
-  ![](../assets/cviceni5/DMR5G-laz.png){ width="100"}
+  ![](../assets/cviceni10/DMR5G-laz.png){ width="100"}
   <figcaption>Stažení dat z Geoportálu ZÚ</figcaption>
 </figure
 
@@ -69,7 +69,7 @@ Po založení je nutné nastavit souřadnicový systém mapy na __S-JTSK Krovak 
 **3.** __Konverze LAZ souborů__
 
 <figure markdown>
-  ![](../assets/cviceni5/batch-convert-las.png){ width="300" }
+  ![](../assets/cviceni10/batch-convert-las.png){ width="300" }
   <figcaption>Převod *.laz souborů na *.las</figcaption>
 </figure>
 
@@ -90,7 +90,7 @@ Ze vniklých dlaždic je nutné vytvořit jediný výškový rastr pomocí funkc
 
 
 <figure markdown>
-  ![](../assets/cviceni5/mozaika.png){ width="300" }
+  ![](../assets/cviceni10/mozaika.png){ width="300" }
   <figcaption>Rastrová mozaika</figcaption>
 </figure>
 
@@ -99,8 +99,8 @@ Ze vniklých dlaždic je nutné vytvořit jediný výškový rastr pomocí funkc
 Pomocí nástroje Explore na záložce Map zjistíme minimální a maximální nadmořskou výšku toku.
 
 <figure markdown>
-  ![](../assets/cviceni5/explore-max.png)
-  ![](../assets/cviceni5/explore-min.png)
+  ![](../assets/cviceni10/explore-max.png)
+  ![](../assets/cviceni10/explore-min.png)
   {: .process_container}
 
   <figcaption>Odečtení maximální a minimální nadmořské výšky řeky z mozaiky</figcaption>
@@ -112,7 +112,7 @@ Nově vytvořené mozaice DMR nastavíme vlastní symbologii podle zaznamenanýc
  - je možné upravit dle požadovaného výsledku
 
 <figure markdown>
-  ![](../assets/cviceni5/dmr-symbologie.png){ width="500" }
+  ![](../assets/cviceni10/dmr-symbologie.png){ width="500" }
   <figcaption>Úprava symbologie DMR</figcaption>
 </figure>
 
@@ -127,8 +127,8 @@ Nově vytvořené mozaice DMR nastavíme vlastní symbologii podle zaznamenanýc
 **9.** __Středová čára řeky__
 Abychom mohli vypošítat výškový model vstažený k povrchu řeky, je nutné vytvořit bodovou vrstvu s informacemi o nadmořské výšce a následně z nich vytvořit interpolovaný rastr. Nejdříve je nutné založit novou třídu prvků a nakreslit středovou čáru řeky, podle které následně vygenerujeme body. 
 
-![](../assets/cviceni5/centerline.png)
-![](../assets/cviceni5/centerline-done.png)
+![](../assets/cviceni10/centerline.png)
+![](../assets/cviceni10/centerline-done.png)
 {: .process_container}
 
 <figcaption>Tvorba středové čárky řeky</figcaption>
@@ -140,7 +140,7 @@ Body vytvoříme pomocí nástroje __Generate Points Along Lines__. Vzdálenost 
     Šířku řeky můžeme zjistit pomocí nástroje __Measure__ (měření) na záložce __Map__.
 
     <figure markdown>
-      ![](../assets/cviceni5/measure.png){ width="500" }
+      ![](../assets/cviceni10/measure.png){ width="500" }
       <figcaption>Nástroj měření</figcaption>
     </figure>
 
@@ -151,7 +151,7 @@ Pomocí funkce __Extract Values to Points__ lze bodům přiřadit hodnoty pixelu
 
 
 <figure markdown>
-  ![](../assets/cviceni5/points-z.png){ width="600" }
+  ![](../assets/cviceni10/points-z.png){ width="600" }
   <figcaption>Přiřazení výšky bodům</figcaption>
 </figure>
 
@@ -159,8 +159,8 @@ Pomocí funkce __Extract Values to Points__ lze bodům přiřadit hodnoty pixelu
 
 Nyní můžeme z výškových bodů vytvořit interpolovaný výškový rastr vztažený k hladině řeky. Použijeme metodu vážené inverzní vzdálenost (IDW).
 
-![](../assets/cviceni5/idw1.png)
-![](../assets/cviceni5/idw2.png)
+![](../assets/cviceni10/idw1.png)
+![](../assets/cviceni10/idw2.png)
 {: .process_container}
 
 <figcaption>Interpolace</figcaption>
@@ -173,8 +173,8 @@ Nyní můžeme z výškových bodů vytvořit interpolovaný výškový rastr vz
 Interpolovaný rastr je nutné převzorkovat, aby velikost pixelu odpovídala původnímu DMR. K převzorkování využijeme nástroj __Project Raster__
   - nutné pro práci s rastrovou kalkulačkou
 
-![](../assets/cviceni5/project.png)
-![](../assets/cviceni5/project2.png)
+![](../assets/cviceni10/project.png)
+![](../assets/cviceni10/project2.png)
 {: .process_container}
 
 <figcaption>Převzorkování rastru a kontrola velikosti pixelu</figcaption>
@@ -184,7 +184,7 @@ Interpolovaný rastr je nutné převzorkovat, aby velikost pixelu odpovídala p�
 DRM vypočteme pomocí nástroje __Raster Calculator__ odečtením původní DMR od interpolovaného rastru vztaženého k hladině řeky.
 
 <figure markdown>
-  ![](../assets/cviceni5/raster-calculator.png){ width="300" }
+  ![](../assets/cviceni10/raster-calculator.png){ width="300" }
   <figcaption>Rastrová kalkulačka</figcaption>
 </figure>
 
@@ -193,7 +193,7 @@ DRM vypočteme pomocí nástroje __Raster Calculator__ odečtením původní DMR
 Nyní už je je na nás, jak výsledný výsledný REM vizualizujeme. Vhodné je rastr vizualizovat metodou Stretch pomocí spojité barevné stupnice.
 
 <figure markdown>
-  ![](../assets/cviceni5/final-symbology.png){ width="500" }
+  ![](../assets/cviceni10/final-symbology.png){ width="500" }
   <figcaption>Vizualizace výsledku</figcaption>
 </figure>
 
