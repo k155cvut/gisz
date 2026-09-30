@@ -35,6 +35,10 @@ Ve cvičení se naučíte
 
 </div>
 
+## Náplň cvičení
+
+Cvičení má tři části, které pracují nad __stejným územím a stejným DMR__. Nejdříve si z dat DMR 5G připravíme výškovou mozaiku. Na ní ověříme, jak přesně jednotlivé interpolační metody dokážou povrch zrekonstruovat z řídkých bodů, spočítáme viditelnost z vybraného místa a nakonec pomocí rastrové kalkulačky vytvoříme relativní výškový model řeky (REM).
+
 ## Základní pojmy
 
 - **Interpolace** – odhad neznámé hodnoty jevu v daném místě na základě známých okolních hodnot
@@ -92,32 +96,6 @@ Z vrstvy _DMR_ si „nasimulujeme“ řídké výškové měření v náhodných
 
 </div>
 
-### Vyzkoušejte si
-
-<link rel="stylesheet" href="../css/cviceni10.css">
-<script src="../js/interpolace.js" defer></script>
-
-Obě ukázky počítají s uměle vytvořeným „skutečným“ terénem, takže u každé metody hned vidíme, o kolik se od skutečnosti liší. Měřené body můžeme přidávat a odebírat kliknutím.
-
-<div class="iw" data-iw="profil">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
-
-???+ note-grey "Co sledovat v profilu"
-
-    - __IDW__ – při vysoké hodnotě _Power_ vznikají kolem bodů plošiny a mezi nimi schody, při nízké se povrch „zplošťuje“ k průměru. Vrchol, na kterém neleží bod, IDW nikdy nevytvoří.
-    - __Spline__ – hladká křivka, která za posledním bodem nebo mezi vzdálenými body přestřeluje. Zvýšením napětí se chová podobně jako lineární interpolace.
-    - __Natural Neighbor__ – v 1D odpovídá lineární interpolaci mezi sousedy. Mimo krajní body nepočítá nic (NoData).
-    - __Kriging__ – kromě samotného odhadu počítá i jeho nejistotu, kterou ukazuje pás ±2σ. V měřených bodech je nejistota nulová a čím dál od nich, tím víc roste. Čím vyšší _Nugget_ nastavíme, tím je křivka hladší.
-
-<div class="iw" data-iw="mapa">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
-
-???+ note-grey "Co sledovat na mapě"
-
-    - Přepněte na zobrazení __Chyba__: kde se chyby soustřeďují? Obvykle na vrcholech, v údolí a na okrajích území mimo měřené body.
-    - U __IDW__ jsou ve stínovaném reliéfu dobře vidět tzv. efekt volského oka, kolem bodů.
-    - U __Natural Neighbor__ zapněte Thiessenovy polygony – z nich metoda odvozuje váhy. Mimo konvexní obálku bodů vzniká NoData.
-    - U __Krigingu__ upravte _Range_ a _Nugget_ podle semivariogramu a sledujte, jak se mění RMSE v tabulce.
-    - Zvyšte počet bodů: od určité hustoty se rozdíly mezi metodami téměř smažou.
-
 ## Mapová algebra – relativní výškový model (REM)
 
 <figure markdown>
@@ -142,35 +120,6 @@ Z REM můžeme identifikovat:
 
 [REM Story mapa](https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 {: .button_array}
-
-### Vyzkoušejte si
-
-<script src="../js/mapova-algebra.js" defer></script>
-
-Mapová algebra pracuje s rastry __buňku po buňce__: výsledek v každé buňce se spočítá jen z hodnot vstupních rastrů na stejném místě (tzv. lokální operace). Výrazy píšeme stejně jako v _RASTER CALCULATOR_ v ArcGIS Pro.
-
-<div class="iw" data-ma="kalkulacka">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
-
-???+ note-grey "Co sledovat v kalkulačce"
-
-    - Porovnání (`>`, `==` …) vrací __1 (pravda) nebo 0 (nepravda)__. Díky tomu můžeme podmínky kombinovat operátory `&` a `|` nebo je násobit.
-    - Operátory `&` a `|` se vyhodnocují __dřív než porovnání__, proto musí být každá podmínka v závorkách. Vyzkoušejte příklad „Častá chyba“.
-    - __NoData__ se šíří: pokud má kterýkoli vstup v buňce NoData, má ho i výsledek. Výjimkou je funkce `IsNull`.
-    - Plochu území dostaneme jako __počet buněk × plocha buňky__, jak ukazuje tabulka pod výsledkem.
-
-<div class="iw" data-ma="rem">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
-
-???+ note-grey "Co sledovat u REM"
-
-    - V kroku 1 je DMR obarvený podle celého rozsahu výšek a nivu téměř nevidíme. Zapněte symbologii jen na rozsah výšek řeky – tvary se trochu ukážou, ale spád údolí je pořád přebíjí.
-    - V kroku 4 zmizel spád údolí a zůstaly jen výšky nad hladinou. Najděte staré koryto, slepé rameno a valy podél řeky.
-    - Zvětšete vzdálenost bodů na řece: interpolovaná hladina přestane sledovat spád řeky a v REM vzniknou falešné „schody“.
-    - Příčný profil ukazuje, co rastrová kalkulačka dělá: od terénu odečte hladinu v každé buňce zvlášť.
-
-## Náplň cvičení
-
-Cvičení má tři části, které pracují nad __stejným územím a stejným DMR__. Nejdříve si z dat DMR 5G připravíme výškovou mozaiku. Na ní ověříme, jak přesně jednotlivé interpolační metody dokážou povrch zrekonstruovat z řídkých bodů, spočítáme viditelnost z vybraného místa a nakonec pomocí rastrové kalkulačky vytvoříme relativní výškový model řeky (REM).
-
 
 ## Použité datové podklady
 
