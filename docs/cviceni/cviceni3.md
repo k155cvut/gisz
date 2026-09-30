@@ -9,13 +9,13 @@ title: Cvičení 3
 
 Seznámení se se základními geoprocessingovými nástroji v GIS v rámci řešení komplexní úlohy.
 
-## Základní pojmy
-
+<!--## Základní pojmy
+<!--
 - [**buffer**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm): Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
 - [**clip**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm): Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu.
 - [**select**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm): Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
 - [**intersect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm): Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
-- [**dissolve**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/dissolve.htm): Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
+- [**dissolve**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog): Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
 - [**spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm): Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
 - [**erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm): Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
 - [**union**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm): Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
@@ -23,16 +23,124 @@ Seznámení se se základními geoprocessingovými nástroji v GIS v rámci ře�
 - [**symmetrical difference**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm): Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
 - [**count overlapping features**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm): Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
 
+<hr class="level-1">-->
+## Základní prostorové operace
+<div class="centered_tab_labels gallery-tabs" markdown>
+
+=== "buffer"
+
+    [**Buffer**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)<br>
+    Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Buffer](../assets/cviceni3/buffer_doc.png)
+      <figcaption>zdroj: [Buffer (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)</figcaption>
+    </figure>
+
+=== "clip"
+
+    [**Clip**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm)<br>
+    Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Clip](../assets/cviceni3/clip_esri.png)
+      <figcaption>zdroj: [Clip (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/clip.html?tabs=dialog)</figcaption>
+    </figure>
+
+=== "select"
+
+    [**Select**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm)<br>
+    Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
+
+    ![Ukázka nástroje Select](../assets/cviceni3/select_ai.png){: style="width: 50%;" }
+
+=== "intersect"
+
+    [**Intersect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm)<br>
+    Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Intersect](../assets/cviceni3/intersect_esri.gif)
+      <figcaption>zdroj: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)</figcaption>
+    </figure>
+
+=== "dissolve"
+
+    [**Dissolve**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)<br>
+    Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Dissolve](../assets/cviceni3/dissolve_county_esri.png)
+      <figcaption>zdroj: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)</figcaption>
+    </figure>
+
+=== "spatial join"
+
+    [**Spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm)<br>
+    Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
+
+=== "erase"
+
+    [**Erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)<br>
+    Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Erase](../assets/cviceni3/erase_esri.gif)
+      <figcaption>zdroj: [Erase (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)</figcaption>
+    </figure>
+
+=== "union"
+
+    [**Union**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)<br>
+    Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Union](../assets/cviceni3/union_esri.gif)
+      <figcaption>zdroj: [Union (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)</figcaption>
+    </figure>
+
+=== "remove overlap"
+
+    [**Remove overlap**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)<br>
+    Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Remove overlap](../assets/cviceni3/remove_overlap_esri.png)
+      <figcaption>zdroj: [Remove overlap (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)</figcaption>
+    </figure>
+
+=== "symm. difference"
+
+    [**Symmetrical difference**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)<br>
+    Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Symmetrical difference](../assets/cviceni3/symdiff_esri.gif)
+      <figcaption>zdroj: [Symmetrical difference (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)</figcaption>
+    </figure>
+
+=== "count overlapping" 
+
+    [**Count overlapping features**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)<br>
+    Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
+
+    <figure class="gallery-figure" markdown>
+      ![Ukázka nástroje Count overlapping features](../assets/cviceni3/countoverlappingfeatures_esri.png)
+      <figcaption>zdroj: [Count overlapping features (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)</figcaption>
+    </figure>
+
+
+</div>
 <hr class="level-1">
 
+<!--
 Následující přehled ukazuje nejpoužívanější nástroje prostorových funkcí v ArcGIS Pro.
 
 <figure markdown>
   ![Prostorové funkce](../assets/cviceni3/prost_funkce_srovnani.png "Prostorové funkce")
   <figcaption>Srovnání vstupních vrstev a výsledků operace pro různé nástroje prostorových funkcí</figcaption>
 </figure>
-
-
+--->
 
 ## Použité datové podklady
 
