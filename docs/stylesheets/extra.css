@@ -198,19 +198,12 @@ div.table_centered .md-typeset__scrollwrap {text-align: center;}
 .gallery-tabs .tabbed-block > .gallery-figure {
   grid-column: 2;
   grid-row: 1;
-}
-.gallery-tabs .tabbed-block > p:last-child {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  margin: 0;
-}
-.gallery-tabs .tabbed-block > .gallery-figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   margin: 0;
 }
 .gallery-tabs .gallery-figure img,

@@ -79,6 +79,8 @@ Seznámení se se základními geoprocessingovými nástroji v GIS v rámci ře�
     [**Spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm)<br>
     Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
 
+    ![Ukázka nástroje Spatial Join](../assets/cviceni3/spatial_join_ai.png)
+
 === "erase"
 
     [**Erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)<br>
