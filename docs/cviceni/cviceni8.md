@@ -42,7 +42,10 @@ Ve cvičení se naučíte
 
 Než se pustíme do práce s reálnými daty, vyzkoušíme si v interaktivní ukázce, co jednotlivé funkce dělají. Přepínáme záložky, měníme parametry a zapínáme reklasifikaci; po najetí myší na mapu vidíme hodnoty buňky. Terén je syntetický s rozlišením 25&nbsp;m, výpočty _SLOPE_ a _ASPECT_ ale odpovídají ArcGIS.
 
-<iframe src="../html/cv8_topo_funkce.html" title="Interaktivní ukázka topografických funkcí" loading="lazy" style="width:100%;height:660px;border:none;"></iframe>
+<link rel="stylesheet" href="../css/cviceni8.css">
+<script src="../js/topograficke-funkce.js" defer></script>
+
+<div class="tf" data-tf="topo">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
 
 ## Náplň cvičení
 Vaším úkolem bude na základě rastrových dat vybraného území analyzovat lavinové svahy mají. K vyhodnocení lavinového svahu potřebujete znát sklonitost a expozici svahu, nadmořskou výšku či krajinný pokryv. Podmínky pro vznik lavin lze (zjednodušeně) shrnout v následujících bodech:
