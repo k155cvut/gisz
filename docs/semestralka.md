@@ -20,7 +20,7 @@ Dotazy či připomínky k semestrální práci směřujte k vyučujícím Vaší
     ---
     1. **Výběr** katastrálního území dle [**této mapy**](https://arcg.is/1ePSnC)
     
-    2. **Zadání** názvu vybraného katastrálního území do [**sdílené tabulky**](https://docs.google.com/spreadsheets/d/1g2wl-ERTO59lgwzLRXmvFsilolLZivnxeKEC8jEvaN0/) nejpozději __do soboty 10. října 2026, 23.59 h__{.outlined}
+    2. **Zadání** názvu vybraného katastrálního území do [**sdílené tabulky**](https://docs.google.com/spreadsheets/d/1g2wl-ERTO59lgwzLRXmvFsilolLZivnxeKEC8jEvaN0/) nejpozději __do úterý 6. října 2026, 23.59 h__{.outlined}
 
 -   :material-calendar-text: __Termíny odevzdání__
     
