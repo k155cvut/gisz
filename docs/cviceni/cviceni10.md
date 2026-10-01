@@ -463,15 +463,6 @@ Using Viewshed and Observer Points for visibility analysis [online]. Esri [cit. 
        a hodnotu 2, kde je nadmořská výška nad 700 m a sklon větší než 5°.
        Jaká je výměra takto určeného území v ha?
 
-    **Viditelnost**
-
-    6. Jaká je plocha území v km², která je viditelná z výškové kóty
-       Varhošť (ID 725), pokud stojí pozorovatel 1,7 m nad terénem?
-
-    7. Je z výškové kóty Varhošť (ID 725) vidět na výškovou kótu Sklářský
-       vrch (ID 476)? Pokud ne, v jaké vzdálenosti od pozorovatele leží
-       první překážka?
-
     **Interpolace**
 
     8. Z výškových kót (VyskoveKoty) vytvořte metodami IDW a Spline rastr
