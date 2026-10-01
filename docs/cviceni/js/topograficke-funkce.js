@@ -24,6 +24,7 @@
   const C0 = [208,212,218], C1 = [30,99,181], CRISK = [211,47,47];
   const SUMC = [[208,212,218],[255,224,130],[251,140,0],[211,47,47]];
   const AS_HUE = [0,32,56,120,180,205,235,300];
+  const LOS_VIS = [46,170,60], LOS_HID = [221,44,44], LOS_OBST = [30,136,229];   // jako Line Of Sight v ArcGIS
 
   const TABS = [
     ["dmr", "DMR"], ["slope", "Slope"], ["aspect", "Aspect"], ["hillshade", "Hillshade"],
@@ -231,6 +232,28 @@
         VS[k] = (DEM[k] - oz) / L >= maxT ? 1 : 0;
       }
     }
+    // Line Of Sight – profil terénu mezi A a B; každý vzorek je viditelný,
+    // pokud jeho výškový úhel od pozorovatele není menší než u předchozích vzorků
+    function lineOfSight() {
+      const ax = S.ox, ay = S.oy, ddx = S.bx - ax, ddy = S.by - ay;
+      const L = Math.hypot(ddx, ddy) * CS, M = Math.max(2, Math.ceil(Math.hypot(ddx, ddy) * 2));
+      const oz = DEM[ay * N + ax] + S.off, tz = DEM[S.by * N + S.bx] + S.offB;
+      const tanB = L > 0 ? (tz - oz) / L : 0;
+      const pts = [];
+      let maxT = -Infinity, obst = -1;
+      for (let i = 0; i <= M; i++) {
+        const t = i / M, x = ax + ddx * t, y = ay + ddy * t, z = bil(x, y), d = t * L;
+        let vis = true;
+        if (i > 0 && d > 0) {
+          const tan = (z - oz) / d;
+          vis = tan >= maxT;
+          if (tan > maxT) maxT = tan;
+          if (i < M && obst < 0 && tan > tanB) obst = i;   // první překážka mezi A a cílem
+        }
+        pts.push({ x, y, z, d, vis });
+      }
+      return { pts, L, oz, tz, obst, targetVis: obst < 0 };
+    }
     function aspSlopeCol(k) {
       const c = slopeCls(SL[k]), d = dirIdx(AS[k]);
       if (c === 0 || d < 0) return [189, 189, 189];
@@ -246,6 +269,7 @@
       dirs: [true, true, false, false, false, false, false, true], aspRc: false,
       az: 315, alt: 45, zf: 1,
       ox: 80, oy: 80, off: 20,
+      vsMode: "area", bx: 30, by: 130, offB: 2,
       combo: "mul"
     };
     const condE = (k) => DEM[k] >= S.elevThr ? 1 : 0;
@@ -266,7 +290,10 @@
       S.elevThr = Math.round(demMin + 2 * (demMax - demMin) / 3);
       const mk = highestCell();
       S.ox = mk % N; S.oy = Math.floor(mk / N);
-      viewshed(S.ox, S.oy, S.off);
+      // cíl B do protějšího rohu území, ať čára vede přes terén
+      S.bx = S.ox < N / 2 ? Math.round(N * 0.85) : Math.round(N * 0.15);
+      S.by = S.oy < N / 2 ? Math.round(N * 0.85) : Math.round(N * 0.15);
+      dirtyVS = true;
       renderPanel(); draw();
     }
 
@@ -279,6 +306,7 @@
         <div class="tf-mapcol">
           <div class="tf-map">
             <canvas width="${N}" height="${N}"></canvas>
+            <canvas class="tf-overlay"></canvas>
             <div class="tf-marker" hidden></div>
             <div class="tf-north">▲<br>S</div>
           </div>
@@ -295,6 +323,9 @@
     const marker = root.querySelector(".tf-marker");
     const readout = root.querySelector(".tf-readout");
     const canvas = map.querySelector("canvas"), ctx = canvas.getContext("2d");
+    const overlay = map.querySelector(".tf-overlay"), octx = overlay.getContext("2d");
+    const isLos = () => S.tab === "viewshed" && S.vsMode === "los";
+    let los = null;   // poslední výsledek lineOfSight()
 
     /* ---------- panely záložek ---------- */
 
@@ -339,14 +370,25 @@
           ${slider("zf", "Z-faktor (převýšení)", ["× "], 0.5, 5, 0.5)}
         </div>
         <p class="tf-hint">Zkuste azimut kolem 135°: údolí mohou začít vypadat jako hřbety (tzv. inverze reliéfu). Proto je výchozí 315°, světlo od SZ.</p>`;
-      case "viewshed": return head("<i>VIEWSHED</i> – analýza viditelnosti", "Spatial Analyst › <i>VIEWSHED</i>") + `
+      case "viewshed": return `
+        <div class="tf-seg" role="group">
+          <button type="button" class="tf-btn" data-mode="area">Viditelnost z bodu</button>
+          <button type="button" class="tf-btn" data-mode="los">Přímka viditelnosti</button>
+        </div>` + (S.vsMode === "los" ? head("<i>LINE OF SIGHT</i> – přímka viditelnosti", "3D Analyst › <i>CONSTRUCT SIGHT LINES</i>, <i>LINE OF SIGHT</i>") + `
+        <p>Funkce vede přímku od pozorovatele <b>A</b> k cíli <b>B</b> a podél ní testuje, které úseky terénu jsou z bodu A vidět (<b style="color:${css(LOS_VIS)}">zeleně</b>) a které zakrývá terén (<b style="color:${css(LOS_HID)}">červeně</b>). Modrý bod je první překážka, která brání výhledu na cíl.</p>
+        <div class="tf-ctrl">
+          <span><b>Táhněte body A a B</b> v mapě (klik přesune bližší bod).</span>
+          ${slider("off", "výška pozorovatele A (<i>OFFSETA</i>)", ["", " m"], 0, 100, 1)}
+          ${slider("offB", "výška cíle B (<i>OFFSETB</i>)", ["", " m"], 0, 100, 1)}
+          <button type="button" class="tf-btn" data-act="peak">Pozorovatel na nejvyšší bod</button>
+        </div>` : head("<i>VIEWSHED</i> – analýza viditelnosti", "Spatial Analyst › <i>VIEWSHED</i>") + `
         <p>Funkce určí buňky, které jsou vidět z pozorovacího bodu. U každé buňky testuje, zda přímku pohledu nepřeruší terén.</p>
         <div class="tf-ctrl">
           <span><b>Klikněte do mapy</b> pro přesun pozorovatele.</span>
           ${slider("off", "výška nad terénem (<i>OFFSETA</i>)", ["", " m"], 0, 100, 1)}
           <button type="button" class="tf-btn" data-act="peak">Pozorovatel na nejvyšší bod</button>
         </div>
-        <p class="tf-hint">Zkuste na vrcholu snížit výšku na 2&nbsp;m. Z vypouklého vrcholu nejsou vidět jeho vlastní svahy, protože je zakryje hrana terénu. Výchozích 20&nbsp;m odpovídá rozhledně.</p>`;
+        <p class="tf-hint">Zkuste na vrcholu snížit výšku na 2&nbsp;m. Z vypouklého vrcholu nejsou vidět jeho vlastní svahy, protože je zakryje hrana terénu. Výchozích 20&nbsp;m odpovídá rozhledně.</p>`);
       case "aspectslope": return head("<i>ASPECT-SLOPE</i>", "rastrová funkce ArcGIS Pro") + `
         <p>Funkce kombinuje dvě veličiny v jedné vrstvě. Barevný tón nese <b>expozici</b>, sytost nese <b>sklon</b>. Ploché oblasti (&lt;&nbsp;5°) jsou šedé.</p>
         <div class="tf-ctrl">${underlayBox}</div>`;
@@ -385,6 +427,10 @@
       if (peak) peak.addEventListener("click", () => {
         const mk = highestCell(); S.ox = mk % N; S.oy = Math.floor(mk / N); dirtyVS = true; schedule();
       });
+      panel.querySelectorAll("[data-mode]").forEach((b) => {
+        b.setAttribute("aria-pressed", String(b.dataset.mode === S.vsMode));
+        b.addEventListener("click", () => { S.vsMode = b.dataset.mode; renderPanel(); draw(); });
+      });
       labels();
     }
     function labels() {
@@ -412,7 +458,6 @@
       requestAnimationFrame(() => {
         queued = false;
         if (dirtyHS) { hillshade(S.az, S.alt, S.zf); dirtyHS = false; }
-        if (dirtyVS) { viewshed(S.ox, S.oy, S.off); dirtyVS = false; }
         draw();
       });
     }
@@ -428,7 +473,7 @@
           const d = dirIdx(AS[k]); return d < 0 ? [160, 160, 160] : DIR_COL[d];
         }
         case "hillshade": return [HS[k], HS[k], HS[k]];
-        case "viewshed": { const h = 40 + HS[k] * 0.7; return VS[k] ? [h * 0.45, 90 + h * 0.6, h * 0.35] : [h, h, h]; }
+        case "viewshed": { const h = 40 + HS[k] * 0.7; return VS[k] && !isLos() ? [h * 0.45, 90 + h * 0.6, h * 0.35] : [h, h, h]; }
         case "aspectslope": return aspSlopeCol(k);
         case "combo": {
           if (S.combo === "mul") return condE(k) * condS(k) * condA(k) ? CRISK : C0;
@@ -437,6 +482,8 @@
       }
     }
     function draw() {
+      if (dirtyVS && S.tab === "viewshed" && S.vsMode === "area") { viewshed(S.ox, S.oy, S.off); dirtyVS = false; }
+      los = isLos() ? lineOfSight() : null;
       const img = ctx.createImageData(N, N), p = img.data;
       const under = S.underlay && !["hillshade", "viewshed"].includes(S.tab);
       for (let k = 0; k < N * N; k++) {
@@ -444,10 +491,109 @@
         p[4*k] = c[0] * f; p[4*k + 1] = c[1] * f; p[4*k + 2] = c[2] * f; p[4*k + 3] = 255;
       }
       ctx.putImageData(img, 0, 0);
-      marker.hidden = S.tab !== "viewshed";
+      marker.hidden = S.tab !== "viewshed" || !!los;
       marker.style.left = ((S.ox + 0.5) / N * 100) + "%";
       marker.style.top = ((S.oy + 0.5) / N * 100) + "%";
+      map.classList.toggle("tf-drag", !!los);
+      drawOverlay();
       legend();
+    }
+
+    /* ---------- přímka viditelnosti: mapa a profil ---------- */
+
+    // projde body přímky po souvislých úsecích se stejnou viditelností
+    function runs(P, fn) {
+      for (let i = 0; i < P.length - 1;) {
+        const vis = P[i + 1].vis;
+        let j = i + 1;
+        while (j < P.length - 1 && P[j + 1].vis === vis) j++;
+        fn(i, j, vis);
+        i = j;
+      }
+    }
+    function fitCanvas(cv) {
+      const w = cv.clientWidth, h = cv.clientHeight, dpr = window.devicePixelRatio || 1;
+      if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+        cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      }
+      const g = cv.getContext("2d");
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.clearRect(0, 0, w, h);
+      return [g, w, h];
+    }
+    function dot(g, x, y, r, fill, label) {
+      g.beginPath(); g.arc(x, y, r, 0, 2 * Math.PI);
+      g.fillStyle = fill; g.fill();
+      g.lineWidth = 1.5; g.strokeStyle = "#000"; g.stroke();
+      if (label) {
+        g.fillStyle = "#000"; g.font = "bold 10px system-ui, sans-serif";
+        g.textAlign = "center"; g.textBaseline = "middle";
+        g.fillText(label, x, y + 0.5);
+      }
+    }
+
+    function drawOverlay() {
+      const [g, w, h] = fitCanvas(overlay);
+      if (!los || !w) return;
+      const X = (x) => (x + 0.5) / N * w, Y = (y) => (y + 0.5) / N * h;
+      const P = los.pts, last = P[P.length - 1];
+      g.lineJoin = "round";
+      g.lineCap = "round"; g.lineWidth = 6; g.strokeStyle = "rgba(0,0,0,.75)";
+      g.beginPath(); g.moveTo(X(P[0].x), Y(P[0].y)); g.lineTo(X(last.x), Y(last.y)); g.stroke();
+      g.lineCap = "butt"; g.lineWidth = 3.5;
+      runs(P, (i, j, vis) => {
+        g.strokeStyle = css(vis ? LOS_VIS : LOS_HID);
+        g.beginPath(); g.moveTo(X(P[i].x), Y(P[i].y)); g.lineTo(X(P[j].x), Y(P[j].y)); g.stroke();
+      });
+      if (los.obst >= 0) dot(g, X(P[los.obst].x), Y(P[los.obst].y), 4.5, css(LOS_OBST));
+      dot(g, X(S.ox), Y(S.oy), 8, "#fff", "A");
+      dot(g, X(S.bx), Y(S.by), 8, "#fff", "B");
+    }
+
+    function drawProfile(cv) {
+      const [g, w, h] = fitCanvas(cv);
+      if (!w) return;
+      const cs = getComputedStyle(root);
+      const fg = cs.getPropertyValue("--md-default-fg-color").trim() || "#000";
+      const muted = cs.getPropertyValue("--md-default-fg-color--light").trim() || "#888";
+      const faint = cs.getPropertyValue("--md-default-fg-color--lightest").trim() || "#eee";
+      const P = los.pts, last = P[P.length - 1];
+      let lo = Infinity, hi = Math.max(los.oz, los.tz);
+      for (const p of P) { if (p.z < lo) lo = p.z; if (p.z > hi) hi = p.z; }
+      const pad = (hi - lo) * 0.1 || 10; lo -= pad; hi += pad;
+      const M = { l: 10, r: 10, t: 6, b: 16 };
+      const X = (d) => M.l + (los.L ? d / los.L : 0) * (w - M.l - M.r);
+      const Y = (z) => M.t + (hi - z) / (hi - lo) * (h - M.t - M.b);
+
+      // terén
+      g.fillStyle = faint;
+      g.beginPath(); g.moveTo(X(0), h - M.b);
+      P.forEach((p) => g.lineTo(X(p.d), Y(p.z)));
+      g.lineTo(X(los.L), h - M.b); g.closePath(); g.fill();
+      g.lineWidth = 2.5; g.lineJoin = "round";
+      runs(P, (i, j, vis) => {
+        g.strokeStyle = css(vis ? LOS_VIS : LOS_HID);
+        g.beginPath(); g.moveTo(X(P[i].d), Y(P[i].z));
+        for (let k = i + 1; k <= j; k++) g.lineTo(X(P[k].d), Y(P[k].z));
+        g.stroke();
+      });
+      // výšky pozorovatele a cíle nad terénem
+      g.lineWidth = 1.5; g.strokeStyle = muted;
+      g.beginPath();
+      g.moveTo(X(0), Y(P[0].z)); g.lineTo(X(0), Y(los.oz));
+      g.moveTo(X(los.L), Y(last.z)); g.lineTo(X(los.L), Y(los.tz));
+      g.stroke();
+      // přímka pohledu
+      g.setLineDash([4, 3]); g.lineWidth = 1; g.strokeStyle = fg;
+      g.beginPath(); g.moveTo(X(0), Y(los.oz)); g.lineTo(X(los.L), Y(los.tz)); g.stroke();
+      g.setLineDash([]);
+      if (los.obst >= 0) dot(g, X(P[los.obst].d), Y(P[los.obst].z), 3.5, css(LOS_OBST));
+      dot(g, X(0), Y(los.oz), 6.5, "#fff", "A");
+      dot(g, X(los.L), Y(los.tz), 6.5, "#fff", "B");
+      // osa vzdálenosti
+      g.fillStyle = muted; g.font = "10px system-ui, sans-serif"; g.textBaseline = "bottom";
+      g.textAlign = "left"; g.fillText("0 m", 2, h);
+      g.textAlign = "right"; g.fillText(`${Math.round(los.L)} m`, w - 2, h);
     }
 
     /* ---------- legenda ---------- */
@@ -480,6 +626,19 @@
           L.innerHTML = scale("linear-gradient(to right,#000,#fff)", ["0 (stín)", "255 (plné světlo)"]);
           break;
         case "viewshed": {
+          if (los) {
+            const P = los.pts, hidden = P.filter((p, i) => i > 0 && !p.vis).length / (P.length - 1);
+            L.innerHTML = `<div class="tf-los">${los.targetVis
+                ? `<b style="color:${css(LOS_VIS)}">✓</b> Cíl B je z bodu A <b>viditelný</b>.`
+                : `<b style="color:${css(LOS_HID)}">✗</b> Cíl B z bodu A <b>není vidět</b>, výhled zakrývá terén ${Math.round(P[los.obst].d)} m od A.`}</div>
+              <canvas class="tf-profile" aria-label="Profil terénu mezi body A a B"></canvas>
+              <div>${sw(css(LOS_VIS))}viditelný úsek terénu</div>
+              <div>${sw(css(LOS_HID))}skrytý úsek terénu (${(hidden * 100).toFixed(0)} % délky)</div>
+              ${los.obst >= 0 ? `<div>${sw(css(LOS_OBST))}první překážka výhledu na cíl</div>` : ""}
+              <div class="tf-stat">A: ${Math.round(DEM[S.oy * N + S.ox])} m + ${S.off} m · B: ${Math.round(DEM[S.by * N + S.bx])} m + ${S.offB} m · délka ${Math.round(los.L)} m</div>`;
+            drawProfile(L.querySelector(".tf-profile"));
+            break;
+          }
           const v = count((k) => VS[k]);
           L.innerHTML = `<div>${sw("rgb(60,170,50)")}viditelné (${ha(v)} ha, ${(v / N / N * 100).toFixed(1)} %)</div>
             <div>${sw("#999")}neviditelné</div>
@@ -516,14 +675,37 @@
     map.addEventListener("mousemove", (e) => {
       const [x, y] = cellAt(e), k = y * N + x, d = dirIdx(AS[k]);
       let t = `Z ${Math.round(DEM[k])} m · sklon ${SL[k].toFixed(1)}° · exp. ${AS[k] < 0 ? "−1" : Math.round(AS[k]) + "° (" + DIRS[d] + ")"} · HS ${Math.round(HS[k])}`;
-      if (S.tab === "viewshed") t += VS[k] ? " · viditelné" : " · skryté";
+      if (S.tab === "viewshed" && !los) t += VS[k] ? " · viditelné" : " · skryté";
       readout.textContent = t;
     });
     map.addEventListener("mouseleave", () => (readout.textContent = "Najeďte myší na mapu…"));
     map.addEventListener("click", (e) => {
-      if (S.tab !== "viewshed") return;
+      if (S.tab !== "viewshed" || S.vsMode !== "area") return;
       [S.ox, S.oy] = cellAt(e); dirtyVS = true; schedule();
     });
+
+    // přímka viditelnosti: táhnutí bodů A a B (myš i dotyk)
+    let drag = null;
+    function moveLosPoint(which, x, y) {
+      if (which === "a") { S.ox = x; S.oy = y; dirtyVS = true; } else { S.bx = x; S.by = y; }
+      schedule();
+    }
+    map.addEventListener("pointerdown", (e) => {
+      if (!isLos()) return;
+      const [x, y] = cellAt(e);
+      drag = Math.hypot(x - S.ox, y - S.oy) <= Math.hypot(x - S.bx, y - S.by) ? "a" : "b";
+      map.setPointerCapture(e.pointerId);
+      moveLosPoint(drag, x, y);
+      e.preventDefault();
+    });
+    map.addEventListener("pointermove", (e) => { if (drag) moveLosPoint(drag, ...cellAt(e)); });
+    map.addEventListener("pointerup", () => (drag = null));
+    map.addEventListener("pointercancel", () => (drag = null));
+
+    // překreslení přímky a profilu při změně velikosti nebo barevného režimu
+    if (window.ResizeObserver) new ResizeObserver(() => { if (los) schedule(); }).observe(map);
+    new MutationObserver(() => { if (los) schedule(); })
+      .observe(document.body, { attributes: true, attributeFilter: ["data-md-color-scheme"] });
 
     tabBtns.forEach((b) => b.addEventListener("click", () => { S.tab = b.dataset.t; renderPanel(); draw(); }));
     root.querySelector('[data-act="new"]').addEventListener("click", () => newTerrain(false));
