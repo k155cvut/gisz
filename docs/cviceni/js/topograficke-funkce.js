@@ -262,12 +262,13 @@
 
     /* ---------- stav ---------- */
 
+    const HS_DEFAULT = { az: 315, alt: 45, zf: 1 };
     const S = {
       tab: "dmr", underlay: true,
       elevThr: 1300, elevRc: false,
       slopeThr: 30, slopeRc: false,
       dirs: [true, true, false, false, false, false, false, true], aspRc: false,
-      az: 315, alt: 45, zf: 1,
+      ...HS_DEFAULT,
       ox: 80, oy: 80, off: 20,
       vsMode: "area", bx: 30, by: 130, offB: 2,
       combo: "mul"
@@ -368,6 +369,7 @@
           ${slider("az", "azimut světla", ["", "°"], 0, 360, 5)}
           ${slider("alt", "výška nad obzorem", ["", "°"], 1, 90, 1)}
           ${slider("zf", "Z-faktor (převýšení)", ["× "], 0.5, 5, 0.5)}
+          <button type="button" class="tf-btn" data-act="hsreset" title="Azimut 315°, výška 45°, Z-faktor 1">↺ Výchozí nastavení</button>
         </div>
         <p class="tf-hint">Zkuste azimut kolem 135°: údolí mohou začít vypadat jako hřbety (tzv. inverze reliéfu). Proto je výchozí 315°, světlo od SZ.</p>`;
       case "viewshed": return `
@@ -422,6 +424,10 @@
       const third = panel.querySelector('[data-act="third"]');
       if (third) third.addEventListener("click", () => {
         S.elevThr = Math.round(demMin + 2 * (demMax - demMin) / 3); S.elevRc = true; renderPanel(); draw();
+      });
+      const hsReset = panel.querySelector('[data-act="hsreset"]');
+      if (hsReset) hsReset.addEventListener("click", () => {
+        Object.assign(S, HS_DEFAULT); dirtyHS = true; labels(); schedule();
       });
       const peak = panel.querySelector('[data-act="peak"]');
       if (peak) peak.addEventListener("click", () => {
