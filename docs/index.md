@@ -305,6 +305,14 @@ Starší a doplňující:
 5. [MOOCs and Live Training Seminars](https://www.esri.com/en-us/training/catalog/live-training-seminars-moocs)
 6. [Urban Planning, Design & Development Software](https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview)
 
+
+### **Užitečné odkazy**
+
+1. Jak se dostat k datům na školním serveru:
+    - [Vzdálený přístup](https://edu.fsv.cvut.cz/Citrix/EDUWeb/)
+    - [Webdata](https://webdata.fsv.cvut.cz/auth/?backLink=o2nh5)
+    - Připojení síťového disku – [jak se připojit](https://portal.fsv.cvut.cz/vic/uloziste/jak-se-pripojit), [přehled úložišť](https://portal.fsv.cvut.cz/vic/uloziste/prehled)
+
 ---
 
 ## Rozvrh {: style="margin-bottom:0;"}
