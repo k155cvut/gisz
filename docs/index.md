@@ -273,7 +273,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 ### **Podmínky zápočtu**
 
 - získání min. 60 % bodů v průběžném testu (4. týden semestru) 
-- odevzdání a prezentace [semestrální práce](#semestralka) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
+- odevzdání a prezentace [semestrální práce](./semestralka.md) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
 
 
 
