@@ -1,0 +1,1402 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Přehled vlastních stylů (extra stylesheet) - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prehled-vlastnich-stylu-extra-stylesheet" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Přehled vlastních stylů (extra stylesheet)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cviceni/cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../semestralka/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni/cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semestralka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prehled-vlastnich-stylu-extra-stylesheet">Přehled vlastních stylů (extra stylesheet)</h1>
+<p><strong style="font-size:200%;color:var(--md-primary-fg-color)">STRÁNKA: Charakteristika předmětu</strong></p>
+<h2 id="nazev-predmetu">Název předmětu</h2>
+<p>Třída <code>page_title</code> zarovnává na střed a mění váhu fontu.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># Nejlepší předmět {.page_title}</span>
+</code></pre></div>
+<h1 class="page_title" id="nejlepsi-predmet">Nejlepší předmět</h1>
+<hr class="level-1">
+
+<h2 id="mrizka-s-highlighty-predmetu">Mřížka s highlighty předmětu</h2>
+<p>Stručně vyjmenované nejzajímavější části vyučované v rámci předmětu</p>
+<p>Vychází z <a href="https://squidfunk.github.io/mkdocs-material/reference/grids/">MkDocs Material – GRIDS</a>, jen přidává třídy <code>grid_icon_info</code> (kvůli vertikálnímu zarovnání ikony a textu) a <code>smaller_padding</code> (pro zmenšení místa kolem okraje).</p>
+<p>Vždy 2 sloupce (na užších displejích pak jen 1), 1 ikona, <strong>text max 3 řádky</strong> (kvůli vzhledu)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;div class="grid cards grid_icon_info smaller_padding" markdown&gt;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">-</span><span class="w"> </span>  :material-information:{ .xl }
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    Text 1
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">-</span><span class="w"> </span>  :material-information-outline:{ .xl }
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    Text 2
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">-</span><span class="w"> </span>  :material-information-box:{ .xl }
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    Text 3
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">-</span><span class="w"> </span>  :material-information-box-outline:{ .xl }
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    Text 4
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="grid cards grid_icon_info smaller_padding">
+<!-- specificky format gridu (trida "grid_icon_info") na miru uvodni strance predmetu -->
+<ul>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg></span></p>
+<p>Text 1</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span></p>
+<p>Text 2</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14c0 .53-.21 1.04-.59 1.41-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-1.11.89-2 2-2m8 6V7h-2v2zm0 8v-6h-2v6z"></path></svg></span></p>
+<p>Text 3</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2zm0 8h-2v-6h2zM5 3h14a2 2 0 0 1 2 2v14c0 .53-.21 1.04-.59 1.41-.37.38-.88.59-1.41.59H5c-.53 0-1.04-.21-1.41-.59C3.21 20.04 3 19.53 3 19V5c0-1.11.89-2 2-2m14 16V5H5v14z"></path></svg></span></p>
+<p>Text 4</p>
+</li>
+</ul>
+</div>
+<hr class="level-1">
+
+<h2 id="galerie-predmetu">Galerie předmětu</h2>
+<p>Nalákat/získat pozornost pomocí sexy obrázků</p>
+<p>Třída <code>gallery_container</code> nastavuje uspořádání obrázků, třída <code>no-filter</code> vypíná stín pod obrázky (ten je jinak pod každým obrázkem na stránce)</p>
+<p>Všechny obrázky musí mít <strong>stejný poměr stran</strong> (lze případně do budoucna vyřešit jinak)</p>
+<p>Mělo by to asi být něco, co se v předmětu dělá. Ale to zas nebude moc sexy...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;div class="gallery_container" markdown&gt;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>![](https://dummyimage.com/600x350/a6dad4/009485){: .no-filter }
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>![](https://dummyimage.com/600x350/009485/a6dad4){: .no-filter }
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>![](https://dummyimage.com/600x350/a6dad4/009485){: .no-filter }
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>![](https://dummyimage.com/600x350/009485/a6dad4){: .no-filter }
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>![](https://dummyimage.com/600x350/009485/a6dad4){: .no-filter }
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>![](https://dummyimage.com/600x350/a6dad4/009485){: .no-filter }
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>![](https://dummyimage.com/600x350/009485/a6dad4){: .no-filter }
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>![](https://dummyimage.com/600x350/a6dad4/009485){: .no-filter }
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="gallery_container">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" class="no-filter" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+</div>
+<hr class="level-1">
+
+<p><br><br></p>
+<p><strong style="font-size:200%;color:var(--md-primary-fg-color)">OSTATNÍ STRÁNKY</strong></p>
+<h2 id="horizontalni-oddelovace">Horizontální oddělovače</h2>
+<h3 id="normalni">Normální:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+</code></pre></div>
+<hr>
+<h3 id="s-vetsimi-mezerami">S většími mezerami:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;hr class=level-2&gt;
+</code></pre></div>
+<hr class="level-2">
+
+<h3 id="s-vetsimi-mezerami-a-jinou-barvou">S většími mezerami a jinou barvou:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;hr class=level-1&gt;
+</code></pre></div>
+<hr class="level-1">
+
+<h2 id="tlacitka">Tlačítka</h2>
+<h3 id="normalni-tlacitko-podle-mkdocs-material">Normální tlačítko (podle MkDocs Material):</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[Zajímavý zdroj](#){ .md-button }
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary }
+</code></pre></div>
+<p><a class="md-button" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary" href="#">Zajímavý zdroj</a></p>
+<hr>
+<h3 id="mensi-tlacitko">Menší tlačítko:</h3>
+<p>Třída <code>button_smaller</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[Zajímavý zdroj](#){ .md-button .button_smaller}
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller}
+</code></pre></div>
+<p><a class="md-button button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller" href="#">Zajímavý zdroj</a></p>
+<hr>
+<h3 id="tlacitko-s-nazvem-domeny">Tlačítko s názvem domény:</h3>
+<p>Třída <code>server_name</code>. Horní řádek (doménu) je nutné zabalit do tagu <code>&lt;span&gt;</code> a za něj dát line break (<code>&lt;br&gt;</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .server_name}
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .md-button--primary .server_name}
+</code></pre></div>
+<p><a class="md-button server_name" href="#"><span>server.com</span><br>Zajímavý zdroj</a>
+<a class="md-button md-button--primary server_name" href="#"><span>server.com</span><br>Zajímavý zdroj</a></p>
+<hr>
+<h3 id="tlacitko-s-ikonou-vedouci-na-cizi-web">Tlačítko s ikonou (vedoucí na cizí web):</h3>
+<p>Třída <code>external_link_icon</code>. Používá to třeba idnes.cz.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[Zajímavý zdroj](#){ .md-button .external_link_icon}
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .external_link_icon}
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>[Zajímavý zdroj](#){ .md-button .button_smaller .external_link_icon}
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller .external_link_icon}
+</code></pre></div>
+<p><a class="md-button external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary external_link_icon" href="#">Zajímavý zdroj</a></p>
+<p><a class="md-button button_smaller external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="#">Zajímavý zdroj</a></p>
+<p>Při použití tlačítka s názvem domény je nutné použít třídu <code>external_link_icon_small</code> (kvůli velikosti ikony).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .server_name .external_link_icon_small}
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .md-button--primary .server_name .external_link_icon_small}
+</code></pre></div>
+<p><a class="md-button server_name external_link_icon_small" href="#"><span>server.com</span><br>Zajímavý zdroj</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="#"><span>server.com</span><br>Zajímavý zdroj</a></p>
+<hr>
+<h3 id="sada-tlacitek">Sada tlačítek</h3>
+<p>Pokud je <strong>tlačítek více za sebou</strong>, lze použít třídu <code>button_array</code>. Ta se musí přidat odstavci (nikoli prvku), takže je nutné ji <strong>psát na řádek pod definici tlačítek</strong>. Upravuje zarovnání (na střed) a velikost řádkování (pokud se řada nevejde na jeden řádek). Dá se použít, i když je tlačítko na řádku jen jedno.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[Zajímavý zdroj](#){ .md-button .button_smaller}
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller}
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[Zajímavý zdroj](#){ .md-button .button_smaller .external_link_icon}
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller .external_link_icon}
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary}
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>[Zajímavý zdroj](#){ .md-button .button_smaller}
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller}
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller}
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>[Zajímavý zdroj](#){ .md-button .button_smaller}
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller}
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .server_name}
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .md-button--primary .server_name}
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .server_name .external_link_icon_small}
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>[Zajímavý zdroj](#){ .md-button .button_smaller .external_link_icon}
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>[Zajímavý zdroj](#){ .md-button .md-button--primary .button_smaller .external_link_icon}
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>[&lt;span&gt;server.com&lt;/span&gt;&lt;br&gt;Zajímavý zdroj](#){ .md-button .md-button--primary .server_name .external_link_icon_small}
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>{.button_array}
+</code></pre></div>
+<p class="button_array"><a class="md-button button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button button_smaller external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary" href="#">Zajímavý zdroj</a>
+<a class="md-button button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller" href="#">Zajímavý zdroj</a>
+<a class="md-button server_name" href="#"><span>server.com</span><br>Zajímavý zdroj</a>
+<a class="md-button md-button--primary server_name" href="#"><span>server.com</span><br>Zajímavý zdroj</a>
+<a class="md-button server_name external_link_icon_small" href="#"><span>server.com</span><br>Zajímavý zdroj</a>
+<a class="md-button button_smaller external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="#">Zajímavý zdroj</a>
+<a class="md-button md-button--primary server_name external_link_icon_small" href="#"><span>server.com</span><br>Zajímavý zdroj</a></p>
+<hr class="level-1">
+
+<h2 id="tabulky">Tabulky</h2>
+<h3 id="tabulka-s-kompaktnejsim-zobrazenim">Tabulka s kompaktnějším zobrazením</h3>
+<p>Třída <code>table_small_padding</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&lt;div class="table_small_padding" markdown&gt;
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>| Method      | Description                          |
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>| ----------- | ------------------------------------ |
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>| `GET`       | :material-check:     Fetch resource  |
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>| `PUT`       | :material-check-all: Update resource |
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>| `DELETE`    | :material-close:     Delete resource |
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="table_small_padding">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span>     Fetch resource</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41z"></path></svg></span> Update resource</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>     Delete resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="tabulka-s-jeste-kompaktnejsim-zobrazenim">Tabulka s ještě kompaktnějším zobrazením</h3>
+<p>Třída <code>table_no_padding</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&lt;div class="table_no_padding" markdown&gt;
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>| Method      | Description                          |
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>| ----------- | ------------------------------------ |
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>| `GET`       | :material-check:     Fetch resource  |
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>| `PUT`       | :material-check-all: Update resource |
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>| `DELETE`    | :material-close:     Delete resource |
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="table_no_padding">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span>     Fetch resource</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41z"></path></svg></span> Update resource</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>     Delete resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="tabulka-bez-zahlavi">Tabulka bez záhlaví</h3>
+<p>Třída <code>table_headerless</code>, <strong>záhlaví se přesto musí vyplnit</strong> (jinak se tabulka nevytvoří), lze ho nechat prázdné</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>&lt;div class="table_headerless" markdown&gt;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>|             |                                      |
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>| ----------- | ------------------------------------ |
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>| `GET`       | :material-check:     Fetch resource  |
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>| `PUT`       | :material-check-all: Update resource |
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>| `DELETE`    | :material-close:     Delete resource |
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="table_headerless">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span>     Fetch resource</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41z"></path></svg></span> Update resource</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>     Delete resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="tabulka-zarovnana-na-stred">Tabulka zarovnaná na střed</h3>
+<p>Třída <code>table_centered</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>&lt;div class="table_centered" markdown&gt;
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>| Method      | Description                          |
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>| ----------- | ------------------------------------ |
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>| `GET`       | :material-check:     Fetch resource  |
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>| `PUT`       | :material-check-all: Update resource |
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>| `DELETE`    | :material-close:     Delete resource |
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="table_centered">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59z"></path></svg></span>     Fetch resource</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.41 13.41 6 19l1.41-1.42L1.83 12m20.41-6.42L11.66 16.17 7.5 12l-1.43 1.41L11.66 19l12-12M18 7l-1.41-1.42-6.35 6.35 1.42 1.41z"></path></svg></span> Update resource</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></span>     Delete resource</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="level-1">
+
+<h2 id="obrazky">Obrázky</h2>
+<h3 id="sada-obrazku-s-ikonami">Sada obrázků s ikonami</h3>
+<p>Třída <code>process_container</code>, obrázky jsou <strong>vždy pouze na jednom řádku</strong> (na užším displeji se zmenší, ale nezalamují se), jejich <strong>maximální velikost je 150 px</strong>, mezery mezi nimi se mění v závislosti na šířce displeje.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>![](https://dummyimage.com/600x350/009485/a6dad4)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>{.process_container}
+</code></pre></div>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+<p>Obrázky se třídou <code>process_icon</code> slouží jako <strong>ikony mezi obrázky</strong>. Lze tak vyjádřit např. proces pracovního postupu. Ikony mění barvu v tmavém režimu.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>![](../assets/cviceni1/arrow.svg){.off-glb .process_icon}
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>![](https://dummyimage.com/600x350/009485/a6dad4)
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>![](../assets/cviceni1/arrow.svg){.off-glb .process_icon}
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>{.process_container}
+</code></pre></div>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<img alt="" class="off-glb process_icon" src="../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<img alt="" class="off-glb process_icon" src="../assets/cviceni1/arrow.svg">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+<p>Třída <code>off-glb</code> vypíná efekt "GLightBox", třída <code>no-filter</code> vypíná stín pod obrázky (ten je jinak pod každým obrázkem na stránce)</p>
+<hr class="level-1">
+
+<h2 id="zvyrazneni-textu">Zvýraznění textu</h2>
+<h3 id="zmena-barvy">Změna barvy</h3>
+<p>Třída <code>primary_color</code> <strong>změní barvu textu na primární barvu webu</strong>. Třídu lze použít pouze na text uzavřený mezi tagy. Aby bylo kódu méně, dá se použít oddělení používané pro tučné písmo či kurzívu a následně efekt tučného písma či kurzívy potlačit třídou <code>no-dec</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Katedra geomatiky se zabývá 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>_:material-globe-model: geografickými informačními systémy_{.primary_color}, 
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>__:material-satellite-variant: dálkovým průzkumem Země__{.primary_color}, 
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>_:octicons-device-camera-video-16: geodetickými přístroji_{.no-dec .primary_color}, 
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>__:material-map-outline: katastrem nemovitostí__{.no-dec .primary_color} a podobně.
+</code></pre></div>
+<p>Katedra geomatiky se zabývá <em class="primary_color"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.36 2.64-1.41 1.42A6.98 6.98 0 0 1 18 9a7 7 0 0 1-7 7c-1.85 0-3.63-.74-4.94-2.05l-1.42 1.41A8.95 8.95 0 0 0 10 17.93V20H6v2h10v-2h-4v-2.06c4.55-.51 8-4.36 8-8.94 0-2.38-.95-4.67-2.64-6.36M11 3.5A5.5 5.5 0 0 0 5.5 9a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 16.5 9 5.5 5.5 0 0 0 11 3.5m0 2c1.94 0 3.5 1.57 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 7.5 9 3.5 3.5 0 0 1 11 5.5"></path></svg></span> geografickými informačními systémy</em>, <strong class="primary_color"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.62 1 5.66 5.67-2.12 2.12-2.12-2.12-1.42 1.42 2.33 2.32-1.16 1.17.45.46a2.5 2.5 0 0 1 2.83.5l-3.53 3.53a2.5 2.5 0 0 1-.5-2.83l-.46-.45-1.17 1.16-2.32-2.33-1.42 1.42 2.12 2.12-2.12 2.12L1 11.62 3.14 9.5l2.12 2.12 1.41-1.41-2.83-2.83c-.78-.78-.78-2.05 0-2.83l.71-.71c.78-.78 2.05-.78 2.83 0l2.83 2.83 1.41-1.41L9.5 3.14zM18 14a4 4 0 0 1-4 4v-2a2 2 0 0 0 2-2zm4 0a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z"></path></svg></span> dálkovým průzkumem Země</strong>, <em class="no-dec primary_color"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75m-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25zM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z"></path></svg></span> geodetickými přístroji</em>, <strong class="no-dec primary_color"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span> katastrem nemovitostí</strong> a podobně.</p>
+<hr>
+<h3 id="podtrzeni-textu-s-sedym-pozadim">Podtržení textu s šedým pozadím</h3>
+<p>Třída <code>underlined</code> nastaví <strong>spodní podtržení</strong> v primární barvě webu. Třídu lze použít pouze na text uzavřený mezi tagy. Aby bylo kódu méně, dá se použít oddělení používané pro tučné písmo či kurzívu a následně efekt tučného písma či kurzívy potlačit třídou <code>no-dec</code>. Zvýrazněný text se nezalamuje.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Katedra geomatiky se zabývá
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>_:material-globe-model: geografickými informačními systémy_{.underlined}, 
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>__:material-satellite-variant: dálkovým průzkumem Země__{.underlined}, 
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>_:octicons-device-camera-video-16: geodetickými přístroji_{.no-dec .underlined}, 
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>__:material-map-outline: katastrem nemovitostí__{.no-dec .underlined} a podobně.
+</code></pre></div>
+<p>Katedra geomatiky se zabývá <em class="underlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.36 2.64-1.41 1.42A6.98 6.98 0 0 1 18 9a7 7 0 0 1-7 7c-1.85 0-3.63-.74-4.94-2.05l-1.42 1.41A8.95 8.95 0 0 0 10 17.93V20H6v2h10v-2h-4v-2.06c4.55-.51 8-4.36 8-8.94 0-2.38-.95-4.67-2.64-6.36M11 3.5A5.5 5.5 0 0 0 5.5 9a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 16.5 9 5.5 5.5 0 0 0 11 3.5m0 2c1.94 0 3.5 1.57 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 7.5 9 3.5 3.5 0 0 1 11 5.5"></path></svg></span> geografickými informačními systémy</em> <strong class="underlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.62 1 5.66 5.67-2.12 2.12-2.12-2.12-1.42 1.42 2.33 2.32-1.16 1.17.45.46a2.5 2.5 0 0 1 2.83.5l-3.53 3.53a2.5 2.5 0 0 1-.5-2.83l-.46-.45-1.17 1.16-2.32-2.33-1.42 1.42 2.12 2.12-2.12 2.12L1 11.62 3.14 9.5l2.12 2.12 1.41-1.41-2.83-2.83c-.78-.78-.78-2.05 0-2.83l.71-.71c.78-.78 2.05-.78 2.83 0l2.83 2.83 1.41-1.41L9.5 3.14zM18 14a4 4 0 0 1-4 4v-2a2 2 0 0 0 2-2zm4 0a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z"></path></svg></span> dálkovým průzkumem Země</strong> <em class="no-dec underlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75m-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25zM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z"></path></svg></span> geodetickými přístroji</em> <strong class="no-dec underlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span> katastrem nemovitostí</strong> a podobně.</p>
+<hr>
+<h3 id="obtazeni-textu-s-sedym-pozadim">Obtažení textu s šedým pozadím</h3>
+<p>Třída <code>outlined</code> nastaví <strong>celkové ohraničení</strong> v primární barvě webu. Třídu lze použít pouze na text uzavřený mezi tagy. Aby bylo kódu méně, dá se použít oddělení používané pro tučné písmo či kurzívu a následně efekt tučného písma či kurzívy potlačit třídou <code>no-dec</code>. Zvýrazněný text se nezalamuje.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Katedra geomatiky se zabývá
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>_:material-globe-model: geografickými informačními systémy_{.outlined}, 
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>__:material-satellite-variant: dálkovým průzkumem Země__{.outlined}, 
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>_:octicons-device-camera-video-16: geodetickými přístroji_{.no-dec .outlined}, 
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>__:material-map-outline: katastrem nemovitostí__{.no-dec .outlined} a podobně.
+</code></pre></div>
+<p>Katedra geomatiky se zabývá <em class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.36 2.64-1.41 1.42A6.98 6.98 0 0 1 18 9a7 7 0 0 1-7 7c-1.85 0-3.63-.74-4.94-2.05l-1.42 1.41A8.95 8.95 0 0 0 10 17.93V20H6v2h10v-2h-4v-2.06c4.55-.51 8-4.36 8-8.94 0-2.38-.95-4.67-2.64-6.36M11 3.5A5.5 5.5 0 0 0 5.5 9a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 16.5 9 5.5 5.5 0 0 0 11 3.5m0 2c1.94 0 3.5 1.57 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 7.5 9 3.5 3.5 0 0 1 11 5.5"></path></svg></span> geografickými informačními systémy</em> <strong class="outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.62 1 5.66 5.67-2.12 2.12-2.12-2.12-1.42 1.42 2.33 2.32-1.16 1.17.45.46a2.5 2.5 0 0 1 2.83.5l-3.53 3.53a2.5 2.5 0 0 1-.5-2.83l-.46-.45-1.17 1.16-2.32-2.33-1.42 1.42 2.12 2.12-2.12 2.12L1 11.62 3.14 9.5l2.12 2.12 1.41-1.41-2.83-2.83c-.78-.78-.78-2.05 0-2.83l.71-.71c.78-.78 2.05-.78 2.83 0l2.83 2.83 1.41-1.41L9.5 3.14zM18 14a4 4 0 0 1-4 4v-2a2 2 0 0 0 2-2zm4 0a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z"></path></svg></span> dálkovým průzkumem Země</strong> <em class="no-dec outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75m-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25zM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z"></path></svg></span> geodetickými přístroji</em> <strong class="no-dec outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span> katastrem nemovitostí</strong> a podobně.</p>
+<hr>
+<h3 id="obtazeni-textu-s-sedym-pozadim-a-fontem-kodu">Obtažení textu s šedým pozadím a fontem kódu</h3>
+<p>Třída <code>outlined_code</code> nastaví <strong>celkové ohraničení</strong> v primární barvě webu a font ve stylu <code>Code Blocks</code>. Třídu lze použít pouze na text uzavřený mezi tagy. Aby bylo kódu méně, dá se použít oddělení používané pro tučné písmo či kurzívu. Zde není nutné přidávat třídu <code>no-dec</code> potlačující efekty tučného písma či kurzívy, to proběhne automaticky. Zvýrazněný text se nezalamuje.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Katedra geomatiky se zabývá 
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>_:material-globe-model: geografickými informačními systémy_{.outlined_code} 
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>__:material-satellite-variant: dálkovým průzkumem Země__{.outlined_code} 
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>_:octicons-device-camera-video-16: geodetickými přístroji_{.outlined_code} 
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>__:material-map-outline: katastrem nemovitostí__{.outlined_code} a podobně.
+</code></pre></div>
+<p>Katedra geomatiky se zabývá <em class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.36 2.64-1.41 1.42A6.98 6.98 0 0 1 18 9a7 7 0 0 1-7 7c-1.85 0-3.63-.74-4.94-2.05l-1.42 1.41A8.95 8.95 0 0 0 10 17.93V20H6v2h10v-2h-4v-2.06c4.55-.51 8-4.36 8-8.94 0-2.38-.95-4.67-2.64-6.36M11 3.5A5.5 5.5 0 0 0 5.5 9a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 16.5 9 5.5 5.5 0 0 0 11 3.5m0 2c1.94 0 3.5 1.57 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 7.5 9 3.5 3.5 0 0 1 11 5.5"></path></svg></span> geografickými informačními systémy</em> <strong class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.62 1 5.66 5.67-2.12 2.12-2.12-2.12-1.42 1.42 2.33 2.32-1.16 1.17.45.46a2.5 2.5 0 0 1 2.83.5l-3.53 3.53a2.5 2.5 0 0 1-.5-2.83l-.46-.45-1.17 1.16-2.32-2.33-1.42 1.42 2.12 2.12-2.12 2.12L1 11.62 3.14 9.5l2.12 2.12 1.41-1.41-2.83-2.83c-.78-.78-.78-2.05 0-2.83l.71-.71c.78-.78 2.05-.78 2.83 0l2.83 2.83 1.41-1.41L9.5 3.14zM18 14a4 4 0 0 1-4 4v-2a2 2 0 0 0 2-2zm4 0a8 8 0 0 1-8 8v-2a6 6 0 0 0 6-6z"></path></svg></span> dálkovým průzkumem Země</strong> <em class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75m-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25zM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z"></path></svg></span> geodetickými přístroji</em> <strong class="outlined_code"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span> katastrem nemovitostí</strong> a podobně.</p>
+<hr>
+<h3 id="ikona-pred-textem">Ikona před textem</h3>
+<p>Pro některá častá slova lze použít zvýraznění ikonou. Třídu lze použít pouze na text uzavřený mezi tagy. Aby bylo kódu méně, dá se použít oddělení používané pro tučné písmo či kurzívu a následně efekt tučného písma či kurzívy potlačit třídou <code>no-dec</code>. Efekt je možné podpořit i např. změnou barvy (viz výše).</p>
+<ul>
+<li><strong>např.</strong> (třída <code>icon-example</code>):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>_např._{.primary_color .icon-example .no-dec}
+</code></pre></div>
+<p><em class="primary_color icon-example no-dec">např.</em></p>
+<ul>
+<li><strong>pozor</strong> (třída <code>icon-exclm</code>):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>__pozor__{style="color:#c22521;" .icon-exclm .no-dec}
+</code></pre></div>
+<p><strong class="icon-exclm no-dec" style="color:#c22521;">pozor</strong></p>
+<hr class="level-1">
+
+<h2 id="zalozky-tabs">Záložky (Tabs)</h2>
+<h3 id="zalozky-zarovnane-na-stred">Záložky zarovnané na střed</h3>
+<p>Třída <code>centered_tab_labels</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>&lt;div class="centered_tab_labels" markdown&gt;
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>=== "Záložka 1"
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    ![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    ![](https://dummyimage.com/600x350/009485/a6dad4)
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    ![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    {.process_container}
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    &lt;figcaption&gt;Popisek obrázku&lt;/figcaption&gt;
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>=== "Záložka 2"
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>    ![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>    ![](https://dummyimage.com/600x350/009485/a6dad4)
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>    {.process_container}
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>    &lt;figcaption&gt;Popisek obrázku&lt;/figcaption&gt;
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>=== "Záložka 3"
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>    ![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>    {.process_container}
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>    &lt;figcaption&gt;Popisek obrázku&lt;/figcaption&gt;
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="centered_tab_labels">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Záložka 1</label><label for="__tabbed_1_2">Záložka 2</label><label for="__tabbed_1_3">Záložka 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/009485/a6dad4"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+<p></p><figcaption>Popisek obrázku</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a>
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/009485/a6dad4" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/009485/a6dad4"></a></p>
+<p></p><figcaption>Popisek obrázku</figcaption><p></p>
+</div>
+<div class="tabbed-block">
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+<p></p><figcaption>Popisek obrázku</figcaption><p></p>
+</div>
+</div>
+</div>
+</div>
+<hr class="level-1">
+
+<h2 id="admonitions-custom">Admonitions (custom)</h2>
+<h3 id="poznamka-note-grey">Poznámka (note-grey)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&lt;div class="table_centered table_no_padding" markdown&gt;
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>???+ note-grey "Poznámka"
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    Libovolný text, _např._{.primary_color .icon-example .no-dec} __tučné písmo__, _kurzíva_, `kód`, _:material-format-color-highlight: zvýraznění_{.no-dec .outlined} obrázek
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    ![](https://dummyimage.com/600x350/a6dad4/009485)
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    {.process_container}
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    Tabulka (výše zmíněné úpravy se musí použít v `div` o úroveň výše!)
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    | záhlaví |    záhlaví    |
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    | ------- | ------------- |
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    | obsah   | obsah tabulky |
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>    | obsah   | obsah tabulky |
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>&lt;/div&gt;
+</code></pre></div>
+<div class="table_centered table_no_padding">
+<details class="note-grey" open="open">
+<summary>Poznámka</summary>
+<p>Libovolný text, <em class="primary_color icon-example no-dec">např.</em> <strong>tučné písmo</strong>, <em>kurzíva</em>, <code>kód</code>, <em class="no-dec outlined"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m4 17 2.75-2.75-.03-.02c-.58-.59-.58-1.54 0-2.12l4.74-4.74 4.24 4.24-4.74 4.74c-.57.58-1.5.58-2.09.02l-.63.63zM15.91 2.91c.59-.58 1.54-.58 2.12 0l2.13 2.12c.58.59.58 1.54 0 2.13l-3.3 3.29-4.24-4.24z"></path></svg></span> zvýraznění</em> obrázek</p>
+<p class="process_container"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://dummyimage.com/600x350/a6dad4/009485" data-desc-position="bottom"><img alt="" src="https://dummyimage.com/600x350/a6dad4/009485"></a></p>
+<p>Tabulka (výše zmíněné úpravy se musí použít v <code>div</code> o úroveň výše!)</p>
+<table>
+<thead>
+<tr>
+<th>záhlaví</th>
+<th>záhlaví</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>obsah</td>
+<td>obsah tabulky</td>
+</tr>
+<tr>
+<td>obsah</td>
+<td>obsah tabulky</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+<hr>
+<h3 id="admonition-v-primarni-barve-webu-task-fg-color">Admonition v primární barvě webu (task-fg-color)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>???+ task-fg-color "Úkol"
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    Obsah úkolu
+</code></pre></div>
+<details class="task-fg-color" open="open">
+<summary>Úkol</summary>
+<p>Obsah úkolu</p>
+</details>
+<p><a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/">více o admonitions</a></p>
+<p><br><br><br><br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

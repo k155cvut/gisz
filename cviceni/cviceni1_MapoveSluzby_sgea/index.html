@@ -1,0 +1,1220 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cvičení 3 - GIS (155GISZ)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prace-s-webovymi-mapovymi-sluzbami" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+
+    <!-- Link to home -->
+    <a href="https://k155cvut.github.io/" title="← zpět na seznam předmětů" class="md-header__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <a href="../..">
+              GIS (155GISZ)
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cvičení 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+    
+      
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../semestralka/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GIS (155GISZ)" class="md-nav__button md-logo" aria-label="GIS (155GISZ)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    GIS (155GISZ)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vektorová data, atributové dotazy, prostorové dotazy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Prostorové funkce (geoprocessing), spatial join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práce s externími daty (Excel, CSV), join
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Rastrová data, tvorba digitálního modelu terénu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    ArcGIS Online, tvorba webových mapových aplikací
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Viditelnost, interpolace, mapová algebra 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestralka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prace-s-webovymi-mapovymi-sluzbami">Práce s webovými mapovými službami</h1>
+<h2 id="cile-cviceni">Cíle cvičení</h2>
+<div class="grid cards grid_icon_info smaller_padding">
+<!-- specificky format gridu (trida "grid_icon_info") na miru uvodni strance predmetu -->
+<ul>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M598.1 75.4c10.7-7.8 13.1-22.8 5.3-33.5s-22.8-13.1-33.5-5.3l-74.5 54.2-9.9-6.6C465.8 71 442.6 64 418.9 64H215.7c-26.7 0-52.5 8.9-73.4 25.1L70.1 36.6c-10.7-7.8-25.7-5.4-33.5 5.3s-5.4 25.7 5.3 33.5l88 64c9.6 6.9 22.7 5.9 31.1-2.4l3.9-3.9c13.5-13.5 31.8-21.1 50.9-21.1h46.3l-91.7 91.7c-15.6 15.6-15.6 40.9 0 56.6l.8.8C218 308 294 308 340.9 261.1L368 234l97.8 97.8c15.6 15.6 15.6 40.9 0 56.6l-9.8 9.8-31-31c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l28 28c-17.5 10.4-37.2 16.7-57.6 18.5L313 399c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l15 15h-3.8c-36.1 0-70.7-14.3-96.2-39.8L65 279c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l129.1 129.2c34.5 34.5 81.3 53.9 130.1 53.9h51.8l1 1 1-1h5.7c48.8 0 95.6-19.4 130.1-53.9l19.9-19.9c1.2-1.2 2.3-2.3 3.4-3.5.7-.5 1.3-1.1 1.9-1.7L609 313c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-53.8 53.8c-4.2-12.8-11.3-24.9-21.5-35.1L385 183c-9.4-9.4-24.6-9.4-33.9 0L307 227.1c-26.5 26.5-68.5 28-96.7 4.6L309 133c13.4-13.4 31.6-21 50.6-21.1h59.5c14.2 0 28.1 4.2 39.9 12.1l23.7 16c8.4 5.6 19.3 5.3 27.4-.6z"></path></svg></span></p>
+<p><strong>seznámení s prostředím</strong> webového systému ArcGIS&nbsp;Online</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26zM12 14 3 7l9-7 9 7zm0-11.47L6.26 7 12 11.47 17.74 7zm0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26z"></path></svg></span></p>
+<p><strong>shrnutí datových zdrojů</strong> webových mapových vrstev</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.5 3-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V6.86l3-1.16z"></path></svg></span></p>
+<p><strong>přidávání dat do mapy</strong> (ze serverů různých poskytovatelů)</p>
+</li>
+<li>
+<p><span class="twemoji xl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h3v-3h2v3h3v2h-3v3h-2v-3h-3zM9 6.5c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5S6.5 10.4 6.5 9 7.6 6.5 9 6.5M9 2c3.9 0 7 3.1 7 7 0 5.2-7 13-7 13S2 14.2 2 9c0-3.9 3.1-7 7-7m0 2C6.2 4 4 6.2 4 9c0 1 0 3 5 9.7C14 12 14 10 14 9c0-2.8-2.2-5-5-5"></path></svg></span></p>
+<p><strong>extrakce informací</strong> z více vrstev ke konkrétnímu místu</p>
+</li>
+</ul>
+</div>
+<hr class="level-1">
+
+<h2 id="prostorova-data">Prostorová data</h2>
+<p>Prostorová data (geodata) jsou data, která obsahují informaci o konkrétní geografické poloze objektů na Zemi. Poloha může být přímo (souřadnice objektu) či nepřímo (např. adresou). Informace o poloze obvykle bývá doplněna o informaci vlastnostech <em>(atributech)</em> objektu, která jsou uložena v atributové tabulce. Dva nejběžnější datové formáty používané k ukládání (geo)prostorových dat jsou vektorové (body, linie, plochy) a rastrové (satelitní snímky, digitální modely terénu).</p>
+<details class="note-fg-color" open="open">
+<summary>Atributy (geo)prostorových dat</summary>
+<p>Podstatnou částí geoprostorových dat jsou atributy. Jedná se o <strong>doplňkové informace přiřazené ke každému prvku</strong> a uspořádané ve formě tzv. <strong>atributové tabulky</strong>. Sloupce této tabulky jsou tzv. <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 0h2.5C6.216 0 7 .784 7 1.75v12.5A1.75 1.75 0 0 1 5.25 16h-2.5A1.75 1.75 0 0 1 1 14.25V1.75C1 .784 1.784 0 2.75 0m8 0h2.5C14.216 0 15 .784 15 1.75v12.5A1.75 1.75 0 0 1 13.25 16h-2.5A1.75 1.75 0 0 1 9 14.25V1.75C9 .784 9.784 0 10.75 0M2.5 1.75v12.5c0 .138.112.25.25.25h2.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25m8 0v12.5c0 .138.112.25.25.25h2.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25"></path></svg></span> atributy</strong>, řádky jsou tzv. <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M16 10.75v2.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-2.5C0 9.784.784 9 1.75 9h12.5c.966 0 1.75.784 1.75 1.75m0-8v2.5A1.75 1.75 0 0 1 14.25 7H1.75A1.75 1.75 0 0 1 0 5.25v-2.5C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75m-1.75-.25H1.75a.25.25 0 0 0-.25.25v2.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-2.5a.25.25 0 0 0-.25-.25m0 8H1.75a.25.25 0 0 0-.25.25v2.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-2.5a.25.25 0 0 0-.25-.25"></path></svg></span> záznamy</strong>. Každý atribut má svůj název a datový typ (např. celé číslo, des. číslo, text, datum). V záznamu nemusí být nutně vyplněny všechny atributy (záleží na nastavení databáze).</p>
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/img02.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/img02.png" width="50%"></a></p>
+<p>Zobrazování atributů konkrétního prvku probíhá nejčastěji formou tzv. <strong>vyskakovacího okna</strong> (pop-up window). Tento prvek uživatelského rozhraní se <strong>objeví po kliknutí na prvek v mapě</strong> a ve výchozím stavu zobrazuje <strong>tabulku s atributy pro daný prvek</strong>.  Atributy se v geomatice používají pro <strong>filtrování prvků</strong> (zobrazení/skrytí) nebo <strong>řízení symbologie</strong> (např. obarvení budov podle počtu podlaží).</p>
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/img03.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/img03.png" width="50%"></a></p>
+<p></p><figcaption>vyskakovací okno (po kliknutí na prvek)</figcaption><p></p>
+<p><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://experience.arcgis.com/experience/0d0ade6e797e419d8e73fd28b8704c5a"></iframe></p>
+</details>
+<!--![](https://dummyimage.com/600x350/bde0ff/0065bd&text=atributová+tabulka+ve+spojení+s+geometrií)
+style="border: .05rem solid #ededed; border-radius: .1rem;"-->
+
+<details class="note-fg-color" open="open">
+<summary>Vektorová vs. rastrová data</summary>
+<div class="grid cards" markdown="">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v6h2.95l2 6H6v6h6v-4.59L17.41 11H22V5h-6v4.57L10.59 15H9.06l-2-6H8V3M4 5h2v2H4m14 0h2v2h-2M8 17h2v2H8Z"></path></svg></span> <strong>Vektorová data</strong></p>
+<hr>
+<p>Reprezentují prvky reálného světa pomocí základních geometrických elementů: <strong>bodů, linií a ploch</strong> (tzv. polygonů)</p>
+<p>Podrobnost dat je určena <strong>podrobností souřadnic vrcholů</strong> geometrického prvku</p>
+<p>Vhodné pro modelování a analýzu <strong>diskrétních objektů</strong> (např. poloha bodů, kategorie pokrytí půdy)</p>
+<p>Vhodné pro <strong>tvorbu map, měření délek, geometrické výpočty</strong></p>
+<p>Možné problémy s <strong>topologií</strong> (mezery a překryvy)</p>
+<p>Základními formáty vektorových dat jsou <strong>Esri Shapefile, GeoJSON, GeoPackage</strong> či <strong>KML/GML</strong></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 4v4h4V4zm6 0v4h4V4zm0 6v4h4v-4zm0 6v4h4v-4zm-2 4v-4h-4v4zm-6 0v-4H4v4zm0-6v-4H4v4zm0-6V4H4v4zm2 6h4v-4h-4zM4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4c-1.08 0-2-.9-2-2V4a2 2 0 0 1 2-2"></path></svg></span> <strong>Rastrová data</strong></p>
+<hr>
+<p>Reprezentují prvky reálného světa v podobě pravidelné mřížky tvořené tzv. <strong>pixely</strong> (z angl. <em>picture element</em>)</p>
+<p>Podrobnost dat je určena <strong>prostorovým rozlišením</strong> rastru, tj. <strong>velikostí</strong> hrany <strong>pixelu</strong> (v metrech)</p>
+<p>Vhodné pro modelování a analýzu <strong>spojitých jevů</strong> (nadmořská výška, teplota, srážky)</p>
+<p>Využívané pro <strong>obrazová data</strong> (např. satelitní snímky)</p>
+<p>Nevýhodou velikost souborových dat</p>
+<p>Základními formáty rastrových dat jsou <strong>GeoTIFF, JPEG, PNG</strong> či <strong>GIF</strong></p>
+</li>
+</ul>
+</div>
+<p></p><figure markdown="">
+<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/VectorVsRaster.png" data-desc-position="bottom"><img alt="Rozdíl v grafické reprezentaci vektorových a rastrových dat" src="../assets/cviceni03/VectorVsRaster.png" title="Rozdíl v grafické reprezentaci vektorových a rastrových dat" width="400px"></a>
+<figcaption>Rozdíl v grafické reprezentaci vektorových a rastrových dat (Geletič et al. 2019)</figcaption>
+</figure><p></p>
+</details>
+<hr class="level-1">
+
+<h2 id="mapove-sluzby">Mapové služby</h2>
+<p>Mapové služby jsou <strong>webové nástroje poskytující geoprostorová data</strong> ze serveru na klienta <strong>prostřednictvím internetu</strong>. Klientem je (zjednodušeně) zařízení uživatele (např. webový prohlížeč) vysílající požadavek pro získání dat ze serveru. V praxi se většinou <strong>klient služby dotazuje pomocí GIS aplikace</strong> (webové či desktopové), která na pozadí posílá serveru požadavky a následně zobrazuje přijatá data (viz obrázek). Díky vazbě dat na souřadnicový systém lze takto <strong>kombinovat data s různými rozsahy a z různých zdrojů v jednom mapovém okně</strong> a data se zobrazí polohově správně.</p>
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/img01.svg" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/img01.svg" width="700px"></a></p>
+<p>Pro mapové služby existují různé <strong>standardy komunikace</strong>:</p>
+<ul>
+<li>
+<p><a href="" title="Open Geospatial Consortium">OGC</a> standardizované otevřené formáty: </p>
+<ul>
+<li><strong>WMS (Web Map Service)</strong>: umožňuje sdílení geografické informace ve formě rastrových dat v prostředí Internetu</li>
+<li><strong>WFS (Web Feature Service)</strong>: umožňuje sdílení geografické informace ve formě vektorových dat v prostředí Internetu</li>
+</ul>
+</li>
+<li>
+<p>proprietární standard společnosti <a href="" title="ESRI (Environmental Systems Research Institute) je společnost zabývající se vývojem softwaru určeného pro práci s geografickými informačními systémy">Esri</a>:</p>
+<ul>
+<li><strong>ArcGIS REST</strong></li>
+</ul>
+</li>
+</ul>
+<details class="note-fg-color" open="open">
+<summary>Kde hledat mapové služby?</summary>
+<ul>
+<li>geoportály (např. metadatový katalog <a class="color_def underlined_dotted external_link_icon" href="https://geoportal.gov.cz/web/guest/home/" target="_blank">Národního geoportálu INSPIRE</a>)</li>
+<li>webové stránky poskytovale (např. <a class="color_def underlined_dotted external_link_icon" href="https://land.copernicus.eu/en/products/corine-land-cover?tab=main" target="_blank">Evropská agentura pro životní prostředí (EEA)</a>)</li>
+</ul>
+</details>
+<h2 id="geoportaly">Geoportály</h2>
+<p>Geoportály jsou webové platformy, které poskytují přístup k geografickým datům a službám. Slouží jako centrální bod pro vyhledávání, prohlížení a stahování prostorových informací, jako jsou mapy, letecké snímky, katastrální data nebo údaje o životním prostředí. Mohou představovat cenný zdroj dat pro analýzu a plánování projektů. Lze zde například využít data o reliéfu terénu, dopravní infrastruktuře nebo vlastnických vztazích k pozemkům. Geoportály často nabízejí i nástroje pro prostorovou analýzu a vizualizaci dat, což může pomoci lépe porozumět kontextu projektů.<br>Geoportály v širším slova smyslu představují také důležitý nástroj v územním plánování a správě měst. Umožňují veřejnosti i odborníkům přístup k aktuálním a relevantním informacím o daném území. Uživatelé mohou využít geoportály k získání podkladů pro své projekty, ale také k prezentaci svých návrhů veřejnosti. Díky geoportálům se stává územní plánování transparentnější a efektivnější, což přispívá k lepšímu rozvoji měst a regionů.</p>
+<p><strong>Tipy na některé zajímavé geoportály:</strong></p>
+<p class="button_array"><a class="md-button md-button--primary button_smaller external_link_icon" href="https://geoportal.cuzk.cz/" target="_blank" title="Český úřad zeměměřický a katastrální">Geoportál ČÚZK</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://gis-aopkcr.opendata.arcgis.com/" target="_blank" title="Agentura přírody a krajiny">Geoportál AOPK</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://geodata.statistika.cz/portal/apps/sites/#/homepage" target="_blank" title="Český statistický úřad">Geoportál ČSÚ</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://geoportalpraha.cz/" target="_blank" title="IPR Praha">Geoportál Praha</a>
+<a class="md-button md-button--primary button_smaller external_link_icon" href="https://data.brno.cz/" target="_blank" title="Magistrát města Brna">Geoportál města Brna</a></p>
+<h2 id="arcgis-online">ArcGIS Online</h2>
+<p><a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank"><strong>ArcGIS Online</strong></a> je cloudová platforma pro geografické informační systémy od společnosti Esri. Umožňuje uživatelům vytvářet, sdílet a analyzovat mapy a geografická data prostřednictvím webového prohlížeče. <strong>ArcGIS Online</strong> představuje cenný nástroj pro vizualizaci a analýzu prostorových dat, jako mohou být urbanistické plány, dopravní sítě, demografické údaje nebo informace o životním prostředí. Platforma nabízí širokou škálu nástrojů pro tvorbu interaktivních map, 3D modelů a webových aplikací, které mohou být využity při plánování a prezentaci projektů. </p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/AGOL.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/AGOL.png" title="" width="700px"></a>
+  </p>
+<figcaption>Zdroj: GIS Geography</figcaption>
+</figure>
+<p>Díky <strong>ArcGIS Online</strong> mohou uživatelé snadno integrovat různé zdroje dat, provádět prostorové analýzy a vytvářet vizuálně atraktivní prezentace svých návrhů. Platforma také podporuje spolupráci a sdílení dat mezi uživateli, což umožňuje studentům a pedagogům efektivněji pracovat na společných projektech. ArcGIS Online je tak vhodným nástrojem pro moderní geografické vzdělávání, který studentům umožňuje rozvíjet dovednosti v oblasti prostorové analýzy a vizualizace.</p>
+<hr class="level-1">
+
+<h2 id="zadani-ulohy">Zadání úlohy</h2>
+<p>Je dán <strong>bod o zeměpisných souřadnicích</strong> dle individuálního zadání (viz níže).</p>
+<details class="task-fg-color">
+<summary>Individuální zadání</summary>
+<p><!-- - také viz <a href="https://moodle-vyuka.cvut.cz/mod/page/view.php?id=363759">Moodle</a>{.color_def .underlined_dotted .external_link_icon target="_blank"}<br><br>-->
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxRPIWMyUuEA30Y8UhDF8f-T56L_N9MBSQeZ5eaw8GshZeA9MeO4aFCUhp3AnsT65sS3914Sjd8elH/pubhtml?gid=1960098563&amp;single=true" width="100%" height="500" frameborder="0"></iframe></p>
+</details>
+<p>S využitím <strong>mapové prohlížečky</strong> <a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank"><strong>ArcGIS Online</strong></a>, <strong>mapových služeb</strong> či <strong>geoportálů</strong> o zadaném bodu zjistěte:</p>
+<div class="annotate">
+<ol>
+<li>
+<p><strong>příslušnost k obci</strong> a v jakém <strong>katastrálním území</strong> bod leží</p>
+<ul>
+<li>
+<p>využijte vrstev <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Obec</strong> a <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> KatastralniUzemi</strong> z <a class="color_def underlined_dotted external_link_icon" href="https://ags.cuzk.gov.cz/geoprohlizec/" target="_blank" title="Produkty → RUIAN"><strong>Geoprohlížeče ČÚZK</strong></a> (prohlížecí služba databáze RÚIAN). <strong title="zadání souřadnic bodu">(4)</strong></p>
+</li>
+<li>
+<p>jako odpověď uveďte přesný <strong class="outlined">název obce</strong> a <strong class="outlined">název a číslo katastrálního území</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p><strong>geologické podloží</strong> pod zadaným bodem</p>
+<ul>
+<li>využijte vhodné vrstvy ze stránek <a class="color_def underlined_dotted external_link_icon" href="https://cgs.gov.cz/" target="_blank" title="Webové služby → geologie (27) → Geologická mapa 1 : 50 000 (GEOČR50)"><strong>České geologické služby</strong></a><br>
+<em>(Pro zobrazení atributů je nutné nejprve povolit vyskakovací okna)</em>
+<strong title="aktivace vyskakovacích oken">(13)</strong></li>
+<li>jako odpověď uveďte atributy <strong class="outlined">hornina</strong> a <strong class="outlined">horninový typ</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>adresu nejbližšího <strong>adresního bodu</strong></p>
+<ul>
+<li>využijte vrstvy <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> AdresniMisto</strong> z <a class="color_def underlined_dotted external_link_icon" href="https://ags.cuzk.gov.cz/geoprohlizec/" target="_blank"><strong>Geoprohlížeče ČÚZK</strong></a> (prohlížecí služba databáze RÚIAN).</li>
+<li>jako odpověď uveďte <strong class="outlined">přesnou adresu</strong> (z atributu)</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>poštovní směrovací číslo nejbližší <strong>pobočky České pošty</strong> (<strong>pouze pobočky, ne výdejní boxy apod.</strong> – zde si vyzkoušíte funkci <strong>filtrování dat</strong> <strong title="funkce Filter data">(5)</strong>)</p>
+<ul>
+<li>využijte vrstvy <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Pobočky České pošty</strong> od <a class="color_def underlined_dotted external_link_icon" href="https://gis.cenia.cz/geoserver/pobocky_ceske_posty/wfs?SERVICE=WFS&amp;request=GETCapabilities" target="_blank" title="adresu odkazu lze přímo použít jako mapovou vrstvu"><strong>České informační agentury životního prostředí</strong></a> (CENIA) s nastaveným tak, že atribut <strong><code>ZKR_NAZ_FUN</code> nabývá hodnot <code>Podávací</code>, <code>Samostatná pošta Partner</code>, <code>Dodejna I</code>, <code>Dodejna II</code> a <code>Samostatná dodejna</code></strong> <strong title="ukázka použití filtru nad vrstvou">(6)</strong></li>
+<li>jako odpověď uveďte <strong class="outlined">pětimístné poštovní směrovací číslo nejbližší pobočky</strong> </li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p><strong>nadmořskou výšku lokality</strong></p>
+<ul>
+<li>výšku odečtěte ze <strong class="primary_color">tří různých mapových podkladů</strong> <del>a <strong>výsledky porovnejte</strong></del></li>
+<li>doporučenými zdroji jsou např. 
+<a class="color_def underlined_dotted external_link_icon" href="https://ags.cuzk.cz/geoprohlizec/" target="_blank" title="obsahují vrstevnice s popisy výšky"><strong>Základní topografické mapy ČR</strong></a>, mapový portál 
+<a class="color_def underlined_dotted external_link_icon" href="https://mapy.cz/" target="_blank" title="funkce Měření → Výškový profil"><strong>Mapy.cz</strong></a> nebo webová aplikace 
+<a class="color_def underlined_dotted external_link_icon" href="https://ags.cuzk.cz/av/" target="_blank" title="režim Výpis souřadnic bodu → souřadnice H (DMR5G)"><strong>Analýzy výškopisu</strong></a> 
+(ČÚZK) <strong title="zadání souřadnic bodu">(14)</strong></li>
+<li>jako odpověď uveďte <strong class="outlined">3 hodnoty nadmořské výšky včetně zdroje každé z nich</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>k jaké <strong>změně využití území</strong> v zadaném bodě došlo mezi lety 1990 a 2018</p>
+<ul>
+<li>využijte data evropského programu <a class="color_def underlined_dotted external_link_icon" href="https://www.copernicus.eu/cs" target="_blank" title="program EU pro družicové pozorování Země v zájmu obecného užitku všech občanů"><strong>Copernicus</strong></a> – <strong class="bg color_def" target="_blank"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Corine Land Cover Europe</strong></li>
+<li>dostupné ze stránek &nbsp;<a class="color_def underlined_dotted external_link_icon" href="https://land.copernicus.eu/en/products/corine-land-cover?tab=main" target="_blank"><strong>Evropské agentury pro životní prostředí (EEA)</strong></a>&nbsp; či &nbsp;<a class="color_def underlined_dotted external_link_icon" href="https://www.eea.europa.eu/en/datahub/datahubitem-view/a5144888-ee2a-4e5d-a7b0-2bbf21656348" target="_blank"><strong>Copernicus Land Monitoring Service (CLMS)</strong></a><br>
+<em>(Ze stránek EEA či CLMS použijte mapovou službu 'REST API', resp. 'ESRI: REST', u WMS bohužel není v tomto případě možné vyčítat hodnoty atributů vrstvy. Pro zobrazení atributů je nutné nejprve povolit vyskakovací okna)</em>
+<strong title="mapová služba REST">(11)</strong> <strong title="aktivace vyskakovacích oken">(12)</strong></li>
+<li>jako odpověď uveďte <strong class="outlined">kód a slovní název kategorie Land Cover pro obě období</strong> a <strong class="outlined">jejich slovní porovnání</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<!--
+7. ~~zda dochází v lokalitě k překročení hodnoty 20 µg/m³ u roční průměrné koncentrace suspendovaných prachových částic PM10 a jakých hodnot v ng/m³ dosahují roční průměrné koncentrace benzoapyrenu (použijte službu III_5_7_8_CHMU_ovzdusi z ArcGIS Online, vrstva ČHMÚ ovzduší – Koncentrace látek znečišťujících ovzduší v gridu 1x1 km, rok 2019)~~
+
+    - ~~využijte vrstvy od [__České informační agentury životního prostředí__](https://gis.cenia.cz/geoserver/chmu_ovzdusi/wfs?SERVICE=WFS&request=GETCapabilities "adresu odkazu lze přímo použít jako mapovou vrstvu"){.color_def .underlined_dotted .external_link_icon target="_blank"} (CENIA).~~
+
+---
+-->
+<ol>
+<li>
+<p>jaké hodnoty dosahovala v zadané lokalitě <strong>intenzita světelného znečištění</strong> v roce 2022</p>
+<ul>
+<li>využijte vrstvy <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Světelné znečištění v ČR za rok 2022</strong> od <a class="color_def underlined_dotted external_link_icon" href="https://tiledimageservices2.arcgis.com/LlQJoYHf9cwrM7NJ/arcgis/rest/services/raster01_final3crf/ImageServer" target="_blank" title="adresu odkazu lze přímo použít jako mapovou vrstvu"><strong>České informační agentury životního prostředí</strong></a> (CENIA). <figcaption>(vrstva byla přepublikována pro účely výuky – odkaz proto nevede přímo na server agentury CENIA)</figcaption></li>
+<li>jako odpověď uveďte <strong class="outlined">hodnotu intenzity znečištění z rastru v rozmezí 1 až 5</strong></li>
+</ul>
+<!--  Puvodni vrstva ZDE: https://gis.cenia.cz/geoserver/svetelne_znecisteni/wms?service=WMS&request=GetCapabilities  -->
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>příslušnost zadané lokality ke <strong>stavebnímu a matričnímu úřadu</strong></p>
+<ul>
+<li>využijte vrstvy <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Působnost úřadů</strong> od <a class="color_def underlined_dotted external_link_icon" href="https://gis.cenia.cz/geoserver/pusobnost_uradu/wfs?SERVICE=WFS&amp;request=GETCapabilities" target="_blank" title="adresu odkazu lze přímo použít jako mapovou vrstvu"><strong>České informační agentury životního prostředí</strong></a> (CENIA).</li>
+<li>jako odpověď uveďte <strong class="outlined">název příslušného úřadu (pro oba typy instituce)</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<!--
+DALŠÍ TIPY (nalezeno na Cenii):
+
+Světelné znečištění: https://gis.cenia.cz/geoserver/svetelne_znecisteni/wms?service=WMS&request=GetCapabilities
+Úřady: https://gis.cenia.cz/geoserver/pusobnost_uradu/wms?service=WMS&request=GetCapabilities
+Školy a školská zařízení: https://gis.cenia.cz/geoserver/skoly/wms?service=WMS&request=GetCapabilities
+Pobočky České pošty (je tam problém, že to bere i Pošta Partner, Balíkovny a jiná místa): https://gis.cenia.cz/geoserver/pobocky_ceske_posty/wms?service=WMS&request=GetCapabilities
+Ovzduší: https://gis.cenia.cz/geoserver/chmu_ovzdusi/wms?service=WMS&request=GetCapabilities
+
+Další zajímavé vrstvy zde (ale mám problém s popupem!): https://gis.cenia.cz/geoserver/ows?service=WMS&version=1.3.0&request=GetCapabilities
+
+ALE POZOR! VSECHNY TY VRSTVY MAJI I WFS A TA FUNGUJE!!!
+STACI PREPSAT NA: https://gis.cenia.cz/geoserver/pobocky_ceske_posty/wfs?SERVICE=WFS&request=GETCapabilities
+WFS jede v AGOLu i v Geoprohlizeci (paradoxne v Procku to ma trochu problemy)
+
+zde zajimava informace o WMS: https://community.esri.com/t5/arcgis-api-for-silverlight-questions/direct-link-to-wms-sub-layer/td-p/171686
+
+-->
+<p>&nbsp;</p>
+<p><strong>Dále vytvořte a vyexportujte mapové kompozice:</strong></p>
+<!-- div je zde kvuli anotacim -->
+<ol>
+<li>
+<p>využití území dle <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> CORINE Land Cover 2018</strong> <strong title="legenda Corine Land Cover">(3)</strong> nad <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Základní topografickou mapou</strong>, <strong>měřítko volte 1 : 10 000</strong> <strong title="nastavení měřítka při exportu mapy">(10)</strong>, <strong>formát A4 landscape</strong> <strong title="ukázka řešení">(1)</strong></p>
+<ul>
+<li>Základní topografická mapa je k dispozici např. na <a class="color_def underlined_dotted external_link_icon" href="https://geoportal.cuzk.cz/" target="_blank" title="Služby → Prohlížecí → Esri ArcGIS Server (nebo WMS)"><strong>Geoportálu ČÚZK</strong></a>, lze ji také vyhledat v prostředí <a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank" title="služba 'Základní topografická mapa' od uživatele 'daniel.kolias_tonaso'"><strong>ArcGIS Online</strong></a></li>
+<li>výchozí podkladová mapa ArcGIS Online <strong class="primary_color">není součástí správného výsledku</strong>. Pro správný výsledek je nutné podkladovou mapu změnit na oficiální <a class="color_def underlined_dotted" href="" title="v prostředi AGOL odpovídá službě 'Základní topografické mapy ČR (S-JTSK)' od uživatele 'Zeměměřický Úřad'"><strong>Základní topografickou mapu od Zeměměřického úřadu v souřadnicovém systému S-JTSK</strong></a> <strong title="přidejte ZTM jako podkladovou mapu">(7)</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>
+<p>nejbližšího <strong class="underlined_dotted" title="přír. památka, přír. rezervace, nár. přír. památka, nár. přír. rezervace">maloplošného chráněného území</strong> přírody (nikoli okolí Vašeho bodu, ale okolí chráněného území) <!--__s popiskem__{.primary_color}--> nad <strong class="bg"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span> Základní topografickou mapou</strong>, <strong>měřítko kompozice a orientaci papíru A4 volte tak, aby se dané chráněné území optimálně vešlo</strong> <strong title="ukázka řešení">(2)</strong></p>
+<ul>
+<li>využijte vrstvu z <a class="color_def underlined_dotted external_link_icon" href="https://gis-aopkcr.opendata.arcgis.com/" target="_blank"><strong>Geoportálu Agentury ochrany přírody a krajiny ČR</strong></a> (AOPK), vrstvu lze vyhledat také v prostředí <a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank" title="služba 'Maloplošná zvláště chráněná území' od uživatele 'aopkcr'"><strong>ArcGIS Online</strong></a></li>
+<li>výchozí podkladová mapa ArcGIS Online <strong class="primary_color">není součástí správného výsledku</strong>. Pro správný výsledek je nutné podkladovou mapu změnit na oficiální <a class="color_def underlined_dotted" href="" title="v prostředi AGOL odpovídá službě 'Základní topografické mapy ČR (S-JTSK)' od uživatele 'Zeměměřický Úřad'"><strong>Základní topografickou mapu od Zeměměřického úřadu v souřadnicovém systému S-JTSK</strong></a> <strong title="přidejte ZTM jako podkladovou mapu">(8)</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>K vytvoření kompozic využijte platformu 
+<a class="color_def underlined_dotted external_link_icon" href="https://www.arcgis.com/" target="_blank" title="pouze v ArcGIS Online lze nastavit přesné měřítko"><strong>ArcGIS Online</strong></a>, 
+<a class="color_def underlined_dotted external_link_icon" href="https://ags.cuzk.cz/geoprohlizec/" target="_blank"><strong>Geoprohlížeč ČÚZK</strong></a> či 
+<a class="color_def underlined_dotted external_link_icon" href="https://geoportal.gov.cz/web/guest/about-inspire" target="_blank"><strong>Národní geoportál INSPIRE</strong></a> 
+a <strong>příslušné datové vrstvy</strong>. Vrstvy prolněte <strong>pomocí nástrojů průhlednosti vrstev</strong> <strong title="nastavení průhlednosti vrstvy">(9)</strong>. Kompozice exportujte do formátu PDF či PNG (funkce Print) a <strong>vložte do technické zprávy</strong>.</p>
+</div>
+<ol>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/map_01.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/map_01.png" width="700px"></a> vytvořeno nástrojem Print v ArcGIS Online</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/map_02.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/map_02.png" width="700px"></a> vytvořeno nástrojem Print v ArcGIS Online</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/CLC_legenda.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/CLC_legenda.png" width="900px"></a> legenda k datům Corine Land Cover</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/GeoprohlizecCUZK_coord.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/GeoprohlizecCUZK_coord.png" width="600px"></a> zadání souřadnic bodu v Geoprohlížeči ČÚZK</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/filter.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/filter.png" width="700px"></a> funkce pro filtrování dat </li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/filtr_posty.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/filtr_posty.png" width="700px"></a> nastavení filtru</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/AGOL_ZTM.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/AGOL_ZTM.png" width="700px"></a> nastavení ZTM jako podkladové mapy</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/AGOL_ZTM.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/AGOL_ZTM.png" width="700px"></a> nastavení ZTM jako podkladové mapy</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/AGOL_pruhlednost.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/AGOL_pruhlednost.png" width="700px"></a> nastavení průhlednosti vrstvy</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/AGOL_print.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/AGOL_print.png" width="700px"></a> nastavení měřítka při exportu mapy</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/CLC1990_REST.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/CLC1990_REST.png" width="700px"></a> výběr mapové služby REST</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/CLC_popup.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/CLC_popup.png" width="700px"></a> aktivace vyskakovacích oken</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/GEO_popup.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/GEO_popup.png" width="700px"></a> aktivace vyskakovacích oken</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/GeoprohlizecCUZK_coord.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/GeoprohlizecCUZK_coord.png" width="600px"></a> zadání souřadnic bodu v aplikaci Analýza výškopisu</li>
+<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/cviceni03/GeoprohlizecCUZK_vypis.png" data-desc-position="bottom"><img alt="" class="no-filter" src="../assets/cviceni03/GeoprohlizecCUZK_vypis.png" width="600px"></a> po zapnutí režimu "Výpis souřadnic bodu" odečtěte výšku "H" v souřadnicovém systému S-JTSK</li>
+</ol>
+<hr class="level-1">
+
+<h2 id="vystupy-cviceni">Výstupy cvičení</h2>
+<p>Povinným výstupem úlohy je <strong class="outlined">technická zpráva v elektronické podobě</strong> odevzdaná v termínu prostřednictvím systému <a class="color_def underlined_dotted external_link_icon" href="https://moodle-vyuka.cvut.cz/mod/assign/view.php?id=363757" target="_blank"><strong>Moodle</strong></a>.</p>
+<p>Termín pro odevzdání úlohy: <strong class="outlined">neděle 22. března, 23.59 hod</strong> </p>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="../assets/cviceni04/TZ-template.docx"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"></path></svg></span> Technická zpráva - vzor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16 7.36-5.73L21 9l-9-7-9 7 1.63 1.27M12 18.54l-7.38-5.73L3 14.07l9 7 9-7-1.63-1.27z"></path></svg></span></a></p>
+<!--??? task-fg-color "Výstup cvičení: Technická zpráva (ukázka)"
+
+    <iframe src="https://drive.google.com/file/d/1ZqcjTFb2wTY1slDzBp9NWATWiMmgRROJ/preview" width="100%" height="100%" style="border:0;"></iframe>
+    {.custom_height}
+
+
+<style>
+    .custom_height{height:80vw;}
+</style>
+    -->
+
+<p>Úloha je uznána, pokud technická zpráva obsahuje <strong>všechny požadované náležitosti</strong> (viz níže) a má <strong>správný formát</strong> (PDF).</p>
+<details class="note-grey" open="open">
+<summary>Požadované náležitosti technické zprávy</summary>
+<ul>
+<li>Formát odevzdání <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path></svg></span> PDF</strong>, název souboru <strong class="no-dec outlined">U4_Prijmeni_Jmeno.pdf</strong>, případně <strong class="no-dec outlined">U4_Prijmeni_Jmeno_oprava01.pdf</strong></li>
+<li>Rozpiska se <strong>jménem</strong>, <strong>názvem úlohy</strong>, <strong>individuálním číslem zadání</strong> a <strong>souřadnicemi zadaného bodu</strong></li>
+<li><strong>Odpovědi</strong> na všechny otázky v zadání úlohy <strong>včetně zdrojů</strong> – <strong class="icon-exclm no-dec" style="color:#c22521;">jako zdroj nelze uvést pouze "ArcGIS Online" – tato služba je pouze prohlížečka, uvedení jako zdroj proto nedává smysl. Zdrojem získaných informací jsou konkrétní datové vrstvy – na ty lze odkazovat jejich přesným názvem a URL adresou služby.</strong></li>
+<li><strong>Grafické přílohy</strong> dle zadání (podúlohy <strong class="no-dec outlined">9</strong> a <strong class="no-dec outlined">10</strong> )</li>
+<li><strong>Závěr</strong> s krátkým (3 až 6 vět) objektivním hodnocením výsledků úlohy. Lze např. zhodnotit, proč jsou některé výsledky takové, jaké jsou. Nebo zmínit využití podobné úlohy ve vašem oboru.</li>
+</ul>
+</details>
+<h3 id="opravy">Opravy</h3>
+<p>V případě, že odevzdaný výstup není správný, je vyučujícím prostřednictvím systému Moodle <strong>vrácen k opravě</strong>. Opravený výstup se odevzdává opět prostřednictvím systému <a class="color_def underlined_dotted external_link_icon" href="https://moodle-vyuka.cvut.cz/mod/assign/view.php?id=436501" target="_blank"><strong>Moodle</strong></a>. Výstup lze odevzdat po <strong>maximálně jedné opravě</strong>, v případě pozdního odevzdání či nesprávného výstupu po první opravě je úloha <strong style="color:#c22521;">trvale označena jako nesplněná</strong>.</p>
+<p align="center"><a class="md-button md-button--primary" href="https://docs.google.com/spreadsheets/d/1oa_5s2p5B-eIXSad0H14NJTzTYX3YhDc9FUlwDHvrrc/edit?gid=0#gid=0" target="_blank">Tabulka hodnocení úloh</a></p>
+<p><br><br><br><br><br></p>
+<!--
+<style>
+    .underlined_dotted {border-bottom: .05rem dotted var(--md-default-fg-color--light);}
+    .color_def {color:var(--md-default-fg-color) !important;}
+    .no-wrap {white-space: nowrap;}
+    .bg {border-radius: .1rem;  background-color: var(--md-default-fg-color--lightest);  padding:.1em .4em; white-space: nowrap;}
+</style>
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
