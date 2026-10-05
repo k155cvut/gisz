@@ -198,12 +198,24 @@ div.table_centered .md-typeset__scrollwrap {text-align: center;}
 .gallery-tabs .tabbed-block > .gallery-figure {
   grid-column: 2;
   grid-row: 1;
+}
+.gallery-tabs .tabbed-block > p:last-child {
   align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
+  margin: 0;
+}
+.gallery-tabs .tabbed-block > .gallery-figure {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   margin: 0;
 }
 .gallery-tabs .gallery-figure img,
@@ -214,7 +226,16 @@ div.table_centered .md-typeset__scrollwrap {text-align: center;}
   width: auto;
   margin-top: 32px;
 }
-.gallery-tabs .gallery-figure > p {margin: 0;}
+.gallery-tabs .gallery-figure > p {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+}
+.gallery-tabs .gallery-figure figcaption {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
 
 @media (max-width: 700px) {
   .gallery-tabs .tabbed-set > input:nth-of-type(1):checked ~ .tabbed-content > .tabbed-block:nth-child(1),
@@ -322,6 +343,25 @@ div.table_centered .md-typeset__scrollwrap {text-align: center;}
     --md-accent-fg-color: #066b61;
     --md-primary-fg-color: #009485;
   }
+
+  /*custom ADMONITION pro rozklikávací nápovědu k úlohám na cvičení 3.*/
+:root {
+  --md-admonition-icon--napoveda: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>lightbulb-on</title><path d="M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63Z" /></svg>')
+}
+.md-typeset .admonition.napoveda,
+.md-typeset details.napoveda {
+  border-color: rgb(235, 215, 40);
+}
+.md-typeset .napoveda > .admonition-title,
+.md-typeset .napoveda > summary {
+  background-color: rgba(214, 202, 97, 0.1);
+}
+.md-typeset .napoveda > .admonition-title::before,
+.md-typeset .napoveda > summary::before {
+  background-color: rgb(235, 215, 40);
+  -webkit-mask-image: var(--md-admonition-icon--napoveda);
+          mask-image: var(--md-admonition-icon--napoveda);
+}
 
 
 
