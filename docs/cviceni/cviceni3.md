@@ -236,7 +236,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
     51 obcí
 
 
-**3. úloha** - Ořízněte vrstvu vodních toků podle hranice ORP Tachov. Jaká je celková délka?
+**3. úloha** - Ořízněte vrstvu vodních toků podle hranice ORP Tachov. Jaká je jejich celková délka?
 
 ??? napoveda "Nápověda"
      Použijte funkci _CLIP_
@@ -250,14 +250,19 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 ??? tip "Jak oříznout několik vrstev najednou?"
 
-    Použijte variantu **_Batch Clip_**.
+    Použijte variantu **_Batch Clip_**
 
-    1. Vyhledejte nástroj _Clip_ v geoprocessingu a klikněte na něj pravým tlačítkem myši. Vyberte možnost _Batch_.
+    1. Vyhledejte nástroj _Clip_ v geoprocessingu a klikněte na něj pravým tlačítkem myši. Vyberte možnost _Batch_
 
-    2. Potvrďte nastavení nástroje tlačítkem _Next_.
+        ![Batch clip](../assets/cviceni3/batch_clip_1.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
 
-    3. Nyní jste vytvořili dočasný _Batch Clip_, který může mít na vstupu více vrstev.
+    2. Potvrďte nastavení nástroje tlačítkem _Next_
 
+        ![Batch clip](../assets/cviceni3/batch_clip_2.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
+
+    3. Nyní jste vytvořili dočasný _Batch clip_, který může mít na vstupu více vrstev. (vložené vrstvy jsou pouze ilustrační a s konkrétní úlohou nesouvisí.)
+
+        ![Batch clip](../assets/cviceni3/batch_clip_3.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
 
 **5. úloha** - Vytvořte obslužnou zónu 2 km kolem železničních stanic.
 ??? napoveda "Nápověda"
@@ -327,7 +332,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 **13. úloha** - Odstraňte překrývající se části 2 km obslužných zón kolem železničních stanic.
 
 ??? napoveda "Nápověda"
-    Použijte funkce _REMOVE OVERLAP_.
+    Použijte funkci _REMOVE OVERLAP_
 
 
 
