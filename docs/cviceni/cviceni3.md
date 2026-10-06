@@ -324,6 +324,13 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
     _Join Operation_ je v tomto případě _One to one_.
 
 
+**13. úloha** - Odstraňte překrývající se části 2 km obslužných zón kolem železničních stanic.
+
+??? napoveda "Nápověda"
+    Použijte funkce _REMOVE OVERLAP_.
+
+
+
 <!--
 ### _REMOVE OVERLAP_
 
@@ -335,9 +342,24 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 ## Úlohy k procvičení
 
 !!! task-fg-color "Úlohy"
+    Pro řešení následujících úloh využijte data RÚIAN a DATA50. Pracujte nad územím celé republiky, zadaným územím nebo územím dle vašeho výběru.
+
     1. Jaká je výměra (v ha) lesních ploch, které se nachází v bezprostřední blízkosti vodních ploch (do 100 m)? Kolik procent z celkové výměry lesů v území tvoří?
 
     2. Kolik budov se nachází do 50 m od silnic? Jaký podíl všech budov to představuje?
+
+    3. Kolik procent území okresu Ústí nad Orlicí tvoří vodní plochy?
+    
+    4. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
+
+    5. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to je procent z celkové výměry bažin a rašelinišť?
+
+    6. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese na celém území ČR. Kolik to je procent z celkové výměry bažin a rašelinišť?
+
+    7. Kolik obcí leží celou svou plochou do vzdálenosti 5 km od železniční stanice v rámci okresu Domažlice? Jaká je jejich celková výměra?
+
+    8. Určete všechna místa, kde dochází ke křížení cest a vodních toků na území okresu Tachov. Výsledek prezentujte jako bodovou vrstvu.
+
 
     K řešení **následujích** úloh použijte datovou sadu [ArcČR
     500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
