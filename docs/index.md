@@ -257,8 +257,8 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 | 1 | 23.9. | 22.9. | 2.10. | 2.10. | Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka | |
 | 2 | 30.9. | 29.9. | 9.10. | 9.10. | Vektorová data, atributové dotazy, prostorové dotazy, souřadnicové systémy | |
 | 3 | 7.10. | 6.10. | 16.10. | 16.10. | Prostorové funkce (geoprocessing), spatial join | <span class="schedule-deadline">do 11. října zvolit území pro SP </span> |
-| 4 | 14.10. | 13.10. | 23.10. | 23.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13., 14., 23.10. průběžný test (30 min)</span> |
-| 5 | 21.10. | 20.10. | 30.10. | 30.10.| Rastrová data | |
+| 4 | 14.10. | 13.10. | 23.10. | 23.10. | Práce s externími daty (Excel, CSV), join + příprava na test | |
+| 5 | 21.10. | 20.10. | 30.10. | 30.10.| Rastrová data | <span class="schedule-test">20., 21., 30.10. průběžný test (30 min)</span> |
 |  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
 | 6 | 4.11. | 27.10. | 6.11. | 6.11.  | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
 | 7 | 11.11. | 3.11. | 13.11. | 13.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2), tvorba layoutu | |
@@ -272,7 +272,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 ### **Podmínky zápočtu**
 
-- získání min. 60 % bodů v průběžném testu (4. týden semestru) 
+- získání min. 60 % bodů v průběžném testu (5. týden semestru) 
 - odevzdání a prezentace [semestrální práce](./semestralka.md) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
 
 
