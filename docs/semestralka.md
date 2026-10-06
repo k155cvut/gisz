@@ -322,7 +322,7 @@ __b. Z digitálního modelu terénu vytvořte rastr sklonitosti a orientace svah
     - vybrané charakteristiky reliéfu.
 
 ---
-
+<!--
 ### __6. Viditelnost__
 
 __a. Vytvořte rastr viditelnosti z rozhledny umístěné na nejvyšším bodě zadaného území:__ 
@@ -347,9 +347,9 @@ __c. Vhodným nastavením symbologie vizualizujte SO dle procenta viditelnosti._
     - slovní odpověď,
     - vektorová vrstva SO barevně odlišených dle procenta viditelnosti.
 
----
+--- -->
 
-### __7. tvorba mapové aplikace__
+### __6. tvorba mapové aplikace__
 
 __a. Do prostředí ArcGIS Online vypublikujte následující datové vrstvy:__
 
@@ -358,10 +358,10 @@ __a. Do prostředí ArcGIS Online vypublikujte následující datové vrstvy:__
 - historický stav využití krajiny v pol. 19. století [*(viz Úloha č. 4)*](/semestralka/#4-historicky-stav-vyuziti-krajiny)
 
 - rastry DMT, sklonitosti a orientace [*(viz Úloha č. 5)*](/semestralka/#5-charakteristiky-reliefu)
-
+<!--
 - rastr viditelnosti [*(viz Úloha č. 6)*](/semestralka/#6-viditelnost)
 
-- vybraný kótovaný bod a SO rozlišené dle procenta viditelnosti [*(viz Úloha č. 6)*](/semestralka/#6-viditelnost)
+- vybraný kótovaný bod a SO rozlišené dle procenta viditelnosti [*(viz Úloha č. 6)*](/semestralka/#6-viditelnost) -->
 
 __b. Vytvořte webovou mapovou aplikaci, která bude obsahovat 4 tematické části:__
 
@@ -385,12 +385,12 @@ __b. Vytvořte webovou mapovou aplikaci, která bude obsahovat 4 tematické čá
 
     - vhodnou formou uveďte vybrané charakteristiky reliéfu (tabulky, grafy, slovní popis).
 
-- __Analýza viditelnosti__
+<!--- __Analýza viditelnosti__
 
     - ve webové mapě 5 zobrazte rastr viditelnosti, vybraný kótovaný bod a SO rozlišené dle procenta viditelnosti,
 
-    - uveďte, jaké procento všech stavebních objektů na zadaném území, je viditelné alespoň z 20 %.
-
+    - uveďte, jaké procento všech stavebních objektů na zadaném území, je viditelné alespoň z 20 %. -->
+    
 - __Zdroje dat__
 
 

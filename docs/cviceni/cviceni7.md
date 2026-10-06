@@ -1,10 +1,10 @@
 ---
-icon: material/numeric-6-box
-title: Cvičení 6
+icon: material/numeric-7-box
+title: Cvičení 7
 ---
 
 
-# Georeferencování, vektorizace, tvorba geodatabáze
+# Kontrola topologie, tvorba mapového výstupu
 
 ## Cíl cvičení
 

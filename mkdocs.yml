@@ -6,11 +6,13 @@ nav:
       - Vektorová data, atributové dotazy, prostorové dotazy: cviceni/cviceni2.md
       - Prostorové funkce (geoprocessing), spatial join: cviceni/cviceni3.md
       - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4.md
-      - Rastrová data, tvorba digitálního modelu terénu: cviceni/cviceni5.md
-      - Georeferencování, vektorizace, tvorba geodatabáze, kontrola topologie: cviceni/cviceni6.md
+      - Rastrová data: cviceni/cviceni5.md
+      - Georeferencování, vektorizace, tvorba geodatabáze: cviceni/cviceni6.md
+      - Kontrola topologie, tvorba mapového výstupu: cviceni/cviceni7.md
       - Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1: cviceni/cviceni8.md
       - ArcGIS Online, tvorba webových mapových aplikací: cviceni/cviceni9.md
-      - Viditelnost, interpolace, mapová algebra 2: cviceni/cviceni10.md
+      - Tvorba digitálního modelu terénu: cviceni/cviceni10.md
+      - Viditelnost, interpolace, mapová algebra 2: cviceni/cviceni11.md
   - Data: data.md
   # - Hodnocení: hodnoceni.md
   - Semestrální práce: semestralka.md
