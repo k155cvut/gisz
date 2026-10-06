@@ -9,10 +9,10 @@ nav:
       - Rastrová data: cviceni/cviceni5.md
       - Georeferencování, vektorizace, tvorba geodatabáze: cviceni/cviceni6.md
       - Kontrola topologie, tvorba mapového výstupu: cviceni/cviceni7.md
-      - Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1: cviceni/cviceni8.md
+      - Topografická analýza povrchu, viditelnost, reklasifikace rastrových dat, mapová algebra 1: cviceni/cviceni8.md
       - ArcGIS Online, tvorba webových mapových aplikací: cviceni/cviceni9.md
       - Tvorba digitálního modelu terénu: cviceni/cviceni10.md
-      - Viditelnost, interpolace, mapová algebra 2: cviceni/cviceni11.md
+      - Interpolace a mapová algebra 2: cviceni/cviceni11.md
   - Data: data.md
   # - Hodnocení: hodnoceni.md
   - Semestrální práce: semestralka.md

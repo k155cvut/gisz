@@ -1,7 +1,7 @@
 /*
  * Interaktivní ukázka topografických funkcí (Slope, Aspect, Hillshade, Viewshed,
  * Aspect-Slope, Raster Calculator) pro MkDocs Material. Bez externích závislostí.
- * Styly v cviceni8.css (třídy .tf-*).
+ * Styly v topo_function.css (třídy .tf-*).
  *
  * Použití v Markdownu:
  *   <div class="tf" data-tf="topo"></div>   – syntetický DMR a odvozené rastry

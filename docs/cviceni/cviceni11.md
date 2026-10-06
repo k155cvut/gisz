@@ -3,7 +3,7 @@ icon: custom/vc-numeric-11-box
 title: Cvičení 11
 ---
 
-# Viditelnost, interpolace, mapová algebra
+# Interpolace, mapová algebra
 
 Ve cvičení se naučíte
 {: align=center style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px;"}
@@ -21,12 +21,6 @@ Ve cvičení se naučíte
     __interpolovat__ výškový povrch z bodů různými metodami a __porovnat jejich přesnost__
     {.middle style="display:table-cell;line-height:normal;"}
 
--   :material-eye-outline:{ .xxxl .middle }
-    {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
-
-    určit, __co je vidět__ z vybraného místa v krajině
-    {.middle style="display:table-cell;line-height:normal;"}
-
 -   :material-calculator-variant-outline:{ .xxxl .middle }
     {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
 
@@ -39,7 +33,6 @@ Ve cvičení se naučíte
 
 - **Interpolace** – odhad neznámé hodnoty jevu v daném místě na základě známých okolních hodnot
 - **Extrapolace** – dopočet hodnot za hranicí oblasti pokryté vstupními body
-- **Linie viditelnosti (line of sight)** – profil mezi pozorovatelem a cílem s vyznačením viditelných a zakrytých úseků
 - **Rastrová kalkulačka** – nástroj spouštějící výrazy mapové algebry
 - **DMT (digitální model terénu)** – digitální reprezentace terénu (obecný pojem zahrnující různé způsoby vyjádření terénního reliéfu nebo povrchu)
 - **DMR (digitální model reliéfu)** – digitální reprezentace zemského povrchu (NEobsahuje vegetaci ani lidské stavby)
@@ -94,7 +87,7 @@ Z vrstvy _DMR_ si „nasimulujeme“ řídké výškové měření v náhodných
 
 ### Vyzkoušejte si
 
-<link rel="stylesheet" href="../css/cviceni10.css">
+<link rel="stylesheet" href="../css/interpolace.css">
 <script src="../js/interpolace.js" defer></script>
 
 Obě ukázky počítají s uměle vytvořeným „skutečným“ terénem, takže u každé metody hned vidíme, o kolik se od skutečnosti liší. Měřené body můžeme přidávat a odebírat kliknutím.
@@ -145,20 +138,10 @@ Z REM můžeme identifikovat:
 
 ### Vyzkoušejte si
 
-<script src="../js/mapova-algebra.js" defer></script>
+<link rel="stylesheet" href="../css/rem.css">
+<script src="../js/rem.js" defer></script>
 
-Mapová algebra pracuje s rastry __buňku po buňce__: výsledek v každé buňce se spočítá jen z hodnot vstupních rastrů na stejném místě (tzv. lokální operace). Výrazy píšeme stejně jako v _RASTER CALCULATOR_ v ArcGIS Pro.
-
-<div class="iw" data-ma="kalkulacka">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
-
-???+ note-grey "Co sledovat v kalkulačce"
-
-    - Porovnání (`>`, `==` …) vrací __1 (pravda) nebo 0 (nepravda)__. Díky tomu můžeme podmínky kombinovat operátory `&` a `|` nebo je násobit.
-    - Operátory `&` a `|` se vyhodnocují __dřív než porovnání__, proto musí být každá podmínka v závorkách. Vyzkoušejte příklad „Častá chyba“.
-    - __NoData__ se šíří: pokud má kterýkoli vstup v buňce NoData, má ho i výsledek. Výjimkou je funkce `IsNull`.
-    - Plochu území dostaneme jako __počet buněk × plocha buňky__, jak ukazuje tabulka pod výsledkem.
-
-<div class="iw" data-ma="rem">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
+<div class="iw" data-rem>Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
 
 ???+ note-grey "Co sledovat u REM"
 
@@ -169,7 +152,7 @@ Mapová algebra pracuje s rastry __buňku po buňce__: výsledek v každé buňc
 
 ## Náplň cvičení
 
-Cvičení má tři části, které pracují nad __stejným územím a stejným DMR__. Nejdříve si z dat DMR 5G připravíme výškovou mozaiku. Na ní ověříme, jak přesně jednotlivé interpolační metody dokážou povrch zrekonstruovat z řídkých bodů, spočítáme viditelnost z vybraného místa a nakonec pomocí rastrové kalkulačky vytvoříme relativní výškový model řeky (REM).
+Cvičení má dvě části, které pracují nad __stejným územím a stejným DMR__. Nejdříve si z dat DMR 5G připravíme výškovou mozaiku. Na ní ověříme, jak přesně jednotlivé interpolační metody dokážou povrch zrekonstruovat z řídkých bodů, a následně pomocí rastrové kalkulačky vytvoříme relativní výškový model řeky (REM).
 
 
 ## Použité datové podklady
@@ -183,7 +166,7 @@ Cvičení má tři části, které pracují nad __stejným územím a stejným D
 
 !!! note-grey "Poznámka"
 
-    Území volíme s ohledem na poslední část (REM). Vhodná je oblast, kde má řeka možnost měnit svůj tvar v čase – rovinaté území s meandry, slepými rameny či záplavami. Řeka protékající úzkým údolím nemá pro změny toku prostor a relativní výškový model zde nemá pro analýzy smysl. Zároveň je dobré, aby v území nebo na jeho okraji byl výrazný vrchol (kopec, rozhledna) pro analýzu viditelnosti.
+    Území volíme s ohledem na poslední část (REM). Vhodná je oblast, kde má řeka možnost měnit svůj tvar v čase – rovinaté území s meandry, slepými rameny či záplavami. Řeka protékající úzkým údolím nemá pro změny toku prostor a relativní výškový model zde nemá pro analýzy smysl.
 
 **1.** __Stažení dat__
 
@@ -279,42 +262,9 @@ Rozdílové rastry zobrazíme divergentní barevnou stupnicí se středem v nule
     - Kde se chyby koncentrují (svahy, hrany údolí, okraje území)?
     - Proč Spline může vytvořit hodnoty mimo rozsah vstupních bodů, zatímco IDW a Natural Neighbor ne?
 
-## Viditelnost
-
-**10.** __Pozorovací bod__
-
-Založíme novou bodovou třídu prvků (vrstva _Pozorovatel_) a umístíme do ní pozorovací bod – vrchol kopce, rozhlednu, věž kostela apod. Do atributové tabulky přidáme pole `OFFSETA` (typ _Double_) s výškou pozorovatele nad terénem, např. `1.7` pro člověka nebo výšku vyhlídkové plošiny rozhledny.
-
-!!! note-grey "Poznámka"
-
-    Funkce _VIEWSHED_ a _OBSERVER POINTS_ čtou parametry pozorovatele pouze z polí s pevnými názvy (`OFFSETA`, `OFFSETB`, `RADIUS2`, `AZIMUTH1` …). Pokud pole `OFFSETA` chybí, použije se výchozí výška 1 m.
-
-    [<span>doc.esri.com</span><br>Using Viewshed and Observer Points](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-    {: .button_array}
-
-**11.** __Výpočet viditelnosti__
-
-Spustíme funkci _VIEWSHED_ (_Spatial Analyst_ → _Surface_) se vstupním rastrem _DMR_ a vrstvou _Pozorovatel_. Hodnota buňky ve výsledku udává, z kolika pozorovacích bodů je buňka vidět – při jednom bodě tedy 0 = neviditelné, 1 = viditelné.
-
-<!-- TODO: screenshot ../assets/cviceni10/viewshed.png -->
-
-!!! note-grey "Poznámka"
-
-    - Výsledek zobrazíme poloprůhledně přes stínovaný reliéf (funkce _HILLSHADE_), aby bylo patrné, které svahy jsou vidět.
-    - Dohled můžeme omezit vzdáleností (pole `RADIUS2`) nebo výsečí (pole `AZIMUTH1` a `AZIMUTH2`). Funkce _GEODESIC VIEWSHED_ tyto parametry nabízí přímo v dialogu.
-    - DMR neobsahuje vegetaci ani stavby, výsledek je proto „teoretická“ viditelnost holého terénu. Pro realističtější výsledek bychom použili DMP (DMP 1G).
-
-**12.** __Více pozorovatelů__
-
-Přidáme do vrstvy _Pozorovatel_ 2–3 další body a spustíme funkci _OBSERVER POINTS_. Ve výsledné atributové tabulce jsou pole `OBS1`, `OBS2` …, podle kterých zjistíme, __který__ pozorovatel dané místo vidí.
-
-**13.** __Linie viditelnosti__
-
-Funkcí _CONSTRUCT SIGHT LINES_ (_3D Analyst_) vytvoříme spojnice mezi pozorovatelem a několika cílovými body a funkcí _LINE OF SIGHT_ vyhodnotíme, které úseky jsou viditelné (zeleně) a které zakryté (červeně).
-
 ## Mapová algebra – relativní výškový model (REM)
 
-**14.** __Odečtení extrémních hodnot__
+**10.** __Odečtení extrémních hodnot__
 
 Nástrojem _Explore_ na záložce _Map_ zjistíme minimální a maximální nadmořskou výšku toku.
 
@@ -326,7 +276,7 @@ Nástrojem _Explore_ na záložce _Map_ zjistíme minimální a maximální nadm
   <figcaption>Odečtení maximální a minimální nadmořské výšky řeky z mozaiky</figcaption>
 </figure>
 
-**15.** __Změna symbologie DMR__
+**11.** __Změna symbologie DMR__
 
 Vrstvě _DMR_ nastavíme vlastní symbologii podle zjištěných extrémních hodnot.
 
@@ -339,7 +289,7 @@ Vrstvě _DMR_ nastavíme vlastní symbologii podle zjištěných extrémních ho
 
     Extrémní hodnoty můžeme přizpůsobit tak, aby byla dobře vidět kostra řeky i s přítoky.
 
-**16.** __Středová čára řeky__
+**12.** __Středová čára řeky__
 
 Abychom mohli vypočítat výškový model vztažený k hladině řeky, potřebujeme bodovou vrstvu s nadmořskými výškami hladiny. Založíme novou třídu prvků (vrstva _Osa_reky_) a nakreslíme středovou čáru řeky, podle které následně vygenerujeme body.
 
@@ -351,7 +301,7 @@ Abychom mohli vypočítat výškový model vztažený k hladině řeky, potřebu
   <figcaption>Tvorba středové čáry řeky</figcaption>
 </figure>
 
-**17.** __Body podél středové čáry__
+**13.** __Body podél středové čáry__
 
 Body vytvoříme funkcí _GENERATE POINTS ALONG LINES_. Vzdálenost mezi nimi nastavíme přibližně na šířku řeky.
 
@@ -364,7 +314,7 @@ Body vytvoříme funkcí _GENERATE POINTS ALONG LINES_. Vzdálenost mezi nimi na
       <figcaption>Nástroj měření</figcaption>
     </figure>
 
-**18.** __Informace o nadmořské výšce__
+**14.** __Informace o nadmořské výšce__
 
 Funkcí _EXTRACT VALUES TO POINTS_ přiřadíme bodům hodnotu pixelu vrstvy _DMR_, na jehož místě bod leží.
 
@@ -373,7 +323,7 @@ Funkcí _EXTRACT VALUES TO POINTS_ přiřadíme bodům hodnotu pixelu vrstvy _DM
   <figcaption>Přiřazení výšky bodům</figcaption>
 </figure>
 
-**19.** __Interpolace hladiny__
+**15.** __Interpolace hladiny__
 
 Z výškových bodů vytvoříme funkcí _IDW_ rastr hladiny řeky (vrstva _IDW_hladina_).
 
@@ -389,7 +339,7 @@ Z výškových bodů vytvoříme funkcí _IDW_ rastr hladiny řeky (vrstva _IDW_
 
     Výchozí rozsah interpolace odpovídá rozsahu vstupní vrstvy, tj. bodům na řece. My ale chceme interpolovat na celý rozsah vrstvy _DMR_, proto v záložce _Environments_ nastavíme _Processing Extent_ na _DMR_. Když zároveň nastavíme _Cell Size_ a _Snap Raster_ na _DMR_, můžeme následující krok vynechat.
 
-**20.** __Převzorkování__
+**16.** __Převzorkování__
 
 Pokud jsme v předchozím kroku nenastavili _Cell Size_ a _Snap Raster_, převzorkujeme interpolovaný rastr funkcí _RESAMPLE_ tak, aby velikost i poloha pixelu odpovídaly vrstvě _DMR_. Shodná mřížka je pro práci s rastrovou kalkulačkou nutná.
 
@@ -401,7 +351,7 @@ Pokud jsme v předchozím kroku nenastavili _Cell Size_ a _Snap Raster_, převzo
   <figcaption>Převzorkování rastru a kontrola velikosti pixelu</figcaption>
 </figure>
 
-**21.** __Výpočet REM__
+**17.** __Výpočet REM__
 
 REM vypočteme funkcí _RASTER CALCULATOR_ odečtením interpolované hladiny od DMR:
 
@@ -416,7 +366,7 @@ Kladné hodnoty odpovídají výšce terénu nad hladinou řeky.
   <figcaption>Rastrová kalkulačka</figcaption>
 </figure>
 
-**22.** __Symbologie výsledného REM__
+**18.** __Symbologie výsledného REM__
 
 Výsledný REM zobrazíme metodou _Stretch_ se spojitou barevnou stupnicí. Horní mez nastavíme nízko (např. 5–10 m), aby vynikly tvary v nivě.
 
@@ -432,8 +382,6 @@ Výsledný REM zobrazíme metodou _Stretch_ se spojitou barevnou stupnicí. Horn
 Relative Elevation Models [online]. MONTANA STATE LIBRARY [cit. 2024-01-25]. Dostupné z: [https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf](https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf)
 
 Relative Elevation Model in ArcGIS Pro [online]. esri video [cit. 2024-01-25]. Dostupné z: [https://mediaspace.esri.com/media/t/1_pn5ltf54](https://mediaspace.esri.com/media/t/1_pn5ltf54)
-
-Using Viewshed and Observer Points for visibility analysis [online]. Esri [cit. 2026-09-29]. Dostupné z: [https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html)
 
 ## Úlohy k procvičení
 

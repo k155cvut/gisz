@@ -262,11 +262,11 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 |  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
 | 6 | 4.11. | 27.10. | 6.11. | 6.11.  | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
 | 7 | 11.11. | 3.11. | 13.11. | 13.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2), tvorba layoutu | |
-| 8 | 18.11. | 10.11. | 20.11. | 20.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
+| 8 | 18.11. | 10.11. | 20.11. | 20.11. | Topografická analýza povrchu, viditelnost, reklasifikace rastrových dat, mapová algebra 1 | |
 |  |  | <span class="schedule-note schedule-cancel">17.11.– odpadá</span> |  |  |  |  |
 | 9 | 25.11. | 24.11. | 27.11. | 27.11. | ArcGIS Online, tvorba webových mapových aplikací | |
 | 10 | 2.12. | 1.12. | 4.12. | 4.12. |  Tvorba digitálního modelu terénu | |
-| 11 | 9.12. | 8.12. | 11.12. | 11.12. | Viditelnost, interpolace, mapová algebra 2 | |
+| 11 | 9.12. | 8.12. | 11.12. | 11.12. | Interpolace, mapová algebra 2 | |
 | 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>webová mapová aplikace</span> |
 
 
