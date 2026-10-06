@@ -1,5 +1,5 @@
 ---
-icon: material/numeric-11-box
+icon: custom/vc-numeric-11-box
 title: Cvičení 11
 ---
 

@@ -44,11 +44,11 @@ Ve cvičení se naučíte
 ## Aplikace Analýzy výškopisu 
 Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Analýzy výškopisu od Českého úřadu zeměměřického a katastrálního. Aplikace umožňuje provádějí základních výškových analýz nad daty DMP 1G, DMR 4G a DMR 5G. Pro každou datovou sadu nabízí několik rastrových funkcí (Stínovaný reliéf, Z-faktor apod.). Do rozhraní je možné přidat i vlastní data, a tedy zefektivnit používání aplikace v reálné praxi.
 
-[<span></span>https://ags.cuzk.cz/av/<br>Analýzy výškopisu ČÚZK](https://ags.cuzk.cz/av/){ .md-button .md-button--primary .button_larger .external_link_icon target="_blank"}
+[<span>ags.cuzk.cz/av</span><br>Analýzy výškopisu ČÚZK](https://ags.cuzk.cz/av/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 <figure markdown>
-  ![Analýzy výškopisu](../assets/cviceni2/av_cuzk.png){ width="900"}
+  ![Analýzy výškopisu](../assets/cviceni10/av_cuzk.png){ width="900"}
   <figcaption>Analýza pole viditelnosti ze zadaného bodu vypočteného nad DMR 5G</figcaption>
 </figure>
 
@@ -86,7 +86,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
      TIN vzniká na základě Delaunayho triangulace. Ta rozdělí vstupní body do tzv. Thiessenových polygonů (také Voroniovy diagramy), pro které platí, že z každého místa polygonu je vzdálenost k danému bodu uvnitř polygonu menší než k jakémukoliv jinému bodu ze zadané množiny. Další krok spočívá v propojení bodů v sousedících polygonech.
 
 <figure markdown>
-  ![Tvorba triangulace](../assets/cviceni2/triang.png){ width="900"}
+  ![Tvorba triangulace](../assets/cviceni10/triang.png){ width="900"}
   <figcaption>Postup tvorby Delaunayho triangulace (vpravo) na základě Thiessenových polygonů (vlevo)</figcaption>
 </figure>
 
@@ -102,14 +102,14 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
      Při vytváření TIN lze kombinovat několik vrstev, tudíž je možné na příklad použít vrstevnice, které budou zpřesněny bodovou vrstvnou výškových kót.
 
 <figure markdown>
-  ![Tvorba TIN](../assets/cviceni2/create_tin.png)
+  ![Tvorba TIN](../assets/cviceni10/create_tin.png)
   <figcaption>Tvorba TIN z vrstevnic</figcaption>
 </figure>
 
 **5.** Podle rozsahu a detailu vstupních dat může výpočet trvat i několik minut. Výsledkem je terén ve formě TINu a případně vrstva vstupních vrstevnic, kterou lze skrýt.
 
 <figure markdown>
-  ![TIN KT okres](../assets/cviceni2/tin_kt.png){width="400"}
+  ![TIN KT okres](../assets/cviceni10/tin_kt.png){width="400"}
   <figcaption>Vypočtený TIN pro Klatovský okres</figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
 **2.** Ve funkci je potřeba opět určit parametry výpočtu. *Output Data Type* určuje datový typ rastru, tedy zda mohou mít jeho pixely hodnoty desetinných čísel *Floating Point* nebo se hodnoty zaokrouhlí na celá čísla *Integer*. Dále je potřeba určit metodu interpolace dat *Linear* nebo *Natural Neighbors*. Poslední parametr definuje velikost pixelu výstupního rastru.
 
 <figure markdown>
-  ![TIN to Raster](../assets/cviceni2/tin_tor.png)
+  ![TIN to Raster](../assets/cviceni10/tin_tor.png)
   <figcaption>Hodnoty funkce TIN to Raster</figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
      Ořez je možné provést již pro TIN použitím funkce *Edit TIN*.
 
 <figure markdown>
-  ![DMT KT](../assets/cviceni2/dmt_kt.png){width="400"}
+  ![DMT KT](../assets/cviceni10/dmt_kt.png){width="400"}
   <figcaption>Výsledný digitální model terénu Klatovského okresu s velikostí pixelu 100 m</figcaption>
 </figure>
 
@@ -150,7 +150,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
 **3.** Dále přidáme tři pomocné vrstvy (ty nemusejí být nutnou součástí funkce, slouží ke zpřesnění výsledku). První z nich budou tvořit vodní toky ze ZABAGED. Pro výpočet je zásadní, aby byla vrstva vodních toků správně orientovaná, tedy po proudu. Vizuální kontrolu lze provést změnou symbologie vrstvy, přičemž nahradíme obyčejnou linii za linii se šipkou na konci. Důležité je pro výpočet vyfiltrovat pouze nadzemní toky. Nastavíme typ *Stream*.
 
 <figure markdown>
-  ![Vodni toky](../assets/cviceni2/vt.png){width="900"}
+  ![Vodni toky](../assets/cviceni10/vt.png){width="900"}
   <figcaption>Ukázka správného směru vodních toků</figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
 **6.** Další parametry funkce ponecháme ve výchozím nastavení. Jedná se o pokročilé parametry, jejichž úprava souvisí s následným dalším využitím rastru. Pokud bychom je v budoucnu potřebovali, získáme více informací v dokumentaci.
 
 <figure markdown>
-  ![Topo To Raster](../assets/cviceni2/topotor.png)
+  ![Topo To Raster](../assets/cviceni10/topotor.png)
   <figcaption>Hodnoty funkce Topo To Raster</figcaption>
 </figure>
 
@@ -173,7 +173,7 @@ Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Anal�
      Díky těmto úpravám můžeme DMT používat jako podkladovou vrstvu pro řadu vizualizací.
 
 <figure markdown>
-  ![DMT symbologie](../assets/cviceni2/dmt_sym.png)
+  ![DMT symbologie](../assets/cviceni10/dmt_sym.png)
   <figcaption>Ukázky různých možností symbologie totožného rastru</figcaption>
 </figure>
 
@@ -208,7 +208,7 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **3.** Ve druhé části funkce určíme souřadnicový systém mračna bodů. 
 
 <figure markdown>
-  ![Convert LAS](../assets/cviceni2/convert_las.png)
+  ![Convert LAS](../assets/cviceni10/convert_las.png)
   <figcaption>Hodnoty funkce Convert LAS</figcaption>
 </figure>
 
@@ -216,14 +216,14 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **1.** LAS data je možné zobrazit 2D v mapě nebo 3D ve scéně (ideálně v lokální scéně). Novou scénu vytvoříme v záložce *Insert* – *New Map* – *New Local Scene*.
 
 <figure markdown>
-  ![Porovnání mapy a scény](../assets/cviceni2/map_sc.png){ width="900"}
+  ![Porovnání mapy a scény](../assets/cviceni10/map_sc.png){ width="900"}
   <figcaption>Porovnání zobrazení LAS dat ve 2D mapě (vlevo) a ve 3D scéně (vpravo)</figcaption>
 </figure>
 
 **2.** Různé možnosti vizualizace LAS jsou dostupné po vybrání vrstvy mračna bodů v záložce *LAS Dataset Layer*. Pod ikonou *Symbology* 
 
 <figure markdown>
-  ![Symbologie LAS](../assets/cviceni2/las_s.png){ width="900"}
+  ![Symbologie LAS](../assets/cviceni10/las_s.png){ width="900"}
   <figcaption>Symbologie LAS</figcaption>
 </figure>
 
@@ -240,14 +240,14 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **3.** Dále zvolíme výstupní adresář *Target Folder* a případně specifikujeme název výsledného mračna bodů či jeho kompresi.
 
 <figure markdown>
-  ![Colorize LAS](../assets/cviceni2/col_las.png)
+  ![Colorize LAS](../assets/cviceni10/col_las.png)
   <figcaption>Hodnoty funkce Colorize LAS</figcaption>
 </figure>
 
 **4.** Po provedení tohoto výpočtu se v nabídce *Symbology*, kterou jsme využívali při vizualizaci, zobrazí další možnost vizualizace mračna bodů – *RGB*. Po jejím zvolení se body obarví dle vstupního ortofota.
 
 <figure markdown>
-  ![Texturovaný LAS](../assets/cviceni2/text_las.png){ width="900"}
+  ![Texturovaný LAS](../assets/cviceni10/text_las.png){ width="900"}
   <figcaption>Texturovaný LAS</figcaption>
 </figure>
 
@@ -259,12 +259,12 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **3.** Následně je nutné určit způsob interpolace (viz [cvičení 5](https://k155cvut.github.io/gis-2/cviceni/cviceni5/)). Důležitým parametrem je *Cell Size*, která určuje velikost pixelu (buňky) výstupního rastru. *Z factor* určuje hodnotu zploštění/zvýšení hodnot rastru. V základním nastavení jej ponecháme rovný 1.
 
 <figure markdown>
-  ![LAS Dataset To Raster](../assets/cviceni2/las_tr.png)
+  ![LAS Dataset To Raster](../assets/cviceni10/las_tr.png)
   <figcaption>Hodnoty funkce LAS Dataset To Raster</figcaption>
 </figure>
 
 <figure markdown>
-  ![DMT z LAS](../assets/cviceni2/las_r.png){ width="900"}
+  ![DMT z LAS](../assets/cviceni10/las_r.png){ width="900"}
   <figcaption>Digitální model terénu vypočtený na základě laserových dat</figcaption>
 </figure>
 
