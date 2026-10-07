@@ -256,24 +256,24 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 |  |  |  | <span class="schedule-note schedule-cancel">25.9. – odpadá</span> | <span class="schedule-note schedule-cancel">25.9. – odpadá</span> |  |  | 
 | 1 | 23.9. | 22.9. | 2.10. | 2.10. | Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka | |
 | 2 | 30.9. | 29.9. | 9.10. | 9.10. | Vektorová data, atributové dotazy, prostorové dotazy, souřadnicové systémy | |
-| 3 | 7.10. | 6.10. | 16.10. | 16.10. | Prostorové funkce (geoprocessing), spatial join | <span class="schedule-deadline">do 10. října<br>si zvolit k. ú. pro semestr. práci </span> |
-| 4 | 14.10. | 13.10. | 23.10. | 23.10. | Práce s externími daty (Excel, CSV), join | <span class="schedule-test">13.–16.10. průběžný test (30 min)</span> |
-| 5 | 21.10. | 20.10. | 30.10. | 30.10.| Rastrová data, tvorba digitálního modelu terénu | |
+| 3 | 7.10. | 6.10. | 16.10. | 16.10. | Prostorové funkce (geoprocessing), spatial join | <span class="schedule-deadline">do 11. října zvolit území pro SP </span> |
+| 4 | 14.10. | 13.10. | 23.10. | 23.10. | Práce s externími daty (Excel, CSV), join + příprava na test | |
+| 5 | 21.10. | 20.10. | 30.10. | 30.10.| Rastrová data | <span class="schedule-test">20., 21., 30.10. průběžný test (30 min)</span> |
 |  | <span class="schedule-note schedule-cancel">28.10. – odpadá</span> |  |  |  |  |  |
 | 6 | 4.11. | 27.10. | 6.11. | 6.11.  | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 1) | <span class="schedule-deadline">1.11.<br>gdb + technická zpráva</span> |
 | 7 | 11.11. | 3.11. | 13.11. | 13.11. | Georeferencování, vektorizace, kontrola topologie, editační funkce (část 2), tvorba layoutu | |
-| 8 | 18.11. | 10.11. | 20.11. | 20.11. | Topografická analýza povrchu, reklasifikace rastrových dat, mapová algebra 1 | |
+| 8 | 18.11. | 10.11. | 20.11. | 20.11. | Topografická analýza povrchu, viditelnost, reklasifikace rastrových dat, mapová algebra 1 | |
 |  |  | <span class="schedule-note schedule-cancel">17.11.– odpadá</span> |  |  |  |  |
 | 9 | 25.11. | 24.11. | 27.11. | 27.11. | ArcGIS Online, tvorba webových mapových aplikací | |
-| 10 | 2.12. | 1.12. | 4.12. | 4.12. | Viditelnost, interpolace, mapová algebra 2 | |
-| 11 | 9.12. | 8.12. | 11.12. | 11.12. | Hydrologické analýzy, ModelBuilder | |
+| 10 | 2.12. | 1.12. | 4.12. | 4.12. |  Tvorba digitálního modelu terénu | |
+| 11 | 9.12. | 8.12. | 11.12. | 11.12. | Interpolace, mapová algebra 2 | |
 | 12 | 16.12. | 15.12. | 18.12. | 18.12. | Prezentace projektů | <span class="schedule-deadline">15.–18.12.<br>webová mapová aplikace</span> |
 
 
 ### **Podmínky zápočtu**
 
-- získání min. 60 % bodů v průběžném testu (4. týden semestru) 
-- odevzdání a prezentace [semestrální práce](#semestralka) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
+- získání min. 60 % bodů v průběžném testu (5. týden semestru) 
+- odevzdání a prezentace [semestrální práce](./semestralka.md) ve stanovených termínech (tematická geodatabáze + technická zpráva + webová mapová aplikace)
 
 
 
@@ -304,6 +304,14 @@ Starší a doplňující:
 4. [Esri Training Catalog](https://www.esri.com/en-us/training/catalog/all-training)
 5. [MOOCs and Live Training Seminars](https://www.esri.com/en-us/training/catalog/live-training-seminars-moocs)
 6. [Urban Planning, Design & Development Software](https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview)
+
+
+### **Užitečné odkazy**
+
+1. Jak se dostat k datům na školním serveru:
+    - [Vzdálený přístup](https://edu.fsv.cvut.cz/Citrix/EDUWeb/)
+    - [Webdata](https://webdata.fsv.cvut.cz/auth/?backLink=o2nh5)
+    - Připojení síťového disku – [jak se připojit](https://portal.fsv.cvut.cz/vic/uloziste/jak-se-pripojit), [přehled úložišť](https://portal.fsv.cvut.cz/vic/uloziste/prehled)
 
 ---
 

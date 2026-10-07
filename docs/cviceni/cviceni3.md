@@ -7,240 +7,364 @@ title: Cvičení 3
 
 ## Cíl cvičení
 
-Seznámení se se základními geoprocessingovými nástroji v GIS v rámci řešení komplexní úlohy.
+<div class="grid cards grid_icon_info smaller_padding" markdown>
 
-<!--## Základní pojmy
-<!--
-- [**buffer**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm): Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
-- [**clip**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm): Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu.
-- [**select**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm): Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
-- [**intersect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm): Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
-- [**dissolve**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog): Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
-- [**spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm): Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
-- [**erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm): Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
-- [**union**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm): Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
-- [**remove overlap**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm): Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
-- [**symmetrical difference**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm): Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
-- [**count overlapping features**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm): Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
+-   :material-school:{ .xl }
 
-<hr class="level-1">-->
-## Základní prostorové operace
-<div class="centered_tab_labels gallery-tabs" markdown>
+    seznámit se se základními geoprocessingovými nástroji v GIS.
 
-=== "buffer"
+-   :material-tools:{ .xl }
 
-    [**Buffer**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)<br>
-    Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Buffer](../assets/cviceni3/buffer_doc.png)
-      <figcaption>zdroj: [Buffer (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)</figcaption>
-    </figure>
-
-=== "clip"
-
-    [**Clip**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm)<br>
-    Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Clip](../assets/cviceni3/clip_esri.png)
-      <figcaption>zdroj: [Clip (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/clip.html?tabs=dialog)</figcaption>
-    </figure>
-
-=== "select"
-
-    [**Select**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm)<br>
-    Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
-
-    ![Ukázka nástroje Select](../assets/cviceni3/select_ai.png){: style="width: 50%;" }
-
-=== "intersect"
-
-    [**Intersect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm)<br>
-    Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Intersect](../assets/cviceni3/intersect_esri.gif)
-      <figcaption>zdroj: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)</figcaption>
-    </figure>
-
-=== "dissolve"
-
-    [**Dissolve**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)<br>
-    Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Dissolve](../assets/cviceni3/dissolve_county_esri.png)
-      <figcaption>zdroj: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)</figcaption>
-    </figure>
-
-=== "spatial join"
-
-    [**Spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm)<br>
-    Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
-
-    ![Ukázka nástroje Spatial Join](../assets/cviceni3/spatial_join_ai.png)
-
-=== "erase"
-
-    [**Erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)<br>
-    Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Erase](../assets/cviceni3/erase_esri.gif)
-      <figcaption>zdroj: [Erase (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)</figcaption>
-    </figure>
-
-=== "union"
-
-    [**Union**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)<br>
-    Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Union](../assets/cviceni3/union_esri.gif)
-      <figcaption>zdroj: [Union (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)</figcaption>
-    </figure>
-
-=== "remove overlap"
-
-    [**Remove overlap**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)<br>
-    Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Remove overlap](../assets/cviceni3/remove_overlap_esri.png)
-      <figcaption>zdroj: [Remove overlap (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)</figcaption>
-    </figure>
-
-=== "symm. difference"
-
-    [**Symmetrical difference**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)<br>
-    Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Symmetrical difference](../assets/cviceni3/symdiff_esri.gif)
-      <figcaption>zdroj: [Symmetrical difference (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)</figcaption>
-    </figure>
-
-=== "count overlapping" 
-
-    [**Count overlapping features**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)<br>
-    Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
-
-    <figure class="gallery-figure" markdown>
-      ![Ukázka nástroje Count overlapping features](../assets/cviceni3/countoverlappingfeatures_esri.png)
-      <figcaption>zdroj: [Count overlapping features (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)</figcaption>
-    </figure>
-
+    procvičit jednotlivé funkce a operace
 
 </div>
 <hr class="level-1">
 
-<!--
-Následující přehled ukazuje nejpoužívanější nástroje prostorových funkcí v ArcGIS Pro.
+## Základní prostorové operace
+Atributové a prostorové dotazy z 2. cvičení nás naučily, jak provádět základní výběry nad daty s využitím jejich prostorových vztahů a atributových hodnot. Geoprocessingové nástroje slouží k **analýze, úpravě a zpracování dat.** S jejich pomocí můžeme provádět prostorové operace, při kterých lze například **vybírat objekty podle jejich vzájemné polohy, vytvářet nové vrstvy, spojovat nebo upravovat data a získat tak nové informace.** Geoprocessingové nástroje usnadňují řešení prostorových úloh, které by při ručním zpracování byly zdlouhavé nebo velmi obtížné. Obsahem tohoto cvičení jsou následující operace:
 
-<figure markdown>
-  ![Prostorové funkce](../assets/cviceni3/prost_funkce_srovnani.png "Prostorové funkce")
-  <figcaption>Srovnání vstupních vrstev a výsledků operace pro různé nástroje prostorových funkcí</figcaption>
-</figure>
---->
+<div class="centered_tab_labels gallery-tabs" markdown>
+
+=== "_select_"
+
+    [**_SELECT_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm)<br>
+    Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
+
+    ![Ukázka nástroje Select](../assets/cviceni3/select_ai.png){: style="width: 50%;" }
+
+=== "_clip_"
+
+    [**_CLIP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm)<br>
+    Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu. _CLIP_ je možné provádět pomocí polygonových, liniových i bodových vrstev, viz dokumentace nástroje.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Clip](../assets/cviceni3/clip_esri.png)
+
+      <figcaption markdown>
+        zdroj: [Clip (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/clip.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "*_buffer_*"
+
+    [**_BUFFER_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)<br>
+    Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Buffer](../assets/cviceni3/buffer_doc.png)
+
+    <figcaption markdown>
+      zdroj: [Buffer (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm)
+    </figcaption>
+
+    </figure>
+
+=== "*_dissolve_*"
+
+    [**_DISSOLVE_**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)<br>
+    Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Dissolve](../assets/cviceni3/dissolve_county_esri.png)
+
+      <figcaption markdown>
+       zdroj: [Dissolve (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/dissolve.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "*_intersect_*"
+
+    [**_INTERSECT_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm)<br>
+    Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Intersect](../assets/cviceni3/intersect_esri.gif)
+
+      <figcaption markdown>
+       zdroj: [Intersect (Analysis Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/analysis/intersect.html?tabs=dialog)
+      </figcaption>
+
+    </figure>
+
+=== "*_erase_*"
+
+    [**_ERASE_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)<br>
+    Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Erase](../assets/cviceni3/erase_esri.gif)
+
+      <figcaption markdown>
+      zdroj: [Erase (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm)
+      </figcaption>
+
+    </figure>
+
+=== "*_union_*"
+
+    [**_UNION_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)<br>
+    Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Union](../assets/cviceni3/union_esri.gif)
+
+      <figcaption markdown>
+      zdroj: [Union (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)
+      </figcaption>
+
+    </figure>
+
+=== "*_remove overlap_*"
+
+    [**_REMOVE OVERLAP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)<br>
+    Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Remove overlap](../assets/cviceni3/remove_overlap_esri.png)
+
+      <figcaption markdown>
+      zdroj: [Remove overlap (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)
+      </figcaption>
+
+    </figure>
+
+=== "*_sym. difference_*"
+
+    [**_SYMMETRICAL DIFFERENCE_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)<br>
+    Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Symmetrical difference](../assets/cviceni3/symdiff_esri.gif)
+
+      <figcaption markdown>
+      zdroj: [Symmetrical difference (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm)
+      </figcaption>
+
+    </figure>
+
+=== "*_count overlapping_*"
+
+    [**_COUNT OVERLAPPING FEATURES_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)<br>
+    Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Count overlapping features](../assets/cviceni3/countoverlappingfeatures_esri.png)
+
+      <figcaption markdown>
+      zdroj: [Count overlapping features (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm)
+      </figcaption>
+
+    </figure>
+
+
+=== "*_spatial join_*"
+
+    [**_SPATIAL JOIN_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm)<br>
+    Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
+
+    ![Ukázka nástroje Spatial Join](../assets/cviceni3/spatial_join_ai.png)
+
+</div>
+
+<hr class="level-1">
 
 ## Použité datové podklady
 
-- [Pobočky](../assets/cviceni3/PobockyCP_PlzenskyKraj.zip) České pošty v Plzeňském kraji (bodová vrstva)
-- Obce ČR ([ArcČR 500](../../data/#arccr-500), polygonová vrstva)
+[RÚIAN](../../data/#ruian)
 
-## Náplň cvičení
+[Data50](../../data/#data50)
+<!---
+### [RÚIAN](https://cuzk.gov.cz/ruian/RUIAN/Informace-o-RUIAN.aspx)
+Registr územní identifikace, adres a nemovitostí (RÚIAN) je jedním ze čtyř základních registrů veřejné správy ČR. Spravuje ho Český úřad zeměměřický a katastrální (ČÚZK). Obsahem RÚIAN jsou **popisné a lokalizační údaje o územních prvcích, územně evidenčních jednotkách, účelových prvscích, adresách a jejich vzájemných vazbách.** <br>
 
-Představte si, že pracujete jako GIS analytik pro Českou poštu a vaším úkolem je z důvodu úspor navrhnout řešení snížení počtu poboček. Snahou tohoto kroku je však i minimalizace negativních dopadů na obyvatele, proto bylo rozhodnuto o následujících podmínkách, které musíte ve svém návrhu dodržet:
+Data jsou poskytována jako: <br>
 
-1. Rušení poboček nebude probíhat v obcích s méně než 2500 obyvateli.
-2. V obcích nad 2500 obyvatel neklesne počet poboček pod 1.
-3. Vzájemná vzdálenost poboček v jedné obci nebude nižší než 3 km vzdušnou čarou.
+- veřejný dálkový přístup (VDP)
+- služby
+- výměnný formát RÚIAN (VFR)
+- CSV
+- další
+    - [SHP](https://services.cuzk.gov.cz/)
+    - [WMS](https://ags.cuzk.gov.cz/arcgis/rest/services/RUIAN/MapServer)
 
-Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz jedné pobočky vycházel ročně na 2,5 milionu CZK? Pro zjednodušení budete úlohu řešit pouze v rámci Plzeňského kraje a ke každé pobočce přistupovat rovnocenně.
+### [Data250](https://geoportal.cuzk.cz/(S(qxemhnh2v4kkxkphjtknnhyq))/Default.aspx?menu=2291&mode=TextMeta&side=mapy_data250&metadataID=CZ-CUZK-DATA250-V)
+Data250 představují digitální geografický model České republiky v měřítku 1:250 000. Obsah databáze je tematicky strukturován do **osmi skupin: administrativní hranice, vodstvo, doprava, sídla, popis, různé objekty, porost a pvrch půdy, výškopis.** Jsou poskytována ve dvou souřadnicových systémech: S-JTSK a ETRS89.
+Výdejním formátem je **SHP**. 
 
-## Pracovní postup
+### [Data50](https://geoportal.cuzk.cz/(S(e5piqpx25twcrhhaacj1n4jn))/Default.aspx?menu=22901&mode=TextMeta&side=mapy_data50&metadataID=CZ-CUZK-DATA50-V)
+Data50 stejně jako Data250 představují digitální geografický model ČR, tentokrát v podrobnějším měřítku 1:50 000. Vznikla odvozením kartografické databáze pro Základní topografickou mapu ČR 1:50 000 a jsou poskytována ve formátu **SHP**. Data50 jsou rozdělena do osmi tematických oblastí: **Sídelní, kulturní a hospodářské objekty, Komunikace, Produktovody a elektrické vedení, Vodstvo, Hranice územních jednotek, Vegetace a povrch, Terénní reliéf a Popis.** Data jsou poskytována ve dvou souřadnicových systémech: S-JTSK a ETRS89. 
+--->
 
-**1.** Výběr obcí v Plzeňském kraji s více než 2500 obyvateli (atributový dotaz) a tvorba samostatné vrstvy selektovaných prvků.
+<hr class="level-1">
 
-<figure markdown>
-  ![Select](../assets/cviceni3/SELECT_obce.png "Select obce")
-  <figcaption>Atributový dotaz na vrstvu obcí</figcaption>
-</figure>
+## Procvičování jednotlivých funkcí
 
-**2.** Výběr typu pobočky zavedením *Definition Query* (výraz: ZKRNAZ_DRU = 'pošta').
+**1. úloha** - Vyberte z RÚIAN všechna ORP, která patří do okresu Tachov a uložte je do nové vrstvy. Kolik takových ORP je a jak se jmenují?
 
-<figure markdown>
-  ![DQ](../assets/cviceni3/DQ_posta.png "Definition Query pošty")
-  <figcaption>Definition Query pro vrstvu poboček pošty</figcaption>
-</figure>
+??? napoveda "Nápověda"
 
-<figure markdown>
-  ![Map 1](../assets/cviceni3/MAP_pred-spatial-join.png "Mapa 1")
-  <figcaption>Vizualizace stavu nad podkladovou mapou</figcaption>
-</figure>
+    Podíváme se do atributové tabulky a zjistíme, zda v ní není atribut související s označením okresu.
 
-**3.** Spatial join: k výběru obcí připojíme pobočky na základě jejich polohy. Zároveň přidáme nový atribut POCET_POBOCEK, který bude určen na základě sumy libovolného ze stávajících atributů vrstvy poboček (např. count(GmIID)).
+    Tabulka obsahuje pole _Nadřazený okres_. Kód okresu Tachov je 3410. Pomocí funkce _SELECT_ vybereme všechny ORP, které splňují podmínku _Nadřazený okres_ = 3410.
 
-<figure markdown>
-  ![Spatial join](../assets/cviceni3/SPATIALJOIN_obce-pobocky.png "Spatial join")
-  <figcaption>Spatial join</figcaption>
-</figure>
+??? success "Řešení"
 
-**4**. Následně zadáme atributový dotaz na vrstvu obcí, který vybere prvky s více než 1 pobočkou (POCET_POBOCEK *is greater than* 1).
+    Počet ORP: 2 - Stříbro a Tachov.
 
-<figure markdown>
-  ![Select by attribute](../assets/cviceni3/SELECT_pocet-pobocek.png "Atributový dotaz")
-  <figcaption>Atributový dotaz na vrstvu obcí</figcaption>
-</figure>
 
-**5**. V dalším kroku použijeme nástroj *CLIP* a vytvoříme novou vrstvu obsahující takové pobočky pošty, které se nacházejí v obcích s více než 1 pobočkou. Tím, že v předchozím kroku byla provedena selekce pouze některých prvků z vrstvy obcí, do funkce *CLIP* vstoupí pouze tento aktivní výběr.
+**2. úloha** - Vyberte z RÚIAN všechny obce, které patří do okresu Tachov a uložte je do nové vrstvy. Kolik obcí se v okrese nachází?
 
-<figure markdown>
-  ![Clip features](../assets/cviceni3/CLIP_pobocky.png "Clip")
-  <figcaption>Oříznutí vrstvy poboček aktivními prvky ve vrstvě obcí.</figcaption>
-</figure>
+??? napoveda "Nápověda"
 
-<figure markdown>
-  ![Map 2](../assets/cviceni3/MAP_spatial-join-plus-dq.png "Mapa 2")
-  <figcaption>Vizualizace stavu po ořezu.</figcaption>
-</figure>
+    Podíváme se do atributové tabulky a zjistíme, zda v ní není atribut související s označením okresu.
 
-**6**. S využitím nástroje *BUFFER* vytvoříme obalovou zónu kolem každé pobočky o poloměru 3 km.
+    Tabulka obsahuje pole _Nadřazený okres_. Kód okresu Tachov je 3410. Pomocí funkce _SELECT_ vybereme všechny obce, které splňují podmínku _Nadřazený okres_ = 3410.
 
-<figure markdown>
-  ![Buffer](../assets/cviceni3/BUFFER_pobocky.png "Buffer")
-  <figcaption>Parametry nástroje BUFFER pro tvorbu obalové zóny (rádius 3 km)</figcaption>
-</figure>
+??? success "Řešení"
 
-**7**. Nyní přistoupíme k vizuálnímu vyhodnocení poboček vhodných ke zrušení. Např. v Klatovech lze při dodržení zadaných kritérií zrušit právě 2 pobočky České pošty (zvýrazněné včetně svých obalových zón), resp. zachovat maximálně 2 pobočky (viz níže).
+    51 obcí
 
-<figure markdown>
-  ![Map 3](../assets/cviceni3/MAP_buffer-Klatovy.png "Mapa 3"){ width="500" }
-  <figcaption>Příklad poboček aspirujících na zrušení</figcaption>
-</figure>
 
-**8**. V atributové tabulce poboček vytvoříme pomocí *Add Field* pomocný atribut RUSENO (datový typ *short*, defaultní hodnota 0).
+**3. úloha** - Ořízněte vrstvu vodních toků podle hranice ORP Tachov. Jaká je jejich celková délka?
 
-<figure markdown>
-  ![Add field](../assets/cviceni3/AT_add-field.png "Přidání atributu")
-  <figcaption>Přidání nového pole do atributové tabulky</figcaption>
-</figure>
+??? napoveda "Nápověda"
+     Použijte funkci _CLIP_
 
-**9**. Manuálně vybereme (pomocí *Select*) pobočky vyhovující kritériím zrušení změnou hodnoty atributu RUSENO na 1.
+??? success "Řešení"
 
-**10**. Nyní je možné zobrazit rušené pobočky zavedením *Definition Query* (výraz RUSENO = 1) nebo naopak pobočky splňující podmínky, aby byly zachovány (výraz RUSENO = 0).
+    1 373,815 km
 
-<figure markdown>
-  ![Map 4](../assets/cviceni3/MAP_zachovane-pobocky.png "Mapa poboček")
-  <figcaption>Pobočky pošty, kterou mohou být zachovány.</figcaption>
-</figure>
 
-**11**. Závěrem lze porovnat, jak rušení poboček České pošty v r. 2023 skutečně proběhlo; přehled naleznete např. [zde](https://www.seznamzpravy.cz/clanek/fakta-ceska-posta-zrusene-pobocky-seznam-mapa-231064). Celý problém je samozřejmě složitější, jelikož finální výběr ovlivnily další faktory jako priorita pobočky (hlavní vs. vedlejší), bezbariérovost, apod.
+**4. úloha** - Ořízněte všechny tematické vrstvy dle hranice zvoleného území.
+
+??? tip "Jak oříznout několik vrstev najednou?"
+
+    Použijte variantu **_Batch Clip_**
+
+    1. Vyhledejte nástroj _Clip_ v geoprocessingu a klikněte na něj pravým tlačítkem myši. Vyberte možnost _Batch_
+
+        ![Batch clip](../assets/cviceni3/batch_clip_1.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
+
+    2. Potvrďte nastavení nástroje tlačítkem _Next_
+
+        ![Batch clip](../assets/cviceni3/batch_clip_2.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
+
+    3. Nyní jste vytvořili dočasný _Batch clip_, který může mít na vstupu více vrstev. (vložené vrstvy jsou pouze ilustrační a s konkrétní úlohou nesouvisí.)
+
+        ![Batch clip](../assets/cviceni3/batch_clip_3.png){: style="display: block; margin: 0 auto; max-width: 40%;" }
+
+**5. úloha** - Vytvořte obslužnou zónu 2 km kolem železničních stanic.
+??? napoveda "Nápověda"
+     Použijte funkci _BUFFER_
+
+
+**6. úloha** - Vytvořte ochranné pásmo 60 m kolem železničních tratí.
+??? napoveda "Nápověda"
+     Použijte funkci _BUFFER_
+
+
+**7. úloha** - Slučte obce podle pověřeného obecního úřadu (_POU_). Kolik polygonů vzniklo?
+??? napoveda "Nápověda"
+     Použijte funkci _DISSOLVE_
+
+??? success "Řešení"
+
+    5
+
+
+**8. úloha** - Kolik km dálnic prochází lesy v ORP Tachov?
+
+??? napoveda "Nápověda"
+
+    Nejprve nalezneme všechny komunikace, které jsou označeny jako dálnice a poté můžeme provést funkci _INTERSECT_. _Output Type_ nastavíme na linii.
+
+??? success "Řešení"
+
+    136 km.
+
+
+**9. úloha** - Zjistěte, o kolik hektarů se zmenší celková rozloha lesních ploch v ORP Tachov po vyloučení území rašelinišť, močálů a bažin.
+
+??? napoveda "Nápověda"
+     Použijte funkci _ERASE_ a poté porovnejte novou vrstvu s původní.
+
+??? success "Řešení"
+
+    353,7 ha.
+
+
+**10. úloha** - Vytvořte vrstvu _Vegetace_, která bude obsahovat lesy, louky a pastviny.
+
+??? napoveda "Nápověda"
+
+    Použijte funkci _UNION_.
+
+
+**11. úloha** - Vytvořte vrstvu znázorňující překryv 2 km obslužných zón železničních stanic. Zjistěte, kolikrát se v jednotlivých částech území překrývá dostupnost jednotlivých železničních stanic.
+
+??? napoveda "Nápověda"
+
+    Využijte vrstvu pro buffer 2 km železničních stanic.
+
+    Pomocí funkce _COUNT OVERLAPPING FEATURES_ vypočítáte, kde a kolikrát se jednotlivé zóny překrývají.
+
+
+**12. úloha** - Kolik adresních míst se nachází v obcích okresu Tachov?
+
+??? napoveda "Nápověda"
+
+    Chceme do polygonové vrstvy obcí přidat informaci o počtu adresních míst. _Target Features_ jsou polygony obcí a _Join Features_ je vrstva adresních míst.
+
+    _Join Operation_ je v tomto případě _One to one_.
+
+
+**13. úloha** - Odstraňte překrývající se části 2 km obslužných zón kolem železničních stanic.
+
+??? napoveda "Nápověda"
+    Použijte funkci _REMOVE OVERLAP_
+
+
+
+<!--
+### _REMOVE OVERLAP_
+
+### _SYMMETRICAL DIFFERENCE_
+--->
+
+<hr class="level-1">
 
 ## Úlohy k procvičení
 
 !!! task-fg-color "Úlohy"
+    Pro řešení následujících úloh využijte data RÚIAN a DATA50. Pracujte nad územím celé republiky, zadaným územím nebo územím dle vašeho výběru.
+
+    1. Jaká je výměra (v ha) lesních ploch, které se nachází v bezprostřední blízkosti vodních ploch (do 100 m)? Kolik procent z celkové výměry lesů v území tvoří?
+
+    2. Kolik budov se nachází do 50 m od silnic? Jaký podíl všech budov to představuje?
+
+    3. Kolik procent území okresu Ústí nad Orlicí tvoří vodní plochy?
+    
+    4. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
+
+    5. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to je procent z celkové výměry bažin a rašelinišť?
+
+    6. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese na celém území ČR. Kolik to je procent z celkové výměry bažin a rašelinišť?
+
+    7. Kolik obcí leží celou svou plochou do vzdálenosti 5 km od železniční stanice v rámci okresu Domažlice? Jaká je jejich celková výměra?
+
+    8. Určete všechna místa, kde dochází ke křížení cest a vodních toků na území okresu Tachov. Výsledek prezentujte jako bodovou vrstvu.
+
 
     K řešení **následujích** úloh použijte datovou sadu [ArcČR
     500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
@@ -275,33 +399,3 @@ Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz j
 
     9. Kolik procent území Jihočeského kraje tvoří vodní plochy?
 
-<!--
-## Domácí úloha: Kulturní míle
-
-*Pracovní postup:*
-
-1.  Stáhněte si prostorová data (z OSM přes BBBike): Vyberte ohraničení kolem vaší univerzity (cca 2 km^2^), vyplňte formát, jméno a mail a stiskněte *Extract*. Odkaz na stažení vám bude zaslán na vaši e-mailovou adresu, jakmile bude proces online extrakce hotový.
-
-2.  Načtěte a vyberte data v aplikaci ArcGIS Pro: Do mapy importujte shapefile *points.shp*. Prozkoumejte atributovou tabulku, zejména pole *type*. Najděte a vyberte bod představující vaši univerzitu.
-
-3.  Prostorová analýza (část 1): Po výběru bodu (vaší univerzity) vytvořte pomocí geoprocessingového nástroje *Buffer* (metoda *planar*) kolem tohoto bodu obalovou zónu o velikosti 1 míle. Funkce zpracuje pouze 1 obalovou zónu kolem vybraného bodu, pokud je výběr aktivní.
-
-4.  Atributový dotaz: Proveďte *Select by Attributes* a vyhledejte body související s kulturou pomocí atributu *typ* (vyhledávání divadel, muzeí atd.). Vyberte všechny prvky v nejméně 5 různých kategoriích kultury a extrahujte tato data do geodatabáze projektu.
-
-5.  Prostorová analýza (část 2): Pomocí nástroje *Clip* extrahujte body (vrstva prvků obsahující pouze kulturní místa) v rámci mílové obalové zóny.
-
-6.  V této fázi byste měli mít kolem univerzity  zónu o velikosti 1 míle obsahující body zájmu související s kultury. Všechny ostatní prvky můžete z mapy odstranit.
-
-7.  Najděte vhodné symboly pro jednotlivé typy kulturních zařízení.
-
-8.  Vložte nový layout (*Insert Layout*) ve vybraném formátu a zvolte orientaci na šířku nebo na výšku.
-
-9.  Ve vlastnostech mapy nastavte vhodné referenční měřítko a případně omezte obsahu mapového okna pouze na obalovou zónu.
-
-10. Dokončete rozvržení: vložte mapové okno, přidejte nadpis, podnadpis, legendu a tiráž. Níže inspirace.
-
-<figure markdown>
-  ![Mapa](../assets/cviceni3/culturemile.png "Mapa"){ width=600px }
-  <figcaption>Výsledná vizualizace</figcaption>
-</figure>
--->

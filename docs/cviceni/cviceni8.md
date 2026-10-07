@@ -3,7 +3,7 @@ icon: material/numeric-8-box
 title: Cvičení 8
 ---
 
-# Topografická analýza povrchu, reklasifikace rastrových dat
+# Topografická analýza povrchu, viditelnost, reklasifikace rastrových dat
 
 Ve cvičení se naučíte
 {: align=center style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px;"}
@@ -19,6 +19,12 @@ Ve cvičení se naučíte
     {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
 
     základy analýzy povrchu s využitím __topografických funkcí__
+    {.middle style="display:table-cell;line-height:normal;"}
+
+-   :material-eye-outline:{ .xxxl .middle }
+    {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
+
+    určit, __co je vidět__ z vybraného místa v krajině
     {.middle style="display:table-cell;line-height:normal;"}
 
 -   :material-grid:{ .xxxl .middle }
@@ -37,12 +43,32 @@ Ve cvičení se naučíte
 - [**aspect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/aspect.htm)
 - [**hillshade**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/hillshade.htm)
 - [**viewshed**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/viewshed.htm)
+- [**line of sight**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/line-of-sight.htm) – profil mezi pozorovatelem a cílem s vyznačením viditelných a zakrytých úseků
 - [**raster surface toolset**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/an-overview-of-the-raster-surface-toolset.htm)
 - [**aspect-slope**](https://pro.arcgis.com/en/pro-app/latest/help/analysis/raster-functions/aspect-slope-function.htm)
 
+### Vyzkoušejte si
+
 Než se pustíme do práce s reálnými daty, vyzkoušíme si v interaktivní ukázce, co jednotlivé funkce dělají. Přepínáme záložky, měníme parametry a zapínáme reklasifikaci; po najetí myší na mapu vidíme hodnoty buňky. Terén je syntetický s rozlišením 25&nbsp;m, výpočty _SLOPE_ a _ASPECT_ ale odpovídají ArcGIS.
 
-<iframe src="../html/cv8_topo_funkce.html" title="Interaktivní ukázka topografických funkcí" loading="lazy" style="width:100%;height:660px;border:none;"></iframe>
+<link rel="stylesheet" href="../css/topo_function.css">
+<script src="../js/topograficke-funkce.js" defer></script>
+
+<div class="tf" data-tf="topo">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
+
+<link rel="stylesheet" href="../css/mapova_algebra.css">
+<script src="../js/mapova-algebra.js" defer></script>
+
+Mapová algebra pracuje s rastry __buňku po buňce__: výsledek v každé buňce se spočítá jen z hodnot vstupních rastrů na stejném místě (tzv. lokální operace). Výrazy píšeme stejně jako v _RASTER CALCULATOR_ v ArcGIS Pro.
+
+<div class="ma" data-ma="kalkulacka">Interaktivní ukázka vyžaduje zapnutý JavaScript.</div>
+
+???+ note-grey "Co sledovat v kalkulačce"
+
+    - Porovnání (`>`, `==` …) vrací __1 (pravda) nebo 0 (nepravda)__. Díky tomu můžeme podmínky kombinovat operátory `&` a `|` nebo je násobit.
+    - Operátory `&` a `|` se vyhodnocují __dřív než porovnání__, proto musí být každá podmínka v závorkách. Vyzkoušejte příklad „Častá chyba“.
+    - __NoData__ se šíří: pokud má kterýkoli vstup v buňce NoData, má ho i výsledek. Výjimkou je funkce `IsNull`.
+    - Plochu území dostaneme jako __počet buněk × plocha buňky__, jak ukazuje tabulka pod výsledkem.
 
 ## Náplň cvičení
 Vaším úkolem bude na základě rastrových dat vybraného území analyzovat lavinové svahy mají. K vyhodnocení lavinového svahu potřebujete znát sklonitost a expozici svahu, nadmořskou výšku či krajinný pokryv. Podmínky pro vznik lavin lze (zjednodušeně) shrnout v následujících bodech:
@@ -97,6 +123,45 @@ Pro názornost následuje ukázka zpracování sklonitosti svahu (postup s výpo
 **5.** Na závěr přichází stěžejní část celé úlohy: vyhodnotit lavinové svahy. Nyní tedy využijeme dílčí výsledky (reklasifikované vrstvy obsahující pouze hodnoty 0 a 1). Cílem je zkombinovat podmínky a brát v potaz pouze taková místa, kde nastávají právě všechny čtyři. K tomuto účelu lze elegantně využít rastrovou kalkulačku *Raster Calculator* a sestavit správný algebraický výraz. Matice všech reklasifikovaných rastrů mezi sebou vynásobíme, čímž získáme nový rastr obsahující hodnoty 1 v místech, kde je splněna každá podmínka zadání, a hodnoty 0, kde není splněna žádná podmínka či pouze jedna, dvě nebo tři libovolné (aby byl výsledek roven 0, postačí jediná 0 mezi činiteli). Výstupní rastr tedy indikuje oblasti lavinového nebezpečí dle zadaných podmínek. Nakonec je vhodné nastavit vhodnou barvu pro jednotlivé hodnoty buněk.
 
 **6.** Alternativní přístup by mohl být reprezentován symbolizací různých úrovní lavinového rizika, kterých lze dosáhnout změnou výrazu v rastrové kalkulačce. Místo násobení hodnot čtyř rastrových vrstev je můžete jednoduše sečíst. Výstup bude tvořit 5 různých hodnot: 0, 1, 2, 3 nebo 4. Následně změňte symbologii rastru tak, abyste podle těchto hodnot označili rostoucí lavinové riziko.
+
+## Viditelnost
+
+Topografické funkce můžeme nad stejným DMR využít i k analýze viditelnosti – určíme, které části území jsou vidět z vybraného místa. Tuto analýzu budeme potřebovat i v úlohách k procvičení (5 a 8) a v semestrální práci.
+
+**7.** __Pozorovací bod__
+
+Založíme novou bodovou třídu prvků (vrstva _Pozorovatel_) a umístíme do ní pozorovací bod – vrchol kopce (např. Sněžku), rozhlednu, věž kostela apod. Do atributové tabulky přidáme pole `OFFSETA` (typ _Double_) s výškou pozorovatele nad terénem, např. `1.7` pro člověka nebo výšku vyhlídkové plošiny rozhledny.
+
+!!! note-grey "Poznámka"
+
+    Funkce _VIEWSHED_ a _OBSERVER POINTS_ čtou parametry pozorovatele pouze z polí s pevnými názvy (`OFFSETA`, `OFFSETB`, `RADIUS2`, `AZIMUTH1` …). Pokud pole `OFFSETA` chybí, použije se výchozí výška 1 m.
+
+    [<span>doc.esri.com</span><br>Using Viewshed and Observer Points](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+    {: .button_array}
+
+**8.** __Výpočet viditelnosti__
+
+Spustíme funkci _VIEWSHED_ (_Spatial Analyst_ → _Surface_) se vstupním rastrem _DMR_ a vrstvou _Pozorovatel_. Hodnota buňky ve výsledku udává, z kolika pozorovacích bodů je buňka vidět – při jednom bodě tedy 0 = neviditelné, 1 = viditelné.
+
+<!-- TODO: screenshot ../assets/cviceni8/viewshed.png -->
+
+!!! note-grey "Poznámka"
+
+    - Výsledek zobrazíme poloprůhledně přes stínovaný reliéf (funkce _HILLSHADE_), aby bylo patrné, které svahy jsou vidět.
+    - Dohled můžeme omezit vzdáleností (pole `RADIUS2`) nebo výsečí (pole `AZIMUTH1` a `AZIMUTH2`). Funkce _GEODESIC VIEWSHED_ tyto parametry nabízí přímo v dialogu.
+    - DMR neobsahuje vegetaci ani stavby, výsledek je proto „teoretická“ viditelnost holého terénu. Pro realističtější výsledek bychom použili DMP (DMP 1G).
+
+**9.** __Více pozorovatelů__
+
+Přidáme do vrstvy _Pozorovatel_ 2–3 další body a spustíme funkci _OBSERVER POINTS_. Ve výsledné atributové tabulce jsou pole `OBS1`, `OBS2` …, podle kterých zjistíme, __který__ pozorovatel dané místo vidí.
+
+**10.** __Linie viditelnosti__
+
+Funkcí _CONSTRUCT SIGHT LINES_ (_3D Analyst_) vytvoříme spojnice mezi pozorovatelem a několika cílovými body a funkcí _LINE OF SIGHT_ vyhodnotíme, které úseky jsou viditelné (zeleně) a které zakryté (červeně).
+
+## Zdroje
+
+Using Viewshed and Observer Points for visibility analysis [online]. Esri [cit. 2026-09-29]. Dostupné z: [https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html)
 
 ## Úlohy k procvičení
 
