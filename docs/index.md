@@ -74,7 +74,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 2. [Vektorový a rastrový datový model](./prednasky/Prednaska-2-Vektorovy-a-rastrovy-datovy-model.pdf)
 
-3. [Databáze, geodatabáze a atributové dotazy](./prednasky/Prednaska-1-Uvod-do-GIS-a-zaklady-geoinformatiky.pdf)
+3. [Databáze, geodatabáze a atributové dotazy](./prednasky/Prednaska-3-Databaze-geodatabaze-a-atributove-dotazy.pdf)
 
 <!--
 4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
