@@ -70,13 +70,13 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export%400.5x-1.jpg){.off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} [**__prof. Ing. Jiří Cajthaml, Ph.D.__**](https://geomatics.fsv.cvut.cz/employees/jiri-cajthaml/)
 
-1. [Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS](./prednasky/Prednaska-1-Uvod-do-GIS-a-zaklady-geoinformatiky.pdf)
+1. [Definice GIS, geoinformatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS](./prednasky/Prednaska-1-Uvod-do-GIS-a-zaklady-geoinformatiky.pdf)
 
-2. [Reálný svět × GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost](./prednasky/Prednaska-2-Vektorovy-a-rastrovy-datovy-model.pdf)
+2. [Vektorový a rastrový datový model](./prednasky/Prednaska-2-Vektorovy-a-rastrovy-datovy-model.pdf)
+
+3. [Databáze, geodatabáze a atributové dotazy](./prednasky/Prednaska-1-Uvod-do-GIS-a-zaklady-geoinformatiky.pdf)
 
 <!--
-3. Geografická poloha v GIS, prostorové vztahy, atributy
-
 4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
 
 5. Vektorový a rastrový GIS, datová struktura
