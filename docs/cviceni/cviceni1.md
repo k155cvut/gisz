@@ -31,6 +31,12 @@ title: Cvičení 1
 
 </div>
 
+## Datové podklady
+
+- datové úložiště Shares, složka ``\K155\Public\155GISZ\cvic01``
+- [:material-download: DATA :material-layers:](../assets/cviceni1/cv01_data.zip){ .md-button .md-button--primary .button_smaller } 
+
+
 <hr class="level-1">
 
 ## Prostorová data

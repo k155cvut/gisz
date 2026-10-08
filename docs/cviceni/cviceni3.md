@@ -18,6 +18,12 @@ title: Cvičení 3
     procvičit jednotlivé funkce a operace
 
 </div>
+
+## Datové podklady
+
+- datové úložiště Shares, složka ``\K155\Public\155GISZ\cvic03``
+- [:material-download: DATA :material-layers:](../assets/cviceni3/cv03_data.zip){ .md-button .md-button--primary .button_smaller } 
+
 <hr class="level-1">
 
 ## Základní prostorové operace
@@ -367,7 +373,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 
     K řešení **následujích** úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
+    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složce
     ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také **najdete** souboru s
     popisem dat ve formátu PDF.
 

@@ -31,6 +31,13 @@ title: Cvičení 2
 
 </div>
 
+## Datové podklady
+
+- datové úložiště Shares, složka ``\K155\Public\155GISZ\cvic02``
+- [:material-download: DATA :material-layers:](../assets/cviceni2/cv02_data.zip){ .md-button .md-button--primary .button_smaller } 
+
+
+
 <hr class="level-1">
 
 ## Proč nestačí, že vrstva „je na správném místě“
@@ -60,9 +67,9 @@ Každý prostorový prvek má geometrii uloženou jako souřadnice. Aby GIS věd
 
 ### Kontrola CRS v ArcGIS Pro
 
-1. V panelu _Contents_ klikněte pravým tlačítkem na vrstvu → _:material-cog: Properties_.
+1. V panelu _Contents_ klikněte pravým tlačítkem na vrstvu → _:material-cog: Properties_{: .outlined_code}.
 2. Na kartě _Source_ ověřte položku **Spatial Reference**.
-3. CRS aktivní mapy ověřte v _:material-map: Map Properties_ → _Coordinate Systems_.
+3. CRS aktivní mapy ověřte v _:material-map: Map Properties_{: .outlined_code} → _Coordinate Systems_{: .outlined_code}.
 4. Uložte si zejména **název CRS a EPSG kód**; oba údaje musí být součástí popisu dat, která přebíráte nebo předáváte dál.
 
 !!! tip "Mapový CRS a CRS vrstvy"
@@ -71,13 +78,12 @@ Každý prostorový prvek má geometrii uloženou jako souřadnice. Aby GIS věd
 
 ### Definovat, nebo znovu zobrazit?
 
-<div class="table_headerless table_small_padding table_centered" markdown>
-| Operace | Kdy ji použít | Co se stane |
+| Typ operace | Kdy ji použít | Co se stane |
 | - | - | - |
 | **Define Projection** | CRS dat známe, ale u vrstvy chybí nebo je špatně zapsán | pouze opraví popis CRS; souřadnice se nepřepočítávají |
 | **Project** | CRS dat známe a chceme vytvořit kopii v jiném CRS | vytvoří novou datovou sadu s přepočítanými souřadnicemi |
 | **Geographic Transformation** | při převodu mezi různými geografickými vztažnými systémy | určuje způsob přesného převodu mezi referenčními rámci |
-</div>
+
 
 !!! warning "Neznámý CRS nezkoušejte metodou pokus–omyl"
 
@@ -87,9 +93,9 @@ Každý prostorový prvek má geometrii uloženou jako souřadnice. Aby GIS věd
 
 ## Vektorové podklady pro krajinu, vodu a stavby
 
-Vektorová data z předchozího cvičení nyní využijeme jako podklady k jednoduchým otázkám o území. Vedle hranic katastrálních území je vhodné používat vrstvy, které popisují přírodní systém a skutečně zastavěné území.
+K jednoduchým otázkám o území využijeme [vzorová data](../assets/cviceni2/cv02_data.zip), která jsou uložena také na disku *S* ve složce ``K155\Public\155GISZ\cvic02``. Vedle hranic katastrálních území je vhodné používat vrstvy, které popisují přírodní systém a skutečně zastavěné území.
 
-<div class="table_headerless table_small_padding table_centered" markdown>
+
 | Vrstva | Geometrie | Příklady otázek |
 | - | - | - |
 | Hranice povodí | polygony | Do kterého povodí zasahuje řešené území? |
@@ -97,25 +103,26 @@ Vektorová data z předchozího cvičení nyní využijeme jako podklady k jedno
 | Vodní plochy a záplavová území | polygony | Které části návrhu jsou ve vztahu k vodě či rizikovému území? |
 | Katastrální území | polygony | Jaké administrativní jednotky lokalita protíná? |
 | Intravilán / zastavěné území | polygony | Leží záměr uvnitř sídla, na jeho okraji, nebo ve volné krajině? |
-</div>
 
-### Doporučené zdroje pro demonstraci
+
+
+**Doporučené zdroje dat:**
 
 - [Národní katalog otevřených dat — hledání datových sad „hranice“](https://data.gov.cz/datov%C3%A9-sady?kl%C3%AD%C4%8Dov%C3%A1-slova=hranice){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 - [RÁIN — Urban Atlas / intravilán](https://rain.fsv.cvut.cz/land-cover/ua-intra/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 - [DIBAVOD — digitální báze vodohospodářských dat](https://www.dibavod.cz/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 - [Geoportál ČÚZK](https://geoportal.cuzk.cz/){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
-{: .button_array}
 
-!!! note-grey "Práce s daty z portálu"
 
-    Portál je rozcestník, nikoli záruka jednotného formátu. U každé datové sady je vhodné ověřit poskytovatele, datum, licenci, popis atributů, CRS a způsob distribuce — stažení souboru, WFS/WMS nebo ArcGIS REST službu.
+!!! note-grey "Práce s daty z geoportálu"
+
+    Geoportál je rozcestník, nikoli záruka jednotného formátu. U každé datové sady je vhodné ověřit poskytovatele, datum, licenci, popis atributů, CRS a způsob distribuce — stažení souboru, WFS/WMS nebo ArcGIS REST službu.
 
 <hr class="level-1">
 
 ## Atributové dotazy
 
-Atributový dotaz (Attribute Query) je metoda výběru/filtrace prvků na základě **hodnot jejich atributů**. Doplňuje tak metodu [interaktivního výběru prvků](/cviceni/cviceni1/#select-tool) z 1. cvičení. Základem je pravidlo pro výběr – tzv. **výraz** (Expression). ArcGIS Pro umožňuje sestavovat výrazy interaktivně pomocí dialogu, nicméně pro využití plného potenciálu výrazů je vhodné využít kód v jazyce _SQL_.
+**Atributový dotaz** *(Attribute Query)* je metoda **výběru/filtrace prvků na základě hodnot jejich atributů**. Doplňuje tak metodu [interaktivního výběru prvků](/cviceni/cviceni1/#select-tool) (viz cvičení 1). Základem je pravidlo pro výběr – tzv. **výraz** *(Expression)*. ArcGIS Pro umožňuje sestavovat výrazy interaktivně pomocí dialogu, nicméně pro využití plného potenciálu výrazů je vhodné využít kód v jazyce _SQL_.
 <br><br>
 
 **Atributový dotaz** (nad daty v mapě): _:material-tab: Map_{: .outlined_code} → _:material-button-cursor: Select By Attributes_{: .outlined_code} → vyplnit údaje do dialogu nástroje...
@@ -140,7 +147,6 @@ Pomocí přepínátka ![](../assets/cviceni1/img_36.png){: .off-glb style="verti
 
 V dotazu vždy rozlišujte **název pole**, **operátor** a **hodnotu**. Textové hodnoty se obvykle zapisují do apostrofů, číselné nikoli. Složitější podmínky spojujeme pomocí `AND`, `OR` a `NOT`.
 
-<div class="table_headerless table_small_padding table_centered" markdown>
 | Otázka | Příklad výrazu | Poznámka |
 | - | - | - |
 | Je hodnota rovna danému kódu? | `typ = 'povrchový'` | text v apostrofech |
@@ -148,7 +154,6 @@ V dotazu vždy rozlišujte **název pole**, **operátor** a **hodnotu**. Textov�
 | Obsahuje název hledané slovo? | `nazev LIKE '%Vltava%'` | `%` nahrazuje libovolný počet znaků, `_` nahrazuje _jeden_ znak |
 | Platí obě podmínky? | `splavny = 1 AND typ = 'povrchový'` | závorkami určujeme pořadí podmínek |
 | Chybí hodnota? | `spravce IS NULL` | `NULL` není prázdný text ani nula |
-</div>
 
 !!! warning "Datový typ rozhoduje"
 
@@ -176,7 +181,7 @@ V dotazu vždy rozlišujte **název pole**, **operátor** a **hodnotu**. Textov�
 
 **Prostorový dotaz** vybírá prvky jedné vrstvy podle jejich vztahu k prvkům druhé vrstvy. Odpovídá na otázky typu „které vodní toky leží v povodí?“, „které parcely se dotýkají toku?“ nebo „které plochy zastavěného území protíná navržený koridor?“
 
-V ArcGIS Pro otevřete _:material-tab: Map_ → _:material-button-cursor: Select By Location_. Poté vždy určete:
+V ArcGIS Pro otevřete _:material-tab: Map_{: .outlined_code} → _:material-button-cursor: Select By Location_{: .outlined_code}. Poté vždy určete:
 
 1. **Input Features** — vrstvu, ze které chceme vybírat;
 2. **Relationship** — prostorový vztah, který má platit;
