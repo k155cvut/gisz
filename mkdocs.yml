@@ -3,7 +3,7 @@ nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
       - Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka: cviceni/cviceni1.md
-      - Vektorová data, atributové dotazy, prostorové dotazy: cviceni/cviceni2.md
+      - Souřadnicové systémy, atributové a prostorové dotazy: cviceni/cviceni2.md
       - Prostorové funkce (geoprocessing), spatial join: cviceni/cviceni3.md
       - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4.md
       - Rastrová data: cviceni/cviceni5.md
