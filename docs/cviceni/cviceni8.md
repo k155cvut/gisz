@@ -126,7 +126,7 @@ Pro názornost následuje ukázka zpracování sklonitosti svahu (postup s výpo
 
 ## Viditelnost
 
-Topografické funkce můžeme nad stejným DMR využít i k analýze viditelnosti – určíme, které části území jsou vidět z vybraného místa. Tuto analýzu budeme potřebovat i v úlohách k procvičení (5 a 8) a v semestrální práci.
+Topografické funkce můžeme nad stejným DMR využít i k analýze viditelnosti – určíme, které části území jsou vidět z vybraného místa.
 
 **7.** __Pozorovací bod__
 

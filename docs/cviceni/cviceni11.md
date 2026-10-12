@@ -398,7 +398,7 @@ Relative Elevation Model in ArcGIS Pro [online]. esri video [cit. 2024-01-25]. D
     1. Jaká je plocha území v ha s nadmořskou výškou mezi 500 a 700 m?
 
     2. Jaká je výměra území v ha, pro které platí, že leží v nadmořské
-       výšce nad 700 m a má sklon svahu větší než 25 gonů?
+       výšce nad 700 m a má sklon svahu větší než 25°?
 
     3. Jaký průměrný sklon mají svahy, které jsou vzdáleny do 10 km od
        státní hranice? Jak velký je rozdíl oproti průměrné hodnotě
