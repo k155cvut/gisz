@@ -76,9 +76,8 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 3. [Databáze, geodatabáze a atributové dotazy](./prednasky/Prednaska-3-Databaze-geodatabaze-a-atributove-dotazy.pdf)
 
+4. [Dostupné zdroje geodat, jejich sběr a využití. Metadata a časové řady](./prednasky/Prednaska-4-Prehled-dostupnych-geodat.pdf)
 <!--
-4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
-
 5. Vektorový a rastrový GIS, datová struktura
 
 6. Rastrový GIS, atributová data
