@@ -216,7 +216,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 ## Procvičování jednotlivých funkcí
 
-**1. úloha** - Vyberte z RÚIAN všechna ORP, která patří do okresu Tachov a uložte je do nové vrstvy. Kolik takových ORP je a jak se jmenují?
+**1. úloha** - Vyberte z RÚIAN všechna [ORP *(obec s rozšířenou působností)*](https://cs.wikipedia.org/wiki/Obec_s_roz%C5%A1%C3%AD%C5%99enou_p%C5%AFsobnost%C3%AD){target="\_blank"}, která patří do okresu Tachov a uložte je do nové vrstvy. Kolik takových ORP je a jak se jmenují?
 
 ??? napoveda "Nápověda"
 
@@ -280,7 +280,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
      Použijte funkci _BUFFER_
 
 
-**7. úloha** - Slučte obce podle pověřeného obecního úřadu (_POU_). Kolik polygonů vzniklo?
+**7. úloha** - Slučte obce podle příslušnosti k [pověřenému obecnímu úřadu (_POU_)](https://cs.wikipedia.org/wiki/Obec_s_pov%C4%9B%C5%99en%C3%BDm_obecn%C3%ADm_%C3%BA%C5%99adem){target="\_blank"}. Kolik polygonů vzniklo?
 ??? napoveda "Nápověda"
      Použijte funkci _DISSOLVE_
 
@@ -289,7 +289,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
     5
 
 
-**8. úloha** - Kolik km dálnic prochází lesy v ORP Tachov?
+**8. úloha** - Kolik km dálnic prochází lesy v okrese Tachov?
 
 ??? napoveda "Nápověda"
 
@@ -297,10 +297,10 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 ??? success "Řešení"
 
-    136 km.
+    20,78 km.
 
 
-**9. úloha** - Zjistěte, o kolik hektarů se zmenší celková rozloha lesních ploch v ORP Tachov po vyloučení území rašelinišť, močálů a bažin.
+**9. úloha** - Zjistěte, o kolik hektarů se zmenší celková rozloha lesních ploch v okrese Tachov po vyloučení území rašelinišť, močálů a bažin.
 
 ??? napoveda "Nápověda"
      Použijte funkci _ERASE_ a poté porovnejte novou vrstvu s původní.
