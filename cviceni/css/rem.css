@@ -1,0 +1,8 @@
+/* Interaktivní ukázka relativního výškového modelu (js/rem.js)
+ * Základní třídy .iw-* jsou v interpolace.css, který je potřeba načíst také. */
+
+/* posuvníky vycentrované pod mapou */
+.iw-ctrls.rem-extra { display: flex; flex-wrap: wrap; justify-content: center; }
+.rem-extra > .iw-ctrl { flex: 0 1 16rem; }
+
+.rem-steptext { margin: 0 0 0.5rem; min-height: 2.8em; }
