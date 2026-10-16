@@ -113,6 +113,21 @@ Atributové a prostorové dotazy z 2. cvičení nás naučily, jak provádět z�
 
     </figure>
 
+=== "*_merge_*"
+
+    [**_MERGE_**](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/merge.html?)<br>
+    Slučuje více vstupních vrstev stejného typu geometrie (body, linie nebo polygony) do jedné nové vrstvy, přičemž zachovává geometrii jednotlivých prvků.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Union](../assets/cviceni3/merge_esri.png)
+
+      <figcaption markdown>
+      zdroj: [Merge (Data Management Tools)](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/merge.html?)
+      </figcaption>
+
+    </figure>
+
 === "*_union_*"
 
     [**_UNION_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)<br>
@@ -124,21 +139,6 @@ Atributové a prostorové dotazy z 2. cvičení nás naučily, jak provádět z�
 
       <figcaption markdown>
       zdroj: [Union (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm)
-      </figcaption>
-
-    </figure>
-
-=== "*_remove overlap_*"
-
-    [**_REMOVE OVERLAP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)<br>
-    Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
-
-    <figure class="gallery-figure" markdown>
-
-      ![Ukázka nástroje Remove overlap](../assets/cviceni3/remove_overlap_esri.png)
-
-      <figcaption markdown>
-      zdroj: [Remove overlap (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)
       </figcaption>
 
     </figure>
@@ -180,6 +180,23 @@ Atributové a prostorové dotazy z 2. cvičení nás naučily, jak provádět z�
     Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
 
     ![Ukázka nástroje Spatial Join](../assets/cviceni3/spatial_join_ai.png)
+
+<!--
+=== "*_remove overlap_*"
+
+    [**_REMOVE OVERLAP_**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)<br>
+    Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
+
+    <figure class="gallery-figure" markdown>
+
+      ![Ukázka nástroje Remove overlap](../assets/cviceni3/remove_overlap_esri.png)
+
+      <figcaption markdown>
+      zdroj: [Remove overlap (Analysis Tools)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm)
+      </figcaption>
+
+    </figure>
+-->
 
 </div>
 
@@ -314,7 +331,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 ??? napoveda "Nápověda"
 
-    Použijte funkci _UNION_.
+    Použijte funkci _MERGE_.
 
 
 **11. úloha** - Vytvořte vrstvu znázorňující překryv 2 km obslužných zón železničních stanic. Zjistěte, kolikrát se v jednotlivých částech území překrývá dostupnost jednotlivých železničních stanic.
@@ -334,12 +351,12 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
     _Join Operation_ je v tomto případě _One to one_.
 
-
+<!--
 **13. úloha** - Odstraňte překrývající se části 2 km obslužných zón kolem železničních stanic.
 
 ??? napoveda "Nápověda"
     Použijte funkci _REMOVE OVERLAP_
-
+--->
 
 
 <!--
