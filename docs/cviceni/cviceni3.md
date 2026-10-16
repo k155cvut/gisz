@@ -347,7 +347,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
 ??? napoveda "Nápověda"
 
-    Chceme do polygonové vrstvy obcí přidat informaci o počtu adresních míst. _Target Features_ jsou polygony obcí a _Join Features_ je vrstva adresních míst.
+    Chceme do polygonové vrstvy obcí přidat informaci o počtu adresních míst. Použijte funkci _SPATIAL JOIN_, kde _Target Features_ jsou polygony obcí a _Join Features_ je vrstva adresních míst.
 
     _Join Operation_ je v tomto případě _One to one_.
 
