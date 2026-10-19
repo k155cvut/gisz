@@ -109,7 +109,7 @@ Pro názornost následuje ukázka zpracování sklonitosti svahu (postup s výpo
 </figure>
 
 <figure markdown>
-  ![Reclassify](../assets/cviceni8/reclass_output.png)
+  ![ReclassOutput](../assets/cviceni8/reclass_output.png)
   <figcaption>Reklasifikovaný rastr sklonitosti terénu indikující hodnoty nad a pod mezní hodnotou</figcaption>
 </figure>
 
