@@ -128,7 +128,7 @@ K jednoduchým otázkám o území využijeme [vzorová data](../assets/cviceni2
 **Atributový dotaz** (nad daty v mapě): _:material-tab: Map_{: .outlined_code} → _:material-button-cursor: Select By Attributes_{: .outlined_code} → vyplnit údaje do dialogu nástroje...
 [Select features using attributes](https://pro.arcgis.com/en/pro-app/latest/help/mapping/navigation/select-features-using-attributes.htm){ .md-button .md-button--primary .button_smaller .external_link_icon target="_blank"}
 
-![](../assets/cviceni1/img_33.png)
+![](..assets/cviceni1/img_33.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
 ![](../assets/cviceni1/img_34.png)
 ![](../assets/cviceni1/arrow.svg){: .off-glb .process_icon}
