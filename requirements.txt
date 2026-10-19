@@ -2,4 +2,4 @@ mkdocs
 mkdocs-material
 pillow
 cairosvg
-mkdocs-glightbox==0.5.2
+mkdocs-glightbox==0.5.1
