@@ -90,8 +90,6 @@ Riziko vzniku lavin nastává na otevřených plochách bez většího vegetačn
 - CORINE Land Cover 2018
 
 ## Postup
-Řešení popisuje postupné použití jednotlivých nástrojů geoprocessingu, vaším úkolem je těmto funkcím porozumět a úlohu zpracovat v *Model Builderu*.
-
 **1.** Po založení nového projektu v ArcGIS a nastavení Křovákova zobrazení, importujte potřebná data: DMR Krkonošského parku a vrstva *Velkoplošná chráněná území* z ArcGIS Online (poskytuje AOPK ČR).
 
 **2.** Na základě DMR je nejprve možné vyhodnotit nejvyšší třetinu zájmového území. Rozpětí výšek je možné zjistit ve vlastnostech rastru a stanovit mezní hodnotu nejvyšší třetiny. Pomocí nástroje *Reclassify* následně proběhne reklasifikace dat: hodnotám menším než mezní nastavíme novou hodnotu 0; hodnotám od mezní výše přiřadíme novou hodnotu 1.
@@ -162,42 +160,3 @@ Funkcí _CONSTRUCT SIGHT LINES_ (_3D Analyst_) vytvoříme spojnice mezi pozorov
 ## Zdroje
 
 Using Viewshed and Observer Points for visibility analysis [online]. Esri [cit. 2026-09-29]. Dostupné z: [https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/spatial-analyst/using-viewshed-and-observer-points-for-visibility.html)
-
-## Úlohy k procvičení
-
-!!! task-fg-color "Úlohy"
-
-    K řešení následujích úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
-    popisem dat ve formátu PDF.
-
-    1. Vytvořte DMT omezené na Ústecký kraj. Jaká je výměra území v ha s nadmořskou výškou větší než 700m?
-
-    2. Jaká je výměra území v ha se sklonem svahu větším než 15 stupňů?
-
-    3. Jaká je výměra území v ha s orientací svahu na sever a zároveň se sklonem větším než 15 stupňů?
-
-    4. Jaká je výměra území v ha s orientací svahu na sever anebo se sklonem větším než 15 stupňů?
-
-    5. Jaká je výměra území v ha, které je viditelné z vrcholu Milešovky
-       [S-JTSK: 986668, 770118] a zároveň má orientaci svahu na sever?
-
-    6. Jaká je výměra území v ha, kde jsou splněny alespoň 2 z
-       následujících podmínek - nadmořská výška nad 700 m, sklon větší než
-       15 stupňů, orientace na sever?
-
-    7. Jaká je výměra území v ha, které je do 500 m od nejbližší silnice a
-       zároveň má sklon větší než 15 stupňů?
-
-    8. Jak dlouhý úsek silnice E55 v km je vidět z vrcholu Milešovky [S-JTSK: 986668, 770118]?
-
-    9. Jaká ve výměra území v ha, kde nadmořská výška je menší než výraz "10 krát sklon svahu ve stupních"?
-
-    10. Jaká je nadmořská výška vrcholu Milešovky [S-JTSK: 986668, 770118] odvozená z DMT (správně je 836,5 m)?
-
-    11. Jaký je rozdíl celkové délky v metrech silnic 1.třídy měřeného po povrhu a jeho průmětu do roviny?
-
-    12. Jaká je skutečná délka (v km, na jedno des. místo) silnice číslo
-        '112' po povrchu DMT? Uveďte minimální a maximální výšku u této
-        komunikace?
