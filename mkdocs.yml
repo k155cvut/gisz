@@ -1,4 +1,6 @@
 site_name: GIS (155GISZ)
+site_url: https://k155cvut.github.io/gisz/
+
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
