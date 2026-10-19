@@ -33,6 +33,7 @@ plugins:
       draggable: true
       skip_classes:
         - custom-skip-class-name
+        - process_container
       auto_caption: false
       caption_position: bottom
 theme:
