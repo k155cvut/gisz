@@ -312,6 +312,10 @@ Starší a doplňující:
     - [Webdata](https://webdata.fsv.cvut.cz/auth/?backLink=o2nh5)
     - Připojení síťového disku – [jak se připojit](https://portal.fsv.cvut.cz/vic/uloziste/jak-se-pripojit), [přehled úložišť](https://portal.fsv.cvut.cz/vic/uloziste/prehled)
 
+2. Jak mohu pracovat se softwarem ArcGIS Pro mimo poítačové učebny:
+    - [Vzdálený přístup](https://edu.fsv.cvut.cz/Citrix/EDUWeb/)
+    - [Stažení sw (ESRI)](https://download.cvut.cz/) a instalace na vlastní zařízení
+
 ---
 
 ## Rozvrh {: style="margin-bottom:0;"}
