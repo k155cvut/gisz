@@ -134,7 +134,6 @@ Dostupné šablony pro konkrétní rastrovou službu najdeme v záložce _:mater
   <figcaption>Zobrazení dostupných processing templates</figcaption>
 </figure>
 
-Více o rastrových funkcích bude součástí předmětu [GIS 2](https://k155cvut.github.io/gis-2/). 
 
 <div class="grid cards" markdown>
 
