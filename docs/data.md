@@ -20,6 +20,13 @@ Státní mapa 1 : 5 000 – odvozená, vydávaná postupně od roku 1950, b
 
 Digitální model reliéfu České republiky 5. generace (DMR 5G) představuje zobrazení přirozeného nebo lidskou činností upraveného zemského povrchu v digitálním tvaru ve formě výšek diskrétních bodů v nepravidelné trojúhelníkové síti (TIN) bodů o souřadnicích X,Y,H, kde H reprezentuje nadmořskou výšku ve výškovém referenčním systému Balt po vyrovnání (Bpv) s úplnou střední chybou výšky 0,18 m v odkrytém terénu a 0,3 m v zalesněném terénu. Model vznikl z dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v letech 2009 až 2013. Dokončen byl k 30. 6. 2016 na celém území ČR. DMR 5G je určen k analýzám terénních poměrů lokálního charakteru a rozsahu, např. při projektování pozemkových úprav, plánování a projektování dopravních, vodohospodářských a pozemních staveb, modelování přírodních jevů lokálního charakteru, apod. DMR 5G je základní zdrojovou databází pro tvorbu vrstevnic určených pro mapy velkých měřítek a počítačové vizualizace výškopisu v územně orientovaných informačních systémech vysoké úrovně podrobnosti.
 
+[Prohlížecí služba pro DMR5G :simple-databricks:](https://ags.cuzk.gov.cz/arcgis2/rest/services){ .md-button .md-button--primary }
+{: .button_array}
+
+Připojení služby do ArcGIS Pro proběhne přes tlačítko _:material-button-cursor: Connections_{: .outlined_code} v záložce _:material-tab: Insert_{: .outlined_code} v horní části programu. Po rozkliknutí nabídky se zvolí _:material-form-dropdown: Server_{: .outlined_code} → _:material-form-dropdown: New ArcGIS Server_{: .outlined_code}. 
+
+Do *Server URL* se zkopíruje adresa služby ```https://ags.cuzk.gov.cz/arcgis2/rest/services```.
+
 ## [RÚIAN](https://vdp.cuzk.cz/vdp/ruian "Veřejný dálkový přístup k datům RÚIAN")
 
 Registr územní identifikace, adres a nemovitostí (RÚIAN) je jedním ze základních registrů veřejné správy. Je veřejným seznamem, nevede žádné osobní údaje a je jedinečným zdrojem adres nejen pro veřejnou správu. Obsahuje také údaje o územních prvcích, územně evidenčních jednotkách a jejich vzájemných vazbách.

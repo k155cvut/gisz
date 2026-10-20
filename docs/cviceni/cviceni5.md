@@ -6,8 +6,13 @@ title: Cvičení 5
 # Rastrová data, tvorba digitálního modelu terénu
 
 ## Cíl cvičení
+<div class="grid cards grid_icon_info smaller_padding" markdown>
 
-Seznámení se s rastrovými daty v GIS a ukázka využití těchto dat. 
+-   :material-checkerboard:{ .xl }
+
+    Seznámení se s rastrovými daty v GIS a ukázka využití těchto dat.
+
+</div>
 
 ## Základní pojmy
 
@@ -32,7 +37,7 @@ Seznámení se s rastrovými daty v GIS a ukázka využití těchto dat.
 
 - [ArcČR 500](../../data/#arccr-500)
 - [Císařské otisky stabilního katastru](../../data/#cisarske-otisky-stabilniho-katastru)
-- [DMR 4G](../../data/#dmr-5g)
+- [DMR 5G](../../data/#dmr-5g)
 
 ## Náplň cvičení
 
@@ -71,35 +76,42 @@ Seznámení se s rastrovými daty v GIS a ukázka využití těchto dat.
 
 ### Práce s digitálním modelem reliéfu
 
-**Zdroj dat** – DMR 4G ([ArcČR 500](../../data/#arccr-500))  
-DMR 4G představuje hodnoty nadmořské výšky pro Českou republiku s rozlišením 5x5 metrů. Verze z ArcČR je však převzorkovaná a má velikost 1 pixelu 50x50 metrů.
+**Zdroj dat** – DMR 5G ([RÚIAN](../../data/#ruian))  
+DMR 5G představuje hodnoty nadmořské výšky pro Českou republiku odvozené z digitálního modelu reliéfu 5. generace. Rastrová podoba dat má velikost pixelu 2 × 2 metry. Verze z ArcČR je však převzorkovaná a má velikost 1 pixelu 50x50 metrů.
 
-**1.** Načteme DMR 4G z databáze ArcČR (vrstva _:simple-databricks: DigitalniModelReliefu_{: .outlined_code}).
+1. DMR5G připojíme do ArcGIS Pro podle postupu uvedeného [zde](../../data/#dmr-5g) a přidáme DMR5G do mapy.
 
-**2.** Zjištění prostorového rozlišení rastru (pravý klik na daný rastr v záložce _:material-tab: Contents_{: .outlined_code} → _:material-form-dropdown: Properties_{: .outlined_code} → _:material-button-cursor: Source_{: .outlined_code} → _:material-button-cursor: Raster Information_{: .outlined_code} → _:material-button-cursor: Cell Size X/Y_{: .outlined_code}).
+1. Zjištění prostorového rozlišení rastru (pravý klik na daný rastr v záložce _:material-tab: Contents_{: .outlined_code} → _:material-form-dropdown: Properties_{: .outlined_code} → _:material-button-cursor: Source_{: .outlined_code} → _:material-button-cursor: Raster Information_{: .outlined_code} → _:material-button-cursor: Cell Size X/Y_{: .outlined_code}).
 
-**3.** Vybereme okres pro ořez rastru (vrstva _:simple-databricks: OkresyPolygony_{: .outlined_code}).
+1. RÚIAN data připojíme do ArcGIS podle postupu uvedeného [zde](../../data/#ruian).
 
-**4.** Export vybraného okresu do samostatné vrstvy provedeme přes pravý klik myši na vybranou vrstvu → _:material-form-dropdown: Data_{: .outlined_code} → _:material-form-dropdown: Export Features_{: .outlined_code}.
+1. Vybereme okres pro ořez rastru (vrstva _:simple-databricks: Okres_{: .outlined_code}).
 
-<figure markdown>
-  ![Export features](../assets/cviceni5/export_features.png){ width="800" }
-  <figcaption>Export features</figcaption>
-</figure>
+1. Export vybraného okresu do samostatné vrstvy provedeme přes pravý klik myši na vybranou vrstvu → _:material-form-dropdown: Data_{: .outlined_code} → _:material-form-dropdown: Export Features_{: .outlined_code}.
 
-**5.** Ořez rastru lze provést několika způsoby. Nejjednodušší možností je funkce [_:material-cog: **Clip Raster**_{: .outlined_code}](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm), která vytvoří ořez dle nejmenšího ohraničujícího obdélníku.
+    <figure markdown>
+      ![Export features](../assets/cviceni5/export_features.png){ width="800" }
+      <figcaption>Export features</figcaption>
+    </figure>
 
-<figure markdown>
-![Clip raster](../assets/cviceni5/dmr_clip_raster.png)
-    <figcaption>Clip raster</figcaption>
-</figure>
+1. Ořez rastru lze provést několika způsoby. Nejjednodušší možností je funkce [_:material-cog: **Clip Raster**_{: .outlined_code}](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clip.htm), která vytvoří ořez dle nejmenšího ohraničujícího obdélníku.
 
-**6.** Další možností je funkce [_:material-cog: **Extract by Mask**_{: .outlined_code}](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/extract-by-mask.htm), jež ořízne rastr přesně dle polygonu (s přesností na pixely).
+    <figure markdown>
+    ![Clip raster](../assets/cviceni5/dmr_clip_raster.png)
+        <figcaption>Clip raster</figcaption>
+    </figure>
 
-<figure markdown>
-![Extract by mask](../assets/cviceni5/dmr_extract_by_mask.png)
-    <figcaption>Extract by mask</figcaption>
-</figure>
+1. Další možností je funkce [_:material-cog: **Extract by Mask**_{: .outlined_code}](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/extract-by-mask.htm), jež ořízne rastr přesně dle polygonu (s přesností na pixely).
+
+    <figure markdown>
+    ![Extract by mask](../assets/cviceni5/dmr_extract_by_mask.png)
+        <figcaption>Extract by mask</figcaption>
+    </figure>
+
+??? tip "Nedaří se vám data oříznout?"
+
+    Myslíte si, že vyplňujete funkci správně, ale stále vám ořez nefunguje kvůli chybové hlášce _failed to execute_? Problém může být v datech. Data z ČÚZK mají limity pro maximální velikost rastru. Zkuste zvolit menší ořezové území.
+
 
 ### Ukázka změny symbologie rastru
 
@@ -149,3 +161,22 @@ Více o rastrových funkcích bude součástí předmětu [GIS 2](https://k155cv
     ![](../assets/cviceni5/dmr_aspect.png)
 
 </div>
+
+### Spojování rastrů
+Můžeme se setkat se situací, kdy pracujeme s více rastry, například s několika mapovými listy nebo družicovými snímky. Pokud spolu souvisejí, navazují na sebe a chceme s nimi pracovat jako s jedním celkem, můžeme je spojit do jednoho nového [**_Rastrového datasetu_**](https://doc.esri.com/en/arcgis-pro/latest/help/data/imagery/how-raster-data-is-stored-and-managed-pro-.html) pomocí funkce [_Mosaic To New Raster_](https://doc.esri.com/en/arcgis-pro/latest/tool-reference/data-management/mosaic-to-new-raster.html?tabs=dialog). Alternativou je tzv. [**_Mosaic Dataset (MD)_**](https://doc.esri.com/en/arcgis-pro/latest/help/data/imagery/how-raster-data-is-stored-and-managed-pro-.html).
+
+**_Mosaic dataset_** je speciální datová struktura uložená v geodatabázi, která obsahuje odkazy (reference) na rastrová nebo obrazová data. Samotné rastry se do geodatabáze nekopírují ani nepřesouvají – zůstávají uložené na svém původním umístění a Mosaic Dataset si pouze ukládá informace o jejich umístění a způsobu zobrazení.<br>
+Hlavními výhodami MD jsou:
+
+- mosaikování (skládání rastrů) _on-the-fly_
+
+- dynamické vykreslování
+
+- efektivní správa velkého množství rastrových dat
+
+<figure markdown>
+  ![](../assets/cviceni5/MD_AI.png){width="800"}
+  <figcaption>Mosaic Dataset - ilustrační obrázek</figcaption>
+</figure>
+
+
