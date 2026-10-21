@@ -77,18 +77,12 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 3. [Databáze, geodatabáze a atributové dotazy](./prednasky/Prednaska-3-Databaze-geodatabaze-a-atributove-dotazy.pdf)
 
 4. [Dostupné zdroje geodat, jejich sběr a využití. Metadata a časové řady](./prednasky/Prednaska-4-Prehled-dostupnych-geodat.pdf)
+
+5. [Vektorové analýzy a prostorové dotazy](./prednasky/Prednaska-5-Vektorove-analyzy-a-prostorove-dotazy.pdf)
+
 <!--
-5. Vektorový a rastrový GIS, datová struktura
 
-6. Rastrový GIS, atributová data
-
-7. Vektorový GIS, druhy objektů
-
-8. Geometrické a topologické vlastnosti objektů ve vektorovém GIS
-
-9. Vektorová a rastrová reprezentace prostorových objektů
-
-10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
+6.  Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
 -->
 
 ## Cvičení {: style="margin-bottom:0;"}
