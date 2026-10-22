@@ -11,22 +11,79 @@ Na rozdíl od předchozích úloh, kdy byla práce zaměřena na práci s poskyt
 
 Prostřednictvím společného pole (klíče) lze přiřadit záznamy v jedné tabulce se záznamy v jiné tabulce (vrstvě). K vrstvě parcel můžete například přidružit tabulku informací o vlastnictví parcel, protože sdílejí pole identifikace parcely. Tato přidružení můžete vytvořit několika způsoby, včetně dočasného spojení či vytvoření trvalejších tříd vztahů uvnitř geodatabáze. Spojení může být také založeno na prostorovém umístění, jak bylo demonstrováno ve cvičení 3.
 
-## Základní pojmy
+## Datové podklady
 
-[<span>:material-open-in-new: pro.arcgis.com</span><br>Join the attributes from a table](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-39C9610A-6A73-4985-ADB8-7354EA9DB8BF){ .md-button .md-button--primary .url-name target="_blank"}
-[<span>:material-open-in-new: pro.arcgis.com</span><br>Join data by location (spatially)](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-7B11EAA4-35E0-4B8D-AFB6-4A435761574B){ .md-button .md-button--primary .url-name target="_blank"}
-[<span>:material-open-in-new: pro.arcgis.com</span><br>Remove join](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#ESRI_SECTION1_6507320BCB1E45219A88F1AA0A24F7B9){ .md-button .md-button--primary .url-name target="_blank"}
-{: align=center style="display:flex; justify-content:center; align-items:center; column-gap:20px; row-gap:10px; flex-wrap:wrap;"}
+- datové úložiště Shares, složka ``\K155\Public\155GISZ\cvic04``
+
+<hr class="level-1">
+
+## Atributové a prostorové připojení dat
+
+Pomocí společného atributového pole, které označujeme jako **klíč**, lze propojit záznamy jedné tabulky se záznamy v jiné tabulce. Například tabulku s informacemi o vlastnících parcel lze připojit k polygonové vrstvě parcel, pokud obě tabulky obsahují společný identifikátor parcely. Propojení tabulek lze provádět několika způsoby. Data je možné spojovat také na základě jejich prostorové polohy.
+
+Informace o vytvořených joinech jsou uloženy ve vlastnostech vrstvy. Joiny je proto možné aplikovat pouze na tabulky otevřené v mapě nebo scéně. Informace o připojených tabulkách zobrazíte po kliknutí pravým talčítkem na danou vrstvu ve vlastnostech vrstvy *(Properties → Joins)*
 
 
-## Použité datové podklady
+### Připojení atributů z tabulky
+Nejčastěji se tabulka připojuje k prostorové vrstvě pomocí hodnoty atributu, který je přítomen v obou tabulkách. Názvy propojovacích atributů nemusí být shodné, jejich **datový typ však musí být stejný** – číselné hodnoty se propojují s číselnými hodnotami, textové řetězce s textovými řetězci atd.
 
+Atributové propojení lze vytvořit pomocí nástroje *Add Join* (dočasné připojení) nebo *Join Field* (trvalé připojení). Při atributovém joinu jsou pole připojené tabulky přidána k existující atributové tabulce vrstvy. Vlastnosti polí, například jejich aliasy, viditelnost nebo formát čísel, zůstávají při přidání či odebrání joinu zachovány.
+
+![](../assets/cviceni4/join.gif){ .no-filter .off-glb}
+{: align=center}
+
+!!! note-grey "Poznámka"
+
+    Při spojování tabulek je ve výchozím stavu nastavena možnost zachovat všechny vstupní prvky z cílové tabulky *(Keep all input records)*. Pokud toto nastavení ponecháme, pro všechny záznamy, které v cílové tabulce nemají odpovídající záznam v připojované tabulce, budou hodnoty nově připojených atributů vyplněny hodnotou `NULL`.
+
+    ![](../assets/cviceni4/keepallrecords.gif){ .no-filter .off-glb}
+    {: align=center}
+
+    Pokud zvolíte možnost zachovat *pouze odpovídající záznamy* (*Keep only matching records*), budou z výsledku odstraněny záznamy cílové tabulky, pro které nebyl nalezen odpovídající záznam v připojované tabulce. 
+
+    ![](../assets/cviceni4/keeponlymatching.gif){ .no-filter .off-glb}
+    {: align=center}
+
+
+
+### Prostorové připojení dat
+Pokud vrstvy nesdílejí společný atribut, lze je propojit na základě prostorové polohy pomocí nástroje *Spatial Join*, který připojuje atributy dvou vrstev na základě prostorového vztahu jejich prvků.
+
+Prostorové připojení lze využít například pro následující úlohy:
+
+- nalezení nejbližšího prvku,
+- zjištění, které prvky se nacházejí uvnitř polygonu,
+- zjištění, které prvky se vzájemně protínají.
+
+
+V závislosti na typu vztahu lze k cílovým prvkům připojit:
+
+- přímo atributy odpovídajícího prvku,
+- agregované hodnoty číselných atributů, například minimum, maximum, průměr nebo součet.
+
+Na rozdíl od běžného atributového joinu není `Spatial Join` ve výchozím nastavení dynamický, jeho výsledkem je nová výstupní vrstva.
+
+__Další zdroje:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>Join the attributes from a table](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-39C9610A-6A73-4985-ADB8-7354EA9DB8BF){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Join data by location (spatially)](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#GUID-7B11EAA4-35E0-4B8D-AFB6-4A435761574B){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>learn.arcgis.com</span><br>Remove join](https://pro.arcgis.com/en/pro-app/latest/help/data/tables/joins-and-relates.htm#ESRI_SECTION1_6507320BCB1E45219A88F1AA0A24F7B9){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+
+<hr class="level-1">
+
+
+## Praktický příklad
+
+__Datové vrstvy:__
 - Polygony [městských částí](../assets/cviceni4/MESTSKECASTI.zip) Prahy
 - Tabulka pražských [poboček Městské policie](../assets/cviceni4/objekty_MPP.xlsx) ve fromátu XLSX
 
 Pozn. Data jsou dostupná rovněž na S:\K155\Public\155GIS1
 
-## Pracovní postup
+__Postup řešení:__
 
 **1.** Přidáme polygonovou vrstvu městských částí Prahy do projektu, prohlédneme atributovou tabulku, seznámíme se s daty. V nastavení projektu zvolíme souřadnicový systém S-JTSK (EPSG:5514).
 
@@ -111,7 +168,7 @@ Kompozici možno doplnit o názvy; v panelu *Labeling* stačí aktivovat popis a
 !!! task-fg-color "Úlohy"
 
     K řešení následujích úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
+    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složce
     ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
     popisem dat ve formátu PDF. Další datové vrstvy, která budete
     potřebovat pro vyřešení následujících úloh, jsou dostupné ke stažení
