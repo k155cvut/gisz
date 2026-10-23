@@ -382,11 +382,9 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
 
     5. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to je procent z celkové výměry bažin a rašelinišť?
 
-    6. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese na celém území ČR. Kolik to je procent z celkové výměry bažin a rašelinišť?
+    6. Kolik obcí leží celou svou plochou do vzdálenosti 5 km od železniční stanice v rámci okresu Domažlice? Jaká je jejich celková výměra?
 
-    7. Kolik obcí leží celou svou plochou do vzdálenosti 5 km od železniční stanice v rámci okresu Domažlice? Jaká je jejich celková výměra?
-
-    8. Určete všechna místa, kde dochází ke křížení cest a vodních toků na území okresu Tachov. Výsledek prezentujte jako bodovou vrstvu.
+    7. Určete všechna místa, kde dochází ke křížení cest a vodních toků na území okresu Tachov. Výsledek prezentujte jako bodovou vrstvu.
 
 
     K řešení **následujích** úloh použijte datovou sadu [ArcČR
@@ -395,30 +393,28 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
     popisem dat ve formátu PDF.
 
     1. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to
-       je procent z celkové výměry bažin a rašelinišť?
-       
-    2. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
+       je procent z celkové výměry bažin a rašelinišť?       
 
-    3. Kolik obcí v ČR leží celou svojí plochou do vzdálenosti 10 km od
+    2. Kolik obcí v ČR leží celou svojí plochou do vzdálenosti 10 km od
        řeky Labe. Jaký je celkový počet obyvatel těchto obcí?
 
-    4. Na kolika místech kříží dálnice, rychlostní silnice či silnice
+    3. Na kolika místech kříží dálnice, rychlostní silnice či silnice
        1.třídy s železnicí. Kolik z těchto křížení leží do vzdálenosti 1km
        od nejbližší železniční stanice?
 
-    5. Jaká je výměra území (v ha), na kterých leží les či vodní
+    4. Jaká je výměra území (v ha), na kterých leží les či vodní
        plocha. Existuje území, které by odpovídalo současně oběma
        podmínkám?
 
-    6. Vytvořte společnou datovou vrstvu pro letiště a železniční
+    5. Vytvořte společnou datovou vrstvu pro letiště a železniční
        stanice. Kolik objektů tato vrstva obsahuje?
 
-    7. Kolik procent z celkové výměry ČR činí uzemí, která jsou vzdálená
+    6. Kolik procent z celkové výměry ČR činí uzemí, která jsou vzdálená
        od nejbližšího rybníku více než 25 km?
 
-    8. Jaká je výměra uzemí ČR (v km^2^), která leží dále než 5 km od
+    7. Jaká je výměra uzemí ČR (v km^2^), která leží dále než 5 km od
        nejbližší silnice a zároveň dále než 10 km od nejbližší železniční
        stanice? Na území kterých obcí leží největší z hledaných lokalit?
 
-    9. Kolik procent území Jihočeského kraje tvoří vodní plochy?
+    8. Kolik procent území Jihočeského kraje tvoří vodní plochy?
 
