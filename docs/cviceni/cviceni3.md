@@ -387,7 +387,7 @@ Data50 stejně jako Data250 představují digitální geografický model ČR, te
     7. Určete všechna místa, kde dochází ke křížení cest a vodních toků na území okresu Tachov. Výsledek prezentujte jako bodovou vrstvu.
 
 
-    K řešení **následujích** úloh použijte datovou sadu [ArcČR
+    K řešení **následujících** úloh použijte datovou sadu [ArcČR
     500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složce
     ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také **najdete** souboru s
     popisem dat ve formátu PDF.

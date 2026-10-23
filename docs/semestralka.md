@@ -43,7 +43,7 @@ __Cíl__
 __Výstupy__
 
 - technická zpráva ve formátu PDF
-- tematická geodatabáze  
+- tematická geodatabáze
 
 Termín odevzdání: __neděle 1. listopadu 2026, 23.59hod__{.outlined}
 
@@ -57,7 +57,7 @@ Termín odevzdání: __neděle 1. listopadu 2026, 23.59hod__{.outlined}
     - __závěr__ s krátkým (3 až 6 vět) objektivním hodnocením výsledků úlohy. Lze např. zhodnotit, proč jsou některé výsledky takové, jaké jsou. Nebo zmínit využití podobné úlohy ve vašem oboru.
 
 ???+ note-grey "Požadované náležitosti tematické geodatabáze :material-database:"
-    - formát odevzdání __gdb__, název souboru __PrijmeniJmeno_NazevKU_KodKU.gdb__{.no-dec .outlined}, případně __PrijmeniJmeno_NazevKU_KodKU_oprava01.gdb__{.no-dec .outlined}
+    - formát odevzdání __gdb__, název geodatabáze __PrijmeniJmeno_NazevKU_KodKU.gdb__{.no-dec .outlined}, případně __PrijmeniJmeno_NazevKU_KodKU_oprava01.gdb__{.no-dec .outlined}, __soubor gdb před odevzdáním zkomprimujte do ZIP archivu!__{style="color:#c22521;" .icon-exclm .no-dec} 
     - obsahuje dva tematické feature datasety s názvy __CharakteristikaUzemi__{.no-dec .outlined} a __AnalyzaUzemi__{.no-dec .outlined}
     - v datasetech jsou uloženy __vhodně pojmenované datové vrstvy__ dle zadání úlohy
 
