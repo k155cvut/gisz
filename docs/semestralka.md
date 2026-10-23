@@ -1,9 +1,9 @@
 # Semestrální práce {: .page_title}
 Semestrální práce je zaměřena na aplikaci základních nástrojů vektorových a rastrových prostorových analýz v zadaném území, a je rozdělena do dvou částí:
 
-- [**ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ**](/semestralka/#cast-i-zakladni-charakteristika-uzemi)
+- [**ČÁST I – ZÁKLADNÍ CHARAKTERISTIKA ÚZEMÍ**](#cast-i-zakladni-charakteristika-uzemi)
 
-- [**ČÁST II – ANALÝZA ÚZEMÍ**](/semestralka/#cast-ii-analyza-uzemi)
+- [**ČÁST II – ANALÝZA ÚZEMÍ**](#cast-ii-analyza-uzemi)
 
 
 
