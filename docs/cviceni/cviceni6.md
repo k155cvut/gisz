@@ -6,9 +6,20 @@ title: Cvičení 6
 
 # Georeferencování, vektorizace, tvorba geodatabáze
 
-## Cíl cvičení
+## Cíle cvičení
 
-Souřadnicové připojení rastrových dat. Práce s Mosaic Dataset. Ukázka automatického ořezu footprintu. Tvorba vlastní geodatabáze, vektorizace a práce s atributy. Kontrola topologie vektorových dat.
+<div class="grid cards grid_icon_info smaller_padding" markdown>
+
+-   :material-image-marker:{ .xl }
+
+    **prostorově umístit rastrová data**
+
+-   :material-shape-plus:
+
+    **vytvořit nová vektorová data**
+
+</div>
+                                                                      
 
 ## Základní pojmy
 
@@ -30,19 +41,105 @@ Souřadnicové připojení rastrových dat. Práce s Mosaic Dataset. Ukázka au
 
 - [**topologie**](https://pro.arcgis.com/en/pro-app/latest/help/data/topologies/topology-in-arcgis.htm) – definování struktury prvků geosystému na základě jejich vztahů konektivity (vzájemného spojení) a kontinuity (vzájemné polohy)
 
-## Použité datové podklady
+## Datové podklady
 
-- [Císařské otisky stabilního katastru](../../data/#cisarske-otisky-stabilniho-katastru)
-- [Státní mapa 1 : 5 000 – odvozená](../../data/#statni-mapa-1-:-5-500-0-–-odvozena)
-- klad SMO5
+- datové úložiště Shares, složka ``\K155\Public\155GISZ\cvic06``
+- [:material-map: Císařské povinné otisky stabilního katastru 1:2 880](https://geoportal.cuzk.cz/(S(3azl53jynoth4jdi3hpzpszv))/Default.aspx?mode=TextMeta&side=dSady_archiv&metadataID=CZ-CUZK-COC-R&menu=2901){ .md-button .md-button--primary .button_smaller target="_blank"}
+- [:material-map: Státní mapa 1 : 5 000 – odvozená](https://geoportal.cuzk.cz/(S(3azl53jynoth4jdi3hpzpszv))/Default.aspx?mode=TextMeta&side=dSady_archiv&metadataID=CZ-CUZK-SMO5-R&menu=2905){ .md-button .md-button--primary .button_smaller target="_blank"}
 
-## Náplň cvičení
+<hr class="level-1">  
+
+## Georeferencování rastrových dat
+
+Rastrová data mohou pocházet z různých zdrojů, například z družicových snímků, leteckých snímků nebo skenovaných map. Zatímco moderní družicové a letecké snímky obvykle obsahují poměrně přesné informace o své poloze a pro správné zobrazení společně s ostatními daty GIS mohou vyžadovat pouze drobné úpravy, skenované mapy a historické podklady zpravidla žádnou informaci o prostorovém umístění neobsahují. V takových případech je nutné provést tzv. **georeferencování**.
+
+**Georeferencování** je proces **přiřazení geografických souřadnic rastrovému obrazu** nebo skenované mapě, který umožňuje jejich správné umístění v souřadnicovém referenčním systému. Spočívá ve vyhledání totožných, jednoznačně identifikovatelných bodů na georeferencovaném obrazu a na referenčních datech (např. družicovém snímku či referenční mapě). Jako vlícovací body je vhodné vybírat stabilní a snadno rozpoznatelné objekty v obou podkladech, například kostely, mosty, křižovatky, soutoky řek nebo dlouhodobě existující veřejné budovy. Body by měly být rozmístěny po celé ploše mapového listu, nikoli soustředěny pouze do jednoho rohu.
+
+Georeferencování má v kartografii a GIS zásadní význam, protože umožňuje propojit historické mapy, letecké snímky a další prostorová data s ostatními vrstvami GIS a využívat je k analýzám, vizualizacím a rozhodování.
+
+
+<figure markdown>
+  ![Georeferencování staré mapy](../assets/cviceni6/GeoreferencingMap.png "Georeferencování staré mapy"){ width=600px }
+  <figcaption>Georeferencování staré mapy</figcaption>
+</figure>
+
+
+### Typy transformací při georeferencování rastrových dat
+
+Při georeferencování rastru propojujeme **vlícovací body** (*control points*) na původním obrázku s odpovídajícími body v referenčních datech. Zvolená transformační metoda určuje, jakým způsobem se rastr posune, otočí, změní měřítko nebo geometricky deformuje.
+
+| Transformace (ArcGIS Pro) | Min. počet vlícovacích bodů | Co umožňuje | Typické použití |
+| :--- | :---: | :--- | :--- |
+| **Zero-order Polynomial** | **1** | Pouze posun rastru v osách X a Y; zachovává měřítko, orientaci i tvar. | Rastr má již správné měřítko a orientaci, ale je mírně posunutý. |
+| **Similarity Polynomial** | **3** | Posun, otočení a **stejnou změnu měřítka** v obou směrech; zachovává úhly a poměry délek. | Obraz je správně geometricky utvářený, ale má jinou polohu, orientaci nebo velikost. |
+| **1st Order Polynomial (Affine)** | **3** | Posun, otočení, rozdílnou změnu měřítka v osách a zkosení; přímky zůstávají přímkami a rovnoběžnost se zachovává. | **Nejběžnější výchozí volba** pro skenované mapy a letecké snímky bez výrazných lokálních deformací. |
+| **Projective** | **4** | Perspektivní deformaci: přímky zůstávají přímkami, ale původně rovnoběžné linie již nemusí být rovnoběžné. | Šikmé snímky nebo fotografie pořízené z perspektivy. |
+| **2nd Order Polynomial** | **6** | Nelineární zakřivení a deformaci obrazu včetně ohýbání původně přímých linií. | Mapy nebo snímky s plynulými, složitějšími geometrickými deformacemi. |
+| **3rd Order Polynomial** | **10** | Ještě složitější nelineární deformaci než transformace 2. řádu. | Výrazně deformované historické mapy; vyžaduje kvalitně rozmístěné vlícovací body. |
+| **Adjust** | **3** | Kombinuje celkové polynomické přizpůsobení s lokálními úpravami založenými na triangulaci (TIN). | Když je potřeba vyvážit celkové přizpůsobení mapy a přesnost ve vybraných místech. |
+| **Spline** | **10** | Lokálně „natahuje“ rastr tak, aby vlícovací body odpovídaly přesně; mezi nimi může docházet k výrazným deformacím. | Silně nepravidelně deformované podklady, u kterých je prioritou shoda v kontrolních bodech. |
+
+<figure markdown>
+  ![Ukázka deformace původního rastru při využití polynomické transfformace I., II. a III. řádu](../assets/cviceni6/georef_transformace.gif){ width="80%" }
+  <figcaption>Ukázka deformace původního rastru při využití polynomické transfformace I., II. a III. řádu. <br>(Zdroj: ArcGIS Pro)</figcaption>
+</figure>
+
+???+ tip "Jakou transformaci vybrat?"
+    Pro běžné cvičení začněte metodou **1st Order Polynomial (Affine)**. Pokud má být zachován původní tvar rastru, porovnejte výsledek se **Similarity Polynomial**. Vyšší řády a **Spline** používejte pouze tehdy, pokud to vyžaduje charakter deformace a máte dostatek kvalitních, rovnoměrně rozmístěných vlícovacích bodů.
+
+???+ note-fg-color "Kde hledat staré mapy?"
+
+    Významným zdrojem georeferencovaných dobových kartografických dokumentů mohou být krajské nebo městské GIS portály, které v rozsahu svého správního území nejčastěji prezentují archivní plány měst či staré mapy regionu, císařské otisky stabilního katastru či historická ortofota z vybraných let, jež distribuují ve standardizovaných formátech služeb WMS/WMTS, případně umožňují připojení ESRI služby přes rozhraní ArcGIS REST. Přehled územního rozsahu dosud georeferencovaných císařských otisků stabilního katastru nabízí aplikace [Archiv ČÚZK](https://ags.cuzk.cz/archiv/). Prostorově neumístěné digitalizáty císařských otisků stabilního katastru pro většinu území Česka lze získat pouze za poplatek z ÚAZK.
+
+    - krajské či městské geoportály: [Geoportál Praha](https://gs-pub.praha.eu/imgs/rest/services/arch){.color_def .underlined_dotted .external_link_icon target="_blank"}, [Geoportál Jihočeského kraje](https://geoportal.kraj-jihocesky.gov.cz/portal/mapy/ostatni/Cisarske-otisky-WMTS){.color_def .underlined_dotted .external_link_icon target="_blank"}, [Geoportál Karlovarského kraje](https://geoportal.kr-karlovarsky.cz/arcgis/rest/services/Cisarske_otisky/Cisarske_otisky_cached/MapServer){.color_def .underlined_dotted .external_link_icon target="_blank"}, nebo [Geoportál Moravskoslezského kraje](https://gis2.msk.cz/arcgis/rest/services/podklad/podklad_cis_otisky/MapServer){.color_def .underlined_dotted .external_link_icon target="_blank"}
+    - [Archiv ČÚZK](https://ags.cuzk.cz/archiv/){.color_def .underlined_dotted .external_link_icon target="_blank"}
+    - [Chartae antiquae](https://www.chartae-antiquae.cz/){.color_def .underlined_dotted .external_link_icon target="_blank"}
+    - [OldMapsOnline](https://www.oldmapsonline.org/){.color_def .underlined_dotted .external_link_icon target="_blank"}
+    - [David Rumsey Map Collection](https://www.davidrumsey.com/){.color_def .underlined_dotted .external_link_icon target="_blank"}
+
+
+__Zdroje:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>Přehled georeferencování](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/overview-of-georeferencing.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Principy georeferencování rastrů](https://www.esri.com/about/newsroom/arcuser/understanding-raster-georeferencing/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Nástroje pro georeferencování](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/georeferencing-tools.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>Brad Skopyk</span><br>Georeferencování historických map](https://storymaps.arcgis.com/stories/dd75d0398f7d4ded924d303161895b8b){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>learn.arcgis.com/</span><br>Georeferencování historických snímků v ArcGIS Pro](https://learn.arcgis.com/en/projects/georeference-imagery-in-arcgis-pro/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+
+### Vektorizace rastrových dat
+
+Pro analýzu rastrových map je téměř vždy nutné provést jejich **vektorizaci**, tedy převést obsah mapy na vektorová data. Existují různé možnosti automatizace tohoto procesu, níže je popsána metoda ruční vektorizace. Před samotnou vektorizací je nutné si [**založit novou vrstvu**](https://k155cvut.github.io/gisz/cviceni/cviceni6/#zalozeni-tridy-prvku), do které budeme ukládat vektorizované polygony. V nové vrstvě si můžeme předdefinovat typy vektorizovaných polygonů, např. typy využití území. Po ukončení vektorizace je nezbytné provést [**kontrolu topologie**](https://k155cvut.github.io/gisz/cviceni/cviceni7/#kontrola-topologie-vektorovych-dat).
+
+<figure markdown>
+![vektorizace](../assets/cviceni6/vekt.png)
+    <figcaption>Vektorizace rastrové mapy</figcaption>
+</figure>
+
+__Zdroje:__
+{: align=center }
+
+[<span>pro.arcgis.com</span><br>Editace v ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/editing/overview-of-desktop-editing.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>John Nelson</span><br>Rychlá a jednoduchá tvorba podrobných polygonů v ArcGIS Pro](https://youtu.be/Ab9aqsHj8X8?si=C4CCfrIkuYrrwDoK){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>learn.arcgis.com</span><br>Kopírování prvků mezi vrstvami](https://learn.arcgis.com/en/projects/copy-features-between-layers/){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>pro.arcgis.com</span><br>Úvod do podtypů (subtypes)](https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/overview/an-overview-of-subtypes.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>University of Redlands</span><br>Návod pro ArcGIS Pro: georeferencování a digitalizace historické mapy indiánského teritoria Oklahoma](https://www.youtube.com/watch?v=QWv5nwCeZjA){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>ArcGIS Blog</span><br>Digitalizace skenovaných map pomocí AI v ArcGIS Pro](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/digitizing-scanned-maps-using-ai-in-arcgis-pro){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+{: .button_array}
+
+<hr class="level-1">
+
+
+## Praktický příklad 1
+
+**VZOROVÁ DATA:**
+[:material-map: Císařské povinné otisky stabilního katastru 1:2 880](https://geoportal.cuzk.cz/(S(3azl53jynoth4jdi3hpzpszv))/Default.aspx?mode=TextMeta&side=dSady_archiv&metadataID=CZ-CUZK-COC-R&menu=2901){ .md-button .md-button--primary .button_smaller target="_blank"}
+{: .button_array style="justify-content:flex-start;"}
 
 ### Georeferencování rastru
 
-**Zdroj dat** – ČÚZK
-
-**Návod ke georeferencování:**
 
 **1.** Načtení rastru do mapového okna z adresáře v záložce _:material-tab: Catalog_{: .outlined_code} . Rastr se umístí po počátku aktuálního souřadnicového systému. Přiblížit se na něj lze po kliknutí pravým tlačítkem na jeho název v záložce _:material-tab: Contents_{: .outlined_code}  → _:material-form-dropdown: Zoom To Layer_{: .outlined_code} .
 
@@ -82,7 +179,7 @@ Souřadnicové připojení rastrových dat. Práce s Mosaic Dataset. Ukázka au
 
       - XML – informace o souřadnicovém systému a parametrech georeference
 
-### Vytvoření mozaiky
+#### Tvorba mozaiky
 
 Pro vytvoření ucelené mapové vrstvy a následné zpracování rastrů, se využívá [__Mosaic Dataset__](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/mosaic-datasets.htm). Do mozaiky přesuneme požadované rastry. Mozaika vygeneruje vektorové vrstvy _:simple-databricks: Footprint_{: .outlined_code} a *:simple-databricks: Boundary*{: .outlined_code}.
 
@@ -119,7 +216,7 @@ Pro vytvoření ucelené mapové vrstvy a následné zpracování rastrů, se v
   <figcaption>Přidání rastrů do mozaiky</figcaption>
 </figure>
 
-### Editování mozaiky
+#### Editace mozaiky
 
 **1.** Pro vytvoření bezešvé mozaiky je potřeba nastavit hranice vrstvy _:simple-databricks: Footprint_{: .outlined_code} dle požadovaného ořezu dat.
 
@@ -151,7 +248,7 @@ Pro vytvoření ucelené mapové vrstvy a následné zpracování rastrů, se v
 
       Kliknutím pravého tlačítka myši na danou mozaiku v sekci *:material-tab: Catalog*{: .outlined_code} → _:material-form-dropdown: Modify_{: .outlined_code} → _:material-form-dropdown: Repair Mosaic Dataset Paths..._{: .outlined_code} se nastaví nová cesta k rastrům.
 
-## Úlohy k procvičení
+<!-- ## Úlohy k procvičení
 
 !!! task-fg-color "Úlohy"
 
@@ -168,6 +265,13 @@ Pro vytvoření ucelené mapové vrstvy a následné zpracování rastrů, se v
 
     3. Vytvořte výsledný rastr, který bude v souřadnicovém systému UTM-33N
        (velikost pixelu 300m). Vrstvu vyexportujte do formátu GeoTIFF.
+-->
+
+## Praktický příklad 2
+
+**VZOROVÁ DATA:**
+[:material-map: Státní mapa 1 : 5 000 – odvozená](https://geoportal.cuzk.cz/(S(3azl53jynoth4jdi3hpzpszv))/Default.aspx?mode=TextMeta&side=dSady_archiv&metadataID=CZ-CUZK-SMO5-R&menu=2905){ .md-button .md-button--primary .button_smaller target="_blank"}
+{: .button_array style="justify-content:flex-start;"}
 
 ### Založení nové geodatabáze
 
@@ -181,15 +285,15 @@ Pro vytvoření ucelené mapové vrstvy a následné zpracování rastrů, se v
     <figcaption>Tvorba nové geodatabáze</figcaption>
 </figure>
 
-### Importu předem georeferencovaného rastru
+### Import předem georeferencovaného rastru
 
-**1.** Do mapy si načteme částečně georeferencované listy Státní mapy 1 : 5 000 – odvozené (SMO5). Bude nutné negeoreferencované listy souřadnicově umístit.
+**1.** Do mapy si načteme listy [Státní mapy 1 : 5 000 – odvozená](../../data/#statni-mapa-1-:-5-500-0-–-odvozena). Část listů jej již georeferencovaná, některé listy však bude potřeba souřadnicově umístit.
 
 **2.** Oproti císařským otiskům stabilního katastru, které se georeferencují na identické body v mapě, lze SMO5 georeferencovat na rohové body mapových listů, které mají dané souřadnice v sysému S–JTSK (EPSG:5514). Pro georeferencování použijeme síť kladu mapových listů SMO5 (síť o rozměrech 2,5x2 km).
 
 **3.** Dle postupu z minulého cvičení si případně georeferencujeme zbývající souřadnicově nepřipojené mapové listy. Následně vytvoříme v nové geodatabázi mozaiku, do které georeferencované rastry importujeme.
 
-### Automatický ořez footprintu
+#### Automatický ořez footprintu
 
 Ve stavu, kdy máme přidané georeferencované rastry do mozaiky, je potřeba oříznout jejich footprint tak, aby se vytvořila bezešvá mapová vrstva. Footprint lze upravit ručně (viz minulé cvičení) nebo automaticky načtením kladu mapových listů.
 
@@ -231,7 +335,11 @@ Ve stavu, kdy máme přidané georeferencované rastry do mozaiky, je potřeba o
     <figcaption>Výsledek automatického ořezu footprintu</figcaption>
 </figure>
 
-### Vytvoření nového datasetu v geodatabázi
+### Vektorizace
+
+Pro analýzu rastrových map, je téměř vždy nutná jejich vektorizace, tedy převedení mapy do vektorové podoby. Existují různé možnosti automatizace tohoto procesu, ale my si ukážeme nejjednodušší metodu, kterou je manuální vektorizace.
+
+#### Vytvoření nového datasetu v geodatabázi
 
 **1.** Pro vytvoření souhrného datasetu, ve kterém budeme následně uchovávat některé datové vrstvy, je nutné kliknout pravým tlačítkem na cílovou geodatabázi → *:material-form-dropdown: New*{: .outlined_code} → *:material-form-dropdown: Feature Dataset*{: .outlined_code}.
 
@@ -242,9 +350,6 @@ Ve stavu, kdy máme přidané georeferencované rastry do mozaiky, je potřeba o
     <figcaption>Vytvoření datasetu</figcaption>
 </figure>
 
-### Vektorizace
-
-Pro analýzu rastrových map, je téměř vždy nutná jejich vektorizace, tedy převedení mapy do vektorové podoby. Existují různé možnosti automatizace tohoto procesu, ale my si ukážeme nejjednodušší metodu, kterou je manuální vektorizace.
 
 #### Založení třídy prvků
 
@@ -377,7 +482,7 @@ Následuje samotný proces vektorizace, tedy "obkeslení" rastrových dat a vytv
 ???+ note "&nbsp;<span style="color:#448aff">Uložení editace:</span>"
       Po provedení změn v editaci vektorových dat, je nutné je uložit tlačítkem *:material-button-cursor: Save*{: .outlined_code} v záložce *:material-tab: Edit*{: .outlined_code}.
 
-### Kontrola topologie vektorových dat
+<!-- ### Kontrola topologie vektorových dat
 
 Jestliže chceme zkontrolovat topologickou čistotu vektorových dat, musejí být veškerá kontrolovaná data uložena uvnitř jednoho datasetu.
 
@@ -483,3 +588,5 @@ Na obrázku níže je zobrazena ukázka dvou nalezených topologických chyb (le
            [složce](http://rytiny.fsv.cvut.cz/155GIS1/) jako předchozí
            data. Vyzkoušejte si obecně nerovnoběžníkový tvar ořezu rastru v
            mozaice.
+
+-->

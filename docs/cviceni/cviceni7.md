@@ -6,6 +6,7 @@ title: Cvičení 7
 
 # Kontrola topologie, tvorba mapového výstupu
 
+<!--
 ## Cíl cvičení
 
 Souřadnicové připojení rastrových dat. Práce s Mosaic Dataset. Ukázka automatického ořezu footprintu. Tvorba vlastní geodatabáze, vektorizace a práce s atributy. Kontrola topologie vektorových dat.
@@ -375,7 +376,9 @@ Následuje samotný proces vektorizace, tedy "obkeslení" rastrových dat a vytv
 </table>
 
 ???+ note "&nbsp;<span style="color:#448aff">Uložení editace:</span>"
-      Po provedení změn v editaci vektorových dat, je nutné je uložit tlačítkem *:material-button-cursor: Save*{: .outlined_code} v záložce *:material-tab: Edit*{: .outlined_code}.
+      Po provedení změn v editaci vektorových dat, je nutné je uložit tlačítkem *:material-button-cursor: Save*{: .outlined_code} v záložce *:material-tab: Edit*{: .outlined_code}. 
+      
+-->
 
 ### Kontrola topologie vektorových dat
 
