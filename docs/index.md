@@ -80,10 +80,8 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 5. [Vektorové analýzy a prostorové dotazy](./prednasky/Prednaska-5-Vektorove-analyzy-a-prostorove-dotazy.pdf)
 
-<!--
+6. [Rastrové analýzy a mapová algebra](./prednasky/Prednaska-6-Rastrove-analyzy-mapova-algebra-a-detekce-zmen.pdf)
 
-6.  Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
--->
 
 ## Cvičení {: style="margin-bottom:0;"}
 
