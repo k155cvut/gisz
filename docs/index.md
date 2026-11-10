@@ -82,7 +82,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 6. [Rastrové analýzy a mapová algebra](./prednasky/Prednaska-6-Rastrove-analyzy-mapova-algebra-a-detekce-zmen.pdf)
 
-7. [Digitální modely terénu](./prednasky/Prednaska-7-3D-GIS-a-Digitalni-modely-terenu.pdf)
+7. [3D GIS a digitální modely terénu](./prednasky/Prednaska-7-3D-GIS-a-Digitalni-modely-terenu.pdf)
 
 
 ## Cvičení {: style="margin-bottom:0;"}
