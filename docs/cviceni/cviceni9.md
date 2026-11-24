@@ -32,18 +32,156 @@ Náplní cvičení je seznámení s prostředním ArcGIS Online. V rámci cviče
 
 ## Náplň cvičení
 
-### **Vlastní obsah na ArcGIS Online a jeho zveřejnění**
+# ArcGIS Online: Od dat RÚIAN k webové mapové aplikaci
 
-### Vytvořte mapu obcí s rozšířenou působností jednoho z krajů ČR
+!!! info "Cíl cvičení"
+    V tomto cvičení si vyzkoušíte kompletní publikační a aplikační workflow v prostředí **ArcGIS Pro** a **ArcGIS Online** – od výběru a kartografického zpracování dat ze státní mapové služby RÚIAN přes konfiguraci webové mapy v *Map Vieweru* až po vytvoření a veřejné sdílení interaktivní aplikace v *Instant Apps*.
+
+---
+
+## 1. Připojení webové služby RÚIAN v ArcGIS Pro
+
+Spusťte **ArcGIS Pro** a přes **Map → Add Data → ... from path** připojte mapovou službu ČÚZK s daty budov registru RÚIAN:
+   ```text
+   https://ags.cuzk.cz/arcgis/rest/services/RUIAN/MapServer/3
+   ```
+Do mapy se přidala vrstvu **Stavební objekty** (budovy).
+
+---
+
+## 2. Výběr zájmového území (filtrace budov)
+
+Služba RÚIAN obsahuje miliony objektů z celé ČR. Pro rychlou práci a publikaci do cloudu si nejprve vybereme menší prostorový výřez (jednu obec nebo výřez obrazovky) a uložíme jej do lokální geodatabáze projektu.
+
+Výběr podle rozsahu obrazovky
+
+1. Přibližte se v mapě na vybranou obec nebo městskou čtvrt (řádově stovky až nízké tisíce budov).
+2. V panelu _Geoprocessing_ zvolte nástroj **Select** a v _Environments_ v části _Processing Extent_ klikněte na první (zelenou) ikonu _Current display extent_. Převezmou se souřadnice rozsahu pohledu.
+3. Funkci spusťte. Pokud by kolabovala, přidejte za WHERE podmínku **0 = 0**.
+4. Původní službu RÚIAN z mapy odeberte (**Remove**), abyste dále pracovali pouze se svou lokální vrstvou; tu pojmenujte např. `Budovy_vyber`.
+
+!!! warning "Velikost datové sady"
+    Nevybírejte celá velká města nebo rozsáhlé regiony – export i následná publikace velkého množství polygonů zbytečně zatěžuje přenos a kreditový limit účtu. Ideální rozsah je **kolem jednoho až pěti tisíc budov**.
+
+---
+
+## 3. Symbolizace vrstvy v ArcGIS Pro
+
+Před publikováním nastavíme základní tematickou symbolizaci přímo v desktopovém prostředí, odkud se přenese i do cloudu.
+
+1. V panelu **Contents** klikněte pravým tlačítkem na vrstvu `Budovy_vyber` a zvolte **Symbology**.
+2. V podokně **Symbology** změňte metodu vykreslování na **Unique Values**.
+3. Jako pole (**Field 1**) vyberte atribut připojení k plynu (např. `Připojení k rozvodu plynu`).
+4. Upravte barevnou paletu a popisky jednotlivých kategorií v legendě (např. *plyn z veřejné sítě*, *bez plynu*, *nezjištěno*) a odstraňte případné nepotřebné kategorie `<all other values>`.
+
+---
+
+## 4. Publikace do ArcGIS Online a přehled služby (Overview)
+
+1. V pravém horním rohu ArcGIS Pro ověřte, že jste přihlášeni ke svému školnímu účtu **ArcGIS Online**.
+2. V panelu **Contents** klikněte pravým tlačítkem na vrstvu `Budovy_vyber` a zvolte **Sharing → Share As Web Layer**.
+3. V panelu **Share As Web Layer** nastavte:
+    * **Name:** unikátní název bez diakritiky (např. `Budovy_Obec_Prijmeni_2026`),
+    * **Summary:** stručný popis datové sady,
+    * **Tags:** klíčová slova (např. `GISZ`, `RUIAN`, `budovy`),
+    * **Layer Type:** **Feature** (vytvoří *Hosted Feature Layer*).
+4. Klikněte na **Analyze** (kontrola bez chyb; pokud vyskočí chyba 00374, rozklikněte ji a povolte zaškrtávátko _Allow assignment of unique numeric IDs for sharing web layers_ v okně, které se otevře) a poté na **Publish**.
+5. Po dokončení publikace klikněte ve spodní liště oznámení na odkaz **Manage the web layer** (otevře se detail položky v prohlížeči na kartě **Přehled / Overview**).
+
+!!! note "Prohlídka karty Přehled (Overview)"
+    Na stránce detailu publikované vrstvy si prohlédněte:
+    
+    * seznam publikovaných podvrstev (**Layers**),
+    * záložku **Data** (náhled atributové tabulky) a **Nastavení / Settings** (možnosti editace a exportu),
+    * **URL adresu služby** (vpravo dole) – standardizované REST API rozhraní, přes které lze vrstvu připojovat do dalších aplikací.
+
+---
+
+## 5. Tvorba a konfigurace webové mapy (Map Viewer)
+
+Na kartě **Přehled (Overview)** klikněte na tlačítko **Otevřít v aplikaci Map Viewer (Open in Map Viewer)** a postupně nakonfigurujte jednotlivé prvky webové mapy:
+
+1. **Podkladová mapa (Basemap):**
+    * V levém panelu otevřete **Podkladová mapa (Basemap)** a zvolte vhodný podklad (např. *Světlé šedé plátno / Light Gray Canvas* nebo *OpenStreetMap*), který vizuálně nepotlačí tematickou vrstvu budov.
+2. **Úprava symboliky a průhlednosti:**
+    * V panelu **Vrstvy (Layers)** označte vrstvu budov a v pravém panelu otevřete **Styly (Styles)**. Vyzkoušejte úpravu barev výplně a obrysů polygonů.
+    * V pravém panelu přejděte na **Vlastnosti (Properties) → Vzhled (Appearance)** a nastavte vhodnou **Průhlednost (Transparency)** (např. `20–30 %`), aby prosvítal podkladový polohopis.
+3. **Popisky (Labels):**
+    * V pravém panelu klikněte na **Popisky (Labels)** a zapněte **Povolit popisky (Enable labels)**.
+    * Jako popisované pole zvolte číslo popisné/evidenční a nastavte **Viditelný rozsah (Visible range)** tak, aby se popisky zobrazovaly až při větším přiblížení.
+4. **Konfigurace vyskakovacích oken (Pop-ups):**
+    * V pravém panelu otevřete **Vyskakovací okna (Pop-ups)**.
+    * **Nadpis (Title):** upravte titulek s využitím dynamického atributu ve složených závorkách (např. `Budova č. {cisladomovni}`).
+    * **Seznam polí (Fields list):** odeberte systémové sloupce (`OBJECTID`, `Shape__Area`, `Shape__Length`), identifikátory a ponechte jen uživatelsky srozumitelné atributy (např. počet podlaží, plyn, vodovod, kanalizace).
+    * **Multimédia nebo graf:** klikněte na **Přidat obsah (Add content)** a vložte **Graf (Chart)** (např. pomocí **Select Fields** porovnání atributů _Podlahová plocha_ a _Zastavěná plocha_) nebo **Obrázek (Image)** s ilustrační fotografií/odkazem.
+5. **Přidání dalších dat z ArcGIS Online:**
+    * V levém panelu klikněte na **Přidat (Add) → Procházet vrstvy (Browse layers)**.
+    * Přepněte zdroj na **ArcGIS Online** nebo **Living Atlas**, vyhledejte doplňkovou kontextovou vrstvu (např. administrativní hranice obcí/ORP nebo nějaké pasporty, vrstvy životního prostředí apod.) a zkuste ji přidat do mapy. Můžete také vyhledat vrstvu **Základní topografické mapy ČR (Web Mercator)**, rozkliknout její vlastnosti a tlačitkem **Use as basemap** nahradit podkladovou mapu touto ZTM.
+6. **Nastavení filtru (Filter):**
+    * Vyberte vrstvu budov, v pravém panelu klikněte na **Filtr (Filter) → Přidat výraz (Add expression)** a nastavte podmínku (např. zobrazení pouze budov připojených na plyn nebo budov s více než 2 nadzemními podlažími).
+7. **Uložení webové mapy:**
+    * V levém panelu zvolte **Uložit a otevřít (Save and open) → Uložit jako (Save as)** a mapu uložte (např. `Webmapa_Budovy_Prijmeni_2026`).
+
+---
+
+## 6. Převod Web Map → Web App (Instant Apps)
+
+Webová mapa slouží jako datový a kartografický základ. Nyní ji zabalíme do samostatného uživatelského rozhraní s ovládacími prvky.
+
+1. V prostředí **Overview** vaší webmapy klikněte v pravém panelu na **Vytvořit aplikaci (Create app)** a zvolte **Instant Apps**.
+2. Prohlédněte si nabídku šablon podle účelu použití (např. *Postranní panel / Sidebar*, *Základní / Basic*, *Interaktivní legenda / Interactive Legend*, *Posuvník / Swipe*).
+3. Vyberte šablonu **Basic**.
+4. Zadejte název aplikace (např. `Aplikace_Budovy_Prijmeni`) a potvrďte **Vytvořit aplikaci (Create app)**.
+
+---
+
+## 7. Konfigurace Instant App mimo režim Express
+
+Výchozí průvodce *Express* nabízí pouze zjednodušené nastavení. Pro plnou kontrolu nad funkcemi a ovládacími prvky aplikace jej přepneme do pokročilého režimu.
+
+1. V levém horním rohu konfiguračního panelu **vypněte přepínač Express** (potvrďte přechod do plného režimu konfigurace).
+2. Projděte jednotlivé sekce v levém menu a aktivujte vybrané funkce a „widgety“:
+    * **Mapa (Map):** zkontrolujte připojenou webovou mapu, výchozí rozsah zobrazení a navigační prvky (tlačítko domů, měřítko).
+    * **O aplikaci (About):** doplňte úvodní informační text o datech RÚIAN a zapněte zobrazení **Legendy (Legend)** a **Seznamu vrstev (Layer List)** v postranním panelu.
+    * **Interaktivita (Interactivity):** povolte nástroje **Vyhledávání (Search)**, **Měření (Measure)**, **Přepínač podkladových map (Basemap toggle)**, případně **Záložky (Bookmarks)** a **Sdílení (Share)**. Můžete si zkusit proklikat i další nástroje/možnosti, např. swipe pro prolínání, filtr pro předpřipravené atributové dotazy apod.
+    * **Motiv a rozvržení (Theme & Layout):** upravte barevné ladění horní lišty a rozložení ovládacích prvků na obrazovce.
+
+??? tip "Průběžný náhled (Preview)"
+    V horní liště konfigurátoru můžete kdykoli přepínat mezi zobrazením pro **počítač, tablet a mobilní telefon** a ověřit responzivitu nastavených prvků.
+
+---
+
+## 8. Publikace a veřejné sdílení (Everyone)
+
+1. Po dokončení nastavení klikněte v pravém dolním rohu na **Publikovat (Publish)** a potvrďte.
+2. V okně sdílení (nebo na kartě **Obsah / Content** v ArcGIS Online) nastavte úroveň sdílení na **Všichni (veřejné) / Everyone (public)**.
+
+!!! danger "Kontrola sdílení všech navázaných položek"
+    Aby aplikaci mohl otevřít kdokoli bez přihlášení, musí být na úroveň **Všichni (veřejné) / Everyone (public)** nastaveny **všechny** tyto položky najednou:
+    
+    * samotná **Webová mapová aplikace** (*Instant App*),
+    * podkladová **Webová mapa** (*Web Map*),
+    * zdrojová **Hostovaná vrstva prvků** (*Hosted Feature Layer*) s budovami RÚIAN.
+    
+    *ArcGIS Online vás na nesoulad oprávnění obvykle upozorní dialogovým oknem – aktualizaci oprávnění v něm potvrďte.*
+
+3. Zkopírujte veřejný odkaz na spuštěnou aplikaci a **otevřete jej v anonymním okně prohlížeče**, abyste ověřili, že se mapa, data i pop-upy načítají bez výzvy k přihlášení.
+
+---
+
+## Co jse se naučili
+
+- [ ] V ArcGIS Pro byla připojena služba RÚIAN a vyexportován omezený výběr budov.
+- [ ] Vrstva je publikována jako **Hosted Feature Layer** v ArcGIS Online.
+- [ ] Webová mapa v **Map Vieweru** má upravenou podkladovou mapu, průhlednost, popisky, filtr, přidanou doplňkovou vrstvu z AGOL a pop-up s grafem nebo multimédii.
+- [ ] Aplikace v **Instant Apps** byla nakonfigurována mimo režim *Express*.
+- [ ] Aplikace, webová mapa i vrstva jsou sdíleny jako **Everyone (public)** a otestovány v anonymním okně.
 
 
-### Vytvořte webovou mapu v cloudu ArcGIS Online, obsahující silnice, železnice a správní členění vašeho kraje na ORP
-
-### Vyzkoušejte si vytvořit mapovou kompozici kraje s využitím dat z různého umístění
 
 
 
-## Úlohy k procvičení
+## Další úloha k procvičení
 
 !!! task-fg-color "Úlohy"
 
@@ -158,12 +296,12 @@ Jedním kliknutím můžete změnit celý vzhled. Snadno si tak můžete vyzkou�
 ![](../assets/data/storymaps3.jpg)
 </figure>
 
-### Úloha: StoryMap
+### Doplňková úloha: StoryMap
 S tvorbou storymapy se nejlépe seznámíte v samotném builderu, který je velmi intuitivní. Za tímto účelem si připravte itinerář z dovolené nebo nějaké cesty. Ideálně strukturovanou tabulku s místy, které jste navštívili, a ke každé lokalitě fotku. Pokud nebudete mít vlastní fotografie, využijte např. Wikimedia Commons.
 
 #### Příprava dat
 -   struktura tabulky např. v xlsx může být následující: ID, City, State.
--   ideálně cca 10 záznamů/lokalit
+-   ideálně cca 10–20 záznamů/lokalit
 -   fotografie může být v libovolném formátu pro každý záznam v tabulce
 
 #### Pracovní postup
