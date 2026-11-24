@@ -223,7 +223,7 @@ Termín odevzdání: __15.–18. prosince 2026__{.outlined}
 
 __a. Pro zadané katastrální území georeferencujte rastry Císařských otisků stabilního katastru (CO) z poloviny 19. století:__
 
-- Rastry najdete na sdíleném disku `S:\K155\Public\data\GISZ\SP2026_CO`. Vaše zadání si překopírujte na disk svého počítače.
+- Rastry najdete na sdíleném disku `S:\K155\Public\155GISZ\SP_zadani_2026`. Vaše zadání si překopírujte na disk svého počítače.
 
 - Pro georeferencování využívejte identické body (rohy budov, boží muka), polygony současných parcel či hranice katastrálních území (ta se však mohou lišit oproti stavu v 19. století).
 
@@ -266,9 +266,9 @@ __b. Na podkladu CO vektorizujte celé zadané katastrální území:__
 
 __c. Proveďte topologickou kontrolu vektorizovaných dat CO podle pravidel:__
 
-- *Must Not Have Gaps (Area) *– nesmí být mezery mezi plochami.
+- *Must Not Have Gaps (Area)*– nesmí být mezery mezi plochami.
 
-- *Must Not Overlap With (Area-Area) *– plochy se nesmí překrývat.
+- *Must Not Overlap With (Area-Area)*– plochy se nesmí překrývat.
 
 - *Must Not Overlap (Area)* – jednotlivé třídy využití se nesmí překrývat.
 
@@ -349,7 +349,7 @@ __c. Vhodným nastavením symbologie vizualizujte SO dle procenta viditelnosti._
 
 --- -->
 
-### __6. tvorba mapové aplikace__
+### __6. Tvorba mapové aplikace__
 
 __a. Do prostředí ArcGIS Online vypublikujte následující datové vrstvy:__
 
