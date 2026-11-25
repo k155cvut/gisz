@@ -84,6 +84,7 @@ Zatímco přednášky vás provedou základní teorií, cvičení se věnují pr
 
 7. [3D GIS a digitální modely terénu](./prednasky/Prednaska-7-3D-GIS-a-Digitalni-modely-terenu.pdf)
 
+8. [Hydrologické analýzy v GIS](./prednasky/Prednaska-8-Hydrologie-a-modelovani-odtoku-v-GIS.pdf)
 
 ## Cvičení {: style="margin-bottom:0;"}
 
