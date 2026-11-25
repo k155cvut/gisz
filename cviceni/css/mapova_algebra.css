@@ -1,0 +1,155 @@
+/* Interaktivní ukázka mapové algebry (js/mapova-algebra.js) */
+
+.ma {
+  --ma-nodata: #e1e0d9;
+  position: relative;
+  margin: 1.2em 0;
+  padding: 0.8rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+[data-md-color-scheme="slate"] .ma { --ma-nodata: #2c2c2a; }
+
+.ma-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.8rem;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+.ma-head strong { font-size: 0.8rem; }
+.ma-hint, .ma-sub { color: var(--md-default-fg-color--light); }
+.ma-sub { margin: 0.4rem 0; }
+.ma-plot { position: relative; }
+
+/* tlačítka */
+.ma-btn {
+  font: inherit;
+  cursor: pointer;
+  color: var(--md-primary-fg-color);
+  background: transparent;
+  border: 0.05rem solid var(--md-primary-fg-color);
+  border-radius: 0.1rem;
+  padding: 0.25rem 0.6rem;
+  transition: background-color 125ms, color 125ms;
+}
+.ma-btn:hover { background: var(--md-accent-fg-color--transparent, rgba(0,0,0,0.05)); }
+.ma-btn[aria-pressed="true"] {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.ma-btn:focus-visible { outline: 0.1rem solid var(--md-accent-fg-color); outline-offset: 0.1rem; }
+
+/* tooltip */
+.ma-tip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  min-width: 9rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--md-default-bg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 0.1rem;
+  box-shadow: var(--md-shadow-z1);
+  font-size: 0.65rem;
+}
+.ma-tip[hidden] { display: none; }
+.ma-tip > div { display: flex; justify-content: space-between; gap: 0.8rem; }
+.ma-tip span { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--md-default-fg-color--light); }
+.ma-tip b { font-variant-numeric: tabular-nums; }
+.ma-tip-h { font-weight: 700; margin-bottom: 0.15rem; }
+
+/* tabulka plochy */
+.ma-table { margin-top: 0.8rem; overflow-x: auto; }
+.md-typeset .ma-table table { display: table; width: 100%; font-size: 0.65rem; border: none; margin: 0; }
+.md-typeset .ma-table th, .md-typeset .ma-table td { padding: 0.3rem 0.6rem; border-top: 0.05rem solid var(--md-default-fg-color--lightest); }
+.md-typeset .ma-table th { font-weight: 700; color: var(--md-default-fg-color--light); }
+.ma-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.ma-exprrow { display: flex; gap: 0.5rem; align-items: center; }
+.ma-prompt { color: var(--md-default-fg-color--light); }
+.ma-input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--md-code-font-family);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.5rem;
+  color: var(--md-code-fg-color);
+  background: var(--md-code-bg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lighter);
+  border-radius: 0.1rem;
+}
+.ma-input:focus { outline: 0.1rem solid var(--md-accent-fg-color); outline-offset: 0; }
+.ma-input.ma-bad { border-color: #d03b3b; }
+.ma-error { margin-top: 0.4rem; color: #d03b3b; }
+.ma-error::before { content: "⚠ Chyba: "; font-weight: 700; }
+[data-md-color-scheme="slate"] .ma-error { color: #e66767; }
+.ma-error[hidden] { display: none; }
+
+.ma-presets { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.ma-preset { padding: 0.15rem 0.45rem; }
+.md-typeset .ma-preset code { background: none; padding: 0; font-size: 0.62rem; color: inherit; box-shadow: none; }
+.ma-desc { min-height: 1.4em; }
+
+.ma-grids { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1rem; margin-top: 0.4rem; }
+.ma-inputs { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.md-typeset .ma-fig { margin: 0; display: block; }
+.md-typeset .ma-fig figcaption {
+  margin: 0 0 0.25rem;
+  max-width: none;
+  font-style: normal;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .ma-fig figcaption code { font-size: 0.68rem; align-self: flex-start; }
+.ma-unused { opacity: 0.35; }
+.ma-arrow { font-size: 1.2rem; color: var(--md-default-fg-color--light); }
+
+.ma-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1.35rem);
+  gap: 1px;
+  cursor: crosshair;
+}
+.ma-cell {
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.45rem;
+  font-variant-numeric: tabular-nums;
+  border-radius: 1px;
+}
+.ma-out .ma-grid { grid-template-columns: repeat(10, 1.9rem); }
+.ma-out .ma-cell { height: 1.9rem; font-size: 0.55rem; }
+.ma-nodata {
+  color: var(--md-default-fg-color--light);
+  background: repeating-linear-gradient(45deg, var(--ma-nodata) 0 3px, transparent 3px 6px);
+}
+.ma-hover { outline: 2px solid var(--md-default-fg-color); outline-offset: -1px; position: relative; z-index: 1; }
+
+/* výsledek na vlastním řádku uprostřed pod vstupy */
+.ma-grids > .ma-arrow { flex-basis: 100%; text-align: center; line-height: 1; }
+.md-typeset .ma-grids > .ma-out { flex-basis: 100%; display: flex; flex-direction: column; align-items: center; }
+.md-typeset .ma-out figcaption { align-items: center; text-align: center; }
+.md-typeset .ma-out figcaption code { align-self: center; }
+
+.ma-summary { margin-top: 0.6rem; text-align: center; }
+.ma-summary .ma-table { display: flex; justify-content: center; }
+.md-typeset .ma-summary .ma-table table { width: auto; }
+.md-typeset .ma-summary .ma-table tbody tr { cursor: default; }
+
+@media screen and (max-width: 30em) {
+  .ma { padding: 0.6rem; }
+  .md-typeset .ma-table th, .md-typeset .ma-table td { padding: 0.3rem 0.35rem; }
+  .ma-grid { grid-template-columns: repeat(10, 1.2rem); }
+  .ma-cell { height: 1.2rem; font-size: 0.42rem; }
+  .ma-out .ma-grid { grid-template-columns: repeat(10, 1.55rem); }
+  .ma-out .ma-cell { height: 1.55rem; font-size: 0.5rem; }
+  .ma-arrow { display: none; }
+}
